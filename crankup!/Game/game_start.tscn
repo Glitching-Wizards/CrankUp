@@ -1,3 +1,10 @@
 [gd_scene format=3 uid="uid://ce4vgdtersrt6"]
 
 [node name="GameStart" type="Node2D"]
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 71.0
+offset_top = 215.0
+offset_right = 1222.0
+offset_bottom = 466.0
+text = "Game"
