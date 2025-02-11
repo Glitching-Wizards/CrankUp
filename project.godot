@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Mobile game project"
+config/name="CrankUp!"
 run/main_scene="res://Levels/level1.tscn"
 config/features=PackedStringArray("4.3", "C#", "Mobile")
 config/icon="res://icon.svg"
