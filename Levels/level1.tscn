@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dft0qayko5bh4"]
+
+[ext_resource type="Texture2D" uid="uid://ba14o4rnnabdx" path="res://UI/UI.png" id="1_crr7e"]
+[ext_resource type="Script" path="res://Code/Level1.cs" id="1_gwohr"]
+[ext_resource type="PackedScene" uid="uid://devhw4x15opvq" path="res://Levels/claw.tscn" id="3_6kqpd"]
+
+[sub_resource type="TileSet" id="TileSet_cmhxx"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_gwohr")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_cmhxx")
+
+[node name="Ui" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("1_crr7e")
+
+[node name="Claw" parent="." instance=ExtResource("3_6kqpd")]
+position = Vector2(-3, -269)
