@@ -1,16 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7qpoqiflsqpw"]
+[gd_scene load_steps=10 format=3 uid="uid://c7qpoqiflsqpw"]
 
-[ext_resource type="Texture2D" uid="uid://c2wpfbmu4483f" path="res://Art/PlayButton.png" id="1_ef6jg"]
 [ext_resource type="Script" path="res://Menu/MainMenu.cs" id="1_t7e5v"]
-[ext_resource type="Texture2D" uid="uid://smh8u6tb1r65" path="res://Art/MainMenu.png" id="2_m4vvy"]
-[ext_resource type="Texture2D" uid="uid://dehcjjorrh38p" path="res://Art/GrabButton1.png" id="3_6groi"]
-[ext_resource type="Texture2D" uid="uid://do1lxribfay1a" path="res://Art/GrabButton2.png" id="4_s0n1a"]
-[ext_resource type="Texture2D" uid="uid://c8ibbg0pi4em1" path="res://Art/OptionsButton.png" id="5_onbue"]
-[ext_resource type="Texture2D" uid="uid://b0k6xr75kuhas" path="res://Art/QuitButton.png" id="6_u1grx"]
-[ext_resource type="Texture2D" uid="uid://bmjgudna3koax" path="res://Art/Jarkko_puhuu.png" id="8_7da5r"]
+[ext_resource type="Texture2D" uid="uid://dldm25uslnpvm" path="res://Art/Taustat/MainMenu.png" id="2_b5vmg"]
+[ext_resource type="Texture2D" uid="uid://d01r6suaawiv5" path="res://Art/Napit/PlaybuttonMenu.png" id="3_v7ipq"]
+[ext_resource type="Texture2D" uid="uid://cuxgjcatp6nbq" path="res://Art/Napit/OptionsButton.png" id="4_5i0jf"]
+[ext_resource type="Texture2D" uid="uid://cl0bhhoqyqn71" path="res://Art/Napit/QuitButton.png" id="5_xulhw"]
+[ext_resource type="Texture2D" uid="uid://dkyefe8ho6fhb" path="res://Art/Jarkko/Jarkko_puhuu.png" id="6_b4jwn"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ldtt4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h7lm5"]
-texture = ExtResource("1_ef6jg")
+texture = SubResource("CompressedTexture2D_ldtt4")
 0:1/0 = 0
 1:1/0 = 0
 2:1/0 = 0
@@ -36,11 +36,11 @@ script = ExtResource("1_t7e5v")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -3.0
-offset_top = 49.0
-offset_right = 1277.0
-offset_bottom = 769.0
-texture = ExtResource("2_m4vvy")
+offset_left = 2.0
+offset_top = 51.0
+offset_right = 1282.0
+offset_bottom = 771.0
+texture = ExtResource("2_b5vmg")
 
 [node name="TextEdit" type="TextEdit" parent="."]
 layout_mode = 0
@@ -53,31 +53,23 @@ text = "CrankUp!"
 [node name="Buttons" type="Node" parent="."]
 
 [node name="PlayButton" type="TextureButton" parent="Buttons"]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = -82.0
-offset_right = 32.0
-offset_bottom = -18.0
+offset_left = -212.0
+offset_top = -61.0
+offset_right = 6.0
+offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("1_ef6jg")
+scale = Vector2(2, 2)
+texture_normal = ExtResource("3_v7ipq")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Buttons/PlayButton"]
 position = Vector2(-118, -20.5)
 tile_set = SubResource("TileSet_clpcj")
-
-[node name="TestButton" type="TextureButton" parent="Buttons"]
-offset_left = 1093.0
-offset_top = 541.0
-offset_right = 1243.0
-offset_bottom = 691.0
-texture_normal = ExtResource("3_6groi")
-texture_pressed = ExtResource("4_s0n1a")
 
 [node name="OptionsButton" type="TextureButton" parent="Buttons"]
 anchors_preset = -1
@@ -85,34 +77,30 @@ anchor_left = 0.509
 anchor_top = 0.651
 anchor_right = 0.509
 anchor_bottom = 0.651
-offset_left = -133.52
-offset_top = -150.72
-offset_right = 122.48
-offset_bottom = 105.28
+offset_left = -198.52
+offset_top = -219.72
+offset_right = 57.48
+offset_bottom = 36.28
+scale = Vector2(1.5, 1.5)
 size_flags_horizontal = 4
-texture_normal = ExtResource("5_onbue")
+texture_normal = ExtResource("4_5i0jf")
 
 [node name="QuitButton" type="TextureButton" parent="Buttons"]
-offset_left = 509.0
-offset_top = 443.0
-offset_right = 765.0
-offset_bottom = 699.0
-texture_normal = ExtResource("6_u1grx")
+offset_left = 439.0
+offset_top = 395.0
+offset_right = 695.0
+offset_bottom = 651.0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("5_xulhw")
 
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="JarkkoPuhuu" type="Sprite2D" parent="."]
-position = Vector2(996, 614)
-scale = Vector2(2.23, 2.23)
-texture = ExtResource("8_7da5r")
+position = Vector2(995, 595)
+scale = Vector2(1.9775, 1.9775)
+texture = ExtResource("6_b4jwn")
 flip_h = true
 
-[node name="PlayButton" type="Sprite2D" parent="."]
-position = Vector2(628, 462)
-scale = Vector2(4.79688, 4.79688)
-texture = ExtResource("1_ef6jg")
-
 [connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="Buttons/TestButton" to="." method="_on_test_button_pressed"]
 [connection signal="pressed" from="Buttons/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="Buttons/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6h23m2i0as4a"]
+
+[ext_resource type="Texture2D" uid="uid://d3mvdd7b1m46j" path="res://Art/Palikat/block02.png" id="1_olwml"]
+
+[node name="Node2D" type="Sprite2D"]
+texture = ExtResource("1_olwml")

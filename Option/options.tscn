@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://ckb1t7ko0dp0p"]
 
-[ext_resource type="Texture2D" uid="uid://lokfs8805dy" path="res://Art/DropButton1.png" id="1_bq44f"]
 [ext_resource type="Script" path="res://Option/Options.cs" id="1_r14et"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qhqup"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -32,4 +33,4 @@ text = "Options"
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture_normal = ExtResource("1_bq44f")
+texture_normal = SubResource("CompressedTexture2D_qhqup")
