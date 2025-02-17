@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bc8w5cq3xfbqn"
-path="res://.godot/imported/right_console.png-6b5668be7a34a2f08bb854248efe3dc3.ctex"
+path="res://.godot/imported/right_console.png-f077f7dc12c9a88cd728d0b7f092f96b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Taustat/right_console.png"
-dest_files=["res://.godot/imported/right_console.png-6b5668be7a34a2f08bb854248efe3dc3.ctex"]
+source_file="res://art/Taustat/right_console.png"
+dest_files=["res://.godot/imported/right_console.png-f077f7dc12c9a88cd728d0b7f092f96b.ctex"]
 
 [params]
 

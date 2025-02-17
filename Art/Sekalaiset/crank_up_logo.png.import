@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvvfdvxoq7fkx"
-path="res://.godot/imported/block04.png-aa2fb0a9154e5d5368c9150380f6d229.ctex"
+uid="uid://cl688pv1ndxsq"
+path="res://.godot/imported/crank_up_logo.png-a849ba7301dba8c0a9dcd39a921d99ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Palikat/block04.png"
-dest_files=["res://.godot/imported/block04.png-aa2fb0a9154e5d5368c9150380f6d229.ctex"]
+source_file="res://art/Sekalaiset/crank_up_logo.png"
+dest_files=["res://.godot/imported/crank_up_logo.png-a849ba7301dba8c0a9dcd39a921d99ab.ctex"]
 
 [params]
 

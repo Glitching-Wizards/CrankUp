@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cpli34r5n718x"
-path="res://.godot/imported/oikeakonsoli.png-dd431921270b1774b69e234f8cbbcb77.ctex"
+path="res://.godot/imported/oikeakonsoli.png-39b92dbba47007f5ffe79ef0a2d6b674.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Taustat/oikeakonsoli.png"
-dest_files=["res://.godot/imported/oikeakonsoli.png-dd431921270b1774b69e234f8cbbcb77.ctex"]
+source_file="res://art/Taustat/oikeakonsoli.png"
+dest_files=["res://.godot/imported/oikeakonsoli.png-39b92dbba47007f5ffe79ef0a2d6b674.ctex"]
 
 [params]
 

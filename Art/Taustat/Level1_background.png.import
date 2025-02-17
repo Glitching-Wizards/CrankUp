@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://3yxlhbck53wu"
-path="res://.godot/imported/Level1_background.png-d4bbfd9f30891ae76d6a4da5a57540ea.ctex"
+path="res://.godot/imported/Level1_background.png-408d5c4fec95f07d3a0e520f2ab16bbf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Taustat/Level1_background.png"
-dest_files=["res://.godot/imported/Level1_background.png-d4bbfd9f30891ae76d6a4da5a57540ea.ctex"]
+source_file="res://art/Taustat/Level1_background.png"
+dest_files=["res://.godot/imported/Level1_background.png-408d5c4fec95f07d3a0e520f2ab16bbf.ctex"]
 
 [params]
 

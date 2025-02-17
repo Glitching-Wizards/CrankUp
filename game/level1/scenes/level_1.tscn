@@ -1,0 +1,196 @@
+[gd_scene load_steps=17 format=3 uid="uid://7xp8vmg4njsj"]
+
+[ext_resource type="Script" path="res://game/level1/scripts/level1.cs" id="1_kypnd"]
+[ext_resource type="Texture2D" uid="uid://3yxlhbck53wu" path="res://art/Taustat/Level1_background.png" id="2_8wvxf"]
+[ext_resource type="Texture2D" uid="uid://dpu1r66vsfvvb" path="res://art/Napit/slidernappi.png" id="3_k87tq"]
+[ext_resource type="Texture2D" uid="uid://bxjys6qi41na4" path="res://art/Napit/slider.png" id="4_qt2nw"]
+[ext_resource type="Texture2D" uid="uid://covpydc3w0l2j" path="res://art/Palikat/block03.png" id="5_708jf"]
+[ext_resource type="Texture2D" uid="uid://5w30m3crqavy" path="res://art/Palikat/block02.png" id="6_1qycd"]
+[ext_resource type="Texture2D" uid="uid://dt1gd1abukspi" path="res://art/Palikat/block01.png" id="7_wn62g"]
+[ext_resource type="Texture2D" uid="uid://cvvfdvxoq7fkx" path="res://art/Palikat/block04.png" id="8_12ec2"]
+[ext_resource type="Texture2D" uid="uid://csceld74k0808" path="res://art/Palikat/block05.png" id="9_ntusn"]
+[ext_resource type="Texture2D" uid="uid://c8h64gxbwhuij" path="res://art/Palikat/block06.png" id="10_nqc43"]
+[ext_resource type="Texture2D" uid="uid://l4ovl4jgpvp6" path="res://art/Sekalaiset/beam.png" id="11_sfiby"]
+[ext_resource type="Texture2D" uid="uid://dt1dwfwd5op3o" path="res://art/Napit/drop2.png" id="12_45hsc"]
+[ext_resource type="Texture2D" uid="uid://vv00q75k8obl" path="res://art/Napit/grab2.png" id="13_5gxj1"]
+[ext_resource type="Texture2D" uid="uid://db0sy5hyjpest" path="res://art/Napit/rotate2.png" id="14_3lfdv"]
+[ext_resource type="Texture2D" uid="uid://cvhycc3hmb62n" path="res://art/Napit/settingsnew.png" id="15_b4cpw"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o17jg"]
+load_path = "res://.godot/imported/conveyor.png-a145b7d5b6cf4582737cc7f905690daf.ctex"
+
+[node name="level1" type="Node2D"]
+script = ExtResource("1_kypnd")
+
+[node name="background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8wvxf")
+
+[node name="Sliders" type="Node" parent="."]
+
+[node name="Slidernappi" type="Sprite2D" parent="Sliders"]
+visible = false
+z_index = 6
+position = Vector2(79, 359)
+texture = ExtResource("3_k87tq")
+
+[node name="Slidernappi2" type="Sprite2D" parent="Sliders"]
+visible = false
+z_index = 6
+position = Vector2(1214, 363)
+texture = ExtResource("3_k87tq")
+
+[node name="RightSlider" type="TextureRect" parent="Sliders"]
+visible = false
+offset_left = 1150.0
+offset_top = 115.0
+offset_right = 1280.0
+offset_bottom = 581.0
+texture = ExtResource("4_qt2nw")
+
+[node name="LeftSlider" type="TextureRect" parent="Sliders"]
+visible = false
+offset_left = 7.0
+offset_top = 117.0
+offset_right = 150.0
+offset_bottom = 577.0
+texture = ExtResource("4_qt2nw")
+
+[node name="Blocks" type="Node" parent="."]
+
+[node name="BoxBlue" type="TextureRect" parent="Blocks"]
+visible = false
+offset_left = 422.0
+offset_top = 613.0
+offset_right = 522.0
+offset_bottom = 713.0
+texture = ExtResource("5_708jf")
+
+[node name="Boxgreen" type="TextureRect" parent="Blocks"]
+visible = false
+offset_left = 550.0
+offset_top = 613.0
+offset_right = 650.0
+offset_bottom = 713.0
+texture = ExtResource("6_1qycd")
+
+[node name="BoxYellow" type="TextureRect" parent="Blocks"]
+visible = false
+offset_left = 161.0
+offset_top = 586.0
+offset_right = 461.0
+offset_bottom = 726.0
+texture = ExtResource("7_wn62g")
+
+[node name="BoxPurple" type="TextureRect" parent="Blocks"]
+visible = false
+offset_left = 641.0
+offset_top = 585.0
+offset_right = 841.0
+offset_bottom = 785.0
+texture = ExtResource("8_12ec2")
+
+[node name="BoxOrange" type="TextureRect" parent="Blocks"]
+visible = false
+offset_left = 797.0
+offset_top = 531.0
+offset_right = 997.0
+offset_bottom = 731.0
+texture = ExtResource("9_ntusn")
+
+[node name="BoxPink" type="TextureRect" parent="Blocks"]
+visible = false
+offset_left = 920.0
+offset_top = 558.0
+offset_right = 1120.0
+offset_bottom = 758.0
+texture = ExtResource("10_nqc43")
+
+[node name="Beam" type="Node" parent="."]
+
+[node name="Beam1" type="TextureRect" parent="Beam"]
+visible = false
+offset_left = 943.0
+offset_top = -81.0
+offset_right = 1162.0
+offset_bottom = 138.0
+texture = ExtResource("11_sfiby")
+
+[node name="Beam2" type="TextureRect" parent="Beam"]
+visible = false
+offset_left = 639.0
+offset_top = -81.0
+offset_right = 858.0
+offset_bottom = 138.0
+texture = ExtResource("11_sfiby")
+
+[node name="Beam3" type="TextureRect" parent="Beam"]
+visible = false
+offset_left = 487.0
+offset_top = -81.0
+offset_right = 706.0
+offset_bottom = 138.0
+texture = ExtResource("11_sfiby")
+
+[node name="Beam4" type="TextureRect" parent="Beam"]
+visible = false
+offset_left = 335.0
+offset_top = -81.0
+offset_right = 554.0
+offset_bottom = 138.0
+texture = ExtResource("11_sfiby")
+
+[node name="Beam5" type="TextureRect" parent="Beam"]
+visible = false
+offset_left = 791.0
+offset_top = -81.0
+offset_right = 1010.0
+offset_bottom = 138.0
+texture = ExtResource("11_sfiby")
+
+[node name="Conveyor" type="TextureRect" parent="."]
+visible = false
+offset_left = 135.0
+offset_top = 583.0
+offset_right = 1158.0
+offset_bottom = 720.0
+texture = SubResource("CompressedTexture2D_o17jg")
+
+[node name="Buttons" type="Node" parent="."]
+
+[node name="Drop" type="TextureButton" parent="Buttons"]
+visible = false
+offset_left = 1150.0
+offset_top = 583.0
+offset_right = 1280.0
+offset_bottom = 713.0
+texture_normal = ExtResource("12_45hsc")
+
+[node name="Grab" type="TextureButton" parent="Buttons"]
+visible = false
+offset_top = 578.0
+offset_right = 130.0
+offset_bottom = 708.0
+texture_normal = ExtResource("13_5gxj1")
+
+[node name="Rotate" type="TextureButton" parent="Buttons"]
+visible = false
+offset_left = 146.0
+offset_top = 442.0
+offset_right = 276.0
+offset_bottom = 572.0
+texture_normal = ExtResource("14_3lfdv")
+
+[node name="Settings" type="TextureButton" parent="Buttons"]
+visible = false
+offset_left = 4.0
+offset_top = -3.0
+offset_right = 134.0
+offset_bottom = 127.0
+texture_normal = ExtResource("15_b4cpw")

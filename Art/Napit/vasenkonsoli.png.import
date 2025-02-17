@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bnecwf14unups"
-path="res://.godot/imported/vasenkonsoli.png-6e5e2c260d1400726d6303a7c4f0af1c.ctex"
+path="res://.godot/imported/vasenkonsoli.png-3ea92539b980de873e31aefc760817e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Napit/vasenkonsoli.png"
-dest_files=["res://.godot/imported/vasenkonsoli.png-6e5e2c260d1400726d6303a7c4f0af1c.ctex"]
+source_file="res://art/Napit/vasenkonsoli.png"
+dest_files=["res://.godot/imported/vasenkonsoli.png-3ea92539b980de873e31aefc760817e5.ctex"]
 
 [params]
 
