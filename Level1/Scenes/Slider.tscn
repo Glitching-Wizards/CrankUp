@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1h83rmkjwyum"]
+
+[ext_resource type="Texture2D" uid="uid://bxjys6qi41na4" path="res://Art/Napit/slider.png" id="1_dwrao"]
+[ext_resource type="Texture2D" uid="uid://dpu1r66vsfvvb" path="res://Art/Napit/slidernappi.png" id="2_g1336"]
+
+[node name="Sliders" type="Node2D"]
+z_index = 6
+
+[node name="Slider" type="Sprite2D" parent="."]
+texture = ExtResource("1_dwrao")
+
+[node name="SliderButton" type="Sprite2D" parent="."]
+texture = ExtResource("2_g1336")
