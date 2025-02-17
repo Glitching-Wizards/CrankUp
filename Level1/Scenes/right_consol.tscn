@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bjub2fkqsfgwh"]
 
-[ext_resource type="Texture2D" uid="uid://bwfl4v8dc3wcn" path="res://Art/Taustat/right_console.png" id="1_fpj2j"]
+[ext_resource type="Texture2D" uid="uid://bc8w5cq3xfbqn" path="res://Art/Taustat/right_console.png" id="1_fpj2j"]
 
 [node name="Control" type="Control"]
 layout_mode = 3

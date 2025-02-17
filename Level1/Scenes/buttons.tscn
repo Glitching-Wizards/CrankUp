@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://b6wrwjfy2l6m1"]
 
-[ext_resource type="Texture2D" uid="uid://vebdsc7iyyuj" path="res://Art/Napit/settingsnew.png" id="1_fyk4m"]
-[ext_resource type="Texture2D" uid="uid://0ia13kcuve30" path="res://Art/Napit/drop2.png" id="2_8gaxm"]
-[ext_resource type="Texture2D" uid="uid://dsqnbul3f433" path="res://Art/Napit/grab2.png" id="3_dbuki"]
-[ext_resource type="Texture2D" uid="uid://ccp84ke0qt5w3" path="res://Art/Napit/rotate2.png" id="4_3xqpu"]
+[ext_resource type="Texture2D" uid="uid://cvhycc3hmb62n" path="res://Art/Napit/settingsnew.png" id="1_fyk4m"]
+[ext_resource type="Texture2D" uid="uid://dt1dwfwd5op3o" path="res://Art/Napit/drop2.png" id="2_8gaxm"]
+[ext_resource type="Texture2D" uid="uid://vv00q75k8obl" path="res://Art/Napit/grab2.png" id="3_dbuki"]
+[ext_resource type="Texture2D" uid="uid://db0sy5hyjpest" path="res://Art/Napit/rotate2.png" id="4_3xqpu"]
 
 [node name="Buttons" type="Control"]
 z_index = 6

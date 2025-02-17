@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ba1vpjp1u0101"]
+[gd_scene load_steps=3 format=3 uid="uid://ba1vpjp1u0101"]
 
-[ext_resource type="Texture2D" uid="uid://du4j1rbiij0yq" path="res://Art/Taustat/left_console.png" id="1_n5jxu"]
+[ext_resource type="Texture2D" uid="uid://0hr1vx7unno4" path="res://Art/Taustat/left_console.png" id="1_n5jxu"]
+[ext_resource type="Texture2D" uid="uid://cpli34r5n718x" path="res://Art/Taustat/oikeakonsoli.png" id="2_0o5s5"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -12,6 +13,11 @@ grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 11.0
+offset_right = 147.0
+offset_bottom = 720.0
 texture = ExtResource("1_n5jxu")
+
+[node name="Oikeakonsoli" type="Sprite2D" parent="."]
+position = Vector2(-43, 360)
+texture = ExtResource("2_0o5s5")

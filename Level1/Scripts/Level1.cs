@@ -13,9 +13,6 @@ namespace CrankUp
         [Export] private string _rightConsolScenePath = "res://Level1/Scenes/right_consol.tscn";
         [Export] private string _leftConsolScenePath = "res://Level1/Scenes/left_consol.tscn";
 
-
-
-
         private PackedScene _nappulatScene = null;
         private PackedScene _sliderScene = null;
         private PackedScene _conveyorScene = null;
@@ -42,9 +39,7 @@ namespace CrankUp
             GettingScene(_yellowBScene, new Vector2(400, 600));
             GettingScene(_rightConsolScene, new Vector2(0, 0));
             GettingScene(_leftConsolScene, new Vector2(0, 0));
-
         }
-
 
         // Metodi, joka hakee scenen
         public void GettingScene(PackedScene scene, Vector2 position)
