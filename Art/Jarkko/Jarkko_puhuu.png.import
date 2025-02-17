@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkyefe8ho6fhb"
-path="res://.godot/imported/Jarkko_puhuu.png-1223a7ff02c9301106f1960bf73dbbde.ctex"
+uid="uid://x5bbwfi3ankb"
+path="res://.godot/imported/Jarkko_puhuu.png-e4284fd797b0f6d7060824197387a096.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Jarkko/Jarkko_puhuu.png"
-dest_files=["res://.godot/imported/Jarkko_puhuu.png-1223a7ff02c9301106f1960bf73dbbde.ctex"]
+source_file="res://art/Jarkko/Jarkko_puhuu.png"
+dest_files=["res://.godot/imported/Jarkko_puhuu.png-e4284fd797b0f6d7060824197387a096.ctex"]
 
 [params]
 

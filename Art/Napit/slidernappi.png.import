@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8lfs66k6h623"
-path="res://.godot/imported/slidernappi.png-71e861886c1f893f8b1725fc9d3e38cb.ctex"
+uid="uid://dpu1r66vsfvvb"
+path="res://.godot/imported/slidernappi.png-151a8ebb613a6a6b671f4fd348bc87be.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Napit/slidernappi.png"
-dest_files=["res://.godot/imported/slidernappi.png-71e861886c1f893f8b1725fc9d3e38cb.ctex"]
+source_file="res://art/Napit/slidernappi.png"
+dest_files=["res://.godot/imported/slidernappi.png-151a8ebb613a6a6b671f4fd348bc87be.ctex"]
 
 [params]
 

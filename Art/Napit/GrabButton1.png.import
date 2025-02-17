@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://h3b4r74myp63"
-path="res://.godot/imported/GrabButton1.png-7119508b01298d23bbaaed57d79eecec.ctex"
+uid="uid://dn77rt3tdbhw4"
+path="res://.godot/imported/GrabButton1.png-556890d2a89c28e9fcc84ae2fae1a3cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Napit/GrabButton1.png"
-dest_files=["res://.godot/imported/GrabButton1.png-7119508b01298d23bbaaed57d79eecec.ctex"]
+source_file="res://art/Napit/GrabButton1.png"
+dest_files=["res://.godot/imported/GrabButton1.png-556890d2a89c28e9fcc84ae2fae1a3cf.ctex"]
 
 [params]
 

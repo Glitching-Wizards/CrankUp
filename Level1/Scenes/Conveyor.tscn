@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2txaaymr35jc"]
-
-[ext_resource type="Texture2D" uid="uid://7i7i4e1om1qh" path="res://Art/Sekalaiset/conveyor.png" id="1_5pt5o"]
-
-[node name="Node2D" type="Node2D"]
-
-[node name="Conveyor" type="Sprite2D" parent="."]
-texture = ExtResource("1_5pt5o")

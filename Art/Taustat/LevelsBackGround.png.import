@@ -2,12 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chgi0b8c3evw2"
+uid="uid://g7fr7rnf8dgj"
 valid=false
 
 [deps]
 
-source_file="res://Art/Taustat/LevelsBackGround.png"
+source_file="res://art/Taustat/LevelsBackGround.png"
 
 [params]
 

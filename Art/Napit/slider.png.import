@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://r77topy2mfew"
-path="res://.godot/imported/slider.png-f264a437840450159000291ee7f38dbb.ctex"
+uid="uid://bxjys6qi41na4"
+path="res://.godot/imported/slider.png-d61d510187b5f4895d17e4cf87994eb5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Napit/slider.png"
-dest_files=["res://.godot/imported/slider.png-f264a437840450159000291ee7f38dbb.ctex"]
+source_file="res://art/Napit/slider.png"
+dest_files=["res://.godot/imported/slider.png-d61d510187b5f4895d17e4cf87994eb5.ctex"]
 
 [params]
 

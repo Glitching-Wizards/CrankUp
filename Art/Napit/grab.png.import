@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmqg3ayt2orx1"
-path="res://.godot/imported/grab.png-ad0a3f96b4f48e77f703aa89b5b3c21d.ctex"
+uid="uid://b8cc7u2gnyoae"
+path="res://.godot/imported/grab.png-60f2c74cafbdf849c6f162686d8e8b9a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Napit/grab.png"
-dest_files=["res://.godot/imported/grab.png-ad0a3f96b4f48e77f703aa89b5b3c21d.ctex"]
+source_file="res://art/Napit/grab.png"
+dest_files=["res://.godot/imported/grab.png-60f2c74cafbdf849c6f162686d8e8b9a.ctex"]
 
 [params]
 

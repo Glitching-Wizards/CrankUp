@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dldm25uslnpvm"
-path="res://.godot/imported/MainMenu.png-2858bdf8d63cacd7ce1236beee0ce0c3.ctex"
+uid="uid://bbkwc10goun05"
+path="res://.godot/imported/MainMenu.png-0b6547ed4e2e1982a40a204ae1b81a15.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Taustat/MainMenu.png"
-dest_files=["res://.godot/imported/MainMenu.png-2858bdf8d63cacd7ce1236beee0ce0c3.ctex"]
+source_file="res://art/Taustat/MainMenu.png"
+dest_files=["res://.godot/imported/MainMenu.png-0b6547ed4e2e1982a40a204ae1b81a15.ctex"]
 
 [params]
 

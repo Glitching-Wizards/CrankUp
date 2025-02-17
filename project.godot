@@ -15,8 +15,12 @@ config/name="CrankUp!"
 run/main_scene="res://Levels/level1.tscn"
 =======
 config/name="Mobile game project"
+<<<<<<< HEAD
 run/main_scene="res://Menu/MainMenu.tscn"
 >>>>>>> 3ae8d3dfb18bb761c2d7ae6ec7f8536865d3e454
+=======
+run/main_scene="res://menu/scenes/main_menu.tscn"
+>>>>>>> 717d94e9e3be3ff871029092ce2d2e2cb562d873
 config/features=PackedStringArray("4.3", "C#", "Mobile")
 config/icon="res://icon.svg"
 
