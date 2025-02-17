@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6wrwjfy2l6m1"]
+
+[ext_resource type="Texture2D" uid="uid://vebdsc7iyyuj" path="res://Art/Napit/settingsnew.png" id="1_fyk4m"]
+[ext_resource type="Texture2D" uid="uid://cvsfbrwd5qffc" path="res://Art/Napit/drop.png" id="2_7udgb"]
+[ext_resource type="Texture2D" uid="uid://dmqg3ayt2orx1" path="res://Art/Napit/grab.png" id="3_1082d"]
+[ext_resource type="Texture2D" uid="uid://dat0drok1lcki" path="res://Art/Napit/rotate.png" id="4_2v86d"]
+
+[node name="Buttons" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 150.0
+offset_right = 280.0
+offset_bottom = 130.0
+texture_normal = ExtResource("1_fyk4m")
+
+[node name="Drop" type="TextureButton" parent="."]
+offset_left = 1141.0
+offset_top = 580.0
+offset_right = 1271.0
+offset_bottom = 710.0
+texture_normal = ExtResource("2_7udgb")
+
+[node name="Grab" type="TextureButton" parent="."]
+offset_left = 10.0
+offset_top = 580.0
+offset_right = 140.0
+offset_bottom = 710.0
+texture_normal = ExtResource("3_1082d")
+
+[node name="Rotate" type="TextureButton" parent="."]
+offset_left = 150.0
+offset_top = 440.0
+offset_right = 280.0
+offset_bottom = 570.0
+texture_normal = ExtResource("4_2v86d")
