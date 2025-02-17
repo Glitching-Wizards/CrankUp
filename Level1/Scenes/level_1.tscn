@@ -11,10 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://ujra7qyjn4ie" path="res://Art/Palikat/block05.png" id="7_kxao4"]
 [ext_resource type="Texture2D" uid="uid://dptqrf4v082g2" path="res://Art/Palikat/block06.png" id="8_d84gf"]
 [ext_resource type="Texture2D" uid="uid://bd4p6xdvrh0bl" path="res://Art/Sekalaiset/beam.png" id="9_shxl2"]
-[ext_resource type="Texture2D" uid="uid://cvsfbrwd5qffc" path="res://Art/Napit/drop.png" id="11_wpqu7"]
-[ext_resource type="Texture2D" uid="uid://dmqg3ayt2orx1" path="res://Art/Napit/grab.png" id="12_5c42b"]
-[ext_resource type="Texture2D" uid="uid://dat0drok1lcki" path="res://Art/Napit/rotate.png" id="13_u5to5"]
-[ext_resource type="Texture2D" uid="uid://k8n7w05vtkdu" path="res://Art/Napit/settings.png" id="14_odedw"]
+[ext_resource type="Texture2D" uid="uid://0ia13kcuve30" path="res://Art/Napit/drop2.png" id="12_0a1no"]
+[ext_resource type="Texture2D" uid="uid://dsqnbul3f433" path="res://Art/Napit/grab2.png" id="13_xedn4"]
+[ext_resource type="Texture2D" uid="uid://ccp84ke0qt5w3" path="res://Art/Napit/rotate2.png" id="14_xhq5t"]
+[ext_resource type="Texture2D" uid="uid://vebdsc7iyyuj" path="res://Art/Napit/settingsnew.png" id="15_bgxyr"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o17jg"]
 load_path = "res://.godot/imported/conveyor.png-a145b7d5b6cf4582737cc7f905690daf.ctex"
@@ -170,14 +170,14 @@ offset_left = 1150.0
 offset_top = 583.0
 offset_right = 1280.0
 offset_bottom = 713.0
-texture_normal = ExtResource("11_wpqu7")
+texture_normal = ExtResource("12_0a1no")
 
 [node name="Grab" type="TextureButton" parent="Buttons"]
 visible = false
 offset_top = 578.0
 offset_right = 130.0
 offset_bottom = 708.0
-texture_normal = ExtResource("12_5c42b")
+texture_normal = ExtResource("13_xedn4")
 
 [node name="Rotate" type="TextureButton" parent="Buttons"]
 visible = false
@@ -185,12 +185,12 @@ offset_left = 146.0
 offset_top = 442.0
 offset_right = 276.0
 offset_bottom = 572.0
-texture_normal = ExtResource("13_u5to5")
+texture_normal = ExtResource("14_xhq5t")
 
 [node name="Settings" type="TextureButton" parent="Buttons"]
 visible = false
-offset_left = 17.0
-offset_top = 1.0
-offset_right = 147.0
-offset_bottom = 131.0
-texture_normal = ExtResource("14_odedw")
+offset_left = 4.0
+offset_top = -3.0
+offset_right = 134.0
+offset_bottom = 127.0
+texture_normal = ExtResource("15_bgxyr")

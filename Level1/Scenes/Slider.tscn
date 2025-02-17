@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b8lfs66k6h623" path="res://Art/Napit/slidernappi.png" id="2_g1336"]
 
 [node name="Sliders" type="Node2D"]
+z_index = 6
 
 [node name="Slider" type="Sprite2D" parent="."]
 texture = ExtResource("1_dwrao")
