@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnr4wgld8simd"]
+[gd_scene load_steps=8 format=3 uid="uid://dnr4wgld8simd"]
 
 [ext_resource type="Texture2D" uid="uid://wyd6un48k3bq" path="res://assets/backgrounds/Level1_background.png" id="1_iq2o8"]
 [ext_resource type="Texture2D" uid="uid://b4bea60kauffl" path="res://assets/backgrounds/left_console.png" id="2_yev73"]
 [ext_resource type="Texture2D" uid="uid://drrbhabo52h3k" path="res://assets/gui/slider_rail.png" id="3_o3aeh"]
 [ext_resource type="Texture2D" uid="uid://c531a36wq33ql" path="res://assets/backgrounds/right_console.png" id="4_hvofc"]
+[ext_resource type="Texture2D" uid="uid://coqccac87hmhp" path="res://assets/backgrounds/truck_model_final.png" id="4_k121b"]
 [ext_resource type="Texture2D" uid="uid://bi5xkh3xfnpk4" path="res://assets/misc/conveyor.png" id="5_yjhl4"]
 [ext_resource type="Texture2D" uid="uid://dy66gb1kjagxm" path="res://assets/misc/beam.png" id="6_6nk4s"]
 
@@ -21,47 +22,12 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_iq2o8")
 
-[node name="LeftConsole" type="TextureRect" parent="Background"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("2_yev73")
-
-[node name="LeftRail" type="TextureRect" parent="Background/LeftConsole"]
-layout_mode = 0
-offset_top = 130.0
-offset_right = 130.0
-offset_bottom = 590.0
-texture = ExtResource("3_o3aeh")
-
-[node name="RightConsole" type="TextureRect" parent="Background"]
-layout_mode = 0
-offset_left = 1144.0
-offset_right = 1280.0
-offset_bottom = 720.0
-texture = ExtResource("4_hvofc")
-
-[node name="RightRail" type="TextureRect" parent="Background/RightConsole"]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 130.0
-offset_right = 136.0
-offset_bottom = 590.0
-texture = ExtResource("3_o3aeh")
-
-[node name="ConveyorBelt" type="TextureRect" parent="Background"]
-layout_mode = 0
-offset_left = 129.0
-offset_top = 583.0
-offset_right = 1152.0
-offset_bottom = 720.0
-texture = ExtResource("5_yjhl4")
-
 [node name="Beam" type="Control" parent="Background"]
 anchors_preset = 0
-offset_left = 118.0
-offset_right = 1138.0
-offset_bottom = 120.0
+offset_left = 110.0
+offset_top = 524.0
+offset_right = 1170.0
+offset_bottom = 644.0
 
 [node name="TextureRect" type="TextureRect" parent="Background/Beam"]
 layout_mode = 2
@@ -145,3 +111,55 @@ offset_left = 924.0
 offset_right = 1044.0
 offset_bottom = 120.0
 texture = ExtResource("6_6nk4s")
+
+[node name="TextureRect13" type="TextureRect" parent="Background/Beam"]
+layout_mode = 0
+offset_left = 1008.0
+offset_right = 1128.0
+offset_bottom = 120.0
+texture = ExtResource("6_6nk4s")
+
+[node name="LeftConsole" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_yev73")
+
+[node name="LeftRail" type="TextureRect" parent="Background/LeftConsole"]
+layout_mode = 0
+offset_top = 130.0
+offset_right = 130.0
+offset_bottom = 590.0
+texture = ExtResource("3_o3aeh")
+
+[node name="Truck" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 1.0
+offset_right = 1405.0
+offset_bottom = 721.0
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("4_k121b")
+
+[node name="RightConsole" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 1144.0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("4_hvofc")
+
+[node name="RightRail" type="TextureRect" parent="Background/RightConsole"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 130.0
+offset_right = 136.0
+offset_bottom = 590.0
+texture = ExtResource("3_o3aeh")
+
+[node name="ConveyorBelt" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 583.0
+offset_right = 1152.0
+offset_bottom = 720.0
+texture = ExtResource("5_yjhl4")

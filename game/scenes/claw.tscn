@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ct5gbtverph2l"]
+
+[ext_resource type="Texture2D" uid="uid://cgua37abqono5" path="res://assets/models/claw_base.png" id="1_d4qaf"]
+[ext_resource type="Texture2D" uid="uid://1uoavfvmvggk" path="res://assets/models/claw_wire.png" id="2_ojx35"]
+[ext_resource type="Texture2D" uid="uid://drv7xw2hoitv3" path="res://assets/models/claw.png" id="3_6biav"]
+
+[node name="Claw" type="Node2D"]
+
+[node name="ClawBase" type="Sprite2D" parent="."]
+texture = ExtResource("1_d4qaf")
+
+[node name="ClawWire" type="Sprite2D" parent="ClawBase"]
+texture = ExtResource("2_ojx35")
+
+[node name="Claw" type="Sprite2D" parent="ClawBase/ClawWire"]
+texture = ExtResource("3_6biav")
+hframes = 3
