@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctrbxconu8ml"]
+
+[ext_resource type="Script" path="res://Menus/Levels/Scripts/Levels.cs" id="1_g0cmt"]
+[ext_resource type="Texture2D" uid="uid://de56sue6acjtw" path="res://Assets/Backgrounds/LevelsBackGroundPixel.jpg" id="1_ghlhl"]
+
+[node name="Levels" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g0cmt")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -87.0
+offset_top = -71.0
+offset_right = 1410.0
+offset_bottom = 894.0
+texture = ExtResource("1_ghlhl")
+
+[node name="Buttons" type="Node" parent="."]
+
+[node name="Level1" type="TextureButton" parent="Buttons"]
+offset_left = 203.0
+offset_top = 541.0
+offset_right = 332.0
+offset_bottom = 619.0
+
+[node name="Level2" type="TextureButton" parent="Buttons"]
+offset_left = 507.0
+offset_top = 377.0
+offset_right = 619.0
+offset_bottom = 450.0
+
+[node name="Level3" type="TextureButton" parent="Buttons"]
+offset_left = 505.0
+offset_top = 589.0
+offset_right = 615.0
+offset_bottom = 647.0
+
+[node name="Level4" type="TextureButton" parent="Buttons"]
+offset_left = 737.0
+offset_top = 315.0
+offset_right = 876.0
+offset_bottom = 385.0
+
+[node name="Level5" type="TextureButton" parent="Buttons"]
+offset_left = 974.0
+offset_top = 450.0
+offset_right = 1066.0
+offset_bottom = 512.0
+
+[node name="BackButton" type="TextureButton" parent="Buttons"]
+offset_right = 143.0
+offset_bottom = 97.0

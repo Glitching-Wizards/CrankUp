@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chjnionb3au01"
-valid=false
+uid="uid://de56sue6acjtw"
+path="res://.godot/imported/LevelsBackGroundPixel.jpg-7ed092ff09a0a047b9f9320a762faec0.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Assets/Backgrounds/LevelsBackGround.png"
+source_file="res://Assets/Backgrounds/LevelsBackGroundPixel.jpg"
+dest_files=["res://.godot/imported/LevelsBackGroundPixel.jpg-7ed092ff09a0a047b9f9320a762faec0.ctex"]
 
 [params]
 

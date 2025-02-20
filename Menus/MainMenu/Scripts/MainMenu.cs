@@ -5,7 +5,7 @@ namespace CrankUp
 {
 	public partial class MainMenu : Control
 	{
-		[Export] private string _level1ScenePath = "res://Game/Level1/Scenes/Level1.tscn";
+		[Export] private string _levelsScenePath = "res://Menus/Levels/Scenes/Levels.tscn";
 		[Export] private string _optionsScenePath = "res://Menus/Options/Scenes/Options.tscn";
 		private bool isSceneChanging = false;
 		public override void _Ready()
@@ -34,7 +34,7 @@ namespace CrankUp
             var tree = GetTree();
             if (tree != null)
             {
-                tree.ChangeSceneToFile(_level1ScenePath);
+                tree.ChangeSceneToFile(_levelsScenePath);
                 GD.Print("Play scene loaded");
             }
             else

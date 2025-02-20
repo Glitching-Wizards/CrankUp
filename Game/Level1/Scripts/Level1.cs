@@ -11,11 +11,12 @@ public partial class Level1 : Node2D
 	}
 
 	[Export] private string _clawScenePath = "res://Game/Scenes/Claw.tscn";
+	
 	private PackedScene _clawScene = null;
 	private Claw _claw = null;
 	public Claw Claw => _claw;
 
-	
+
 	public override void _Ready()
 	{
 		_claw = CreateClaw();
