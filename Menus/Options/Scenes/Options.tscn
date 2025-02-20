@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ckb1t7ko0dp0p"]
 
-[ext_resource type="Script" path="res://option/scripts/options.cs" id="1_k8yrm"]
+[ext_resource type="Script" path="res://Menus/Options/Scripts/Options.cs" id="1_k8yrm"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qhqup"]
 
