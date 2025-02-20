@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbrwler8lk051"]
+
+[ext_resource type="Texture2D" uid="uid://yhvnye0lv8ij" path="res://assets/gui/settings.png" id="1_x7mul"]
+[ext_resource type="Texture2D" uid="uid://cj7bphyivrpva" path="res://assets/gui/drop.png" id="2_hui7q"]
+
+[node name="ControlsRightUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 1150.0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="Settings" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("1_x7mul")
+
+[node name="Release" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_top = 590.0
+offset_right = 130.0
+offset_bottom = 720.0
+texture_normal = ExtResource("2_hui7q")
+
+[node name="VSlider" type="VSlider" parent="Panel"]
+layout_mode = 0
+offset_top = 130.0
+offset_right = 130.0
+offset_bottom = 590.0
+min_value = -50.0
+max_value = 50.0

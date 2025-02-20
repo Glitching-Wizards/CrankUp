@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxoectiqb3817"]
+
+[ext_resource type="PackedScene" uid="uid://dnr4wgld8simd" path="res://gui/background.tscn" id="1_r68n6"]
+[ext_resource type="PackedScene" uid="uid://bu16bdidc32ex" path="res://gui/controls_left_ui.tscn" id="5_oq7xx"]
+[ext_resource type="PackedScene" uid="uid://cbrwler8lk051" path="res://gui/controls_right_ui.tscn" id="6_rklj6"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Background" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" parent="Background" instance=ExtResource("1_r68n6")]
+layout_mode = 1
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -640.0
+offset_bottom = -360.0
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -640.0
+offset_bottom = -360.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ControlsLeftUi" parent="UI" instance=ExtResource("5_oq7xx")]
+layout_mode = 1
+
+[node name="ControlsRightUi" parent="UI" instance=ExtResource("6_rklj6")]
+layout_mode = 1

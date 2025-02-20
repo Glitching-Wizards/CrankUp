@@ -1,0 +1,147 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnr4wgld8simd"]
+
+[ext_resource type="Texture2D" uid="uid://wyd6un48k3bq" path="res://assets/backgrounds/Level1_background.png" id="1_iq2o8"]
+[ext_resource type="Texture2D" uid="uid://b4bea60kauffl" path="res://assets/backgrounds/left_console.png" id="2_yev73"]
+[ext_resource type="Texture2D" uid="uid://drrbhabo52h3k" path="res://assets/gui/slider_rail.png" id="3_o3aeh"]
+[ext_resource type="Texture2D" uid="uid://c531a36wq33ql" path="res://assets/backgrounds/right_console.png" id="4_hvofc"]
+[ext_resource type="Texture2D" uid="uid://bi5xkh3xfnpk4" path="res://assets/misc/conveyor.png" id="5_yjhl4"]
+[ext_resource type="Texture2D" uid="uid://dy66gb1kjagxm" path="res://assets/misc/beam.png" id="6_6nk4s"]
+
+[node name="Background" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_iq2o8")
+
+[node name="LeftConsole" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_yev73")
+
+[node name="LeftRail" type="TextureRect" parent="Background/LeftConsole"]
+layout_mode = 0
+offset_top = 130.0
+offset_right = 130.0
+offset_bottom = 590.0
+texture = ExtResource("3_o3aeh")
+
+[node name="RightConsole" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 1144.0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("4_hvofc")
+
+[node name="RightRail" type="TextureRect" parent="Background/RightConsole"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 130.0
+offset_right = 136.0
+offset_bottom = 590.0
+texture = ExtResource("3_o3aeh")
+
+[node name="ConveyorBelt" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 583.0
+offset_right = 1152.0
+offset_bottom = 720.0
+texture = ExtResource("5_yjhl4")
+
+[node name="Beam" type="Control" parent="Background"]
+anchors_preset = 0
+offset_left = 118.0
+offset_right = 1138.0
+offset_bottom = 120.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/Beam"]
+layout_mode = 2
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_6nk4s")
+
+[node name="TextureRect2" type="TextureRect" parent="Background/Beam"]
+layout_mode = 2
+offset_left = 84.0
+offset_right = 204.0
+offset_bottom = 120.0
+texture = ExtResource("6_6nk4s")
+
+[node name="TextureRect3" type="TextureRect" parent="Background/Beam"]
+layout_mode = 0
+offset_left = 168.0
+offset_right = 288.0
+offset_bottom = 120.0
+texture = ExtResource("6_6nk4s")
+
+[node name="TextureRect4" type="TextureRect" parent="Background/Beam"]
+layout_mode = 0
+offset_left = 252.0
+offset_right = 372.0
+offset_bottom = 120.0
+texture = ExtResource("6_6nk4s")
+
+[node name="TextureRect5" type="TextureRect" parent="Background/Beam"]
+layout_mode = 0
+offset_left = 336.0
+offset_right = 456.0
+offset_bottom = 120.0
+texture = ExtResource("6_6nk4s")
+
+[node name="TextureRect6" type="TextureRect" parent="Background/Beam"]
+layout_mode = 0
+offset_left = 420.0
+offset_right = 540.0
+offset_bottom = 120.0
+texture = ExtResource("6_6nk4s")
+
+[node name="TextureRect7" type="TextureRect" parent="Background/Beam"]
+layout_mode = 0
+offset_left = 504.0
+offset_right = 624.0
+offset_bottom = 120.0
+texture = ExtResource("6_6nk4s")
+
+[node name="TextureRect8" type="TextureRect" parent="Background/Beam"]
+layout_mode = 0
+offset_left = 588.0
+offset_right = 708.0
+offset_bottom = 120.0
+texture = ExtResource("6_6nk4s")
+
+[node name="TextureRect9" type="TextureRect" parent="Background/Beam"]
+layout_mode = 0
+offset_left = 672.0
+offset_right = 792.0
+offset_bottom = 120.0
+texture = ExtResource("6_6nk4s")
+
+[node name="TextureRect10" type="TextureRect" parent="Background/Beam"]
+layout_mode = 0
+offset_left = 756.0
+offset_right = 876.0
+offset_bottom = 120.0
+texture = ExtResource("6_6nk4s")
+
+[node name="TextureRect11" type="TextureRect" parent="Background/Beam"]
+layout_mode = 0
+offset_left = 840.0
+offset_right = 960.0
+offset_bottom = 120.0
+texture = ExtResource("6_6nk4s")
+
+[node name="TextureRect12" type="TextureRect" parent="Background/Beam"]
+layout_mode = 0
+offset_left = 924.0
+offset_right = 1044.0
+offset_bottom = 120.0
+texture = ExtResource("6_6nk4s")

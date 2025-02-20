@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu16bdidc32ex"]
+
+[ext_resource type="Texture2D" uid="uid://m8m73bt3bh3q" path="res://assets/gui/rotate.png" id="1_u1em8"]
+[ext_resource type="Texture2D" uid="uid://bkbxdti657baq" path="res://assets/gui/grab.png" id="2_7bmw1"]
+
+[node name="ControlsLeftUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 130.0
+offset_bottom = 720.0
+
+[node name="Rotate" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_right = 130.0
+offset_bottom = 130.0
+action_mode = 0
+texture_normal = ExtResource("1_u1em8")
+
+[node name="Grab" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_top = 590.0
+offset_right = 130.0
+offset_bottom = 720.0
+texture_normal = ExtResource("2_7bmw1")
+
+[node name="VSlider" type="VSlider" parent="Panel"]
+layout_mode = 0
+offset_top = 130.0
+offset_right = 130.0
+offset_bottom = 590.0
+min_value = -50.0
+max_value = 50.0
