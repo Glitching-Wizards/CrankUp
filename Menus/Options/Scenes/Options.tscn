@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckb1t7ko0dp0p"]
+
+[ext_resource type="Script" path="res://Menus/Options/Scripts/Options.cs" id="1_k8yrm"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qhqup"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k8yrm")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 495.0
+offset_top = 92.0
+offset_right = 860.0
+offset_bottom = 132.0
+text = "Options"
+
+[node name="BackButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = SubResource("CompressedTexture2D_qhqup")

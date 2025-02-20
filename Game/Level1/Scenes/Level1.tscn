@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://cts5ygn8db8c0"]
+
+[ext_resource type="Script" path="res://Game/Level1/Scripts/Level1.cs" id="1_4cxg7"]
+[ext_resource type="PackedScene" uid="uid://dnr4wgld8simd" path="res://Gui/Background.tscn" id="2_gy3yl"]
+[ext_resource type="PackedScene" uid="uid://bu16bdidc32ex" path="res://Gui/ControlsLeftUi.tscn" id="3_qb5ov"]
+[ext_resource type="PackedScene" uid="uid://cbrwler8lk051" path="res://Gui/ControlsRightUi.tscn" id="4_sh1e6"]
+[ext_resource type="PackedScene" uid="uid://ck4oieai5v8t6" path="res://Game/Scenes/Claw.tscn" id="5_d4ees"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_4cxg7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Background" parent="." instance=ExtResource("2_gy3yl")]
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -640.0
+offset_bottom = -360.0
+
+[node name="Ui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ControlsLeftUi" parent="Ui" instance=ExtResource("3_qb5ov")]
+layout_mode = 1
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -640.0
+offset_bottom = -360.0
+
+[node name="ControlsRightUi" parent="Ui" instance=ExtResource("4_sh1e6")]
+layout_mode = 1
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -640.0
+offset_bottom = -360.0
+
+[node name="Claw" parent="." instance=ExtResource("5_d4ees")]
