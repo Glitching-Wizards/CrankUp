@@ -2,12 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cp15jwvgxrhrf"
+uid="uid://chjnionb3au01"
 valid=false
 
 [deps]
 
-source_file="res://assets/backgrounds/LevelsBackGround.png"
+source_file="res://Assets/Backgrounds/LevelsBackground.png"
 
 [params]
 

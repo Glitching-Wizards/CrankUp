@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wyd6un48k3bq"
-path="res://.godot/imported/Level1_background.png-3b5a3f88bc6c1132ec473ce843a2c88d.ctex"
+uid="uid://dyq4wnofgsxvj"
+path="res://.godot/imported/ClawWire.png-dd69c977b5316efff2d5e95f2b33bc4a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/Level1_background.png"
-dest_files=["res://.godot/imported/Level1_background.png-3b5a3f88bc6c1132ec473ce843a2c88d.ctex"]
+source_file="res://Assets/Models/ClawWire.png"
+dest_files=["res://.godot/imported/ClawWire.png-dd69c977b5316efff2d5e95f2b33bc4a.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgua37abqono5"
-path="res://.godot/imported/claw_base.png-74d6578365b16f999ace80206e65ad3a.ctex"
+uid="uid://bp6ibqgtevhws"
+path="res://.godot/imported/ClawBase.png-8b201f6198ce92a100ad8668f2b6b37d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/models/claw_base.png"
-dest_files=["res://.godot/imported/claw_base.png-74d6578365b16f999ace80206e65ad3a.ctex"]
+source_file="res://Assets/Models/ClawBase.png"
+dest_files=["res://.godot/imported/ClawBase.png-8b201f6198ce92a100ad8668f2b6b37d.ctex"]
 
 [params]
 

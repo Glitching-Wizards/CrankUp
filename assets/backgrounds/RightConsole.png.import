@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ln5u3tj54qny"
-path="res://.godot/imported/jarkko_rage.png-9e7fe4925e84283702a91e77be6561ca.ctex"
+uid="uid://bsiciqmbbksx3"
+path="res://.godot/imported/RightConsole.png-cec6e36c7289329bd3d865cb399234c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/models/jarkko_rage.png"
-dest_files=["res://.godot/imported/jarkko_rage.png-9e7fe4925e84283702a91e77be6561ca.ctex"]
+source_file="res://Assets/Backgrounds/RightConsole.png"
+dest_files=["res://.godot/imported/RightConsole.png-cec6e36c7289329bd3d865cb399234c3.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxi1ayjsyhs2d"
-path="res://.godot/imported/crank_up_logo.png-5529fa381eed0c0a05c6294f8e8f6a24.ctex"
+uid="uid://k2ji4rswhfbd"
+path="res://.godot/imported/Level1Background.png-9cb616e746471ed2d80a4dcb59406905.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/misc/crank_up_logo.png"
-dest_files=["res://.godot/imported/crank_up_logo.png-5529fa381eed0c0a05c6294f8e8f6a24.ctex"]
+source_file="res://Assets/Backgrounds/Level1Background.png"
+dest_files=["res://.godot/imported/Level1Background.png-9cb616e746471ed2d80a4dcb59406905.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c531a36wq33ql"
-path="res://.godot/imported/right_console.png-5d859967431f0e9d224f12601fc13c88.ctex"
+uid="uid://btcu3yow8pr65"
+path="res://.godot/imported/LeftConsole.png-d7041973b393248e03fc31fdef43dcc2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/right_console.png"
-dest_files=["res://.godot/imported/right_console.png-5d859967431f0e9d224f12601fc13c88.ctex"]
+source_file="res://Assets/Backgrounds/LeftConsole.png"
+dest_files=["res://.godot/imported/LeftConsole.png-d7041973b393248e03fc31fdef43dcc2.ctex"]
 
 [params]
 

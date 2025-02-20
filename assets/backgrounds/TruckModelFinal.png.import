@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4bea60kauffl"
-path="res://.godot/imported/left_console.png-1e8012045eee6596a5550af43c9a0ca9.ctex"
+uid="uid://bm2s28jva8gbr"
+path="res://.godot/imported/TruckModelFinal.png-6f0a69be67b04cbc5ff1205559bc825a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/left_console.png"
-dest_files=["res://.godot/imported/left_console.png-1e8012045eee6596a5550af43c9a0ca9.ctex"]
+source_file="res://Assets/Backgrounds/TruckModelFinal.png"
+dest_files=["res://.godot/imported/TruckModelFinal.png-6f0a69be67b04cbc5ff1205559bc825a.ctex"]
 
 [params]
 

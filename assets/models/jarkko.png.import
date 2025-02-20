@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcot3tyinc3y3"
-path="res://.godot/imported/jarkko.png-e827faa36e028f5bd3275f9a80536f06.ctex"
+uid="uid://kc8uiwcrayf8"
+path="res://.godot/imported/Jarkko.png-68ebf7217f0e4f74f2003fffbb2b560c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/models/jarkko.png"
-dest_files=["res://.godot/imported/jarkko.png-e827faa36e028f5bd3275f9a80536f06.ctex"]
+source_file="res://Assets/Models/Jarkko.png"
+dest_files=["res://.godot/imported/Jarkko.png-68ebf7217f0e4f74f2003fffbb2b560c.ctex"]
 
 [params]
 

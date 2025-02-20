@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://coqccac87hmhp"
-path="res://.godot/imported/truck_model_final.png-153c2b1ec87573da955f71d9f42e2bb2.ctex"
+uid="uid://d1bgreietkn5y"
+path="res://.godot/imported/CrankUpTitle.png-f88e2ee0fc2a6d46355232e00da328ac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/truck_model_final.png"
-dest_files=["res://.godot/imported/truck_model_final.png-153c2b1ec87573da955f71d9f42e2bb2.ctex"]
+source_file="res://Assets/Misc/CrankUpTitle.png"
+dest_files=["res://.godot/imported/CrankUpTitle.png-f88e2ee0fc2a6d46355232e00da328ac.ctex"]
 
 [params]
 

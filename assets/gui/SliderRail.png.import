@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1uoavfvmvggk"
-path="res://.godot/imported/claw_wire.png-a57f19d5ee790249a4cf8bee4888c071.ctex"
+uid="uid://dl1c78xcnlm4f"
+path="res://.godot/imported/SliderRail.png-cf108e9195ef720deb771969fa0b19a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/models/claw_wire.png"
-dest_files=["res://.godot/imported/claw_wire.png-a57f19d5ee790249a4cf8bee4888c071.ctex"]
+source_file="res://Assets/Gui/SliderRail.png"
+dest_files=["res://.godot/imported/SliderRail.png-cf108e9195ef720deb771969fa0b19a9.ctex"]
 
 [params]
 

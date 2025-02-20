@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drrbhabo52h3k"
-path="res://.godot/imported/slider_rail.png-1e856ef7780702bd24dffeb752797de0.ctex"
+uid="uid://l3x7mgc2m7dc"
+path="res://.godot/imported/JarkkoRage.png-26ade0ee094776e65659a4a08c0c3b51.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/slider_rail.png"
-dest_files=["res://.godot/imported/slider_rail.png-1e856ef7780702bd24dffeb752797de0.ctex"]
+source_file="res://Assets/Models/JarkkoRage.png"
+dest_files=["res://.godot/imported/JarkkoRage.png-26ade0ee094776e65659a4a08c0c3b51.ctex"]
 
 [params]
 
