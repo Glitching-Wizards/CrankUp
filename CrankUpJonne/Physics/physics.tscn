@@ -1,15 +1,12 @@
 [gd_scene load_steps=11 format=3 uid="uid://c7jwnxvi64chy"]
 
-[ext_resource type="Script" path="res://Code/Block.cs" id="1_03ao5"]
-[ext_resource type="Texture2D" uid="uid://cme83lvf03oim" path="res://Art/block01.png" id="1_8vpbo"]
 [ext_resource type="Texture2D" uid="uid://dwduq5xrq34qv" path="res://Art/Level1_background.png" id="1_i8yri"]
+[ext_resource type="PackedScene" uid="uid://byc8kq1gm1tqq" path="res://Physics/block.tscn" id="2_a2b3i"]
 [ext_resource type="PackedScene" uid="uid://br88ir8sd35jl" path="res://Physics/LongBlock.tscn" id="2_huv3a"]
 [ext_resource type="Texture2D" uid="uid://ksf6sbnegtny" path="res://Art/beam.png" id="3_r10e7"]
 [ext_resource type="Script" path="res://Code/Rope.cs" id="4_0s4v4"]
 [ext_resource type="Texture2D" uid="uid://bd71banht4spd" path="res://Art/block04.png" id="4_drqgd"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_efy25"]
-size = Vector2(121, 63)
+[ext_resource type="Script" path="res://Code/PlacementArea.cs" id="7_vc85w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qko2c"]
 size = Vector2(1153, 140)
@@ -17,31 +14,24 @@ size = Vector2(1153, 140)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2j122"]
 size = Vector2(11, 232)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2lagh"]
+size = Vector2(16.1382, 24.4129)
+
 [node name="Main" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("1_i8yri")
 
-[node name="Block" type="RigidBody2D" parent="."]
-position = Vector2(-21, -89)
-script = ExtResource("1_03ao5")
-
-[node name="Sprite" type="Sprite2D" parent="Block"]
-texture = ExtResource("1_8vpbo")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Block"]
-position = Vector2(-4, 5)
-shape = SubResource("RectangleShape2D_efy25")
+[node name="Block" parent="." instance=ExtResource("2_a2b3i")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="LongBlock" parent="." instance=ExtResource("2_huv3a")]
-position = Vector2(-32, 241)
+position = Vector2(310, 227)
 gravity_scale = 1.0
 
 [node name="LongBlock2" parent="." instance=ExtResource("2_huv3a")]
-position = Vector2(55, 200)
-rotation = -0.6353
+position = Vector2(561, 239)
 gravity_scale = 1.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -58,6 +48,7 @@ texture = ExtResource("3_r10e7")
 
 [node name="Rope" type="CharacterBody2D" parent="."]
 script = ExtResource("4_0s4v4")
+_speed = 200.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Rope"]
 position = Vector2(-27, -204)
@@ -69,7 +60,29 @@ texture = ExtResource("4_drqgd")
 position = Vector2(-22.5, -204)
 shape = SubResource("RectangleShape2D_2j122")
 
+[node name="GrabArea" type="Area2D" parent="Rope"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope/GrabArea"]
+position = Vector2(-22.5, -69)
+scale = Vector2(2.91234, -1.55655)
+shape = SubResource("RectangleShape2D_2lagh")
+
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
 position = Vector2(-23, -96)
+scale = Vector2(7.18762, 6.93292)
 node_a = NodePath("../Rope")
 node_b = NodePath("../Block")
+
+[node name="PlacementArea" type="Area2D" parent="."]
+script = ExtResource("7_vc85w")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlacementArea"]
+position = Vector2(-56, 37)
+scale = Vector2(0.888258, 0.854341)
+polygon = PackedVector2Array(0, 5, -99, 4, -101, 243, 229, 242, 224, 98, 6.7548, 112.367)
+
+[node name="ScoreLabel" type="Label" parent="PlacementArea"]
+offset_left = -523.0
+offset_top = -343.0
+offset_right = -65.0
+offset_bottom = -144.0

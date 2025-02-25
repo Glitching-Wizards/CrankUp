@@ -6,6 +6,7 @@ public partial class Block : RigidBody2D
 
 	public override void _Ready()
 	{
+		AddToGroup("blocks");
 		joint = GetParent().GetNodeOrNull<PinJoint2D>("PinJoint2D");
 	}
 
