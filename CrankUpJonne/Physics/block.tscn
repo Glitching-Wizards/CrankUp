@@ -8,6 +8,7 @@ size = Vector2(121, 63)
 
 [node name="Block" type="RigidBody2D"]
 position = Vector2(-21, -89)
+collision_layer = 2
 script = ExtResource("1_d7bwv")
 
 [node name="Sprite" type="Sprite2D" parent="."]

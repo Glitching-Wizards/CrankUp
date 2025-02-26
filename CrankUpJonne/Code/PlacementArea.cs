@@ -1,21 +1,21 @@
-using Godot;
 using System.Linq;
+using Godot;
 
 public partial class PlacementArea : Area2D
 {
-	private CollisionPolygon2D collisionPolygon;
+	private CollisionShape2D collisionShape;
 	private Label scoreLabel;
 	private float totalAreaSize = 0f;
 	private float filledAreaSize = 0f;
 
 	public override void _Ready()
 	{
-		collisionPolygon = GetNodeOrNull<CollisionPolygon2D>("CollisionPolygon2D");
+		collisionShape = GetNodeOrNull<CollisionShape2D>("CollisionShape2D");
 		scoreLabel = GetNodeOrNull<Label>("ScoreLabel");
 
-		if (collisionPolygon == null)
+		if (collisionShape == null)
 		{
-			GD.PrintErr("Error: CollisionPolygon2D not found in PlacementArea!");
+			GD.PrintErr("Error: CollisionShape2D not found in PlacementArea!");
 			return;
 		}
 
@@ -25,43 +25,48 @@ public partial class PlacementArea : Area2D
 			return;
 		}
 
-		totalAreaSize = CalculatePolygonArea(collisionPolygon.Polygon);
+		totalAreaSize = CalculateShapeArea(collisionShape.Shape);
 		GD.Print($"Placement Area Size: {totalAreaSize}");
 	}
 
-	private float CalculatePolygonArea(Vector2[] points)
+	private float CalculateShapeArea(Shape2D shape)
 	{
-		if (points.Length < 3) return 0f; // Not a valid polygon
-
-		float area = 0f;
-		int j = points.Length - 1;
-
-		for (int i = 0; i < points.Length; i++)
+		if (shape is RectangleShape2D rect)
 		{
-			area += (points[j].X + points[i].X) * (points[j].Y - points[i].Y);
-			j = i;
+			return rect.Size.X * rect.Size.Y;
 		}
-
-		return Mathf.Abs(area / 2f);
+		else
+		{
+			GD.PrintErr("Unsupported shape type for PlacementArea!");
+			return 0f;
+		}
 	}
 
 	private void _on_body_entered(Node body)
 	{
-		GD.Print($"Body entered: {body.Name}");
+		GD.Print($"[DEBUG] Body entered: {body.Name}");
 
 		if (body is RigidBody2D block)
 		{
-			// Estimate block area (simplified: using bounding box)
-			GD.Print("A block has entered the placement area!");
+			GD.Print("[DEBUG] A block has entered the placement area!");
+
 			var blockCollision = block.GetNodeOrNull<CollisionShape2D>("CollisionShape2D");
-			if (blockCollision != null && blockCollision.Shape is RectangleShape2D rectShape)
+			if (blockCollision == null)
 			{
-				filledAreaSize += rectShape.Size.X * rectShape.Size.Y;
+				GD.PrintErr("[ERROR] Block does not have a CollisionShape2D!");
+				return;
 			}
 
+			GD.Print("[DEBUG] Block has a valid CollisionShape2D!");
+
+			float blockArea = CalculateShapeArea(blockCollision.Shape);
+			GD.Print($"[DEBUG] Block area: {blockArea}");
+
+			filledAreaSize += blockArea;
 			float percentageFilled = (filledAreaSize / totalAreaSize) * 100f;
+
+			GD.Print($"[DEBUG] Updated Score: {percentageFilled:F2}%");
 			scoreLabel.Text = $"Score: {percentageFilled:F2}%";
-			GD.Print($"Updated Score: {percentageFilled:F2}%");
 		}
 	}
 }

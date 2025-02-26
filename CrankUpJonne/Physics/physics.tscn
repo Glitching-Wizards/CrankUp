@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7jwnxvi64chy"]
+[gd_scene load_steps=12 format=3 uid="uid://c7jwnxvi64chy"]
 
 [ext_resource type="Texture2D" uid="uid://dwduq5xrq34qv" path="res://Art/Level1_background.png" id="1_i8yri"]
 [ext_resource type="PackedScene" uid="uid://byc8kq1gm1tqq" path="res://Physics/block.tscn" id="2_a2b3i"]
@@ -16,6 +16,9 @@ size = Vector2(11, 232)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2lagh"]
 size = Vector2(16.1382, 24.4129)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0aiyy"]
+size = Vector2(281.45, 244.099)
 
 [node name="Main" type="Node2D"]
 
@@ -47,8 +50,8 @@ scale = Vector2(13.6833, 4.50833)
 texture = ExtResource("3_r10e7")
 
 [node name="Rope" type="CharacterBody2D" parent="."]
+collision_mask = 2
 script = ExtResource("4_0s4v4")
-_speed = 200.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Rope"]
 position = Vector2(-27, -204)
@@ -61,6 +64,7 @@ position = Vector2(-22.5, -204)
 shape = SubResource("RectangleShape2D_2j122")
 
 [node name="GrabArea" type="Area2D" parent="Rope"]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rope/GrabArea"]
 position = Vector2(-22.5, -69)
@@ -74,15 +78,18 @@ node_a = NodePath("../Rope")
 node_b = NodePath("../Block")
 
 [node name="PlacementArea" type="Area2D" parent="."]
+collision_mask = 2
 script = ExtResource("7_vc85w")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlacementArea"]
-position = Vector2(-56, 37)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlacementArea"]
+position = Vector2(-22, 144)
 scale = Vector2(0.888258, 0.854341)
-polygon = PackedVector2Array(0, 5, -99, 4, -101, 243, 229, 242, 224, 98, 6.7548, 112.367)
+shape = SubResource("RectangleShape2D_0aiyy")
 
 [node name="ScoreLabel" type="Label" parent="PlacementArea"]
 offset_left = -523.0
 offset_top = -343.0
 offset_right = -65.0
 offset_bottom = -144.0
+
+[connection signal="body_entered" from="PlacementArea" to="PlacementArea" method="_on_body_entered"]
