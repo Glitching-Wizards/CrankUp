@@ -5,11 +5,12 @@ using System.Collections.Generic;
 namespace CrankUp;
 public partial class ClawHead : CharacterBody2D
 {
-	[Export] public int speed = 100;
+	[Export] private float speed = 10f;
 	private PinJoint2D joint;
 	private Block grabbedBlock;
 	private Area2D grabArea;
 	private List<Block> nearbyBlocks = new List<Block>();
+	private float _currentSpeed = 0f;
 
 	public enum Direction
 	{
@@ -40,7 +41,7 @@ public partial class ClawHead : CharacterBody2D
 			nearbyBlocks.Remove(block);
 	}
 
-	private void GrabBlock()
+	public void GrabBlock()
 	{
 		if (nearbyBlocks.Count == 0)
 		{
@@ -60,7 +61,7 @@ public partial class ClawHead : CharacterBody2D
 		AddChild(joint);
 	}
 
-	private void DropBlock()
+	public void DropBlock()
 	{
 		if (joint != null)
 		{
@@ -80,20 +81,24 @@ public partial class ClawHead : CharacterBody2D
 		return moveDirection.Normalized(); // Normalize to prevent faster diagonal movement
 	}
 
-	private void Move(Vector2 direction, double delta)
+	public void Move(Vector2 direction, float speedFactor, double delta)
 	{
-		Position += direction * speed * (float)delta; // Apply movement with delta
+		if (direction != Vector2.Zero)
+        {
+            Velocity = direction * (speedFactor * speed) * (speedFactor / 50.0f);
+        }
+        else
+        {
+            Velocity = Vector2.Zero;
+        }
+
+        MoveAndSlide();
+
 		GlobalPosition = new Vector2(GlobalPosition.X, Mathf.Clamp(GlobalPosition.Y, -291, 200)); // Restrict Y movement
 	}
 
 	public override void _Process(double delta)
 	{
-		Vector2 direction = ReadInput();
-		if (direction != Vector2.Zero)
-		{
-			Move(direction, delta);
-		}
-
 		if (Input.IsActionJustPressed("Grab") && grabbedBlock == null)
 			GrabBlock();
 
