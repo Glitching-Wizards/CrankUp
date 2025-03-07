@@ -59,6 +59,10 @@ public partial class ClawHead : CharacterBody2D
 		joint.NodeB = grabbedBlock.GetPath();
 
 		AddChild(joint);
+
+		grabbedBlock.SetPhysicsProcess(false); // Disable physics movement
+        grabbedBlock.LinearVelocity = Vector2.Zero;
+        grabbedBlock.AngularVelocity = 0f;
 	}
 
 	public void DropBlock()
@@ -69,16 +73,6 @@ public partial class ClawHead : CharacterBody2D
 			joint = null;
 		}
 		grabbedBlock = null;
-	}
-
-	private Vector2 ReadInput()
-	{
-		Vector2 moveDirection = Vector2.Zero;
-
-		if (Input.IsActionPressed(Config.MoveUpAction)) moveDirection += Vector2.Up;
-		if (Input.IsActionPressed(Config.MoveDownAction)) moveDirection += Vector2.Down;
-
-		return moveDirection.Normalized(); // Normalize to prevent faster diagonal movement
 	}
 
 	public void Move(Vector2 direction, float speedFactor, double delta)

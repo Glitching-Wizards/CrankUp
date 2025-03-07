@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbrwler8lk051"]
+[gd_scene load_steps=7 format=3 uid="uid://cbrwler8lk051"]
 
 [ext_resource type="Script" path="res://Gui/Scripts/ControlsRightUi.cs" id="1_agtus"]
 [ext_resource type="Texture2D" uid="uid://dlwmauctbx1ot" path="res://Assets/Gui/Settings.png" id="1_gpg6b"]
 [ext_resource type="Texture2D" uid="uid://byhmjem6c0t4x" path="res://Assets/Gui/Drop.png" id="2_alhue"]
 [ext_resource type="Texture2D" uid="uid://bkv6f6qua35ki" path="res://Assets/Gui/Slider.png" id="3_uyu0l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur02m"]
+atlas = ExtResource("2_alhue")
+region = Rect2(0, 0, 130, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ac15w"]
+atlas = ExtResource("2_alhue")
+region = Rect2(130, 0, 130, 130)
 
 [node name="ControlsRightUi" type="Control"]
 layout_mode = 3
@@ -32,7 +40,8 @@ layout_mode = 0
 offset_top = 590.0
 offset_right = 130.0
 offset_bottom = 720.0
-texture_normal = ExtResource("2_alhue")
+texture_normal = SubResource("AtlasTexture_ur02m")
+texture_pressed = SubResource("AtlasTexture_ac15w")
 
 [node name="MoveSlider" type="VSlider" parent="Panel"]
 layout_mode = 0

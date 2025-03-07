@@ -11,7 +11,7 @@
 size = Vector2(38, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_htxnr"]
-size = Vector2(38, 30)
+size = Vector2(34, 26)
 
 [node name="Claw" type="Node2D"]
 script = ExtResource("5_3fj1l")
@@ -22,26 +22,27 @@ script = ExtResource("2_kkw5p")
 [node name="Sprite2D" type="Sprite2D" parent="ClawBase"]
 texture = ExtResource("1_wn8fx")
 
-[node name="ClawWire" type="Sprite2D" parent="ClawBase"]
-position = Vector2(0, 37)
-texture = ExtResource("2_h6rny")
-
-[node name="ClawHead" type="CharacterBody2D" parent="ClawBase/ClawWire"]
-position = Vector2(0, 32)
+[node name="ClawHead" type="CharacterBody2D" parent="ClawBase"]
+position = Vector2(0, 69)
 script = ExtResource("6_u3mu7")
 
-[node name="Sprite2D" type="Sprite2D" parent="ClawBase/ClawWire/ClawHead"]
+[node name="Sprite2D" type="Sprite2D" parent="ClawBase/ClawHead"]
 texture = ExtResource("3_o0rr7")
 hframes = 3
 
-[node name="GrabArea" type="Area2D" parent="ClawBase/ClawWire/ClawHead"]
+[node name="GrabArea" type="Area2D" parent="ClawBase/ClawHead"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ClawBase/ClawWire/ClawHead/GrabArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClawBase/ClawHead/GrabArea"]
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_1ibmd")
 
-[node name="PinJoint2D" type="PinJoint2D" parent="ClawBase/ClawWire/ClawHead"]
+[node name="PinJoint2D" type="PinJoint2D" parent="ClawBase/ClawHead"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ClawBase/ClawWire/ClawHead"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClawBase/ClawHead"]
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_htxnr")
+
+[node name="ClawWire" type="Sprite2D" parent="ClawBase/ClawHead"]
+z_index = -1
+position = Vector2(0, -407)
+texture = ExtResource("2_h6rny")

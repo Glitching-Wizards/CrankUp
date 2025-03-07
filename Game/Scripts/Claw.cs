@@ -7,8 +7,4 @@ public partial class Claw : Node2D
 	{
 		GlobalPosition = new Vector2(0, -360);
 	}
-
-	public override void _Process(double delta)
-	{
-	}
 }

@@ -5,8 +5,10 @@ public partial class ClawBase : CharacterBody2D
 {
 	[Export] private float speed = 10f;
 	private float _currentSpeed = 0f;
+	ClawHead clawHead;
 	public override void _Ready()
 	{
+		clawHead = GetNode<ClawHead>("ClawHead");
 	}
 
 	private Vector2 ReadInput()
@@ -37,6 +39,9 @@ public partial class ClawBase : CharacterBody2D
 
 	public override void _Process(double delta)
 	{
-
+    	if (clawHead != null)
+    	{
+        	clawHead.GlobalPosition = new Vector2(GlobalPosition.X, clawHead.GlobalPosition.Y);
+    	}
 	}
 }
