@@ -48,6 +48,7 @@ offset_bottom = -360.0
 [node name="Claw" parent="." instance=ExtResource("5_d4ees")]
 
 [node name="Block" parent="." instance=ExtResource("6_fvkv6")]
+position = Vector2(-182, 154)
 
 [node name="LongBlock" parent="." instance=ExtResource("7_jaq0w")]
 position = Vector2(-228, 194)
