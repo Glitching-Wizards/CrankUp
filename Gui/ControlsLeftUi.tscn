@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://bu16bdidc32ex"]
+
+[ext_resource type="Script" path="res://Gui/Scripts/ControlsLeftUi.cs" id="1_bx7ei"]
+[ext_resource type="Texture2D" uid="uid://dr5ia7hmpuu0l" path="res://Assets/Gui/Rotate.png" id="1_ty1st"]
+[ext_resource type="Texture2D" uid="uid://bskd5oath0065" path="res://Assets/Gui/Grab.png" id="2_ia6xu"]
+[ext_resource type="Texture2D" uid="uid://bkv6f6qua35ki" path="res://Assets/Gui/Slider.png" id="3_1glo6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6b55l"]
+atlas = ExtResource("2_ia6xu")
+region = Rect2(0, 0, 130, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_np30o"]
+atlas = ExtResource("2_ia6xu")
+region = Rect2(130, 0, 130, 130)
+
+[node name="ControlsLeftUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bx7ei")
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 130.0
+offset_bottom = 720.0
+
+[node name="Rotate" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_right = 130.0
+offset_bottom = 130.0
+action_mode = 0
+texture_normal = ExtResource("1_ty1st")
+
+[node name="Grab" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_top = 590.0
+offset_right = 130.0
+offset_bottom = 720.0
+action_mode = 0
+texture_normal = SubResource("AtlasTexture_6b55l")
+texture_pressed = SubResource("AtlasTexture_np30o")
+ignore_texture_size = true
+
+[node name="MoveSlider" type="VSlider" parent="Panel"]
+layout_mode = 0
+offset_top = 130.0
+offset_right = 130.0
+offset_bottom = 590.0
+theme_override_icons/grabber = ExtResource("3_1glo6")
+theme_override_icons/grabber_highlight = ExtResource("3_1glo6")
+theme_override_icons/tick = ExtResource("3_1glo6")
+min_value = -50.0
+max_value = 50.0
+
+[connection signal="pressed" from="Panel/Grab" to="." method="_on_grab_pressed"]

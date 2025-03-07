@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://cts5ygn8db8c0"]
+
+[ext_resource type="Script" path="res://Game/Level1/Scripts/Level1.cs" id="1_4cxg7"]
+[ext_resource type="PackedScene" uid="uid://dnr4wgld8simd" path="res://Gui/Background.tscn" id="2_gy3yl"]
+[ext_resource type="PackedScene" uid="uid://bu16bdidc32ex" path="res://Gui/ControlsLeftUi.tscn" id="3_qb5ov"]
+[ext_resource type="PackedScene" uid="uid://cbrwler8lk051" path="res://Gui/ControlsRightUi.tscn" id="4_sh1e6"]
+[ext_resource type="PackedScene" uid="uid://ck4oieai5v8t6" path="res://Game/Scenes/Claw.tscn" id="5_d4ees"]
+[ext_resource type="PackedScene" uid="uid://byc8kq1gm1tqq" path="res://Game/Scenes/Block.tscn" id="6_fvkv6"]
+[ext_resource type="PackedScene" uid="uid://br88ir8sd35jl" path="res://Game/Scenes/LongBlock.tscn" id="7_jaq0w"]
+[ext_resource type="Script" path="res://Game/Scripts/PlacementArea.cs" id="7_p8h2n"]
+[ext_resource type="Texture2D" uid="uid://c05ftje3khlk7" path="res://Assets/Backgrounds/PlacementArea.png" id="8_y0yup"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aeeyk"]
+size = Vector2(218, 155)
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_4cxg7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Background" parent="." instance=ExtResource("2_gy3yl")]
+z_index = -1
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -640.0
+offset_bottom = -360.0
+
+[node name="Ui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ControlsLeftUi" parent="Ui" instance=ExtResource("3_qb5ov")]
+layout_mode = 1
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -640.0
+offset_bottom = -360.0
+
+[node name="ControlsRightUi" parent="Ui" instance=ExtResource("4_sh1e6")]
+layout_mode = 1
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -640.0
+offset_bottom = -360.0
+
+[node name="Claw" parent="." instance=ExtResource("5_d4ees")]
+
+[node name="Block" parent="." instance=ExtResource("6_fvkv6")]
+position = Vector2(-182, 154)
+
+[node name="LongBlock" parent="." instance=ExtResource("7_jaq0w")]
+position = Vector2(-228, 194)
+
+[node name="PlacementArea" type="Area2D" parent="."]
+position = Vector2(0, 114)
+script = ExtResource("7_p8h2n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlacementArea"]
+position = Vector2(4, 8.5)
+shape = SubResource("RectangleShape2D_aeeyk")
+
+[node name="ScoreLabel" type="Label" parent="PlacementArea"]
+offset_left = 39.0
+offset_top = -93.0
+offset_right = 79.0
+offset_bottom = -70.0
+
+[node name="TextureRect" type="TextureRect" parent="PlacementArea"]
+offset_left = -126.0
+offset_top = -105.0
+offset_right = 130.0
+offset_bottom = 151.0
+texture = ExtResource("8_y0yup")
+
+[connection signal="body_entered" from="PlacementArea" to="PlacementArea" method="_on_body_entered"]

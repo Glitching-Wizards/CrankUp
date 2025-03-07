@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://br88ir8sd35jl"]
+
+[ext_resource type="Texture2D" uid="uid://ccv8h3t48swtc" path="res://Assets/Blocks/Block04.png" id="1_1r5mq"]
+[ext_resource type="Script" path="res://Game/Scripts/Block.cs" id="1_6rhtg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8oph1"]
+size = Vector2(30, 120)
+
+[node name="LongBlock" type="RigidBody2D"]
+script = ExtResource("1_6rhtg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-70, -54)
+rotation = 1.5708
+texture = ExtResource("1_1r5mq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-57, -54)
+shape = SubResource("RectangleShape2D_8oph1")
