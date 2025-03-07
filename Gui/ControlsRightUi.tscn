@@ -45,4 +45,5 @@ theme_override_icons/tick = ExtResource("3_uyu0l")
 min_value = -50.0
 max_value = 50.0
 
+[connection signal="pressed" from="Panel/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Panel/Release" to="." method="_on_release_pressed"]

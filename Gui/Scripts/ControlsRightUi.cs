@@ -4,9 +4,12 @@ using System;
 namespace CrankUp;
 public partial class ControlsRightUi : Control
 {
+    [Export] private string _settingsScenePath = "res://Menus/Settings/Scenes/Settings.tscn";
     private ClawHead clawHead;
     private ClawBase clawBase;
+    private Window settingsWindow;
     private TextureButton releaseButton;
+    private TextureButton settingsButton;
     private VSlider moveSlider;
     private float moveSliderValue;
     private Vector2 movementDirection = Vector2.Zero;
@@ -16,16 +19,27 @@ public partial class ControlsRightUi : Control
         releaseButton = GetNodeOrNull<TextureButton>("Panel/Release");
         if (releaseButton == null)
         {
-            GD.PrintErr("[ERROR] TextureButton 'Release' not found in ControlsLeftUi!");
+            GD.PrintErr("[ERROR] TextureButton 'Release' not found in ControlsRightUi!");
             return;
+        }
+
+        settingsButton = GetNodeOrNull<TextureButton>("Panel/Settings");
+        if (settingsButton == null)
+        {
+            GD.PrintErr("[ERROR] TextureButton 'Settings' not found in ControlsRightUi!");
         }
 
         moveSlider = GetNodeOrNull<VSlider>("Panel/MoveSlider");
         if (moveSlider == null)
         {
-            GD.PrintErr("[ERROR] VSlider 'moveSlider' not found in ControlsLeftUi!");
+            GD.PrintErr("[ERROR] VSlider 'moveSlider' not found in ControlsRightUi!");
             return;
         }
+
+        PackedScene settingsScene = (PackedScene)GD.Load(_settingsScenePath);
+    	settingsWindow = (Window)settingsScene.Instantiate();
+    	AddChild(settingsWindow);
+    	settingsWindow.Visible = false;
 
         // Find ClawHead dynamically
         clawHead = GetTree().Root.FindChild("ClawHead", true, false) as ClawHead;
@@ -44,6 +58,7 @@ public partial class ControlsRightUi : Control
 
         // Connect button signals
         releaseButton.Pressed += OnDropPressed;
+        settingsButton.Pressed += OnSettingsPressed;
         moveSlider.ValueChanged += OnSliderValueChanged;
     }
 
@@ -67,6 +82,11 @@ public partial class ControlsRightUi : Control
             movementDirection = Vector2.Left;
         else
             movementDirection = Vector2.Zero;
+    }
+
+    private void OnSettingsPressed()
+    {
+        settingsWindow.Popup();
     }
 
     public override void _Process(double delta)

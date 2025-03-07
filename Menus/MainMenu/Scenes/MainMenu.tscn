@@ -54,7 +54,7 @@ grow_vertical = 2
 scale = Vector2(2, 2)
 texture_normal = ExtResource("4_fgpoo")
 
-[node name="OptionsButton" type="TextureButton" parent="Buttons"]
+[node name="SettingsButton" type="TextureButton" parent="Buttons"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.509
@@ -87,5 +87,5 @@ texture = ExtResource("7_31tnq")
 flip_h = true
 
 [connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="Buttons/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="Buttons/SettingsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
