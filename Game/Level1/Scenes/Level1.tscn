@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cts5ygn8db8c0"]
+[gd_scene load_steps=7 format=3 uid="uid://cts5ygn8db8c0"]
 
 [ext_resource type="Script" path="res://Game/Level1/Scripts/Level1.cs" id="1_4cxg7"]
 [ext_resource type="PackedScene" uid="uid://dnr4wgld8simd" path="res://Gui/Background.tscn" id="2_gy3yl"]
 [ext_resource type="PackedScene" uid="uid://bu16bdidc32ex" path="res://Gui/ControlsLeftUi.tscn" id="3_qb5ov"]
 [ext_resource type="PackedScene" uid="uid://cbrwler8lk051" path="res://Gui/ControlsRightUi.tscn" id="4_sh1e6"]
 [ext_resource type="PackedScene" uid="uid://ck4oieai5v8t6" path="res://Game/Scenes/Claw.tscn" id="5_d4ees"]
+[ext_resource type="PackedScene" uid="uid://c0y7av58m1gyx" path="res://Game/Level1/Scenes/BoxShadow.tscn" id="5_i0vn2"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_4cxg7")
@@ -37,4 +38,9 @@ offset_top = -360.0
 offset_right = -640.0
 offset_bottom = -360.0
 
+[node name="Box" parent="." instance=ExtResource("5_i0vn2")]
+position = Vector2(-253, -47)
+scale = Vector2(0.65, 0.65)
+
 [node name="Claw" parent="." instance=ExtResource("5_d4ees")]
+position = Vector2(0, -348)

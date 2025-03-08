@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkan3ef2hj1or"]
+
+[ext_resource type="Texture2D" uid="uid://0pnu3tgvsyv6" path="res://Assets/Backgrounds/VictoryScreen.png" id="1_082be"]
+
+[node name="StartLevel" type="Window"]
+size = Vector2i(1184, 720)
+
+[node name="Start" type="TextureRect" parent="."]
+texture = ExtResource("1_082be")

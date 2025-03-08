@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://crx7kk6ur1l7x"]
+
+[ext_resource type="FontFile" uid="uid://dh06c4qagf4sw" path="res://Assets/Gui/Fonts/Retron2000.ttf" id="1_7hyh2"]
+
+[resource]
+default_font = ExtResource("1_7hyh2")

@@ -3,7 +3,7 @@ using System;
 
 namespace CrankUp
 {
-	public partial class Options : Control
+	public partial class Options : Window
 	{
 		public override void _Ready()
 		{
@@ -18,8 +18,7 @@ namespace CrankUp
 
 		public void _on_back_button_pressed()
 		{
-			GD.Print("Back Pressed");
-			GetTree().ChangeSceneToFile("res://Menus/MainMenu/Scenes/MainMenu.tscn");
+			this.Hide();
 		}
 	}
 }

@@ -10,14 +10,14 @@ namespace CrankUp
 		private bool isSceneChanging = false;
 		public override void _Ready()
 		{
-			TextureButton playButton = GetNode<TextureButton>("Buttons/PlayButton");
+			Button playButton = GetNode<Button>("Buttons/PlayButton");
 			playButton.Pressed += _on_play_button_pressed;
 
-			TextureButton optionsButton = GetNode<TextureButton>("Buttons/OptionsButton");
+			Button optionsButton = GetNode<Button>("Buttons/OptionsButton");
 			optionsButton.Pressed += _on_options_button_pressed;
 
-			TextureButton quitButton = GetNode<TextureButton>("Buttons/QuitButton");
-			quitButton.Pressed += _on_quit_button_pressed;
+			Button creditButton = GetNode<Button>("Buttons/CreditsButton");
+			creditButton.Pressed += _on_credit_button_pressed;
 		}
 
 		public void _on_play_button_pressed()
@@ -66,19 +66,8 @@ namespace CrankUp
             }
 		}
 
-		public void _on_quit_button_pressed()
+		public void _on_credit_button_pressed()
 		{
-			GD.Print("Quit Pressed");
-
-			var tree = GetTree();
-            if (tree != null)
-            {
-                tree.Quit();
-            }
-            else
-            {
-                GD.Print("Error: Tree is null");
-            }
 		}
 	}
 }

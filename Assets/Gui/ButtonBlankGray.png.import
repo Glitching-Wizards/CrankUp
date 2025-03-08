@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de56sue6acjtw"
-path="res://.godot/imported/LevelsBackGroundPixel.jpg-7ed092ff09a0a047b9f9320a762faec0.ctex"
+uid="uid://bpr33fv4xxu4t"
+path="res://.godot/imported/ButtonBlankGray.png-6f4381fd85055668bf97880528a307e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/LevelsBackGroundPixel.jpg"
-dest_files=["res://.godot/imported/LevelsBackGroundPixel.jpg-7ed092ff09a0a047b9f9320a762faec0.ctex"]
+source_file="res://Assets/Gui/ButtonBlankGray.png"
+dest_files=["res://.godot/imported/ButtonBlankGray.png-6f4381fd85055668bf97880528a307e3.ctex"]
 
 [params]
 

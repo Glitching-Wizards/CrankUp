@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbrwler8lk051"]
+[gd_scene load_steps=2 format=3 uid="uid://cbrwler8lk051"]
 
-[ext_resource type="Texture2D" uid="uid://dlwmauctbx1ot" path="res://Assets/Gui/Settings.png" id="1_gpg6b"]
 [ext_resource type="Texture2D" uid="uid://byhmjem6c0t4x" path="res://Assets/Gui/Drop.png" id="2_alhue"]
 
 [node name="ControlsRightUi" type="Control"]
@@ -18,17 +17,12 @@ offset_left = 1150.0
 offset_right = 1280.0
 offset_bottom = 720.0
 
-[node name="Settings" type="TextureButton" parent="Panel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture_normal = ExtResource("1_gpg6b")
-
 [node name="Release" type="TextureButton" parent="Panel"]
 layout_mode = 0
-offset_top = 590.0
-offset_right = 130.0
-offset_bottom = 720.0
+offset_left = 4.0
+offset_top = 593.0
+offset_right = 134.0
+offset_bottom = 723.0
 texture_normal = ExtResource("2_alhue")
 
 [node name="VSlider" type="VSlider" parent="Panel"]

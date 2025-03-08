@@ -1,21 +1,25 @@
-using Godot;
+/*using Godot;
 using System;
 
 namespace CrankUp
 {
     public partial class Levels : Node
     {
-    [Export] private string _startLevelScenePath = "res://Menus/LevelStart/Scenes/StartLevel1.tscn";
-    private Window startLevelWindow;
+    [Export] private string StartLevel1 = "res://Menus/LevelStart/Scenes/StartLevel1.tscn";
+    [Export] private string StartLevel2 = "res://Menus/LevelStart/Scenes/StartLevel2.tscn";
+    [Export] private string StartLevel3 = "res://Menus/LevelStart/Scenes/StartLevel3.tscn";
+    [Export] private string StartLevel4 = "res://Menus/LevelStart/Scenes/StartLevel4.tscn";
+    [Export] private string StartLevel5 = "res://Menus/LevelStart/Scenes/StartLevel5.tscn";
+    private int selectedLevel = 0;
+
+    private Window StartWindow;
+    private bool isSceneChanging = false;
 
 		    // Called when the node enters the scene tree for the first time.
 		public override void _Ready()
         {
-            PackedScene startScene = (PackedScene)GD.Load(_startLevelScenePath);
-    		startLevelWindow = (Window)startScene.Instantiate();
-    		AddChild(startLevelWindow);
-
-    		startLevelWindow.Visible = false;
+            TextureButton BackButton = GetNode<TextureButton>("Buttons/BackButton");
+            BackButton.Pressed += BackButtonPressed;
 
             TextureButton LevelButton1 = GetNode<TextureButton>("Buttons/Level1");
             LevelButton1.Pressed += () => LevelButtonPressed(1);
@@ -33,6 +37,10 @@ namespace CrankUp
             LevelButton5.Pressed += () => LevelButtonPressed(5);
         }
 
+        // Called every frame. 'delta' is the elapsed time since the previous frame.
+        public override void _Process(double delta)
+        {
+        }
 
         public void BackButtonPressed()
         {
@@ -41,15 +49,38 @@ namespace CrankUp
         }
 
 
-
+        /// <summary>
+        /// Katsotaan mikä leveli valitaan ja tuodaan esiin sen levelin pop up ikkuna.
+        /// </summary>
+        /// <param name="level">Valittu taso.</param>
         public void LevelButtonPressed(int level)
         {
-            GD.Print($"Level {level} button pressed");
+            selectedLevel = level;
 
-            string scenePath = GetLevelScenePath(level);
+            string scenePath = string.Empty;
+            Popup popup = null;
 
-            startLevelWindow.Popup();
-
+            switch(level)
+            {
+                case 1:
+                    StartLevel1.Popup();
+                    break;
+                case 2:
+                    StartLevel2.Popup();
+                    break;
+                case 3:
+                    StartLevel3.Popup();
+                    break;
+                case 4:
+                    StartLevel4.Popup();
+                    break;
+                case 5:
+                    StartLevel5.Popup();
+                    break;
+                default:
+                    GD.Print("Error: No such level " + level);
+                    break;
+            }
         }
 
         /// <summary>
@@ -71,4 +102,4 @@ namespace CrankUp
         }
     }
 }
-
+*/
