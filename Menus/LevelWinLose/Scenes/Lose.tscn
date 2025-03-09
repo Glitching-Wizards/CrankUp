@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://t8di6gto22h3"]
+[gd_scene load_steps=6 format=3 uid="uid://t8di6gto22h3"]
 
 [ext_resource type="Texture2D" uid="uid://cka1nt588tjap" path="res://Assets/Backgrounds/DefeatScreen.png" id="1_nb1yv"]
-[ext_resource type="Texture2D" uid="uid://bmskwodgspp0f" path="res://Assets/Gui/ButtonBlankYellow.png" id="2_wsh0u"]
-[ext_resource type="Texture2D" uid="uid://bpr33fv4xxu4t" path="res://Assets/Gui/ButtonBlankGray.png" id="3_187c2"]
 [ext_resource type="Texture2D" uid="uid://bvgtg0q0k8n42" path="res://Assets/Gui/BlankStar.png" id="4_sbl07"]
+[ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="5_ljc6y"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vd73c"]
+load_path = "res://.godot/imported/ButtonBlankYellow.png-4d13fabb8c2b97b0b67c8200b8f8f906.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lj3b2"]
+load_path = "res://.godot/imported/ButtonBlankGray.png-6f4381fd85055668bf97880528a307e3.ctex"
 
 [node name="Lose" type="Window"]
 size = Vector2i(1280, 720)
@@ -13,19 +18,19 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_nb1yv")
 
-[node name="RetryButton2" type="TextureButton" parent="."]
+[node name="RetryButton" type="TextureButton" parent="."]
 offset_left = 303.0
 offset_top = 427.0
 offset_right = 556.0
 offset_bottom = 557.0
-texture_normal = ExtResource("2_wsh0u")
+texture_normal = SubResource("CompressedTexture2D_vd73c")
 
-[node name="MenuButton2" type="TextureButton" parent="."]
+[node name="MenuButton" type="TextureButton" parent="."]
 offset_left = 718.0
 offset_top = 427.0
 offset_right = 971.0
 offset_bottom = 557.0
-texture_normal = ExtResource("3_187c2")
+texture_normal = SubResource("CompressedTexture2D_lj3b2")
 
 [node name="Star1" type="TextureRect" parent="."]
 offset_left = 342.0
@@ -47,3 +52,29 @@ offset_top = 210.0
 offset_right = 930.0
 offset_bottom = 360.0
 texture = ExtResource("4_sbl07")
+
+[node name="LevelFailed" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -270.0
+offset_top = 62.0
+offset_right = 342.0
+offset_bottom = 164.0
+grow_horizontal = 2
+theme = ExtResource("5_ljc6y")
+theme_override_font_sizes/font_size = 75
+text = "Level Failed!"
+
+[node name="NiceJob" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 186.0
+offset_top = 603.0
+offset_right = 798.0
+offset_bottom = 736.0
+grow_horizontal = 2
+theme = ExtResource("5_ljc6y")
+theme_override_font_sizes/font_size = 65
+text = "Try again!!"

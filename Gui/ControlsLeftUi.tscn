@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bu16bdidc32ex"]
+[gd_scene load_steps=5 format=3 uid="uid://bu16bdidc32ex"]
 
-[ext_resource type="Texture2D" uid="uid://dr5ia7hmpuu0l" path="res://Assets/Gui/Rotate.png" id="1_ty1st"]
-[ext_resource type="Texture2D" uid="uid://bskd5oath0065" path="res://Assets/Gui/Grab.png" id="2_ia6xu"]
-[ext_resource type="Texture2D" uid="uid://dlwmauctbx1ot" path="res://Assets/Gui/Settings.png" id="3_bwp4f"]
+[ext_resource type="Texture2D" uid="uid://dr5ia7hmpuu0l" path="res://Assets/Gui/Buttons/Rotate.png" id="1_ty1st"]
+[ext_resource type="Texture2D" uid="uid://bskd5oath0065" path="res://Assets/Gui/Buttons/Grab.png" id="2_ia6xu"]
+[ext_resource type="Texture2D" uid="uid://dlwmauctbx1ot" path="res://Assets/Gui/Buttons/Settings.png" id="3_bwp4f"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lj3b2"]
+load_path = "res://.godot/imported/ButtonBlankGray.png-6f4381fd85055668bf97880528a307e3.ctex"
 
 [node name="ControlsLeftUi" type="Control"]
 layout_mode = 3
@@ -43,7 +46,17 @@ min_value = -50.0
 max_value = 50.0
 
 [node name="Settings" type="TextureButton" parent="Panel"]
+layout_mode = 0
 offset_left = -4.0
 offset_right = 126.0
 offset_bottom = 130.0
 texture_normal = ExtResource("3_bwp4f")
+
+[node name="TextureButton" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 159.0
+offset_top = 33.0
+offset_right = 412.0
+offset_bottom = 163.0
+scale = Vector2(0.5, 0.5)
+texture_normal = SubResource("CompressedTexture2D_lj3b2")

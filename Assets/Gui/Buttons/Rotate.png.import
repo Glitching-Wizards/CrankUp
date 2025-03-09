@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b03kdh74aqub"
-path="res://.godot/imported/Play.png-161261e2271c899893ab0b61209bda3f.ctex"
+uid="uid://dr5ia7hmpuu0l"
+path="res://.godot/imported/Rotate.png-7075719c0ef2d612f3eff0e47fc69c6a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Gui/Play.png"
-dest_files=["res://.godot/imported/Play.png-161261e2271c899893ab0b61209bda3f.ctex"]
+source_file="res://Assets/Gui/Buttons/Rotate.png"
+dest_files=["res://.godot/imported/Rotate.png-7075719c0ef2d612f3eff0e47fc69c6a.ctex"]
 
 [params]
 

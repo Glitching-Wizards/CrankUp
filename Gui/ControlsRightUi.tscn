@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cbrwler8lk051"]
 
-[ext_resource type="Texture2D" uid="uid://byhmjem6c0t4x" path="res://Assets/Gui/Drop.png" id="2_alhue"]
+[ext_resource type="Texture2D" uid="uid://byhmjem6c0t4x" path="res://Assets/Gui/Buttons/Drop.png" id="2_alhue"]
 
 [node name="ControlsRightUi" type="Control"]
 layout_mode = 3

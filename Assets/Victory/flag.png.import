@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bskd5oath0065"
-path="res://.godot/imported/Grab.png-479a0af66210517ee8fd107db3a6a2dc.ctex"
+uid="uid://cnwsawav6lu8"
+path="res://.godot/imported/flag.png-910cbffed48e224cc87d2aa0e9a2e496.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Gui/Grab.png"
-dest_files=["res://.godot/imported/Grab.png-479a0af66210517ee8fd107db3a6a2dc.ctex"]
+source_file="res://Assets/Victory/flag.png"
+dest_files=["res://.godot/imported/flag.png-910cbffed48e224cc87d2aa0e9a2e496.ctex"]
 
 [params]
 

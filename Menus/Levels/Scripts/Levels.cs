@@ -49,7 +49,6 @@ namespace CrankUp
             string scenePath = GetLevelScenePath(level);
 
             startLevelWindow.Popup();
-
         }
 
         /// <summary>
@@ -62,10 +61,10 @@ namespace CrankUp
             return level switch
             {
                 1 => "res://Menus/LevelStart/Scenes/StartLevel1.tscn",
-                2 => "res://Game/Level2/Scenes/StartLevel2.tscn",
-                3 => "res://Game/Level3/Scenes/StartLevel3.tscn",
-                4 => "res://Game/Level4/Scenes/StartLevel4.tscn",
-                5 => "res://Game/Level5/Scenes/StartLevel5.tscn",
+                2 => "res://Menus/LevelStart/Scenes/StartLevel2.tscn",
+                3 => "res://Menus/LevelStart/Scenes/StartLevel3.tscn",
+                4 => "res://Menus/LevelStart/Scenes/StartLevel4.tscn",
+                5 => "res://Menus/LevelStart/Scenes/StartLevel5.tscn",
                 _ => string.Empty
             };
         }

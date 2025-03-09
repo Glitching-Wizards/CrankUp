@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brwi44gql8hdd"
-path="res://.godot/imported/back_arrow.png-2b4eb332e619c1207888b6bd26366d1d.ctex"
+uid="uid://cdrkjlfgda1hb"
+path="res://.godot/imported/LevelButton.png-845f7dca1b56aef6fddc773f61d7ab30.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Gui/back_arrow.png"
-dest_files=["res://.godot/imported/back_arrow.png-2b4eb332e619c1207888b6bd26366d1d.ctex"]
+source_file="res://Assets/Gui/Buttons/LevelButton.png"
+dest_files=["res://.godot/imported/LevelButton.png-845f7dca1b56aef6fddc773f61d7ab30.ctex"]
 
 [params]
 

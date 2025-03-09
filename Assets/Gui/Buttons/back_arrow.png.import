@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpr33fv4xxu4t"
-path="res://.godot/imported/ButtonBlankGray.png-6f4381fd85055668bf97880528a307e3.ctex"
+uid="uid://cdbki6g38necc"
+path="res://.godot/imported/back_arrow.png-d5cb577b7b219430d3f88c74aa1e5050.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Gui/ButtonBlankGray.png"
-dest_files=["res://.godot/imported/ButtonBlankGray.png-6f4381fd85055668bf97880528a307e3.ctex"]
+source_file="res://Assets/Gui/Buttons/back_arrow.png"
+dest_files=["res://.godot/imported/back_arrow.png-d5cb577b7b219430d3f88c74aa1e5050.ctex"]
 
 [params]
 

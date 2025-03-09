@@ -1,15 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3h8yejbsuxbm"]
+[gd_scene load_steps=7 format=3 uid="uid://b7kwcha2ue58l"]
 
-[ext_resource type="Texture2D" uid="uid://0pnu3tgvsyv6" path="res://Assets/Backgrounds/VictoryScreen.png" id="1_qyqnw"]
-[ext_resource type="Texture2D" uid="uid://bvgtg0q0k8n42" path="res://Assets/Gui/BlankStar.png" id="4_7m4kl"]
-[ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="5_1enaj"]
-[ext_resource type="Texture2D" uid="uid://iltf4ckdrglj" path="res://Assets/Victory/StarFinal.png" id="6_ixclm"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x3dlt"]
-load_path = "res://.godot/imported/ButtonBlankGreen.png-62752d66a5d1efce16e36b6c89d69356.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lj3b2"]
-load_path = "res://.godot/imported/ButtonBlankGray.png-6f4381fd85055668bf97880528a307e3.ctex"
+[ext_resource type="Texture2D" uid="uid://0pnu3tgvsyv6" path="res://Assets/Backgrounds/VictoryScreen.png" id="1_iuvmb"]
+[ext_resource type="Texture2D" uid="uid://fk4sfcqp2i5b" path="res://Assets/Gui/ButtonBlankGreen.png" id="2_pyahe"]
+[ext_resource type="Texture2D" uid="uid://bpr33fv4xxu4t" path="res://Assets/Gui/ButtonBlankGray.png" id="3_20odp"]
+[ext_resource type="Texture2D" uid="uid://bvgtg0q0k8n42" path="res://Assets/Gui/BlankStar.png" id="4_0kf3p"]
+[ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="5_swlj3"]
+[ext_resource type="Texture2D" uid="uid://iltf4ckdrglj" path="res://Assets/Victory/StarFinal.png" id="6_c7qtu"]
 
 [node name="Win" type="Window"]
 size = Vector2i(1280, 720)
@@ -17,49 +13,49 @@ size = Vector2i(1280, 720)
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1280.0
 offset_bottom = 720.0
-texture = ExtResource("1_qyqnw")
+texture = ExtResource("1_iuvmb")
 
 [node name="RetryButton" type="TextureButton" parent="."]
 offset_left = 258.0
 offset_top = 370.0
 offset_right = 511.0
 offset_bottom = 500.0
-texture_normal = SubResource("CompressedTexture2D_x3dlt")
+texture_normal = ExtResource("2_pyahe")
 
 [node name="MenuButton" type="TextureRect" parent="."]
 offset_left = 514.0
 offset_top = 487.0
 offset_right = 767.0
 offset_bottom = 617.0
-texture = SubResource("CompressedTexture2D_lj3b2")
+texture = ExtResource("3_20odp")
 
 [node name="NextButton" type="TextureButton" parent="."]
 offset_left = 772.0
 offset_top = 369.0
 offset_right = 1025.0
 offset_bottom = 499.0
-texture_normal = SubResource("CompressedTexture2D_x3dlt")
+texture_normal = ExtResource("2_pyahe")
 
 [node name="Star1" type="TextureRect" parent="."]
 offset_left = 343.0
 offset_top = 210.0
 offset_right = 493.0
 offset_bottom = 360.0
-texture = ExtResource("4_7m4kl")
+texture = ExtResource("4_0kf3p")
 
 [node name="Star2" type="TextureRect" parent="."]
 offset_left = 565.0
 offset_top = 262.0
 offset_right = 715.0
 offset_bottom = 412.0
-texture = ExtResource("4_7m4kl")
+texture = ExtResource("4_0kf3p")
 
 [node name="Star3" type="TextureRect" parent="."]
 offset_left = 780.0
 offset_top = 210.0
 offset_right = 930.0
 offset_bottom = 360.0
-texture = ExtResource("4_7m4kl")
+texture = ExtResource("4_0kf3p")
 
 [node name="LevelPassed" type="Label" parent="."]
 anchors_preset = 5
@@ -70,7 +66,7 @@ offset_top = 62.0
 offset_right = 320.0
 offset_bottom = 164.0
 grow_horizontal = 2
-theme = ExtResource("5_1enaj")
+theme = ExtResource("5_swlj3")
 theme_override_font_sizes/font_size = 75
 text = "Level Passed!"
 
@@ -78,14 +74,14 @@ text = "Level Passed!"
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 190.0
-offset_top = 600.0
-offset_right = 802.0
-offset_bottom = 733.0
+offset_left = 198.0
+offset_top = 597.0
+offset_right = 810.0
+offset_bottom = 730.0
 grow_horizontal = 2
-theme = ExtResource("5_1enaj")
+theme = ExtResource("5_swlj3")
 theme_override_font_sizes/font_size = 75
-text = "Nice Job!"
+text = "Amazing!"
 
 [node name="ShinyStar" type="TextureRect" parent="."]
 anchors_preset = 8
@@ -98,4 +94,18 @@ offset_top = -150.0
 offset_right = -145.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("6_ixclm")
+texture = ExtResource("6_c7qtu")
+
+[node name="ShinyStar2" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = -97.0
+offset_right = 76.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_c7qtu")

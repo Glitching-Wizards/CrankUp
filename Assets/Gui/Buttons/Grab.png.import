@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccx1gnhxg2l08"
-path="res://.godot/imported/yellow_button.png-8ccae45b472a60fb91d1f02f13d7ac77.ctex"
+uid="uid://bskd5oath0065"
+path="res://.godot/imported/Grab.png-ba7702889863d7656f4b20628402007c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Gui/yellow_button.png"
-dest_files=["res://.godot/imported/yellow_button.png-8ccae45b472a60fb91d1f02f13d7ac77.ctex"]
+source_file="res://Assets/Gui/Buttons/Grab.png"
+dest_files=["res://.godot/imported/Grab.png-ba7702889863d7656f4b20628402007c.ctex"]
 
 [params]
 

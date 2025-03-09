@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7p27q74gdhu2"
-path="res://.godot/imported/slider_button.png-873b06b513e0562626c22b262152bc27.ctex"
+uid="uid://iltf4ckdrglj"
+path="res://.godot/imported/StarFinal.png-c5af7ef3c385f9169cb695cb1d348625.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Gui/slider_button.png"
-dest_files=["res://.godot/imported/slider_button.png-873b06b513e0562626c22b262152bc27.ctex"]
+source_file="res://Assets/Victory/StarFinal.png"
+dest_files=["res://.godot/imported/StarFinal.png-c5af7ef3c385f9169cb695cb1d348625.ctex"]
 
 [params]
 
