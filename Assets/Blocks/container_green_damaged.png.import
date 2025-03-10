@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwduq5xrq34qv"
-path="res://.godot/imported/Level1_background.png-48c7870d47c8d98c5de247dc212c8d6f.ctex"
+uid="uid://4bdi2ey82rpd"
+path="res://.godot/imported/container_green_damaged.png-2292745e3eb41aeb1be72377a5dbd165.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Level1_background.png"
-dest_files=["res://.godot/imported/Level1_background.png-48c7870d47c8d98c5de247dc212c8d6f.ctex"]
+source_file="res://Assets/Blocks/container_green_damaged.png"
+dest_files=["res://.godot/imported/container_green_damaged.png-2292745e3eb41aeb1be72377a5dbd165.ctex"]
 
 [params]
 

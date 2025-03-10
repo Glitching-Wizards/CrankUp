@@ -3,7 +3,7 @@ using System;
 
 public partial class Block : RigidBody2D
 {
-	[Export] private int maxHealth = 3;
+	[Export] private int maxHealth = 5;
 	private int currentHealth;
 	private Sprite2D sprite;
 	private PinJoint2D joint; 
@@ -25,9 +25,9 @@ public partial class Block : RigidBody2D
 
 	private void UpdateSprite()
 	{
-		if (currentHealth == 3)
+		if (currentHealth == 4)
 			sprite.Texture = healthy;
-		else if (currentHealth == 2)
+		else if (currentHealth == 2 || currentHealth == 3 || currentHealth == 4)
 			sprite.Texture = damaged;
 		else if (currentHealth == 1)
 			sprite.Texture = broken;
@@ -43,7 +43,7 @@ public partial class Block : RigidBody2D
 	{
 		Vector2 LinearVelocity = state.LinearVelocity;
 
-		if (LinearVelocity.Length() > 300f)
+		if (LinearVelocity.Length() > 500f)
 		{
 			TakeDamage();
 		}

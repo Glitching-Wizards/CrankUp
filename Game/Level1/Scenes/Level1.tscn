@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://byc8kq1gm1tqq" path="res://Game/Scenes/Block.tscn" id="6_fvkv6"]
 [ext_resource type="PackedScene" uid="uid://br88ir8sd35jl" path="res://Game/Scenes/LongBlock.tscn" id="7_jaq0w"]
 [ext_resource type="Script" path="res://Game/Scripts/PlacementArea.cs" id="7_p8h2n"]
-[ext_resource type="Texture2D" uid="uid://c05ftje3khlk7" path="res://Assets/Backgrounds/PlacementArea.png" id="8_y0yup"]
+[ext_resource type="Texture2D" uid="uid://qlwyq2i23e47" path="res://Assets/Misc/BoxShadow.png" id="9_dibf0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aeeyk"]
 size = Vector2(218, 155)
@@ -68,10 +68,11 @@ offset_right = 79.0
 offset_bottom = -70.0
 
 [node name="TextureRect" type="TextureRect" parent="PlacementArea"]
-offset_left = -126.0
-offset_top = -105.0
-offset_right = 130.0
-offset_bottom = 151.0
-texture = ExtResource("8_y0yup")
+offset_left = -109.0
+offset_top = -91.0
+offset_right = 1021.0
+offset_bottom = 854.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_dibf0")
 
 [connection signal="body_entered" from="PlacementArea" to="PlacementArea" method="_on_body_entered"]

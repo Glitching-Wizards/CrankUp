@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd71banht4spd"
-path="res://.godot/imported/block04.png-af7aa34c5a9d7db75b852b75faa195d9.ctex"
+uid="uid://4fnl4lgyb4th"
+path="res://.godot/imported/container_green_healthy.png-97160ef687c03d56cba7f6ee16164e2d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/block04.png"
-dest_files=["res://.godot/imported/block04.png-af7aa34c5a9d7db75b852b75faa195d9.ctex"]
+source_file="res://Assets/Blocks/container_green_healthy.png"
+dest_files=["res://.godot/imported/container_green_healthy.png-97160ef687c03d56cba7f6ee16164e2d.ctex"]
 
 [params]
 
