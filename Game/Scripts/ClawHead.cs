@@ -11,15 +11,9 @@ public partial class ClawHead : CharacterBody2D
 	private Area2D grabArea;
 	private List<Block> nearbyBlocks = new List<Block>();
 	private float _currentSpeed = 0f;
-
-	public enum Direction
-	{
-		None = 0,
-		Up,
-		Down,
-		Right,
-		Left
-	}
+	private int currentGrabPointIndex = 0;  // Index to track the current grab point
+	// List to hold the Marker2D grab points on the block
+    private List<Marker2D> grabMarkers = new List<Marker2D>();
 
 	public override void _Ready()
 	{
@@ -43,6 +37,11 @@ public partial class ClawHead : CharacterBody2D
 
 	public void GrabBlock()
 	{
+		if (grabbedBlock != null)
+		{
+			return;
+		}
+
 		if (nearbyBlocks.Count == 0)
 		{
 			GD.Print("No blocks nearby!");
@@ -50,22 +49,45 @@ public partial class ClawHead : CharacterBody2D
 		}
 
 		grabbedBlock = nearbyBlocks[0];
-		GD.Print("Grabbed block: " + grabbedBlock.Name);
 
+		FindGrabMarkers(grabbedBlock);
+
+		// Find the nearest Marker2D on the block
+        Marker2D grabMarker = grabMarkers[currentGrabPointIndex];
+
+		// Attach block to the position of the nearest Marker2D using a PinJoint2D
 		joint = new PinJoint2D();
 		joint.Name = "PinJoint2D";
-		GlobalPosition = GlobalPosition;
 		joint.NodeA = GetPath();
 		joint.NodeB = grabbedBlock.GetPath();
 
-		AddChild(joint);
+		// Set the joint's position relative to the claw and the grab marker
+        joint.Position = grabMarker.GlobalPosition - GlobalPosition;
 
-		grabbedBlock.SetPhysicsProcess(false); // Disable physics movement
-        grabbedBlock.LinearVelocity = Vector2.Zero;
-        grabbedBlock.AngularVelocity = 0f;
+		// Add the joint as a child to the claw to keep it in the correct hierarchy
+		AddChild(joint);
 	}
 
-	public void DropBlock()
+	private Marker2D FindGrabMarkers(Block block)
+	{
+		// Get all Marker2D children of the block
+        grabMarkers.Clear();
+        foreach (Node child in block.GetChildren())
+		{
+			if (child is Marker2D marker)
+			{
+				grabMarkers.Add(marker);
+			}
+		}
+
+		if (grabMarkers.Count > 0)
+		{
+			return grabMarkers[currentGrabPointIndex];
+		}
+		return null; // No markers found
+	}
+
+    public void DropBlock()
 	{
 		if (joint != null)
 		{
@@ -73,9 +95,28 @@ public partial class ClawHead : CharacterBody2D
 			joint = null;
 		}
 		grabbedBlock = null;
+		currentGrabPointIndex = 0; // Reset grab point index on drop
 	}
 
-	public void Move(Vector2 direction, float speedFactor, double delta)
+	public void RotateBlock()
+    {
+        if (grabbedBlock != null)
+        {
+           // Store the joint's global position before switching markers
+			Vector2 oldJointPosition = joint.GlobalPosition;
+
+			// Move to the next grab marker
+			currentGrabPointIndex = (currentGrabPointIndex + 1) % grabMarkers.Count;
+			GD.Print("Rotating to grab marker index: " + currentGrabPointIndex);
+
+			// Update the joint position directly instead of regrabbing
+			Marker2D newMarker = grabMarkers[currentGrabPointIndex];
+			joint.GlobalPosition = oldJointPosition;
+			joint.Position = newMarker.GlobalPosition - GlobalPosition;
+        }
+    }
+
+    public void Move(Vector2 direction, float speedFactor, double delta)
 	{
 		if (direction != Vector2.Zero)
         {
@@ -98,5 +139,8 @@ public partial class ClawHead : CharacterBody2D
 
 		if (Input.IsActionJustPressed("Drop") && grabbedBlock != null)
 			DropBlock();
+		
+		if (Input.IsActionJustPressed("Rotate") && grabbedBlock != null)
+			RotateBlock();
 	}
 }

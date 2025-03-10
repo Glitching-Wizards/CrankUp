@@ -56,4 +56,5 @@ theme_override_icons/tick = ExtResource("3_1glo6")
 min_value = -50.0
 max_value = 50.0
 
+[connection signal="pressed" from="Panel/Rotate" to="." method="_on_rotate_pressed"]
 [connection signal="pressed" from="Panel/Grab" to="." method="_on_grab_pressed"]

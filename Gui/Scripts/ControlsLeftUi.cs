@@ -6,6 +6,7 @@ public partial class ControlsLeftUi : Control
 {
     private ClawHead clawHead;
     private TextureButton grabButton;
+    private TextureButton rotateButton;
     private VSlider moveSlider;
     private float moveSliderValue;
     private Vector2 movementDirection = Vector2.Zero;
@@ -18,6 +19,12 @@ public partial class ControlsLeftUi : Control
         {
             GD.PrintErr("[ERROR] TextureButton 'Grab' not found in ControlsLeftUi!");
             return;
+        }
+
+        rotateButton = GetNodeOrNull<TextureButton>("Panel/Rotate");
+        if (rotateButton == null)
+        {
+            GD.PrintErr("[ERROR] TextureButton 'Rotate' not found in ControlsLeftUi!");
         }
 
         // Find the moveSlider safely
@@ -40,17 +47,18 @@ public partial class ControlsLeftUi : Control
 
         // Connect button signals
         grabButton.Pressed += OnGrabPressed;
+        rotateButton.Pressed += OnRotatePressed;
         moveSlider.ValueChanged += OnSliderValueChanged;
     }
 
     private void OnGrabPressed()
     {
-        if (clawHead == null)
-        {
-            GD.PrintErr("[ERROR] ClawHead reference is missing!");
-            return;
-        }
-        clawHead.GrabBlock();
+        if (clawHead != null) clawHead.GrabBlock();      
+    }
+
+    private void OnRotatePressed()
+    {
+        if (clawHead != null) clawHead.RotateBlock();
     }
 
     private void OnSliderValueChanged(double value)
