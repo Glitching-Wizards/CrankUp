@@ -8,6 +8,7 @@
 transparent_bg = true
 initial_position = 1
 size = Vector2i(1200, 680)
+exclusive = true
 unresizable = true
 borderless = true
 always_on_top = true

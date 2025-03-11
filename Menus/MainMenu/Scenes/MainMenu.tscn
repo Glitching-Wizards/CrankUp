@@ -37,56 +37,72 @@ grow_horizontal = 2
 texture = ExtResource("3_po8ey")
 
 [node name="Buttons" type="Control" parent="."]
-anchors_preset = 0
-
-[node name="PlayButton" type="TextureButton" parent="Buttons"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 385.0
-offset_top = 319.0
-offset_right = 603.0
-offset_bottom = 389.0
+offset_left = -320.0
+offset_top = -309.0
+offset_right = 320.0
+offset_bottom = 411.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2, 2)
-texture_normal = ExtResource("4_fgpoo")
 
-[node name="SettingsButton" type="TextureButton" parent="Buttons"]
+[node name="PlayButton" type="Button" parent="Buttons"]s
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.509
-anchor_top = 0.651
-anchor_right = 0.509
-anchor_bottom = 0.651
-offset_left = 481.0
-offset_top = 482.0
-offset_right = 655.0
-offset_bottom = 541.0
-scale = Vector2(1.5, 1.5)
-size_flags_horizontal = 4
-texture_normal = ExtResource("5_dy1lw")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -223.0
+offset_top = -136.0
+offset_right = 44.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.7, 1.7)
+theme = ExtResource("7_fu8vc")
+text = "Play"
 
-[node name="QuitButton" type="TextureButton" parent="Buttons"]
-layout_mode = 0
-offset_left = 483.0
-offset_top = 589.0
-offset_right = 657.0
-offset_bottom = 648.0
-scale = Vector2(1.5, 1.5)
-texture_normal = ExtResource("6_mlb12")
+[node name="OptionsButton" type="Button" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -172.0
+offset_top = -262.0
+offset_right = 178.0
+offset_bottom = -138.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("7_3j4q1")
+theme_override_font_sizes/font_size = 70
+text = "Options"
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="CreditsButton" type="Button" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -174.0
+offset_top = -138.0
+offset_right = 176.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("7_3j4q1")
+theme_override_font_sizes/font_size = 70
+text = "Credits"
 
 [node name="Jarkko" type="Sprite2D" parent="."]
 position = Vector2(1092, 558)
 scale = Vector2(2.34438, 2.34438)
 texture = ExtResource("7_31tnq")
 flip_h = true
-
-[connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="Buttons/SettingsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="Buttons/QuitButton" to="." method="_on_quit_button_pressed"]

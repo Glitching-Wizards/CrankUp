@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ceewu66bq3xym" path="res://Assets/Blocks/container_blue_broken.png" id="4_b0uo8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_efy25"]
-size = Vector2(121, 63)
+size = Vector2(120, 60)
 
 [node name="Block" type="RigidBody2D"]
 position = Vector2(-21, -89)
@@ -21,5 +21,20 @@ scale = Vector2(0.507692, 0.48)
 texture = ExtResource("2_7btif")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4, 5)
+position = Vector2(-10, 6)
 shape = SubResource("RectangleShape2D_efy25")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-10, -24)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(50, 5)
+rotation = 1.5708
+
+[node name="Marker2D3" type="Marker2D" parent="."]
+position = Vector2(-10, 36)
+rotation = 3.14159
+
+[node name="Marker2D4" type="Marker2D" parent="."]
+position = Vector2(-70, 5)
+rotation = 4.71239

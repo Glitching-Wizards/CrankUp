@@ -52,8 +52,6 @@ namespace CrankUp
             GetTree().ChangeSceneToFile("res://Menus/Settings/Scenes/Settings.tscn");
         }
 
-
-
         public void LevelButtonPressed(int level)
         {
             GD.Print($"Level {level} button pressed");
