@@ -4,7 +4,6 @@
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qhqup"]
 
-<<<<<<< HEAD:Menus/Settings/Scenes/Settings.tscn
 [node name="Settings" type="Window"]
 initial_position = 1
 size = Vector2i(1200, 680)
@@ -12,26 +11,15 @@ exclusive = true
 unresizable = true
 borderless = true
 script = ExtResource("1_n5s8t")
-=======
-[node name="Control" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-script = ExtResource("1_k8yrm")
->>>>>>> origin/Jasmin:Menus/Options/Scenes/Options.tscn
 
 [node name="Panel" type="Panel" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 502.0
-offset_bottom = 247.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-<<<<<<< HEAD:Menus/Settings/Scenes/Settings.tscn
 offset_left = 495.0
 offset_top = 92.0
 offset_right = 860.0
@@ -41,17 +29,4 @@ text = "Settings"
 [node name="BackButton" type="TextureButton" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
-=======
-offset_left = 216.0
-offset_top = 125.0
-offset_right = 308.0
-offset_bottom = 217.0
-text = "Options"
-
-[node name="BackButton" type="TextureButton" parent="."]
-offset_left = 10.0
-offset_top = 11.0
-offset_right = 102.0
-offset_bottom = 103.0
->>>>>>> origin/Jasmin:Menus/Options/Scenes/Options.tscn
 texture_normal = SubResource("CompressedTexture2D_qhqup")
