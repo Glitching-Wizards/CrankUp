@@ -3,7 +3,11 @@ using System;
 
 namespace CrankUp
 {
+<<<<<<< HEAD:Menus/Settings/Scripts/Settings.cs
 	public partial class Settings : Window
+=======
+	public partial class Options : Window
+>>>>>>> origin/Jasmin:Menus/Options/Scripts/Options.cs
 	{
 		public override void _Ready()
 		{

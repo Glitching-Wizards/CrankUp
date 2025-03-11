@@ -1,10 +1,15 @@
+<<<<<<< HEAD
 [gd_scene load_steps=11 format=3 uid="uid://cts5ygn8db8c0"]
+=======
+[gd_scene load_steps=7 format=3 uid="uid://cts5ygn8db8c0"]
+>>>>>>> origin/Jasmin
 
 [ext_resource type="Script" path="res://Game/Level1/Scripts/Level1.cs" id="1_4cxg7"]
 [ext_resource type="PackedScene" uid="uid://dnr4wgld8simd" path="res://Gui/Background.tscn" id="2_gy3yl"]
 [ext_resource type="PackedScene" uid="uid://bu16bdidc32ex" path="res://Gui/ControlsLeftUi.tscn" id="3_qb5ov"]
 [ext_resource type="PackedScene" uid="uid://cbrwler8lk051" path="res://Gui/ControlsRightUi.tscn" id="4_sh1e6"]
 [ext_resource type="PackedScene" uid="uid://ck4oieai5v8t6" path="res://Game/Scenes/Claw.tscn" id="5_d4ees"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://byc8kq1gm1tqq" path="res://Game/Scenes/Block.tscn" id="6_fvkv6"]
 [ext_resource type="PackedScene" uid="uid://br88ir8sd35jl" path="res://Game/Scenes/LongBlock.tscn" id="7_jaq0w"]
 [ext_resource type="Script" path="res://Game/Scripts/PlacementArea.cs" id="7_p8h2n"]
@@ -12,6 +17,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aeeyk"]
 size = Vector2(218, 155)
+=======
+[ext_resource type="PackedScene" uid="uid://c0y7av58m1gyx" path="res://Game/Level1/Scenes/BoxShadow.tscn" id="5_i0vn2"]
+>>>>>>> origin/Jasmin
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_4cxg7")
@@ -44,7 +52,12 @@ offset_top = -360.0
 offset_right = -640.0
 offset_bottom = -360.0
 
+[node name="Box" parent="." instance=ExtResource("5_i0vn2")]
+position = Vector2(-253, -47)
+scale = Vector2(0.65, 0.65)
+
 [node name="Claw" parent="." instance=ExtResource("5_d4ees")]
+<<<<<<< HEAD
 
 [node name="Block" parent="." instance=ExtResource("6_fvkv6")]
 
@@ -73,3 +86,6 @@ offset_bottom = 151.0
 texture = ExtResource("8_y0yup")
 
 [connection signal="body_entered" from="PlacementArea" to="PlacementArea" method="_on_body_entered"]
+=======
+position = Vector2(0, -348)
+>>>>>>> origin/Jasmin

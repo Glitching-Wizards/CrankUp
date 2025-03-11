@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bskd5oath0065"
-path="res://.godot/imported/Grab.png-479a0af66210517ee8fd107db3a6a2dc.ctex"
+uid="uid://cdbki6g38necc"
+path="res://.godot/imported/back_arrow.png-d5cb577b7b219430d3f88c74aa1e5050.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Gui/Grab.png"
-dest_files=["res://.godot/imported/Grab.png-479a0af66210517ee8fd107db3a6a2dc.ctex"]
+source_file="res://Assets/Gui/Buttons/back_arrow.png"
+dest_files=["res://.godot/imported/back_arrow.png-d5cb577b7b219430d3f88c74aa1e5050.ctex"]
 
 [params]
 

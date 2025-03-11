@@ -1,0 +1,16 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://colwlgqshrnbe"]
+
+[ext_resource type="Texture2D" uid="uid://kcivpk3q7ien" path="res://Assets/Gui/Buttons/red_button.png" id="1_g6vuy"]
+[ext_resource type="FontFile" uid="uid://douaf6x3xd88g" path="res://Assets/Gui/Fonts/upheavtt.ttf" id="2_47xh6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ccnxr"]
+texture = ExtResource("1_g6vuy")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 40.0
+
+[resource]
+default_font = ExtResource("2_47xh6")
+default_font_size = 100
+Button/styles/normal = SubResource("StyleBoxTexture_ccnxr")

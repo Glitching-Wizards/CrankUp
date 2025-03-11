@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chjnionb3au01"
-valid=false
+uid="uid://cw0aqotptep31"
+path="res://.godot/imported/BoxShadow.png-91240e71328da05e024d8a853515b974.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Assets/Backgrounds/LevelsBackGround.png"
+source_file="res://Assets/Models/BoxShadow.png"
+dest_files=["res://.godot/imported/BoxShadow.png-91240e71328da05e024d8a853515b974.ctex"]
 
 [params]
 
