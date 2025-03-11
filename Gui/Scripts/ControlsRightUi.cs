@@ -23,7 +23,7 @@ public partial class ControlsRightUi : Control
             return;
         }
 
-        settingsButton = GetNodeOrNull<TextureButton>("Panel/Settings");
+        settingsButton = GetNodeOrNull<TextureButton>("Panel/SettingsButton");
         if (settingsButton == null)
         {
             GD.PrintErr("[ERROR] TextureButton 'Settings' not found in ControlsRightUi!");
@@ -72,13 +72,13 @@ public partial class ControlsRightUi : Control
         clawHead.DropBlock();
     }
 
-        private void OnSliderValueChanged(double value)
+    private void OnSliderValueChanged(double value)
     {
         moveSliderValue = (float)value;
 
-        if (moveSliderValue > 0)
+        if (moveSliderValue > 5)
             movementDirection = Vector2.Right;
-        else if (moveSliderValue < 0)
+        else if (moveSliderValue < 5)
             movementDirection = Vector2.Left;
         else
             movementDirection = Vector2.Zero;

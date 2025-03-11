@@ -12,14 +12,13 @@ namespace CrankUp
             PlayButton.Pressed += PlayButtonPressed;
 
             TextureButton MenuButton = GetNode<TextureButton>("MenuButton");
-            MenuButton.Pressed += MenuButtonPressed;
+			MenuButton.Pressed += () => MenuButtonPressed();
         }
 
 
         public void MenuButtonPressed()
         {
-            GD.Print("Menu Pressed");
-            GetTree().ChangeSceneToFile("res://Menus/MainMenu/Scenes/MainMenu.tscn");
+            this.Hide();
         }
 
         public void PlayButtonPressed()

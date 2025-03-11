@@ -53,7 +53,7 @@ public partial class ControlsLeftUi : Control
 
     private void OnGrabPressed()
     {
-        if (clawHead != null) clawHead.GrabBlock();      
+        if (clawHead != null) clawHead.GrabBlock();
     }
 
     private void OnRotatePressed()
@@ -65,9 +65,9 @@ public partial class ControlsLeftUi : Control
     {
         moveSliderValue = (float)value;
 
-        if (moveSliderValue > 0)
+        if (moveSliderValue > 5)
             movementDirection = Vector2.Up;
-        else if (moveSliderValue < 0)
+        else if (moveSliderValue < -5)
             movementDirection = Vector2.Down;
         else
             movementDirection = Vector2.Zero;
