@@ -1,0 +1,96 @@
+[gd_scene load_steps=12 format=3 uid="uid://c7jwnxvi64chy"]
+
+[ext_resource type="Texture2D" uid="uid://k2ji4rswhfbd" path="res://Assets/Backgrounds/Level1Background.png" id="1_i8yri"]
+[ext_resource type="PackedScene" uid="uid://byc8kq1gm1tqq" path="res://Game/Scenes/Block.tscn" id="2_a2b3i"]
+[ext_resource type="PackedScene" uid="uid://br88ir8sd35jl" path="res://Game/Scenes/LongBlock.tscn" id="2_huv3a"]
+[ext_resource type="Texture2D" uid="uid://duxnkmbpy8csc" path="res://Assets/Misc/Beam.png" id="3_r10e7"]
+[ext_resource type="Script" path="res://Game/Scripts/Rope.cs" id="4_0s4v4"]
+[ext_resource type="Texture2D" uid="uid://ccv8h3t48swtc" path="res://Assets/Blocks/Block04.png" id="4_drqgd"]
+[ext_resource type="Script" path="res://Game/Scripts/PlacementArea.cs" id="7_vc85w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qko2c"]
+size = Vector2(1153, 140)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2j122"]
+size = Vector2(11, 232)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2lagh"]
+size = Vector2(16.1382, 24.4129)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0aiyy"]
+size = Vector2(281.45, 244.099)
+
+[node name="Main" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_i8yri")
+
+[node name="Block" parent="." instance=ExtResource("2_a2b3i")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="LongBlock" parent="." instance=ExtResource("2_huv3a")]
+position = Vector2(310, 227)
+gravity_scale = 1.0
+
+[node name="LongBlock2" parent="." instance=ExtResource("2_huv3a")]
+position = Vector2(561, 239)
+gravity_scale = 1.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-3, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.5, 323)
+shape = SubResource("RectangleShape2D_qko2c")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(14.0001, 321)
+scale = Vector2(13.6833, 4.50833)
+texture = ExtResource("3_r10e7")
+
+[node name="Rope" type="CharacterBody2D" parent="."]
+collision_mask = 2
+script = ExtResource("4_0s4v4")
+_speed = null
+
+[node name="Sprite2D" type="Sprite2D" parent="Rope"]
+position = Vector2(-27, -204)
+rotation = 1.5708
+scale = Vector2(1.94542, 0.33999)
+texture = ExtResource("4_drqgd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope"]
+position = Vector2(-22.5, -204)
+shape = SubResource("RectangleShape2D_2j122")
+
+[node name="GrabArea" type="Area2D" parent="Rope"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope/GrabArea"]
+position = Vector2(-22.5, -69)
+scale = Vector2(2.91234, -1.55655)
+shape = SubResource("RectangleShape2D_2lagh")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(-23, -96)
+scale = Vector2(7.18762, 6.93292)
+node_a = NodePath("../Rope")
+node_b = NodePath("../Block")
+
+[node name="PlacementArea" type="Area2D" parent="."]
+collision_mask = 2
+script = ExtResource("7_vc85w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlacementArea"]
+position = Vector2(-22, 144)
+scale = Vector2(0.888258, 0.854341)
+shape = SubResource("RectangleShape2D_0aiyy")
+
+[node name="ScoreLabel" type="Label" parent="PlacementArea"]
+offset_left = -523.0
+offset_top = -343.0
+offset_right = -65.0
+offset_bottom = -144.0
+
+[connection signal="body_entered" from="PlacementArea" to="PlacementArea" method="_on_body_entered"]
