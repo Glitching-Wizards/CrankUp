@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://bskd5oath0065" path="res://Assets/Gui/Buttons/Grab.png" id="2_ia6xu"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_07r6a"]
-load_path = "res://.godot/imported/Settings.png-6fafa9f1a8a0a158b2722dd5c9be669e.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lj3b2"]
 

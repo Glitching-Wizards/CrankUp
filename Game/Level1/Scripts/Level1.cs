@@ -20,6 +20,8 @@ public partial class Level1 : Node2D
 	public override void _Ready()
 	{
 		_claw = CreateClaw();
+
+
 	}
 
 	public Level1()
@@ -45,7 +47,7 @@ public partial class Level1 : Node2D
 	{
 	}
 
-	//public void GameStop()
+	//public void GameFinish()
 	//{
 	//	if  (Score > 30)
 	//	{

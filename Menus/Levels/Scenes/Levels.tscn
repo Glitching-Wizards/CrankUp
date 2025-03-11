@@ -99,7 +99,7 @@ offset_bottom = 112.0
 texture_normal = ExtResource("5_g2hs5")
 texture_pressed = ExtResource("6_76n8v")
 
-[node name="SettingButton" type="TextureButton" parent="Buttons"]
+[node name="SettingsButton" type="TextureButton" parent="Buttons"]
 offset_left = 1138.0
 offset_top = 6.0
 offset_right = 1268.0
