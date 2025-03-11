@@ -8,6 +8,8 @@
 initial_position = 1
 size = Vector2i(1200, 680)
 exclusive = true
+unresizable = true
+borderless = true
 script = ExtResource("1_n5s8t")
 
 [node name="Panel" type="Panel" parent="."]
