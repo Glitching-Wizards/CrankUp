@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctrbxconu8ml"]
+[gd_scene load_steps=9 format=3 uid="uid://ctrbxconu8ml"]
 
 [ext_resource type="Script" path="res://Menus/Levels/Scripts/Levels.cs" id="1_g0cmt"]
 [ext_resource type="Texture2D" uid="uid://b0apwqvjpw3fu" path="res://Assets/Backgrounds/Levels.png" id="2_ph7px"]
 [ext_resource type="Texture2D" uid="uid://cdrkjlfgda1hb" path="res://Assets/Gui/Buttons/LevelButton.png" id="3_h5sxm"]
-[ext_resource type="Texture2D" uid="uid://cvuuyxkfsqlbw" path="res://Assets/Backgrounds/back_arrow.png" id="3_sbx5p"]
 [ext_resource type="Texture2D" uid="uid://cnwsawav6lu8" path="res://Assets/Victory/flag.png" id="4_2ar3c"]
-[ext_resource type="Texture2D" uid="uid://dlwmauctbx1ot" path="res://Assets/Gui/Buttons/Settings.png" id="4_c3mfn"]
+[ext_resource type="Texture2D" uid="uid://cgsynnhqxp5gt" path="res://Assets/Gui/Buttons/back_arrow1.png" id="5_g2hs5"]
+[ext_resource type="Texture2D" uid="uid://dwpija6ht0ruh" path="res://Assets/Gui/Buttons/back_arrow2.png" id="6_76n8v"]
+[ext_resource type="Texture2D" uid="uid://b4bjdgq72inu5" path="res://Assets/Gui/Buttons/settings_new1.png" id="7_j0c7f"]
+[ext_resource type="Texture2D" uid="uid://ps2i4dojyd4r" path="res://Assets/Gui/Buttons/settings_new2.png" id="8_mo1ei"]
 
 [node name="Levels" type="Control"]
 layout_mode = 3
@@ -32,6 +34,7 @@ offset_bottom = 587.0
 texture_normal = ExtResource("3_h5sxm")
 
 [node name="Flag" type="Sprite2D" parent="Buttons/Level1"]
+visible = false
 position = Vector2(99.9999, -12)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("4_2ar3c")
@@ -93,11 +96,13 @@ offset_left = 11.0
 offset_top = 22.0
 offset_right = 171.0
 offset_bottom = 112.0
-texture_normal = ExtResource("3_sbx5p")
+texture_normal = ExtResource("5_g2hs5")
+texture_pressed = ExtResource("6_76n8v")
 
-[node name="SettingButton" type="TextureButton" parent="Buttons"]
+[node name="SettingsButton" type="TextureButton" parent="Buttons"]
 offset_left = 1138.0
 offset_top = 6.0
 offset_right = 1268.0
 offset_bottom = 136.0
-texture_normal = ExtResource("4_c3mfn")
+texture_normal = ExtResource("7_j0c7f")
+texture_pressed = ExtResource("8_mo1ei")

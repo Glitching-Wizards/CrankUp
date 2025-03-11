@@ -12,7 +12,7 @@ namespace CrankUp
 		public override void _Ready()
 		{
 			TextureButton backButton = GetNode<TextureButton>("BackButton");
-			backButton.Pressed += _on_back_button_pressed;
+			backButton.Pressed += () => BackButtonPressed();
 		}
 
 		// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,7 +20,7 @@ namespace CrankUp
 		{
 		}
 
-		public void _on_back_button_pressed()
+		public void BackButtonPressed()
 		{
 			this.Hide();
 		}

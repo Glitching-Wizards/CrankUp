@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://byc8kq1gm1tqq"]
+[gd_scene load_steps=6 format=3 uid="uid://byc8kq1gm1tqq"]
 
 [ext_resource type="Script" path="res://Game/Scripts/Block.cs" id="1_d7bwv"]
-[ext_resource type="Texture2D" uid="uid://q7ko4dqjuoh0" path="res://Assets/Blocks/Block01.png" id="2_21lqd"]
+[ext_resource type="Texture2D" uid="uid://dewv11matrj6d" path="res://Assets/Blocks/container_blue_healthy.png" id="2_7btif"]
+[ext_resource type="Texture2D" uid="uid://bgwhnufwyq3fn" path="res://Assets/Blocks/container_blue_damaged.png" id="3_tkf5q"]
+[ext_resource type="Texture2D" uid="uid://ceewu66bq3xym" path="res://Assets/Blocks/container_blue_broken.png" id="4_b0uo8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_efy25"]
 size = Vector2(120, 60)
@@ -9,10 +11,14 @@ size = Vector2(120, 60)
 [node name="Block" type="RigidBody2D"]
 position = Vector2(-21, -89)
 script = ExtResource("1_d7bwv")
+healthy = ExtResource("2_7btif")
+damaged = ExtResource("3_tkf5q")
+broken = ExtResource("4_b0uo8")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(-5, 3)
-texture = ExtResource("2_21lqd")
+position = Vector2(-4, 5)
+scale = Vector2(0.507692, 0.48)
+texture = ExtResource("2_7btif")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-10, 6)

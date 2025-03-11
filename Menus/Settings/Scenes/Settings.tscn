@@ -5,11 +5,14 @@
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qhqup"]
 
 [node name="Settings" type="Window"]
+transparent_bg = true
 initial_position = 1
 size = Vector2i(1200, 680)
 exclusive = true
 unresizable = true
 borderless = true
+always_on_top = true
+transparent = true
 script = ExtResource("1_n5s8t")
 
 [node name="Panel" type="Panel" parent="."]

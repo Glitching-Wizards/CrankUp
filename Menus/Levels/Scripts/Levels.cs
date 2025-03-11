@@ -31,6 +31,12 @@ namespace CrankUp
 
             TextureButton LevelButton5 = GetNode<TextureButton>("Buttons/Level5");
             LevelButton5.Pressed += () => LevelButtonPressed(5);
+
+            TextureButton Back = GetNode<TextureButton>("Buttons/BackButton");
+            Back.Pressed += () => BackButtonPressed();
+
+            TextureButton Settings = GetNode<TextureButton>("Buttons/SettingsButton");
+            Settings.Pressed += () => SettingsButtonPressed();
         }
 
 
@@ -40,7 +46,11 @@ namespace CrankUp
             GetTree().ChangeSceneToFile("res://Menus/MainMenu/Scenes/MainMenu.tscn");
         }
 
-
+        public void SettingsButtonPressed()
+        {
+            GD.Print("Settings Pressed");
+            GetTree().ChangeSceneToFile("res://Menus/Settings/Scenes/Settings.tscn");
+        }
 
         public void LevelButtonPressed(int level)
         {

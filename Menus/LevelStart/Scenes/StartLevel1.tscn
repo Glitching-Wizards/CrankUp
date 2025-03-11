@@ -1,18 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkan3ef2hj1or"]
+[gd_scene load_steps=9 format=3 uid="uid://bkan3ef2hj1or"]
 
 [ext_resource type="Script" path="res://Menus/Levels/Scripts/LevelStart.cs" id="1_6h471"]
 [ext_resource type="Texture2D" uid="uid://0pnu3tgvsyv6" path="res://Assets/Backgrounds/VictoryScreen.png" id="1_082be"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="2_jhlmk"]
 [ext_resource type="Texture2D" uid="uid://bvgtg0q0k8n42" path="res://Assets/Gui/BlankStar.png" id="3_m8dqu"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lj3b2"]
-load_path = "res://.godot/imported/ButtonBlankGray.png-6f4381fd85055668bf97880528a307e3.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x3dlt"]
-load_path = "res://.godot/imported/ButtonBlankGreen.png-62752d66a5d1efce16e36b6c89d69356.ctex"
+[ext_resource type="Texture2D" uid="uid://djwfyxqj61amm" path="res://Assets/Gui/Buttons/green_button1.png" id="5_hboj7"]
+[ext_resource type="Texture2D" uid="uid://daxerwiiludsn" path="res://Assets/Gui/Buttons/green_button2.png" id="6_o2163"]
+[ext_resource type="Texture2D" uid="uid://ttq1of7d5af8" path="res://Assets/Gui/Buttons/yellow_button1.png" id="7_wtuqp"]
+[ext_resource type="Texture2D" uid="uid://dsk0vhi3yx2tq" path="res://Assets/Gui/Buttons/yellow_button2.png" id="8_mc8h1"]
 
 [node name="StartLevel" type="Window"]
+transparent_bg = true
 size = Vector2i(1280, 720)
+unresizable = true
+borderless = true
+always_on_top = true
+transparent = true
 script = ExtResource("1_6h471")
 
 [node name="Start" type="TextureRect" parent="."]
@@ -52,16 +55,37 @@ offset_right = 930.0
 offset_bottom = 360.0
 texture = ExtResource("3_m8dqu")
 
-[node name="MenuButton" type="TextureButton" parent="."]
-offset_left = 303.0
-offset_top = 427.0
-offset_right = 556.0
-offset_bottom = 557.0
-texture_normal = SubResource("CompressedTexture2D_lj3b2")
-
 [node name="PlayButton" type="TextureButton" parent="."]
-offset_left = 718.0
-offset_top = 427.0
-offset_right = 971.0
-offset_bottom = 557.0
-texture_normal = SubResource("CompressedTexture2D_x3dlt")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = 60.0
+offset_right = 329.0
+offset_bottom = 222.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+texture_normal = ExtResource("5_hboj7")
+texture_pressed = ExtResource("6_o2163")
+texture_hover = ExtResource("5_hboj7")
+
+[node name="MenuButton" type="TextureButton" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = 60.0
+offset_right = -31.0
+offset_bottom = 222.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+texture_normal = ExtResource("7_wtuqp")
+texture_pressed = ExtResource("8_mc8h1")
+texture_hover = ExtResource("7_wtuqp")
+
