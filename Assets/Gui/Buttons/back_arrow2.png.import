@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnrw04w27anct"
-path="res://.godot/imported/green_button.png-13e485fa9b8bfd1e9b0bf4e57d2554b8.ctex"
+uid="uid://dwpija6ht0ruh"
+path="res://.godot/imported/back_arrow2.png-4b506878f0aa7a36770b7632eb47273a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Gui/Buttons/green_button.png"
-dest_files=["res://.godot/imported/green_button.png-13e485fa9b8bfd1e9b0bf4e57d2554b8.ctex"]
+source_file="res://Assets/Gui/Buttons/back_arrow2.png"
+dest_files=["res://.godot/imported/back_arrow2.png-4b506878f0aa7a36770b7632eb47273a.ctex"]
 
 [params]
 

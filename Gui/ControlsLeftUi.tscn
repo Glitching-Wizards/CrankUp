@@ -2,10 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://dr5ia7hmpuu0l" path="res://Assets/Gui/Buttons/Rotate.png" id="1_ty1st"]
 [ext_resource type="Texture2D" uid="uid://bskd5oath0065" path="res://Assets/Gui/Buttons/Grab.png" id="2_ia6xu"]
-[ext_resource type="Texture2D" uid="uid://dlwmauctbx1ot" path="res://Assets/Gui/Buttons/Settings.png" id="3_bwp4f"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_07r6a"]
+load_path = "res://.godot/imported/Settings.png-6fafa9f1a8a0a158b2722dd5c9be669e.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lj3b2"]
-load_path = "res://.godot/imported/ButtonBlankGray.png-6f4381fd85055668bf97880528a307e3.ctex"
 
 [node name="ControlsLeftUi" type="Control"]
 layout_mode = 3
@@ -50,7 +51,7 @@ layout_mode = 0
 offset_left = -4.0
 offset_right = 126.0
 offset_bottom = 130.0
-texture_normal = ExtResource("3_bwp4f")
+texture_normal = SubResource("CompressedTexture2D_07r6a")
 
 [node name="TextureButton" type="TextureButton" parent="Panel"]
 layout_mode = 0

@@ -1,36 +1,57 @@
 [gd_scene load_steps=6 format=3 uid="uid://t8di6gto22h3"]
 
 [ext_resource type="Texture2D" uid="uid://cka1nt588tjap" path="res://Assets/Backgrounds/DefeatScreen.png" id="1_nb1yv"]
+[ext_resource type="Texture2D" uid="uid://ttq1of7d5af8" path="res://Assets/Gui/Buttons/yellow_button1.png" id="2_yfe5r"]
+[ext_resource type="Texture2D" uid="uid://dsk0vhi3yx2tq" path="res://Assets/Gui/Buttons/yellow_button2.png" id="3_07gpf"]
 [ext_resource type="Texture2D" uid="uid://bvgtg0q0k8n42" path="res://Assets/Gui/BlankStar.png" id="4_sbl07"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="5_ljc6y"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vd73c"]
-load_path = "res://.godot/imported/ButtonBlankYellow.png-4d13fabb8c2b97b0b67c8200b8f8f906.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lj3b2"]
-load_path = "res://.godot/imported/ButtonBlankGray.png-6f4381fd85055668bf97880528a307e3.ctex"
-
 [node name="Lose" type="Window"]
+transparent_bg = true
 size = Vector2i(1280, 720)
+unresizable = true
+borderless = true
+always_on_top = true
+transparent = true
 
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_nb1yv")
 
-[node name="RetryButton" type="TextureButton" parent="."]
-offset_left = 303.0
-offset_top = 427.0
-offset_right = 556.0
-offset_bottom = 557.0
-texture_normal = SubResource("CompressedTexture2D_vd73c")
-
 [node name="MenuButton" type="TextureButton" parent="."]
-offset_left = 718.0
-offset_top = 427.0
-offset_right = 971.0
-offset_bottom = 557.0
-texture_normal = SubResource("CompressedTexture2D_lj3b2")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = 60.0
+offset_right = 329.0
+offset_bottom = 222.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+texture_normal = ExtResource("2_yfe5r")
+texture_pressed = ExtResource("3_07gpf")
+texture_hover = ExtResource("2_yfe5r")
+
+[node name="RetryButton" type="TextureButton" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = 60.0
+offset_right = -31.0
+offset_bottom = 222.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+texture_normal = ExtResource("2_yfe5r")
+texture_pressed = ExtResource("3_07gpf")
+texture_hover = ExtResource("2_yfe5r")
 
 [node name="Star1" type="TextureRect" parent="."]
 offset_left = 342.0
@@ -66,7 +87,7 @@ theme = ExtResource("5_ljc6y")
 theme_override_font_sizes/font_size = 75
 text = "Level Failed!"
 
-[node name="NiceJob" type="Label" parent="."]
+[node name="Commect" type="Label" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -76,5 +97,6 @@ offset_right = 798.0
 offset_bottom = 736.0
 grow_horizontal = 2
 theme = ExtResource("5_ljc6y")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 65
 text = "Try again!!"
