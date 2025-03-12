@@ -11,7 +11,9 @@ public partial class Level1 : Node2D
 	}
 
 	[Export] private string _clawScenePath = "res://Game/Scenes/Claw.tscn";
+	[Export] private string _settingsScenePath = "res://Menus/Settings/Scenes/Settings.tscn";
 
+	private Window settingsWindow;
 	private PackedScene _clawScene = null;
 	private Claw _claw = null;
 	public Claw Claw => _claw;
@@ -21,7 +23,10 @@ public partial class Level1 : Node2D
 	{
 		_claw = CreateClaw();
 
-
+		PackedScene settingsScene = (PackedScene)GD.Load(_settingsScenePath);
+    	settingsWindow = (Window)settingsScene.Instantiate();
+		AddChild(settingsWindow);
+		settingsWindow.Hide();
 	}
 
 	public Level1()
