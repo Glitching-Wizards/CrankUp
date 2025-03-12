@@ -7,8 +7,8 @@ namespace CrankUp
 	{
 		[Export] private string _levelsScenePath = "res://Menus/Levels/Scenes/Levels.tscn";
 		[Export] private string _settingsScenePath = "res://Menus/Settings/Scenes/Settings.tscn";
-        private Window settingsWindow;
-		private TextureButton settingsButton;
+		private Window settingsWindow;
+		private Button settingsButton;
 
 		private bool isSceneChanging = false;
 		public override void _Ready()
@@ -19,18 +19,31 @@ namespace CrankUp
 			Button creditButton = GetNode<Button>("Buttons/CreditsButton");
 			creditButton.Pressed += CreditButtonPressed;
 
-			settingsButton = GetNodeOrNull<TextureButton>("Buttons/SettingsButton");
-            if (settingsButton == null)
-            {
-                GD.PrintErr("[ERROR] TextureButton 'Settings' not found in Levels!");
-            }
+			settingsButton = GetNodeOrNull<Button>("Buttons/SettingsButton");
+			if (settingsButton == null)
+			{
+				GD.PrintErr("[ERROR] TextureButton 'Settings' not found in Levels!");
+			}
+			else
+			{
+				settingsButton.Pressed += SettingsButtonPressed;
+			}
 
-            PackedScene settingsScene = (PackedScene)GD.Load(_settingsScenePath);
-            settingsWindow = (Window)settingsScene.Instantiate();
-            AddChild(settingsWindow);
-            settingsWindow.Visible = false;
+			PackedScene settingsScene = (PackedScene)GD.Load(_settingsScenePath);
+			if (settingsScene == null)
+			{
+				GD.PrintErr("[ERROR] Failed to load settings scene: " + _settingsScenePath);
+				return;
+			}
+			settingsWindow = (Window)settingsScene.Instantiate();
+			if (settingsWindow == null)
+			{
+				GD.PrintErr("[ERROR] Failed to instantiate settings window!");
+				return;
+			}
 
-            settingsButton.Pressed += SettingsButtonPressed;
+			AddChild(settingsWindow);
+			settingsWindow.Visible = false;
 		}
 
 		public void PlayButtonPressed()
@@ -44,22 +57,22 @@ namespace CrankUp
 
 			isSceneChanging = true;
 
-            var tree = GetTree();
-            if (tree != null)
-            {
-                tree.ChangeSceneToFile(_levelsScenePath);
-                GD.Print("Play scene loaded");
-            }
-            else
-            {
-                GD.Print("Error: Tree is null");
+			var tree = GetTree();
+			if (tree != null)
+			{
+				tree.ChangeSceneToFile(_levelsScenePath);
+				GD.Print("Play scene loaded");
+			}
+			else
+			{
+				GD.Print("Error: Tree is null");
 				isSceneChanging = false;
-            }
+			}
 		}
 		public void SettingsButtonPressed()
 		{
 			GD.Print("Settings Pressed");
-            settingsWindow.Popup();
+			settingsWindow.Popup();
 		}
 
 		public void CreditButtonPressed()

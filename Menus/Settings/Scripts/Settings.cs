@@ -11,7 +11,14 @@ namespace CrankUp
 			backButton.Pressed += () => BackButtonPressed();
 
 			Button quitButton = GetNode<Button>("QuitButton");
-			quitButton.Pressed += QuitButtonPressed;
+			if (quitButton == null)
+			{
+				GD.PrintErr("[ERROR] QuitButton not found in Settings.tscn");
+			}
+			else
+			{
+				quitButton.Pressed += QuitButtonPressed;
+			}
 		}
 
 		// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,7 +34,21 @@ namespace CrankUp
 		public void QuitButtonPressed()
 		{
 			GD.Print("Quit Pressed");
-            GetTree().ChangeSceneToFile("res://Menus/Levels/Scenes/Levels.tscn");
+
+			if (!this.IsInsideTree())
+			{
+				GD.PrintErr("[ERROR] Settings scene is not inside tree.");
+				return;
+			}
+
+			this.Visible = false;
+
+			CallDeferred(nameof(ChangeScene));
+		}
+
+		private void ChangeScene()
+		{
+			GetTree().ChangeSceneToFile("res://Menus/Levels/Scenes/Levels.tscn");
 		}
 	}
 }
