@@ -5,17 +5,20 @@ namespace CrankUp
 {
     public partial class Levels : Node
     {
-    [Export] private string _startLevelScenePath = "res://Menus/LevelStart/Scenes/StartLevel1.tscn";
-    private Window startLevelWindow;
+        [Export] private string _startLevelScenePath = "res://Menus/LevelStart/Scenes/StartLevel1.tscn";
+        [Export] private string _settingsScenePath = "res://Menus/Settings/Scenes/Settings.tscn";
+        private Window startLevelWindow;
+        private Window settingsWindow;
+        private TextureButton settingsButton;
 
-		    // Called when the node enters the scene tree for the first time.
-		public override void _Ready()
+        // Called when the node enters the scene tree for the first time.
+        public override void _Ready()
         {
             PackedScene startScene = (PackedScene)GD.Load(_startLevelScenePath);
-    		startLevelWindow = (Window)startScene.Instantiate();
-    		AddChild(startLevelWindow);
+            startLevelWindow = (Window)startScene.Instantiate();
+            AddChild(startLevelWindow);
 
-    		startLevelWindow.Visible = false;
+            startLevelWindow.Visible = false;
 
             TextureButton LevelButton1 = GetNode<TextureButton>("Buttons/Level1");
             LevelButton1.Pressed += () => LevelButtonPressed(1);
@@ -35,8 +38,18 @@ namespace CrankUp
             TextureButton Back = GetNode<TextureButton>("Buttons/BackButton");
             Back.Pressed += () => BackButtonPressed();
 
-            TextureButton Settings = GetNode<TextureButton>("Buttons/SettingsButton");
-            Settings.Pressed += () => SettingsButtonPressed();
+            settingsButton = GetNodeOrNull<TextureButton>("Buttons/SettingsButton");
+            if (settingsButton == null)
+            {
+                GD.PrintErr("[ERROR] TextureButton 'Settings' not found in Levels!");
+            }
+
+            PackedScene settingsScene = (PackedScene)GD.Load(_settingsScenePath);
+            settingsWindow = (Window)settingsScene.Instantiate();
+            AddChild(settingsWindow);
+            settingsWindow.Visible = false;
+
+            settingsButton.Pressed += SettingsButtonPressed;
         }
 
 
@@ -49,7 +62,7 @@ namespace CrankUp
         public void SettingsButtonPressed()
         {
             GD.Print("Settings Pressed");
-            GetTree().ChangeSceneToFile("res://Menus/Settings/Scenes/Settings.tscn");
+            settingsWindow.Popup();
         }
 
         public void LevelButtonPressed(int level)

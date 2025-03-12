@@ -88,4 +88,3 @@ scale = Vector2(0.9, 0.9)
 texture_normal = ExtResource("7_wtuqp")
 texture_pressed = ExtResource("8_mc8h1")
 texture_hover = ExtResource("7_wtuqp")
-

@@ -8,13 +8,13 @@ namespace CrankUp
         public override void _Ready()
         {
             TextureButton RetryButton = GetNode<TextureButton>("RetryButton");
-            RetryButton.Pressed += _on_retry_button_pressed;
+            RetryButton.Pressed += RetryButtonPressed;
 
             TextureButton MenuButton = GetNode<TextureButton>("MenuButton");
-            MenuButton.Pressed += _on_menu_button_pressed;
+            MenuButton.Pressed += MenuButtonPressed;
 
             //TextureButton NextButton = GetNode<TextureButton>("NextButton");
-            //NextButton.Pressed += _on_next_button_pressed;
+            //NextButton.Pressed += NextButtonPressed;
         }
 
         // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,19 +22,27 @@ namespace CrankUp
         {
         }
 
-        public void _on_retry_button_pressed()
+        public void RetryButtonPressed()
         {
             GD.Print("Retry Pressed");
-            GetTree().ChangeSceneToFile("res://Game/Level1/Scenes/Level1.tscn");
+
+            // return level switch
+            //{
+            //    1 => "res://Game/Level1/Scenes/Level1.tscn",
+            //   2 => "res://Game/Level1/Scenes/Level2.tscn",
+            //   3 => "res://Game/Level1/Scenes/Level3.tscn",
+            //   4 => "res://Game/Level1/Scenes/Level4.tscn",
+            //   5 => "res://Game/Level1/Scenes/Level5.tscn",
+            //   _ => string.Empty
         }
 
-        public void _on_menu_button_pressed()
+        public void MenuButtonPressed()
         {
             GD.Print("Menu Pressed");
             GetTree().ChangeSceneToFile("res://Menus/Levels/Scenes/Levels.tscn");
         }
 
-        //public void _on_next_button_pressed()
+        //public void NextButtonPressed()
         //{
         //    GD.Print("Next Pressed");
         // return level switch

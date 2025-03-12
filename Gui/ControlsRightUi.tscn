@@ -32,8 +32,9 @@ offset_bottom = 720.0
 
 [node name="Release" type="TextureButton" parent="Panel"]
 layout_mode = 0
+offset_left = 3.0
 offset_top = 590.0
-offset_right = 130.0
+offset_right = 133.0
 offset_bottom = 720.0
 texture_normal = SubResource("AtlasTexture_ur02m")
 texture_pressed = SubResource("AtlasTexture_ac15w")
@@ -49,7 +50,7 @@ theme_override_icons/tick = ExtResource("3_uyu0l")
 min_value = -50.0
 max_value = 50.0
 
-[node name="TextureButton" type="TextureButton" parent="Panel"]
+[node name="SettingsButton" type="TextureButton" parent="Panel"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
