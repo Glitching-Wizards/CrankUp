@@ -14,7 +14,7 @@ namespace CrankUp
 		public override void _Ready()
 		{
 			Button playButton = GetNode<Button>("Buttons/PlayButton");
-			playButton.Pressed += _on_play_button_pressed;
+			playButton.Pressed += PlayButtonPressed;
 
 			Button creditButton = GetNode<Button>("Buttons/CreditsButton");
 			creditButton.Pressed += CreditButtonPressed;
@@ -33,7 +33,7 @@ namespace CrankUp
             settingsButton.Pressed += SettingsButtonPressed;
 		}
 
-		public void _on_play_button_pressed()
+		public void PlayButtonPressed()
 		{
 			if (isSceneChanging)
 			{
