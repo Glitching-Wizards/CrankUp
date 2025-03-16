@@ -7,29 +7,26 @@
 size = Vector2(122, 64)
 
 [node name="Block" type="RigidBody2D"]
-position = Vector2(-21, -89)
 script = ExtResource("1_d7bwv")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(-4, 5)
 scale = Vector2(0.507692, 0.48)
 texture = ExtResource("2_7btif")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4, 5)
 shape = SubResource("RectangleShape2D_efy25")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(-4, -27)
+position = Vector2(0, -32)
 
 [node name="Marker2D2" type="Marker2D" parent="."]
-position = Vector2(57, 4)
+position = Vector2(61, 0)
 rotation = 1.5708
 
 [node name="Marker2D3" type="Marker2D" parent="."]
-position = Vector2(-4, 37)
+position = Vector2(0, 32)
 rotation = 3.14159
 
 [node name="Marker2D4" type="Marker2D" parent="."]
-position = Vector2(-65, 4)
+position = Vector2(-61, 0)
 rotation = 4.71239

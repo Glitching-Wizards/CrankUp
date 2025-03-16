@@ -41,58 +41,32 @@ public partial class PlacementArea : Area2D
 			return 0f;
 		}
 	}
-
-	private void _on_body_entered(Node body)
+	private void _process(float delta)
 	{
-		GD.Print($"[DEBUG] Body entered: {body.Name}");
-
-		if (body is RigidBody2D block)
-		{
-			GD.Print("[DEBUG] A block has entered the placement area!");
-
-			var blockCollision = block.GetNodeOrNull<CollisionShape2D>("CollisionShape2D");
-			if (blockCollision == null)
-			{
-				GD.PrintErr("[ERROR] Block does not have a CollisionShape2D!");
-				return;
-			}
-
-			GD.Print("[DEBUG] Block has a valid CollisionShape2D!");
-
-			float blockArea = CalculateShapeArea(blockCollision.Shape);
-			GD.Print($"[DEBUG] Block area: {blockArea}");
-
-			filledAreaSize += blockArea;
-			UpdateScore();
-		}
+		RecalculateFilledArea();
 	}
 
-    private void _on_body_exited(Node body)
-    {
-        GD.Print($"[DEBUG] Body exited: {body.Name}");
+	private void RecalculateFilledArea()
+	{
+		filledAreaSize = 0f;
 
-        if (body is RigidBody2D block)
-        {
-            var blockCollision = block.GetNodeOrNull<CollisionShape2D>("CollisionShape2D");
-			if (blockCollision == null)
-            {
-                GD.PrintErr("[ERROR] Block does not have a CollisionShape2D!");
-				return;
-            }
+		foreach (var body in GetOverlappingBodies().OfType<RigidBody2D>())
+		{
+			var blockCollision = body.GetNodeOrNull<CollisionShape2D>("CollisionShape2D");
+			if (blockCollision == null) continue;
 
-            float blockArea = CalculateShapeArea(blockCollision.Shape);
-			GD.Print($"[DEBUG] Block area: {blockArea}");
+			float blockArea = CalculateShapeArea(blockCollision.Shape);
+			filledAreaSize += blockArea;
+		}
 
-            filledAreaSize -= blockArea;
-            filledAreaSize = Mathf.Max(0, filledAreaSize);
-            UpdateScore();
-        }
-    }
+		filledAreaSize = Mathf.Clamp(filledAreaSize, 0, totalAreaSize);
+		UpdateScore();
+	}
 
-    private void UpdateScore()
-    {
-        float percentageFilled = (filledAreaSize / totalAreaSize) * 100f;
+	private void UpdateScore()
+	{
+		float percentageFilled = (filledAreaSize / totalAreaSize) * 100f;
 		GD.Print($"[DEBUG] Updated Score: {percentageFilled:F2}%");
 		scoreLabel.Text = $"Score: {percentageFilled:F2}%";
-    }
+	}
 }
