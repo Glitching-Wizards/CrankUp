@@ -1,25 +1,33 @@
-[gd_scene load_steps=6 format=3 uid="uid://bu1e6l5g1sx0h"]
+[gd_scene load_steps=4 format=3 uid="uid://br88ir8sd35jl"]
 
 [ext_resource type="Script" path="res://Game/Scripts/Block.cs" id="1_6rhtg"]
 [ext_resource type="Texture2D" uid="uid://4fnl4lgyb4th" path="res://Assets/Blocks/container_green_healthy.png" id="2_o8yqi"]
-[ext_resource type="Texture2D" uid="uid://4bdi2ey82rpd" path="res://Assets/Blocks/container_green_damaged.png" id="3_vevek"]
-[ext_resource type="Texture2D" uid="uid://qcjcu35ojsmh" path="res://Assets/Blocks/container_green_broken.png" id="4_imx04"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8oph1"]
 size = Vector2(30, 120)
 
 [node name="LongBlock" type="RigidBody2D"]
 script = ExtResource("1_6rhtg")
-healthy = ExtResource("2_o8yqi")
-damaged = ExtResource("3_vevek")
-broken = ExtResource("4_imx04")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(-57.2322, -53.7877)
 rotation = 1.5708
 scale = Vector2(0.502021, 0.235283)
 texture = ExtResource("2_o8yqi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-57, -54)
 shape = SubResource("RectangleShape2D_8oph1")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -60)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(15, 0)
+rotation = 1.5708
+
+[node name="Marker2D3" type="Marker2D" parent="."]
+position = Vector2(0, 60)
+rotation = 3.14159
+
+[node name="Marker2D4" type="Marker2D" parent="."]
+position = Vector2(-15, 0)
+rotation = 4.71239

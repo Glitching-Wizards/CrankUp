@@ -8,7 +8,6 @@ namespace CrankUp
 		[Export] private string _levelsScenePath = "res://Menus/Levels/Scenes/Levels.tscn";
 		[Export] private string _settingsScenePath = "res://Menus/Settings/Scenes/Settings.tscn";
         private Window settingsWindow;
-		private TextureButton settingsButton;
 
 		private bool isSceneChanging = false;
 		public override void _Ready()
@@ -19,18 +18,13 @@ namespace CrankUp
 			Button creditButton = GetNode<Button>("Buttons/CreditsButton");
 			creditButton.Pressed += CreditButtonPressed;
 
-			settingsButton = GetNodeOrNull<TextureButton>("Buttons/SettingsButton");
-            if (settingsButton == null)
-            {
-                GD.PrintErr("[ERROR] TextureButton 'Settings' not found in Levels!");
-            }
+			Button settingsButton = GetNode<Button>("Buttons/SettingsButton");
+			settingsButton.Pressed += SettingsButtonPressed;
 
             PackedScene settingsScene = (PackedScene)GD.Load(_settingsScenePath);
             settingsWindow = (Window)settingsScene.Instantiate();
             AddChild(settingsWindow);
-            settingsWindow.Visible = false;
-
-            settingsButton.Pressed += SettingsButtonPressed;
+            settingsWindow.Hide();
 		}
 
 		public void PlayButtonPressed()
