@@ -82,7 +82,7 @@ public partial class Level1 : Node2D
 		RigidBody2D blockInstance = BlockScene.Instantiate<RigidBody2D>();
 		this.AddChild(blockInstance);
 
-		blockInstance.GlobalPosition = clawHead.GlobalPosition;
+		blockInstance.GlobalPosition = clawHead.GlobalPosition + new Vector2(0, 20);
 
 		await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
 
