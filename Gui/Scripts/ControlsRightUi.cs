@@ -39,7 +39,7 @@ public partial class ControlsRightUi : Control
         PackedScene settingsScene = (PackedScene)GD.Load(_settingsScenePath);
     	settingsWindow = (Window)settingsScene.Instantiate();
     	AddChild(settingsWindow);
-    	settingsWindow.Visible = false;
+    	settingsWindow.Hide();
 
         // Find ClawHead dynamically
         clawHead = GetTree().Root.FindChild("ClawHead", true, false) as ClawHead;
@@ -78,7 +78,7 @@ public partial class ControlsRightUi : Control
 
         if (moveSliderValue > 5)
             movementDirection = Vector2.Right;
-        else if (moveSliderValue < 5)
+        else if (moveSliderValue < -5)
             movementDirection = Vector2.Left;
         else
             movementDirection = Vector2.Zero;

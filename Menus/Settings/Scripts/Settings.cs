@@ -27,7 +27,17 @@ namespace CrankUp
 		public void QuitButtonPressed()
 		{
 			GD.Print("Quit Pressed");
-            GetTree().ChangeSceneToFile("res://Menus/Levels/Scenes/Levels.tscn");
+
+			Node currentScene = GetTree().CurrentScene;
+
+			if (currentScene != null && currentScene.Name == "MainMenu" || currentScene.Name == "Levels")
+			{
+				this.Hide();
+			}
+			else
+			{
+            	GetTree().ChangeSceneToFile("res://Menus/Levels/Scenes/Levels.tscn");
+			}
 		}
 	}
 }

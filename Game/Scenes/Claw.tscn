@@ -18,6 +18,7 @@ script = ExtResource("5_3fj1l")
 
 [node name="ClawBase" type="CharacterBody2D" parent="."]
 script = ExtResource("2_kkw5p")
+speed = 5.0
 
 [node name="Sprite2D" type="Sprite2D" parent="ClawBase"]
 texture = ExtResource("1_wn8fx")
@@ -25,6 +26,7 @@ texture = ExtResource("1_wn8fx")
 [node name="ClawHead" type="CharacterBody2D" parent="ClawBase"]
 position = Vector2(0, 69)
 script = ExtResource("6_u3mu7")
+speed = 5.0
 
 [node name="Sprite2D" type="Sprite2D" parent="ClawBase/ClawHead"]
 texture = ExtResource("3_o0rr7")

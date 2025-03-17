@@ -50,19 +50,17 @@ public partial class ClawHead : CharacterBody2D
 
 		grabbedBlock = nearbyBlocks[0];
 
-		FindGrabMarkers(grabbedBlock);
-
 		// Find the nearest Marker2D on the block
-        Marker2D grabMarker = grabMarkers[currentGrabPointIndex];
+        Marker2D grabMarker = FindGrabMarkers(grabbedBlock);
 
 		// Attach block to the position of the nearest Marker2D using a PinJoint2D
-		joint = new PinJoint2D();
-		joint.Name = "PinJoint2D";
-		joint.NodeA = GetPath();
-		joint.NodeB = grabbedBlock.GetPath();
-
-		// Set the joint's position relative to the claw and the grab marker
-        joint.Position = grabMarker.GlobalPosition - GlobalPosition;
+		joint = new PinJoint2D()
+		{
+			Name = "PinJoint2D",
+			NodeA = GetPath(),
+			NodeB = grabbedBlock.GetPath(),
+			Position = grabMarker.GlobalPosition - GlobalPosition
+		};
 
 		// Add the joint as a child to the claw to keep it in the correct hierarchy
 		AddChild(joint);
@@ -72,11 +70,21 @@ public partial class ClawHead : CharacterBody2D
 	{
 		// Get all Marker2D children of the block
         grabMarkers.Clear();
+		Marker2D closestMarker = null;
+		float closestDistance = float.MaxValue;
+
         foreach (Node child in block.GetChildren())
 		{
 			if (child is Marker2D marker)
 			{
 				grabMarkers.Add(marker);
+				float distance = GlobalPosition.DistanceTo(marker.GlobalPosition);
+
+				if (distance < closestDistance)
+				{
+					closestDistance = distance;
+					closestMarker = marker;
+				}
 			}
 		}
 
@@ -84,7 +92,8 @@ public partial class ClawHead : CharacterBody2D
 		{
 			return grabMarkers[currentGrabPointIndex];
 		}
-		return null; // No markers found
+		
+		return closestMarker;
 	}
 
     public void DropBlock()

@@ -47,7 +47,7 @@ namespace CrankUp
             PackedScene settingsScene = (PackedScene)GD.Load(_settingsScenePath);
             settingsWindow = (Window)settingsScene.Instantiate();
             AddChild(settingsWindow);
-            settingsWindow.Visible = false;
+            settingsWindow.Hide();
 
             settingsButton.Pressed += SettingsButtonPressed;
         }
