@@ -8,7 +8,10 @@ namespace CrankUp
 		public override void _Ready()
 		{
 			TextureButton backButton = GetNode<TextureButton>("BackButton");
-			backButton.Pressed += _on_back_button_pressed;
+			backButton.Pressed += () => BackButtonPressed();
+
+			Button quitButton = GetNode<Button>("QuitButton");
+			quitButton.Pressed += QuitButtonPressed;
 		}
 
 		// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,9 +19,15 @@ namespace CrankUp
 		{
 		}
 
-		public void _on_back_button_pressed()
+		public void BackButtonPressed()
 		{
 			this.Hide();
+		}
+
+		public void QuitButtonPressed()
+		{
+			GD.Print("Quit Pressed");
+            GetTree().ChangeSceneToFile("res://Menus/Levels/Scenes/Levels.tscn");
 		}
 	}
 }

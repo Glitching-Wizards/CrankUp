@@ -5,28 +5,35 @@ namespace CrankUp
 {
 	public partial class MainMenu : Control
 	{
-		[Export] private string _level1ScenePath = "res://Game/Level1/Scenes/Level1.tscn";
+		[Export] private string _levelsScenePath = "res://Menus/Levels/Scenes/Levels.tscn";
 		[Export] private string _settingsScenePath = "res://Menus/Settings/Scenes/Settings.tscn";
-		private Window settingsWindow;
+        private Window settingsWindow;
+		private TextureButton settingsButton;
+
 		private bool isSceneChanging = false;
 		public override void _Ready()
 		{
-			PackedScene settingsScene = (PackedScene)GD.Load(_settingsScenePath);
-    		settingsWindow = (Window)settingsScene.Instantiate();
-    		AddChild(settingsWindow);
-    		settingsWindow.Visible = false;
+			Button playButton = GetNode<Button>("Buttons/PlayButton");
+			playButton.Pressed += PlayButtonPressed;
 
-			TextureButton playButton = GetNode<TextureButton>("Buttons/PlayButton");
-			playButton.Pressed += _on_play_button_pressed;
+			Button creditButton = GetNode<Button>("Buttons/CreditsButton");
+			creditButton.Pressed += CreditButtonPressed;
 
-			TextureButton settingsButton = GetNode<TextureButton>("Buttons/SettingsButton");
-			settingsButton.Pressed += _on_settings_button_pressed;
+			settingsButton = GetNodeOrNull<TextureButton>("Buttons/SettingsButton");
+            if (settingsButton == null)
+            {
+                GD.PrintErr("[ERROR] TextureButton 'Settings' not found in Levels!");
+            }
 
-			TextureButton quitButton = GetNode<TextureButton>("Buttons/QuitButton");
-			quitButton.Pressed += _on_quit_button_pressed;
+            PackedScene settingsScene = (PackedScene)GD.Load(_settingsScenePath);
+            settingsWindow = (Window)settingsScene.Instantiate();
+            AddChild(settingsWindow);
+            settingsWindow.Visible = false;
+
+            settingsButton.Pressed += SettingsButtonPressed;
 		}
 
-		public void _on_play_button_pressed()
+		public void PlayButtonPressed()
 		{
 			if (isSceneChanging)
 			{
@@ -40,7 +47,7 @@ namespace CrankUp
             var tree = GetTree();
             if (tree != null)
             {
-                tree.ChangeSceneToFile(_level1ScenePath);
+                tree.ChangeSceneToFile(_levelsScenePath);
                 GD.Print("Play scene loaded");
             }
             else
@@ -49,24 +56,14 @@ namespace CrankUp
 				isSceneChanging = false;
             }
 		}
-		public void _on_settings_button_pressed()
+		public void SettingsButtonPressed()
 		{
-			settingsWindow.Popup();
+			GD.Print("Settings Pressed");
+            settingsWindow.Popup();
 		}
 
-		public void _on_quit_button_pressed()
+		public void CreditButtonPressed()
 		{
-			GD.Print("Quit Pressed");
-
-			var tree = GetTree();
-            if (tree != null)
-            {
-                tree.Quit();
-            }
-            else
-            {
-                GD.Print("Error: Tree is null");
-            }
 		}
 	}
 }
