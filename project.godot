@@ -10,15 +10,16 @@ config_version=5
 
 [application]
 
-config/name="CrankUp"
+config/name="CrankUpOikea"
 run/main_scene="res://Menus/MainMenu/Scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "C#", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://Assets/Misc/Icon.png"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/stretch/mode="viewport"
 
 [dotnet]
 
@@ -63,3 +64,4 @@ Rotate={
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

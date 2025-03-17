@@ -35,20 +35,16 @@ namespace CrankUp
 		{
 			GD.Print("Quit Pressed");
 
-			if (!this.IsInsideTree())
+			Node currentScene = GetTree().CurrentScene;
+
+			if (currentScene != null && currentScene.Name == "MainMenu" || currentScene.Name == "Levels")
 			{
-				GD.PrintErr("[ERROR] Settings scene is not inside tree.");
-				return;
+				this.Hide();
 			}
-
-			this.Visible = false;
-
-			CallDeferred(nameof(ChangeScene));
-		}
-
-		private void ChangeScene()
-		{
-			GetTree().ChangeSceneToFile("res://Menus/Levels/Scenes/Levels.tscn");
+			else
+			{
+            	GetTree().ChangeSceneToFile("res://Menus/Levels/Scenes/Levels.tscn");
+			}
 		}
 	}
 }
