@@ -7,11 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://ck4oieai5v8t6" path="res://Game/Scenes/Claw.tscn" id="5_d4ees"]
 [ext_resource type="Script" path="res://Game/Scripts/PlacementArea.cs" id="7_p8h2n"]
 [ext_resource type="Texture2D" uid="uid://15t504ih4j83" path="res://Assets/Blocks/container_blue.png" id="8_t34tc"]
-[ext_resource type="Texture2D" uid="uid://c05ftje3khlk7" path="res://Assets/Backgrounds/PlacementArea.png" id="8_y0yup"]
 [ext_resource type="Texture2D" uid="uid://4fnl4lgyb4th" path="res://Assets/Blocks/container_green_healthy.png" id="9_i0tpf"]
+[ext_resource type="PackedScene" uid="uid://c0y7av58m1gyx" path="res://Game/Level1/Scenes/BoxShadow.tscn" id="9_p0web"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aeeyk"]
-size = Vector2(218, 155)
+size = Vector2(261, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_idrmk"]
 atlas = ExtResource("8_t34tc")
@@ -56,7 +56,7 @@ position = Vector2(0, 114)
 script = ExtResource("7_p8h2n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlacementArea"]
-position = Vector2(4, 8.5)
+position = Vector2(-0.5, 11)
 shape = SubResource("RectangleShape2D_aeeyk")
 
 [node name="ScoreLabel" type="Label" parent="PlacementArea"]
@@ -64,13 +64,6 @@ offset_left = 39.0
 offset_top = -93.0
 offset_right = 79.0
 offset_bottom = -70.0
-
-[node name="TextureRect" type="TextureRect" parent="PlacementArea"]
-offset_left = -126.0
-offset_top = -105.0
-offset_right = 130.0
-offset_bottom = 151.0
-texture = ExtResource("8_y0yup")
 
 [node name="BlockButtons" type="Control" parent="."]
 layout_mode = 3
@@ -98,6 +91,9 @@ rotation = 1.5708
 texture_normal = ExtResource("9_i0tpf")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="PlacementBox" parent="." instance=ExtResource("9_p0web")]
+position = Vector2(-137, 25)
 
 [connection signal="body_entered" from="PlacementArea" to="PlacementArea" method="_on_body_entered"]
 [connection signal="pressed" from="BlockButtons/Block" to="." method="_on_block_pressed"]
