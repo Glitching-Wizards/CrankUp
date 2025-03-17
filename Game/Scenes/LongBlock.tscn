@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Game/Scripts/Block.cs" id="1_6rhtg"]
 [ext_resource type="Texture2D" uid="uid://4fnl4lgyb4th" path="res://Assets/Blocks/container_green_healthy.png" id="2_o8yqi"]
-[ext_resource type="Texture2D" uid="uid://4bdi2ey82rpd" path="res://Assets/Blocks/container_green_damaged.png" id="3_1ma5x"]
-[ext_resource type="Texture2D" uid="uid://qcjcu35ojsmh" path="res://Assets/Blocks/container_green_broken.png" id="4_y4r2m"]
+[ext_resource type="Texture2D" uid="uid://4bdi2ey82rpd" path="res://Assets/Blocks/container_green_damaged.png" id="3_uuhr1"]
+[ext_resource type="Texture2D" uid="uid://qcjcu35ojsmh" path="res://Assets/Blocks/container_green_broken.png" id="4_qyafp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8oph1"]
 size = Vector2(30, 120)
@@ -11,8 +11,8 @@ size = Vector2(30, 120)
 [node name="LongBlock" type="RigidBody2D"]
 script = ExtResource("1_6rhtg")
 healthy = ExtResource("2_o8yqi")
-damaged = ExtResource("3_1ma5x")
-broken = ExtResource("4_y4r2m")
+damaged = ExtResource("3_uuhr1")
+broken = ExtResource("4_qyafp")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 rotation = 1.5708
