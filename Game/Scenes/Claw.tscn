@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ck4oieai5v8t6"]
+[gd_scene load_steps=10 format=3 uid="uid://ck4oieai5v8t6"]
 
 [ext_resource type="Texture2D" uid="uid://bp6ibqgtevhws" path="res://Assets/Models/ClawBase.png" id="1_wn8fx"]
 [ext_resource type="Texture2D" uid="uid://dyq4wnofgsxvj" path="res://Assets/Models/ClawWire.png" id="2_h6rny"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://bni03dehdn8l0" path="res://Assets/Models/Claw.png" id="3_o0rr7"]
 [ext_resource type="Script" path="res://Game/Scripts/Claw.cs" id="5_3fj1l"]
 [ext_resource type="Script" path="res://Game/Scripts/ClawHead.cs" id="6_u3mu7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bcboy"]
+size = Vector2(4, 773)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ibmd"]
 size = Vector2(38, 30)
@@ -25,6 +28,10 @@ texture = ExtResource("1_wn8fx")
 [node name="ClawHead" type="CharacterBody2D" parent="ClawBase"]
 position = Vector2(0, 69)
 script = ExtResource("6_u3mu7")
+
+[node name="CollisionShape2 Rope" type="CollisionShape2D" parent="ClawBase/ClawHead"]
+position = Vector2(0, -402.5)
+shape = SubResource("RectangleShape2D_bcboy")
 
 [node name="Sprite2D" type="Sprite2D" parent="ClawBase/ClawHead"]
 texture = ExtResource("3_o0rr7")
