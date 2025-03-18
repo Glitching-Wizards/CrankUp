@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://cts5ygn8db8c0"]
+[gd_scene load_steps=15 format=3 uid="uid://cts5ygn8db8c0"]
 
 [ext_resource type="Script" path="res://Game/Level1/Scripts/Level1.cs" id="1_4cxg7"]
 [ext_resource type="PackedScene" uid="uid://dnr4wgld8simd" path="res://Gui/Background.tscn" id="2_gy3yl"]
 [ext_resource type="PackedScene" uid="uid://bu16bdidc32ex" path="res://Gui/ControlsLeftUi.tscn" id="3_qb5ov"]
 [ext_resource type="PackedScene" uid="uid://cbrwler8lk051" path="res://Gui/ControlsRightUi.tscn" id="4_sh1e6"]
+[ext_resource type="Texture2D" uid="uid://dr5ia7hmpuu0l" path="res://Assets/Gui/Buttons/Rotate.png" id="5_2glvv"]
 [ext_resource type="PackedScene" uid="uid://ck4oieai5v8t6" path="res://Game/Scenes/Claw.tscn" id="5_d4ees"]
 [ext_resource type="Script" path="res://Game/Scripts/PlacementArea.cs" id="7_p8h2n"]
 [ext_resource type="Texture2D" uid="uid://15t504ih4j83" path="res://Assets/Blocks/container_blue.png" id="8_t34tc"]
@@ -52,6 +53,14 @@ offset_left = -640.0
 offset_top = -360.0
 offset_right = -640.0
 offset_bottom = -360.0
+
+[node name="Button" type="Button" parent="Ui"]
+layout_mode = 0
+offset_left = -648.0
+offset_top = -369.0
+offset_right = -510.0
+offset_bottom = -231.0
+icon = ExtResource("5_2glvv")
 
 [node name="Claw" parent="." instance=ExtResource("5_d4ees")]
 
@@ -112,6 +121,22 @@ position = Vector2(-113, 141)
 [node name="ContainerYellow" parent="." instance=ExtResource("13_8l0at")]
 position = Vector2(171, -23)
 
+[node name="LevelComplete" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("11_g4hx2")
+
+[node name="VictoryScreen" type="TextureRect" parent="LevelComplete"]
+layout_mode = 0
+offset_left = -640.0
+offset_top = -349.0
+offset_right = 640.0
+offset_bottom = 371.0
+texture = ExtResource("11_cfkxu")
+
+[connection signal="pressed" from="Ui/Button" to="." method="OnButtonPressed"]
 [connection signal="body_entered" from="PlacementArea" to="PlacementArea" method="_on_body_entered"]
 [connection signal="pressed" from="BlockButtons/Block" to="." method="_on_block_pressed"]
 [connection signal="pressed" from="BlockButtons/LongBlock" to="." method="_on_long_block_pressed"]
