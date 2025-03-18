@@ -11,7 +11,14 @@ namespace CrankUp
 			backButton.Pressed += () => BackButtonPressed();
 
 			Button quitButton = GetNode<Button>("QuitButton");
-			quitButton.Pressed += QuitButtonPressed;
+			if (quitButton == null)
+			{
+				GD.PrintErr("[ERROR] QuitButton not found in Settings.tscn");
+			}
+			else
+			{
+				quitButton.Pressed += QuitButtonPressed;
+			}
 		}
 
 		// Called every frame. 'delta' is the elapsed time since the previous frame.

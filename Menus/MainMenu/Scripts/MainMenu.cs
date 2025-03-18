@@ -38,22 +38,22 @@ namespace CrankUp
 
 			isSceneChanging = true;
 
-            var tree = GetTree();
-            if (tree != null)
-            {
-                tree.ChangeSceneToFile(_levelsScenePath);
-                GD.Print("Play scene loaded");
-            }
-            else
-            {
-                GD.Print("Error: Tree is null");
+			var tree = GetTree();
+			if (tree != null)
+			{
+				tree.ChangeSceneToFile(_levelsScenePath);
+				GD.Print("Play scene loaded");
+			}
+			else
+			{
+				GD.Print("Error: Tree is null");
 				isSceneChanging = false;
-            }
+			}
 		}
 		public void SettingsButtonPressed()
 		{
 			GD.Print("Settings Pressed");
-            settingsWindow.Popup();
+			settingsWindow.Popup();
 		}
 
 		public void CreditButtonPressed()
