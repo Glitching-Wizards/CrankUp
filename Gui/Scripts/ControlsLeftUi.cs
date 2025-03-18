@@ -49,6 +49,7 @@ public partial class ControlsLeftUi : Control
         grabButton.Pressed += OnGrabPressed;
         rotateButton.Pressed += OnRotatePressed;
         moveSlider.ValueChanged += OnSliderValueChanged;
+        moveSlider.DragEnded += OnSliderReleased;
     }
 
     private void OnGrabPressed()
@@ -71,6 +72,16 @@ public partial class ControlsLeftUi : Control
             movementDirection = Vector2.Down;
         else
             movementDirection = Vector2.Zero;
+    }
+
+    private void OnSliderReleased(bool ended)
+    {
+        if (ended)
+        {
+            moveSlider.Value = 0;
+            moveSliderValue = 0;
+            movementDirection = Vector2.Zero;
+        }
     }
 
     public override void _Process(double delta)
