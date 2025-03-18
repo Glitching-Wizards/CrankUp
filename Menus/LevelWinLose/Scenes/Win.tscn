@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://d3h8yejbsuxbm"]
+[gd_scene load_steps=12 format=3 uid="uid://d3h8yejbsuxbm"]
 
 [ext_resource type="Script" path="res://Menus/LevelWinLose/Scripts/WinLose.cs" id="1_44c7w"]
 [ext_resource type="Texture2D" uid="uid://0pnu3tgvsyv6" path="res://Assets/Backgrounds/VictoryScreen.png" id="1_qyqnw"]
 [ext_resource type="Texture2D" uid="uid://djwfyxqj61amm" path="res://Assets/Gui/Buttons/green_button1.png" id="2_novug"]
 [ext_resource type="Texture2D" uid="uid://daxerwiiludsn" path="res://Assets/Gui/Buttons/green_button2.png" id="3_aaoqe"]
+[ext_resource type="Texture2D" uid="uid://d2ne652846407" path="res://Assets/Gui/Buttons/green_button_retry1.png" id="3_fa8s8"]
 [ext_resource type="Texture2D" uid="uid://bvgtg0q0k8n42" path="res://Assets/Gui/BlankStar.png" id="4_7m4kl"]
+[ext_resource type="Texture2D" uid="uid://xo18uc0tpsnf" path="res://Assets/Gui/Buttons/green_button_retry2.png" id="4_02060"]
 [ext_resource type="Texture2D" uid="uid://ttq1of7d5af8" path="res://Assets/Gui/Buttons/yellow_button1.png" id="4_agmfv"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="5_1enaj"]
 [ext_resource type="Texture2D" uid="uid://dsk0vhi3yx2tq" path="res://Assets/Gui/Buttons/yellow_button2.png" id="5_qyo6b"]
@@ -30,9 +32,9 @@ offset_top = 375.0
 offset_right = 539.0
 offset_bottom = 537.0
 scale = Vector2(0.9, 0.9)
-texture_normal = ExtResource("2_novug")
-texture_pressed = ExtResource("3_aaoqe")
-texture_hover = ExtResource("2_novug")
+texture_normal = ExtResource("3_fa8s8")
+texture_pressed = ExtResource("4_02060")
+texture_hover = ExtResource("3_fa8s8")
 
 [node name="MenuButton" type="TextureButton" parent="."]
 anchors_preset = 8
