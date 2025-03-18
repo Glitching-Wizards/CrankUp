@@ -1,0 +1,39 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://6td37p2nd7m3"]
+
+[ext_resource type="Texture2D" uid="uid://dphekt5ujm5kl" path="res://Assets/Gui/Buttons/red_button1.png" id="1_qlhc4"]
+[ext_resource type="FontFile" uid="uid://douaf6x3xd88g" path="res://Assets/Gui/Fonts/upheavtt.ttf" id="2_fepcx"]
+[ext_resource type="Texture2D" uid="uid://djyancc4p132i" path="res://Assets/Gui/Buttons/red_button2.png" id="2_p8mub"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n4y2u"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dyelm"]
+texture = ExtResource("1_qlhc4")
+texture_margin_left = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 32.0
+region_rect = Rect2(16, 24, 236, 125)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j5wya"]
+texture = ExtResource("1_qlhc4")
+texture_margin_left = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 32.0
+region_rect = Rect2(16, 24, 236, 125)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dgpo8"]
+texture = ExtResource("2_p8mub")
+texture_margin_left = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 31.0
+region_rect = Rect2(16, 24, 236, 125)
+
+[resource]
+default_font = ExtResource("2_fepcx")
+default_font_size = 16
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 50
+Button/styles/focus = SubResource("StyleBoxEmpty_n4y2u")
+Button/styles/hover = SubResource("StyleBoxTexture_dyelm")
+Button/styles/normal = SubResource("StyleBoxTexture_j5wya")
+Button/styles/pressed = SubResource("StyleBoxTexture_dgpo8")

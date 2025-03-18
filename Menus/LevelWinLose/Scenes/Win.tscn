@@ -1,0 +1,125 @@
+[gd_scene load_steps=12 format=3 uid="uid://d3h8yejbsuxbm"]
+
+[ext_resource type="Script" path="res://Menus/LevelWinLose/Scripts/WinLose.cs" id="1_44c7w"]
+[ext_resource type="Texture2D" uid="uid://0pnu3tgvsyv6" path="res://Assets/Backgrounds/VictoryScreen.png" id="1_qyqnw"]
+[ext_resource type="Texture2D" uid="uid://djwfyxqj61amm" path="res://Assets/Gui/Buttons/green_button1.png" id="2_novug"]
+[ext_resource type="Texture2D" uid="uid://daxerwiiludsn" path="res://Assets/Gui/Buttons/green_button2.png" id="3_aaoqe"]
+[ext_resource type="Texture2D" uid="uid://d2ne652846407" path="res://Assets/Gui/Buttons/green_button_retry1.png" id="3_fa8s8"]
+[ext_resource type="Texture2D" uid="uid://bvgtg0q0k8n42" path="res://Assets/Gui/BlankStar.png" id="4_7m4kl"]
+[ext_resource type="Texture2D" uid="uid://xo18uc0tpsnf" path="res://Assets/Gui/Buttons/green_button_retry2.png" id="4_02060"]
+[ext_resource type="Texture2D" uid="uid://ttq1of7d5af8" path="res://Assets/Gui/Buttons/yellow_button1.png" id="4_agmfv"]
+[ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="5_1enaj"]
+[ext_resource type="Texture2D" uid="uid://dsk0vhi3yx2tq" path="res://Assets/Gui/Buttons/yellow_button2.png" id="5_qyo6b"]
+[ext_resource type="Texture2D" uid="uid://iltf4ckdrglj" path="res://Assets/Victory/StarFinal.png" id="6_ixclm"]
+
+[node name="Win" type="Window"]
+transparent_bg = true
+size = Vector2i(1280, 720)
+unresizable = true
+borderless = true
+always_on_top = true
+transparent = true
+script = ExtResource("1_44c7w")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("1_qyqnw")
+
+[node name="RetryButton" type="TextureButton" parent="."]
+offset_left = 270.0
+offset_top = 375.0
+offset_right = 539.0
+offset_bottom = 537.0
+scale = Vector2(0.9, 0.9)
+texture_normal = ExtResource("3_fa8s8")
+texture_pressed = ExtResource("4_02060")
+texture_hover = ExtResource("3_fa8s8")
+
+[node name="MenuButton" type="TextureButton" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = 106.0
+offset_right = 149.0
+offset_bottom = 268.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+texture_normal = ExtResource("4_agmfv")
+texture_pressed = ExtResource("5_qyo6b")
+texture_hover = ExtResource("4_agmfv")
+
+[node name="NextButton" type="TextureButton" parent="."]
+offset_left = 766.0
+offset_top = 375.0
+offset_right = 1035.0
+offset_bottom = 537.0
+scale = Vector2(0.9, 0.9)
+texture_normal = ExtResource("2_novug")
+texture_pressed = ExtResource("3_aaoqe")
+texture_hover = ExtResource("2_novug")
+
+[node name="Star1" type="TextureRect" parent="."]
+offset_left = 343.0
+offset_top = 210.0
+offset_right = 493.0
+offset_bottom = 360.0
+texture = ExtResource("4_7m4kl")
+
+[node name="Star2" type="TextureRect" parent="."]
+offset_left = 565.0
+offset_top = 262.0
+offset_right = 715.0
+offset_bottom = 412.0
+texture = ExtResource("4_7m4kl")
+
+[node name="Star3" type="TextureRect" parent="."]
+offset_left = 780.0
+offset_top = 210.0
+offset_right = 930.0
+offset_bottom = 360.0
+texture = ExtResource("4_7m4kl")
+
+[node name="LevelPassed" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -292.0
+offset_top = 62.0
+offset_right = 320.0
+offset_bottom = 164.0
+grow_horizontal = 2
+theme = ExtResource("5_1enaj")
+theme_override_font_sizes/font_size = 75
+text = "Level Passed!"
+
+[node name="Comment" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 190.0
+offset_top = 600.0
+offset_right = 802.0
+offset_bottom = 733.0
+grow_horizontal = 2
+theme = ExtResource("5_1enaj")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 75
+text = "Nice Job!"
+
+[node name="ShinyStar" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -295.0
+offset_top = -150.0
+offset_right = -145.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_ixclm")

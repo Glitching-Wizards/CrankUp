@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://colwlgqshrnbe"]
+
+[ext_resource type="FontFile" uid="uid://douaf6x3xd88g" path="res://Assets/Gui/Fonts/upheavtt.ttf" id="2_47xh6"]
+
+[resource]
+default_font = ExtResource("2_47xh6")
+default_font_size = 100
+
