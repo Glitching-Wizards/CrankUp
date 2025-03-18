@@ -7,16 +7,18 @@ public partial class ClawHead : CharacterBody2D
 {
 	[Export] private float speed = 10f;
 	private PinJoint2D joint;
+	private CollisionShape2D collisionShape;
 	private Block grabbedBlock;
 	private Area2D grabArea;
 	private List<Block> nearbyBlocks = new List<Block>();
 	private float _currentSpeed = 0f;
 	private int currentGrabPointIndex = 0;  // Index to track the current grab point
-	// List to hold the Marker2D grab points on the block
-    private List<Marker2D> grabMarkers = new List<Marker2D>();
+    private List<Marker2D> grabMarkers = new List<Marker2D>(); // List to hold the Marker2D grab points on the block
 
 	public override void _Ready()
 	{
+		collisionShape = GetNodeOrNull<CollisionShape2D>("CollisionShape2D");
+
 		grabArea = GetNode<Area2D>("GrabArea");
 
 		grabArea.BodyEntered += OnBodyEntered;
@@ -53,16 +55,21 @@ public partial class ClawHead : CharacterBody2D
 		// Find the nearest Marker2D on the block
         Marker2D grabMarker = FindGrabMarkers(grabbedBlock);
 
+		// Grabbed block is aligned with claw
+		grabbedBlock.GlobalPosition += GlobalPosition - grabMarker.GlobalPosition;
+
 		// Attach block to the position of the nearest Marker2D using a PinJoint2D
 		joint = new PinJoint2D()
 		{
 			Name = "PinJoint2D",
 			NodeA = GetPath(),
 			NodeB = grabbedBlock.GetPath(),
-			Position = grabMarker.GlobalPosition - GlobalPosition
+			Position = grabMarker.GlobalPosition - GlobalPosition,
 		};
 
-		// Add the joint as a child to the claw to keep it in the correct hierarchy
+		collisionShape.SetDeferred("disabled", true);  // Disable collision
+
+		// Add the joint as a child to the claw
 		AddChild(joint);
 	}
 
@@ -73,6 +80,7 @@ public partial class ClawHead : CharacterBody2D
 		Marker2D closestMarker = null;
 		float closestDistance = float.MaxValue;
 
+		// Find the closest marker
         foreach (Node child in block.GetChildren())
 		{
 			if (child is Marker2D marker)
@@ -88,11 +96,6 @@ public partial class ClawHead : CharacterBody2D
 			}
 		}
 
-		if (grabMarkers.Count > 0)
-		{
-			return grabMarkers[currentGrabPointIndex];
-		}
-		
 		return closestMarker;
 	}
 
@@ -105,23 +108,21 @@ public partial class ClawHead : CharacterBody2D
 		}
 		grabbedBlock = null;
 		currentGrabPointIndex = 0; // Reset grab point index on drop
+
+		// Re-enable collision
+        collisionShape.SetDeferred("disabled", false);
 	}
 
 	public void RotateBlock()
     {
         if (grabbedBlock != null)
         {
-           // Store the joint's global position before switching markers
-			Vector2 oldJointPosition = joint.GlobalPosition;
+           // Rotate counterclockwise
+			grabbedBlock.RotationDegrees -= 90;
 
-			// Move to the next grab marker
-			currentGrabPointIndex = (currentGrabPointIndex + 1) % grabMarkers.Count;
-			GD.Print("Rotating to grab marker index: " + currentGrabPointIndex);
-
-			// Update the joint position directly instead of regrabbing
-			Marker2D newMarker = grabMarkers[currentGrabPointIndex];
-			joint.GlobalPosition = oldJointPosition;
-			joint.Position = newMarker.GlobalPosition - GlobalPosition;
+			// Re-grab the block
+			DropBlock();
+			GrabBlock();
         }
     }
 
@@ -148,7 +149,7 @@ public partial class ClawHead : CharacterBody2D
 
 		if (Input.IsActionJustPressed("Drop") && grabbedBlock != null)
 			DropBlock();
-		
+
 		if (Input.IsActionJustPressed("Rotate") && grabbedBlock != null)
 			RotateBlock();
 	}
