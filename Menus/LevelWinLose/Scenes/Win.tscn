@@ -7,9 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://d2ne652846407" path="res://Assets/Gui/Buttons/green_button_retry1.png" id="3_fa8s8"]
 [ext_resource type="Texture2D" uid="uid://bvgtg0q0k8n42" path="res://Assets/Gui/BlankStar.png" id="4_7m4kl"]
 [ext_resource type="Texture2D" uid="uid://xo18uc0tpsnf" path="res://Assets/Gui/Buttons/green_button_retry2.png" id="4_02060"]
-[ext_resource type="Texture2D" uid="uid://ttq1of7d5af8" path="res://Assets/Gui/Buttons/yellow_button1.png" id="4_agmfv"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="5_1enaj"]
-[ext_resource type="Texture2D" uid="uid://dsk0vhi3yx2tq" path="res://Assets/Gui/Buttons/yellow_button2.png" id="5_qyo6b"]
+[ext_resource type="Texture2D" uid="uid://dhf1xnfhc2bps" path="res://Assets/Gui/Buttons/grey_button_menu1.png" id="5_tajhy"]
+[ext_resource type="Texture2D" uid="uid://bv0sr1f2mkmp6" path="res://Assets/Gui/Buttons/grey_button_menu2.png" id="6_fa8o5"]
 [ext_resource type="Texture2D" uid="uid://iltf4ckdrglj" path="res://Assets/Victory/StarFinal.png" id="6_ixclm"]
 
 [node name="Win" type="Window"]
@@ -49,9 +49,9 @@ offset_bottom = 268.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.9, 0.9)
-texture_normal = ExtResource("4_agmfv")
-texture_pressed = ExtResource("5_qyo6b")
-texture_hover = ExtResource("4_agmfv")
+texture_normal = ExtResource("5_tajhy")
+texture_pressed = ExtResource("6_fa8o5")
+texture_hover = ExtResource("5_tajhy")
 
 [node name="NextButton" type="TextureButton" parent="."]
 offset_left = 766.0
