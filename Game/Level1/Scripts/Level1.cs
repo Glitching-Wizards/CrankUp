@@ -79,6 +79,8 @@ public partial class Level1 : Node2D
 			return;
 		}
 
+		clawHead.collisionShape.SetDeferred("disabled", true);
+
 		RigidBody2D blockInstance = BlockScene.Instantiate<RigidBody2D>();
 		this.AddChild(blockInstance);
 

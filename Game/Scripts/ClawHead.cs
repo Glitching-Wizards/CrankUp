@@ -7,7 +7,7 @@ public partial class ClawHead : CharacterBody2D
 {
 	[Export] private float speed = 10f;
 	private PinJoint2D joint;
-	private CollisionShape2D collisionShape;
+	public CollisionShape2D collisionShape;
 	private Block grabbedBlock;
 	private Area2D grabArea;
 	private List<Block> nearbyBlocks = new List<Block>();

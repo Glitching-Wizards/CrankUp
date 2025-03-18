@@ -58,4 +58,5 @@ texture_normal = ExtResource("2_1bjy5")
 texture_pressed = ExtResource("3_vngqn")
 
 [connection signal="pressed" from="Panel/Release" to="." method="_on_release_pressed"]
+[connection signal="drag_ended" from="Panel/MoveSlider" to="." method="_on_move_slider_drag_ended"]
 [connection signal="pressed" from="Panel/SettingsButton" to="." method="_on_settings_button_pressed"]
