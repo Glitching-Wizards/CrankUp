@@ -32,7 +32,7 @@ public partial class Level1 : Node2D
 		_claw = CreateClaw();
 
 		PackedScene settingsScene = (PackedScene)GD.Load(_settingsScenePath);
-    	settingsWindow = (Window)settingsScene.Instantiate();
+		settingsWindow = (Window)settingsScene.Instantiate();
 		AddChild(settingsWindow);
 		settingsWindow.Hide();
 
@@ -82,7 +82,7 @@ public partial class Level1 : Node2D
 		RigidBody2D blockInstance = BlockScene.Instantiate<RigidBody2D>();
 		this.AddChild(blockInstance);
 
-		blockInstance.GlobalPosition = clawHead.GlobalPosition + new Vector2(0, 20);
+		blockInstance.GlobalPosition = clawHead.GlobalPosition + new Godot.Vector2(0, 20);
 
 		await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
 
