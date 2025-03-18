@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dnr4wgld8simd"]
+[gd_scene load_steps=14 format=3 uid="uid://dnr4wgld8simd"]
 
 [ext_resource type="Texture2D" uid="uid://k2ji4rswhfbd" path="res://Assets/Backgrounds/Level1Background.png" id="1_4yqy1"]
 [ext_resource type="Texture2D" uid="uid://duxnkmbpy8csc" path="res://Assets/Misc/Beam.png" id="2_2d1b3"]
 [ext_resource type="Texture2D" uid="uid://btcu3yow8pr65" path="res://Assets/Backgrounds/LeftConsole.png" id="3_fphpx"]
+[ext_resource type="Texture2D" uid="uid://kcivpk3q7ien" path="res://Assets/Gui/Buttons/red_button.png" id="4_o4il6"]
 [ext_resource type="Texture2D" uid="uid://dl1c78xcnlm4f" path="res://Assets/Gui/SliderRail.png" id="4_so2d5"]
 [ext_resource type="Texture2D" uid="uid://bm2s28jva8gbr" path="res://Assets/Backgrounds/TruckModelFinal.png" id="5_p2dvk"]
 [ext_resource type="Texture2D" uid="uid://bsiciqmbbksx3" path="res://Assets/Backgrounds/RightConsole.png" id="6_kekye"]
@@ -11,6 +12,22 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_imtd3"]
 size = Vector2(1055, 58)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujs0e"]
+atlas = ExtResource("4_o4il6")
+region = Rect2(0, 0, 270, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ve8dj"]
+atlas = ExtResource("4_o4il6")
+region = Rect2(270, 0, 270, 162)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_5n6r5"]
+a = Vector2(127, 0)
+b = Vector2(127, 720)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_liobq"]
+a = Vector2(1154, 720)
+b = Vector2(1153, 0)
+
 [node name="Background" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -18,11 +35,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 texture = ExtResource("1_4yqy1")
 
 [node name="Beam" type="StaticBody2D" parent="Background"]
@@ -109,6 +128,34 @@ texture = ExtResource("2_2d1b3")
 position = Vector2(571.5, 73)
 shape = SubResource("RectangleShape2D_imtd3")
 
+[node name="ConveyorBelt" type="TextureRect" parent="Background"]
+light_mask = 2
+visibility_layer = 2
+layout_mode = 0
+offset_left = 128.0
+offset_top = 581.0
+offset_right = 1151.0
+offset_bottom = 718.0
+mouse_filter = 2
+texture = ExtResource("7_l4amd")
+
+[node name="ConveyorBelt2" type="TextureRect" parent="Background/ConveyorBelt"]
+layout_mode = 0
+offset_left = 1000.0
+offset_right = 2023.0
+offset_bottom = 137.0
+mouse_filter = 2
+texture = ExtResource("7_l4amd")
+
+[node name="TextureButton" type="TextureButton" parent="Background/ConveyorBelt/ConveyorBelt2"]
+layout_mode = 0
+offset_left = 374.0
+offset_top = -19.0
+offset_right = 643.0
+offset_bottom = 143.0
+texture_normal = SubResource("AtlasTexture_ujs0e")
+texture_pressed = SubResource("AtlasTexture_ve8dj")
+
 [node name="LeftConsole" type="TextureRect" parent="Background"]
 layout_mode = 0
 offset_right = 40.0
@@ -145,10 +192,10 @@ offset_right = 136.0
 offset_bottom = 590.0
 texture = ExtResource("4_so2d5")
 
-[node name="ConveyorBelt" type="TextureRect" parent="Background"]
-layout_mode = 0
-offset_left = 129.0
-offset_top = 583.0
-offset_right = 1152.0
-offset_bottom = 720.0
-texture = ExtResource("7_l4amd")
+[node name="Area2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("SegmentShape2D_5n6r5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("SegmentShape2D_liobq")

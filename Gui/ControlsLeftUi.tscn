@@ -20,6 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_bx7ei")
 
 [node name="Panel" type="Panel" parent="."]
@@ -27,6 +28,7 @@ self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_right = 130.0
 offset_bottom = 720.0
+mouse_filter = 2
 
 [node name="Rotate" type="TextureButton" parent="Panel"]
 layout_mode = 0

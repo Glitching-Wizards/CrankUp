@@ -12,7 +12,6 @@ public partial class ClawHead : CharacterBody2D
 	private Area2D grabArea;
 	private List<Block> nearbyBlocks = new List<Block>();
 	private float _currentSpeed = 0f;
-	private int currentGrabPointIndex = 0;  // Index to track the current grab point
     private List<Marker2D> grabMarkers = new List<Marker2D>(); // List to hold the Marker2D grab points on the block
 
 	public override void _Ready()
@@ -107,9 +106,8 @@ public partial class ClawHead : CharacterBody2D
 			joint = null;
 		}
 		grabbedBlock = null;
-		currentGrabPointIndex = 0; // Reset grab point index on drop
 
-		// Re-enable collision
+		// Re-enable collision 
         collisionShape.SetDeferred("disabled", false);
 	}
 
