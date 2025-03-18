@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Numerics;
+using System.Runtime.CompilerServices;
 
 namespace CrankUp;
 public partial class Level1 : Node2D
@@ -21,15 +22,25 @@ public partial class Level1 : Node2D
 	private PackedScene _clawScene = null;
 	private Claw _claw = null;
 	public Claw Claw => _claw;
+	private TextureRect conveyorBelt;
 	private PackedScene _blockScene;
 	private PackedScene _longBlockScene;
 	private TextureButton blockButton;
 	private TextureButton longBlockButton;
+	private bool longBlockButtonPressed = false;
+	private bool blockButtonPressed = false;
+
+	private bool endLevel = false;
+	private float beltTargetPosition = -860; // conveyorBelt target position when all blocks are in play
+	private float beltMoveSpeed = 200f; // conveyorBelts speed of movement per frame
 
 
 	public override void _Ready()
 	{
 		_claw = CreateClaw();
+
+		Control background = GetTree().Root.FindChild("Background", true, false) as Control;
+		conveyorBelt = background.FindChild("ConveyorBelt", true, false) as TextureRect;
 
 		PackedScene settingsScene = (PackedScene)GD.Load(_settingsScenePath);
     	settingsWindow = (Window)settingsScene.Instantiate();
@@ -42,8 +53,17 @@ public partial class Level1 : Node2D
 		blockButton = GetNodeOrNull<TextureButton>("BlockButtons/Block");
 		longBlockButton = GetNodeOrNull<TextureButton>("BlockButtons/LongBlock");
 
-		blockButton.Pressed += () => SpawnBlockButtonPressed(_blockScene, blockButton);
-		longBlockButton.Pressed += () => SpawnBlockButtonPressed(_longBlockScene, longBlockButton);
+		blockButton.Pressed += () => 
+		{
+			blockButtonPressed = true;
+			SpawnBlockButtonPressed(_blockScene, blockButton);
+		};
+
+		longBlockButton.Pressed += () => 
+		{
+			longBlockButtonPressed = true;
+			SpawnBlockButtonPressed(_longBlockScene, longBlockButton);
+		};
 	}
 
 	public Level1()
@@ -79,6 +99,8 @@ public partial class Level1 : Node2D
 			return;
 		}
 
+		clawHead.collisionShape.SetDeferred("disabled", true);
+
 		RigidBody2D blockInstance = BlockScene.Instantiate<RigidBody2D>();
 		this.AddChild(blockInstance);
 
@@ -89,9 +111,22 @@ public partial class Level1 : Node2D
 		clawHead.GrabBlock();
 
 		button.QueueFree();
+
+		// Check if all buttons are removed
+		if (blockButtonPressed && longBlockButtonPressed) endLevel = true;
 	}
-	public override void _Process(double delta)
+
+    public override void _Process(double delta)
 	{
+		if (conveyorBelt != null && endLevel)
+		{
+			float step = beltMoveSpeed * (float) delta;
+
+			if (conveyorBelt.Position.X > beltTargetPosition)
+			{
+				conveyorBelt.Position = new Godot.Vector2(conveyorBelt.Position.X - step, conveyorBelt.Position.Y);
+			}
+		}
 	}
 
 	//public void GameStop()

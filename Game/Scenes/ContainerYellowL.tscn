@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://ieryjaj5jmol"]
+
+[ext_resource type="Script" path="res://Game/Scripts/Block.cs" id="1_8v1eb"]
+[ext_resource type="Texture2D" uid="uid://dktk418ydlm2w" path="res://Assets/Blocks/container_L_yellow.png" id="2_t8m8q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7w74"]
+atlas = ExtResource("2_t8m8q")
+region = Rect2(0, 0, 300, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0fere"]
+atlas = ExtResource("2_t8m8q")
+region = Rect2(300, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xj7ag"]
+atlas = ExtResource("2_t8m8q")
+region = Rect2(600, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ns08y"]
+atlas = ExtResource("2_t8m8q")
+region = Rect2(0, 0, 300, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dsyp8"]
+size = Vector2(240, 82)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gbvmc"]
+size = Vector2(75, 122)
+
+[node name="ContainerYellowL" type="RigidBody2D"]
+script = ExtResource("1_8v1eb")
+healthy = SubResource("AtlasTexture_y7w74")
+damaged = SubResource("AtlasTexture_0fere")
+broken = SubResource("AtlasTexture_xj7ag")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_ns08y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 61)
+shape = SubResource("RectangleShape2D_dsyp8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(82.5, -41)
+shape = SubResource("RectangleShape2D_gbvmc")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-26, 20)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(83, -102)
+
+[node name="Marker2D3" type="Marker2D" parent="."]
+position = Vector2(120, 0)
+rotation = 1.5708
+
+[node name="Marker2D4" type="Marker2D" parent="."]
+position = Vector2(8, 102)
+rotation = -3.14159
+
+[node name="Marker2D5" type="Marker2D" parent="."]
+position = Vector2(-120, 61)
+rotation = -1.5708

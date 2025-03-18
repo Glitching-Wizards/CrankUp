@@ -60,6 +60,7 @@ public partial class ControlsRightUi : Control
         releaseButton.Pressed += OnDropPressed;
         settingsButton.Pressed += OnSettingsPressed;
         moveSlider.ValueChanged += OnSliderValueChanged;
+        moveSlider.DragEnded += OnSliderReleased;
     }
 
     private void OnDropPressed()
@@ -82,6 +83,16 @@ public partial class ControlsRightUi : Control
             movementDirection = Vector2.Left;
         else
             movementDirection = Vector2.Zero;
+    }
+
+    private void OnSliderReleased(bool ended)
+    {
+        if (ended)
+        {
+            moveSlider.Value = 0;
+            moveSliderValue = 0;
+            movementDirection = Vector2.Zero;
+        }
     }
 
     private void OnSettingsPressed()
