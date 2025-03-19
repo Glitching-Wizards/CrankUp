@@ -116,7 +116,7 @@ public partial class Level1 : Node2D
 		if (blockButtonPressed && longBlockButtonPressed) endLevel = true;
 	}
 
-    public override void _Process(double delta)
+	public override void _Process(double delta)
 	{
 		if (conveyorBelt != null && endLevel)
 		{
