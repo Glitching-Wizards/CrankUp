@@ -3,56 +3,72 @@ using System;
 
 namespace CrankUp
 {
-    public partial class WinLose : Window
-    {
-        public override void _Ready()
-        {
-            TextureButton RetryButton = GetNode<TextureButton>("RetryButton");
-            RetryButton.Pressed += RetryButtonPressed;
+	public partial class WinLose : Window
+	{
+		private Button endButton;
+		private Window victoryScreen;
+		public override void _Ready()
+		{
+			endButton = GetNode<Button>("/root/Background/Background/ConveyerBelt/ConveyerBelt2/FinishButton"); 
+			victoryScreen = GetNode<Window>("Win");
 
-            TextureButton MenuButton = GetNode<TextureButton>("MenuButton");
-            MenuButton.Pressed += MenuButtonPressed;
+			if (victoryScreen != null) 
+			victoryScreen.Visible = false;
+		
+			if (endButton != null) 
+			endButton.Pressed += OnButtonPressed;
 
-            //TextureButton NextButton = GetNode<TextureButton>("NextButton");
-            //NextButton.Pressed += NextButtonPressed;
-        }
+			TextureButton RetryButton = GetNode<TextureButton>("RetryButton");
+			RetryButton.Pressed += RetryButtonPressed;
 
-        // Called every frame. 'delta' is the elapsed time since the previous frame.
-        public override void _Process(double delta)
-        {
-        }
+			TextureButton MenuButton = GetNode<TextureButton>("MenuButton");
+			MenuButton.Pressed += MenuButtonPressed;
 
-        public void RetryButtonPressed()
-        {
-            GD.Print("Retry Pressed");
+			//TextureButton NextButton = GetNode<TextureButton>("NextButton");
+			//NextButton.Pressed += NextButtonPressed;
+		}
 
-            // return level switch
-            //{
-            //    1 => "res://Game/Level1/Scenes/Level1.tscn",
-            //   2 => "res://Game/Level1/Scenes/Level2.tscn",
-            //   3 => "res://Game/Level1/Scenes/Level3.tscn",
-            //   4 => "res://Game/Level1/Scenes/Level4.tscn",
-            //   5 => "res://Game/Level1/Scenes/Level5.tscn",
-            //   _ => string.Empty
-        }
+		// Called every frame. 'delta' is the elapsed time since the previous frame.
+		public override void _Process(double delta)
+		{
+		}
 
-        public void MenuButtonPressed()
-        {
-            GD.Print("Menu Pressed");
-            GetTree().ChangeSceneToFile("res://Menus/Levels/Scenes/Levels.tscn");
-        }
+		public void RetryButtonPressed()
+		{
+			GD.Print("Retry Pressed");
 
-        //public void NextButtonPressed()
-        //{
-        //    GD.Print("Next Pressed");
-        // return level switch
-        //{
-        //    1 => "res://Menus/LevelStart/Scenes/StartLevel2.tscn",
-        //   2 => "res://Menus/LevelStart/Scenes/StartLevel3.tscn",
-        //   3 => "res://Menus/LevelStart/Scenes/StartLevel4.tscn",
-        //   4 => "res://Menus/LevelStart/Scenes/StartLevel5.tscn",
-        //   5 => "res://Menus/Levels/Scenes/Levels.tscn",
-        //   _ => string.Empty
-        //};
-    }
+			// return level switch
+			//{
+			//    1 => "res://Game/Level1/Scenes/Level1.tscn",
+			//   2 => "res://Game/Level1/Scenes/Level2.tscn",
+			//   3 => "res://Game/Level1/Scenes/Level3.tscn",
+			//   4 => "res://Game/Level1/Scenes/Level4.tscn",
+			//   5 => "res://Game/Level1/Scenes/Level5.tscn",
+			//   _ => string.Empty
+		}
+
+		private void OnButtonPressed() {
+			GD.Print("TOIMII");
+			victoryScreen.Visible = true;
+		}
+
+		public void MenuButtonPressed()
+		{
+			GD.Print("Menu Pressed");
+			GetTree().ChangeSceneToFile("res://Menus/Levels/Scenes/Levels.tscn");
+		}
+
+		//public void NextButtonPressed()
+		//{
+		//    GD.Print("Next Pressed");
+		// return level switch
+		//{
+		//    1 => "res://Menus/LevelStart/Scenes/StartLevel2.tscn",
+		//   2 => "res://Menus/LevelStart/Scenes/StartLevel3.tscn",
+		//   3 => "res://Menus/LevelStart/Scenes/StartLevel4.tscn",
+		//   4 => "res://Menus/LevelStart/Scenes/StartLevel5.tscn",
+		//   5 => "res://Menus/Levels/Scenes/Levels.tscn",
+		//   _ => string.Empty
+		//};
+	}
 }

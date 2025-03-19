@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cts5ygn8db8c0"]
+[gd_scene load_steps=17 format=3 uid="uid://cts5ygn8db8c0"]
 
 [ext_resource type="Script" path="res://Game/Level1/Scripts/Level1.cs" id="1_4cxg7"]
 [ext_resource type="PackedScene" uid="uid://dnr4wgld8simd" path="res://Gui/Background.tscn" id="2_gy3yl"]
@@ -7,12 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://ck4oieai5v8t6" path="res://Game/Scenes/Claw.tscn" id="5_d4ees"]
 [ext_resource type="Script" path="res://Game/Scripts/PlacementArea.cs" id="7_p8h2n"]
 [ext_resource type="Texture2D" uid="uid://15t504ih4j83" path="res://Assets/Blocks/container_blue.png" id="8_t34tc"]
-[ext_resource type="PackedScene" uid="uid://c0y7av58m1gyx" path="res://Game/Level1/Scenes/BoxShadow.tscn" id="9_djva6"]
+[ext_resource type="PackedScene" uid="uid://c4xvu4xi20yxg" path="res://Game/Level1/Scenes/BoxShadow.tscn" id="9_djva6"]
 [ext_resource type="Texture2D" uid="uid://4fnl4lgyb4th" path="res://Assets/Blocks/container_green_healthy.png" id="9_i0tpf"]
-[ext_resource type="PackedScene" path="res://Game/Scenes/ContainerBlueL.tscn" id="10_nmtbf"]
-[ext_resource type="PackedScene" path="res://Game/Scenes/ContainerRed.tscn" id="11_itc4r"]
-[ext_resource type="PackedScene" path="res://Game/Scenes/ContainerYellow.tscn" id="13_8l0at"]
+[ext_resource type="PackedScene" uid="uid://b0v7nubn6744q" path="res://Game/Scenes/ContainerBlueL.tscn" id="10_nmtbf"]
+[ext_resource type="PackedScene" uid="uid://wyotxfdb7b7l" path="res://Game/Scenes/ContainerRed.tscn" id="11_itc4r"]
+[ext_resource type="PackedScene" uid="uid://cbxq30fl1n3kd" path="res://Game/Scenes/ContainerYellow.tscn" id="13_8l0at"]
 [ext_resource type="PackedScene" uid="uid://br88ir8sd35jl" path="res://Game/Scenes/LongBlock.tscn" id="13_xxycs"]
+[ext_resource type="PackedScene" uid="uid://d3h8yejbsuxbm" path="res://Menus/LevelWinLose/Scenes/Win.tscn" id="14_ut77x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aeeyk"]
 size = Vector2(262, 152)
@@ -111,6 +112,15 @@ position = Vector2(-113, 141)
 
 [node name="ContainerYellow" parent="." instance=ExtResource("13_8l0at")]
 position = Vector2(171, -23)
+
+[node name="WinLose" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Win" parent="WinLose" instance=ExtResource("14_ut77x")]
+visible = false
 
 [connection signal="body_entered" from="PlacementArea" to="PlacementArea" method="_on_body_entered"]
 [connection signal="pressed" from="BlockButtons/Block" to="." method="_on_block_pressed"]
