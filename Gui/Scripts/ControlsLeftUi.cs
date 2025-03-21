@@ -5,7 +5,6 @@ namespace CrankUp;
 public partial class ControlsLeftUi : Control
 {
     private ClawHead clawHead;
-    private TextureButton grabButton;
     private TextureButton rotateButton;
     private VSlider moveSlider;
     private float moveSliderValue;
@@ -13,14 +12,6 @@ public partial class ControlsLeftUi : Control
 
     public override void _Ready()
     {
-        // Find the Grab button safely
-        grabButton = GetNodeOrNull<TextureButton>("Panel/Grab");
-        if (grabButton == null)
-        {
-            GD.PrintErr("[ERROR] TextureButton 'Grab' not found in ControlsLeftUi!");
-            return;
-        }
-
         rotateButton = GetNodeOrNull<TextureButton>("Panel/Rotate");
         if (rotateButton == null)
         {
@@ -46,15 +37,9 @@ public partial class ControlsLeftUi : Control
         moveSliderValue = (float)moveSlider.Value;
 
         // Connect button signals
-        grabButton.Pressed += OnGrabPressed;
         rotateButton.Pressed += OnRotatePressed;
         moveSlider.ValueChanged += OnSliderValueChanged;
         moveSlider.DragEnded += OnSliderReleased;
-    }
-
-    private void OnGrabPressed()
-    {
-        if (clawHead != null) clawHead.GrabBlock();
     }
 
     private void OnRotatePressed()

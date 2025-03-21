@@ -22,6 +22,8 @@ public partial class Level1 : Node2D
 	private PackedScene _clawScene = null;
 	private Claw _claw = null;
 	public Claw Claw => _claw;
+	private ClawHead clawHead;
+
 	private TextureRect conveyorBelt;
 	private PackedScene _blockScene;
 	private PackedScene _longBlockScene;
@@ -30,8 +32,10 @@ public partial class Level1 : Node2D
 	private bool longBlockButtonPressed = false;
 	private bool blockButtonPressed = false;
 
+	private bool startLevel = true;
 	private bool endLevel = false;
-	private float beltTargetPosition = -860; // conveyorBelt target position when all blocks are in play
+	private float beltTargetPositionStart = -540;
+	private float beltTargetPositionEnd = 460; // conveyorBelt target position when all blocks are in play
 	private float beltMoveSpeed = 200f; // conveyorBelts speed of movement per frame
 
 
@@ -39,8 +43,14 @@ public partial class Level1 : Node2D
 	{
 		_claw = CreateClaw();
 
-		Control background = GetTree().Root.FindChild("Background", true, false) as Control;
-		conveyorBelt = background.FindChild("ConveyorBelt", true, false) as TextureRect;
+		clawHead = GetTree().Root.FindChild("ClawHead", true, false) as ClawHead;
+		if (clawHead == null)
+		{
+			GD.PrintErr("[ERROR] ClawHead not found! Block cannot be spawned.");
+			return;
+		}
+
+		conveyorBelt = GetNodeOrNull<TextureRect>("ConveyorBelt");
 
 		PackedScene settingsScene = (PackedScene)GD.Load(_settingsScenePath);
 		settingsWindow = (Window)settingsScene.Instantiate();
@@ -50,16 +60,16 @@ public partial class Level1 : Node2D
 		_blockScene = ResourceLoader.Load<PackedScene>(_blockScenePath);
 		_longBlockScene = ResourceLoader.Load<PackedScene>(_longBlockScenePath);
 
-		blockButton = GetNodeOrNull<TextureButton>("BlockButtons/Block");
-		longBlockButton = GetNodeOrNull<TextureButton>("BlockButtons/LongBlock");
+		blockButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/Block");
+		longBlockButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/LongBlock");
 
-		blockButton.Pressed += () => 
+		blockButton.Pressed += () =>
 		{
 			blockButtonPressed = true;
 			SpawnBlockButtonPressed(_blockScene, blockButton);
 		};
 
-		longBlockButton.Pressed += () => 
+		longBlockButton.Pressed += () =>
 		{
 			longBlockButtonPressed = true;
 			SpawnBlockButtonPressed(_longBlockScene, longBlockButton);
@@ -87,16 +97,11 @@ public partial class Level1 : Node2D
 
 	private async void SpawnBlockButtonPressed(PackedScene BlockScene, TextureButton button)
 	{
+		if (clawHead.grabbedBlock != null) return;
+
 		if (BlockScene == null)
 		{
 			GD.PrintErr("[ERROR] Cannot spawn block, scene not loaded!");
-		}
-
-		ClawHead clawHead = GetTree().Root.FindChild("ClawHead", true, false) as ClawHead;
-		if (clawHead == null)
-		{
-			GD.PrintErr("[ERROR] ClawHead not found! Block cannot be spawned.");
-			return;
 		}
 
 		clawHead.collisionShape.SetDeferred("disabled", true);
@@ -118,13 +123,23 @@ public partial class Level1 : Node2D
 
 	public override void _Process(double delta)
 	{
+		if (conveyorBelt != null && startLevel)
+		{
+			float step = beltMoveSpeed * (float) delta;
+
+			if (conveyorBelt.Position.X < beltTargetPositionStart)
+			{
+				conveyorBelt.Position = new Godot.Vector2(conveyorBelt.Position.X + step, conveyorBelt.Position.Y);
+			}
+		}
+
 		if (conveyorBelt != null && endLevel)
 		{
 			float step = beltMoveSpeed * (float) delta;
 
-			if (conveyorBelt.Position.X > beltTargetPosition)
+			if (conveyorBelt.Position.X < beltTargetPositionEnd)
 			{
-				conveyorBelt.Position = new Godot.Vector2(conveyorBelt.Position.X - step, conveyorBelt.Position.Y);
+				conveyorBelt.Position = new Godot.Vector2(conveyorBelt.Position.X + step, conveyorBelt.Position.Y);
 			}
 		}
 	}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://wyotxfdb7b7l"]
+[gd_scene load_steps=8 format=3 uid="uid://te4xswc06au0"]
 
 [ext_resource type="Script" path="res://Game/Scripts/Block.cs" id="1_5d1ka"]
 [ext_resource type="Texture2D" uid="uid://bhsbtyvx1hwir" path="res://Assets/Blocks/container_red.png" id="2_rx0o6"]
@@ -29,22 +29,28 @@ damaged = SubResource("AtlasTexture_a8r47")
 broken = SubResource("AtlasTexture_vmf8d")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
 texture = SubResource("AtlasTexture_isvg2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.7, 0.7)
 shape = SubResource("RectangleShape2D_xeenf")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(0, -66)
+position = Vector2(0, -46.2)
+scale = Vector2(0.7, 0.7)
 
 [node name="Marker2D2" type="Marker2D" parent="."]
-position = Vector2(120, 0)
+position = Vector2(84, 0)
 rotation = 1.5708
+scale = Vector2(0.7, 0.7)
 
 [node name="Marker2D3" type="Marker2D" parent="."]
-position = Vector2(0, 66)
+position = Vector2(0, 46.2)
 rotation = 3.14159
+scale = Vector2(0.7, 0.7)
 
 [node name="Marker2D4" type="Marker2D" parent="."]
-position = Vector2(-120, 0)
-rotation = 4.71239
+position = Vector2(-84, 0)
+rotation = -1.5708
+scale = Vector2(0.7, 0.7)
