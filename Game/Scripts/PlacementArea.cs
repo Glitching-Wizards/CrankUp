@@ -87,4 +87,10 @@ public partial class PlacementArea : Area2D
 
 		return 0f;
 	}
+
+		public float GetScore()
+	{
+		return (filledAreaSize / totalAreaSize) * 100f;
+	}
+
 }
