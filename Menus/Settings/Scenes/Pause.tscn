@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d2ne652846407" path="res://Assets/Gui/Buttons/green_button_retry1.png" id="6_pmdx3"]
 [ext_resource type="Texture2D" uid="uid://xo18uc0tpsnf" path="res://Assets/Gui/Buttons/green_button_retry2.png" id="7_6s1im"]
 [ext_resource type="Texture2D" uid="uid://dlwmauctbx1ot" path="res://Assets/Gui/Buttons/Settings.png" id="8_oiqm5"]
-[ext_resource type="Theme" uid="uid://d11mtqc1e8y55" path="res://Gui/PlayTheme.tres" id="9_oxc3b"]
+[ext_resource type="Theme" uid="uid://6td37p2nd7m3" path="res://Gui/PlayTheme.tres" id="9_oxc3b"]
 
 [node name="Pause" type="Window"]
 transparent_bg = true
