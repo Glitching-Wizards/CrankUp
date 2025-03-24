@@ -1,17 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbrwler8lk051"]
+[gd_scene load_steps=10 format=3 uid="uid://cbrwler8lk051"]
 
 [ext_resource type="Script" path="res://Gui/Scripts/ControlsRightUi.cs" id="1_agtus"]
 [ext_resource type="Texture2D" uid="uid://b4bjdgq72inu5" path="res://Assets/Gui/Buttons/settings_new1.png" id="2_1bjy5"]
-[ext_resource type="Texture2D" uid="uid://byhmjem6c0t4x" path="res://Assets/Gui/Buttons/Drop.png" id="2_alhue"]
+[ext_resource type="Texture2D" uid="uid://bskd5oath0065" path="res://Assets/Gui/Buttons/Grab.png" id="2_b0xj0"]
 [ext_resource type="Texture2D" uid="uid://bkv6f6qua35ki" path="res://Assets/Gui/Slider.png" id="3_uyu0l"]
 [ext_resource type="Texture2D" uid="uid://ps2i4dojyd4r" path="res://Assets/Gui/Buttons/settings_new2.png" id="3_vngqn"]
+[ext_resource type="Texture2D" uid="uid://bsiciqmbbksx3" path="res://Assets/Backgrounds/RightConsole.png" id="6_jd8js"]
+[ext_resource type="Texture2D" uid="uid://dl1c78xcnlm4f" path="res://Assets/Gui/SliderRail.png" id="7_u5jr7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ur02m"]
-atlas = ExtResource("2_alhue")
+atlas = ExtResource("2_b0xj0")
 region = Rect2(0, 0, 130, 130)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ac15w"]
-atlas = ExtResource("2_alhue")
+atlas = ExtResource("2_b0xj0")
 region = Rect2(130, 0, 130, 130)
 
 [node name="ControlsRightUi" type="Control"]
@@ -32,7 +34,7 @@ offset_right = 1280.0
 offset_bottom = 720.0
 mouse_filter = 2
 
-[node name="Release" type="TextureButton" parent="Panel"]
+[node name="Grab" type="TextureButton" parent="Panel"]
 layout_mode = 0
 offset_left = 3.0
 offset_top = 590.0
@@ -60,6 +62,24 @@ offset_bottom = 40.0
 texture_normal = ExtResource("2_1bjy5")
 texture_pressed = ExtResource("3_vngqn")
 
-[connection signal="pressed" from="Panel/Release" to="." method="_on_release_pressed"]
+[node name="RightConsole" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_left = 1144.0
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+texture = ExtResource("6_jd8js")
+
+[node name="RightRail" type="TextureRect" parent="RightConsole"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 130.0
+offset_right = 134.0
+offset_bottom = 590.0
+mouse_filter = 2
+texture = ExtResource("7_u5jr7")
+
+[connection signal="pressed" from="Panel/Grab" to="." method="_on_release_pressed"]
 [connection signal="drag_ended" from="Panel/MoveSlider" to="." method="_on_move_slider_drag_ended"]
 [connection signal="pressed" from="Panel/SettingsButton" to="." method="_on_settings_button_pressed"]
