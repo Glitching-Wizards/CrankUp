@@ -6,50 +6,76 @@ namespace CrankUp
 	public partial class WinLose : Window
 	{
 		private Button endButton;
-		private Window victoryScreen;
+		private Window victoryScreen1, victoryScreen2, victoryScreen3;
+		private PlacementArea placementArea;
+		private float score;
+
 		public override void _Ready()
 		{
-			endButton = GetNode<Button>("/root/Background/Background/ConveyerBelt/ConveyerBelt2/FinishButton"); 
-			victoryScreen = GetNode<Window>("Win");
+			endButton = GetNodeOrNull<Button>("../../Background/ConveyerBelt/ConveyerBelt2/FinishButton"); 
 
-			if (victoryScreen != null) 
-			victoryScreen.Visible = false;
-		
+			victoryScreen1 = GetNodeOrNull<Window>("Win");
+			victoryScreen2 = GetNodeOrNull<Window>("Win2");
+			victoryScreen3 = GetNodeOrNull<Window>("Win3");
+
+			if (victoryScreen1 != null) victoryScreen1.Visible = false;
+			if (victoryScreen2 != null) victoryScreen2.Visible = false;
+			if (victoryScreen3 != null) victoryScreen3.Visible = false;
+
+			placementArea = GetNodeOrNull<PlacementArea>("Level1/PlacementArea"); 
+			if (placementArea == null)
+				GD.PrintErr("PlacementArea not found!");
+
 			if (endButton != null) 
-			endButton.Pressed += OnButtonPressed;
+				endButton.Pressed += OnButtonPressed;
+			else
+				GD.PrintErr("FinishButton not found!");
 
-			TextureButton RetryButton = GetNode<TextureButton>("RetryButton");
-			RetryButton.Pressed += RetryButtonPressed;
+			TextureButton RetryButton = GetNodeOrNull<TextureButton>("RetryButton");
+			if (RetryButton != null) RetryButton.Pressed += RetryButtonPressed;
 
-			TextureButton MenuButton = GetNode<TextureButton>("MenuButton");
-			MenuButton.Pressed += MenuButtonPressed;
-
-			//TextureButton NextButton = GetNode<TextureButton>("NextButton");
-			//NextButton.Pressed += NextButtonPressed;
+			TextureButton MenuButton = GetNodeOrNull<TextureButton>("MenuButton");
+			if (MenuButton != null) MenuButton.Pressed += MenuButtonPressed;
 		}
 
-		// Called every frame. 'delta' is the elapsed time since the previous frame.
-		public override void _Process(double delta)
+		private void OnButtonPressed()
 		{
+			GD.Print("Finish Button Pressed! Checking score...");
+
+			if (placementArea != null)
+				score = placementArea.GetScore();
+			else
+			{
+				GD.PrintErr("Cannot get score - PlacementArea is null!");
+				return;
+			}
+
+			GD.Print($"Score: {score}%");
+
+			if (score >= 70 && score < 80)
+			{
+				GD.Print("Displaying Victory Screen 1 (70-80%)");
+				if (victoryScreen1 != null) victoryScreen1.Visible = true;
+			}
+			else if (score >= 80 && score < 90)
+			{
+				GD.Print("Displaying Victory Screen 2 (80-90%)");
+				if (victoryScreen2 != null) victoryScreen2.Visible = true;
+			}
+			else if (score >= 90)
+			{
+				GD.Print("Displaying Victory Screen 3 (90-100%)");
+				if (victoryScreen3 != null) victoryScreen3.Visible = true;
+			}
+			else
+			{
+				GD.Print("No victory screen shown - score too low.");
+			}
 		}
 
 		public void RetryButtonPressed()
 		{
 			GD.Print("Retry Pressed");
-
-			// return level switch
-			//{
-			//    1 => "res://Game/Level1/Scenes/Level1.tscn",
-			//   2 => "res://Game/Level1/Scenes/Level2.tscn",
-			//   3 => "res://Game/Level1/Scenes/Level3.tscn",
-			//   4 => "res://Game/Level1/Scenes/Level4.tscn",
-			//   5 => "res://Game/Level1/Scenes/Level5.tscn",
-			//   _ => string.Empty
-		}
-
-		private void OnButtonPressed() {
-			GD.Print("TOIMII");
-			victoryScreen.Visible = true;
 		}
 
 		public void MenuButtonPressed()
@@ -57,18 +83,5 @@ namespace CrankUp
 			GD.Print("Menu Pressed");
 			GetTree().ChangeSceneToFile("res://Menus/Levels/Scenes/Levels.tscn");
 		}
-
-		//public void NextButtonPressed()
-		//{
-		//    GD.Print("Next Pressed");
-		// return level switch
-		//{
-		//    1 => "res://Menus/LevelStart/Scenes/StartLevel2.tscn",
-		//   2 => "res://Menus/LevelStart/Scenes/StartLevel3.tscn",
-		//   3 => "res://Menus/LevelStart/Scenes/StartLevel4.tscn",
-		//   4 => "res://Menus/LevelStart/Scenes/StartLevel5.tscn",
-		//   5 => "res://Menus/Levels/Scenes/Levels.tscn",
-		//   _ => string.Empty
-		//};
 	}
 }
