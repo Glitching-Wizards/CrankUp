@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Game/Scripts/PlacementArea.cs" id="7_p8h2n"]
 [ext_resource type="Texture2D" uid="uid://15t504ih4j83" path="res://Assets/Blocks/container_blue.png" id="8_t34tc"]
 [ext_resource type="Texture2D" uid="uid://4fnl4lgyb4th" path="res://Assets/Blocks/container_green_healthy.png" id="9_i0tpf"]
+
 [ext_resource type="PackedScene" uid="uid://c0y7av58m1gyx" path="res://Game/Level1/Scenes/BoxShadow.tscn" id="9_p0web"]
 [ext_resource type="PackedScene" uid="uid://d3h8yejbsuxbm" path="res://Menus/LevelWinLose/Scenes/Win.tscn" id="10_wd1q1"]
 [ext_resource type="PackedScene" uid="uid://te4xswc06au0" path="res://Game/Scenes/ContainerRed.tscn" id="11_yj5lg"]
@@ -15,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bw7uqlawbr5or" path="res://Assets/Misc/Conveyor.png" id="13_6ktvu"]
 [ext_resource type="Theme" uid="uid://6td37p2nd7m3" path="res://Gui/PlayTheme.tres" id="14_xaqlu"]
 [ext_resource type="Script" path="res://Game/Scripts/FinishButton.cs" id="15_eljpa"]
+
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_idrmk"]
 atlas = ExtResource("8_t34tc")
@@ -136,8 +138,34 @@ offset_top = -82.0
 offset_right = 289.0
 offset_bottom = -59.0
 
-[node name="PlacementBox" parent="." instance=ExtResource("9_p0web")]
-position = Vector2(-137, 25)
+
+[node name="LongBlock" type="TextureButton" parent="BlockButtons"]
+layout_mode = 0
+offset_left = -250.0
+offset_top = 223.0
+offset_right = -118.0
+offset_bottom = 255.0
+rotation = 1.5708
+texture_normal = ExtResource("9_i0tpf")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="PlacementAreaBox" parent="." instance=ExtResource("9_djva6")]
+position = Vector2(-320, -151)
+
+[node name="ContainerBlueL" parent="." instance=ExtResource("10_nmtbf")]
+position = Vector2(213, 100)
+
+[node name="ContainerRed" parent="." instance=ExtResource("11_itc4r")]
+position = Vector2(26, 82)
+rotation = 1.5708
+
+[node name="LongBlock" parent="." instance=ExtResource("13_xxycs")]
+position = Vector2(-113, 141)
+
+[node name="ContainerYellow" parent="." instance=ExtResource("13_8l0at")]
+position = Vector2(171, -23)
+
 
 [node name="WinLose" type="Control" parent="."]
 layout_mode = 3

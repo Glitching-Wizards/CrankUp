@@ -1,13 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckb1t7ko0dp0p"]
+[gd_scene load_steps=8 format=3 uid="uid://ckb1t7ko0dp0p"]
 
 [ext_resource type="Script" path="res://Menus/Settings/Scripts/Settings.cs" id="1_n5s8t"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qhqup"]
+[ext_resource type="Texture2D" uid="uid://dgeqhabsqprjl" path="res://Assets/Gui/Settings/OptionsScreenFinal.png" id="2_hd04c"]
+[ext_resource type="Theme" uid="uid://d11mtqc1e8y55" path="res://Gui/PlayTheme.tres" id="3_c0bsf"]
+[ext_resource type="Texture2D" uid="uid://dtj7v04qhhxhi" path="res://Assets/Gui/Buttons/cross_button1.png" id="4_c3tkn"]
+[ext_resource type="Texture2D" uid="uid://djyg326tkq217" path="res://Assets/Gui/Buttons/cross_button2.png" id="5_0i663"]
+[ext_resource type="Texture2D" uid="uid://clltbel2u0p2u" path="res://Assets/Settings/FinnishFlag.png" id="6_2cjmi"]
+[ext_resource type="Texture2D" uid="uid://dlswobb8oympm" path="res://Assets/Settings/UKFlag.png" id="7_b16ck"]
 
 [node name="Settings" type="Window"]
 transparent_bg = true
 initial_position = 1
-size = Vector2i(1200, 680)
+size = Vector2i(1280, 720)
 exclusive = true
 unresizable = true
 borderless = true
@@ -15,28 +19,119 @@ always_on_top = true
 transparent = true
 script = ExtResource("1_n5s8t")
 
-[node name="Panel" type="Panel" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2_hd04c")
+
+[node name="ExitButton" type="TextureButton" parent="."]
+offset_left = 1094.0
+offset_top = 22.0
+offset_right = 1344.0
+offset_bottom = 272.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("4_c3tkn")
+texture_pressed = ExtResource("5_0i663")
+texture_hover = ExtResource("4_c3tkn")
+
+[node name="Texts" type="Node" parent="."]
+
+[node name="Options" type="Label" parent="Texts"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -213.0
+offset_top = 26.0
+offset_right = 587.0
+offset_bottom = 826.0
 grow_horizontal = 2
+theme = ExtResource("3_c0bsf")
+theme_override_font_sizes/font_size = 90
+text = "Options"
+
+[node name="Language" type="Label" parent="Texts"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 192.0
+offset_top = -172.0
+offset_right = 992.0
+offset_bottom = 628.0
 grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("3_c0bsf")
+theme_override_font_sizes/font_size = 40
+text = "Language"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 495.0
-offset_top = 92.0
-offset_right = 860.0
-offset_bottom = 132.0
-text = "Settings"
+[node name="Music" type="Label" parent="Texts"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 218.0
+offset_top = -46.0
+offset_right = 1018.0
+offset_bottom = 754.0
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("3_c0bsf")
+theme_override_font_sizes/font_size = 40
+text = "Music"
 
-[node name="BackButton" type="TextureButton" parent="."]
+[node name="SFX" type="Label" parent="Texts"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 138.0
+offset_top = 82.0
+offset_right = 938.0
+offset_bottom = 882.0
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("3_c0bsf")
+theme_override_font_sizes/font_size = 40
+text = "Sound effects"
+
+[node name="Master" type="Label" parent="Texts"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 132.0
+offset_top = 212.0
+offset_right = 932.0
+offset_bottom = 1012.0
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("3_c0bsf")
+theme_override_font_sizes/font_size = 40
+text = "Master Volume"
+
+[node name="Panel" type="Panel" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
-texture_normal = SubResource("CompressedTexture2D_qhqup")
 
-[node name="QuitButton" type="Button" parent="."]
-offset_left = 450.0
-offset_top = 400.0
-offset_right = 719.0
-offset_bottom = 562.0
-text = "Quit"
+[node name="HSlider" type="HSlider" parent="Panel"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 16.0
+
+[node name="Buttons" type="Node" parent="."]
+
+[node name="FI" type="TextureButton" parent="Buttons"]
+offset_left = 695.0
+offset_top = 158.0
+offset_right = 945.0
+offset_bottom = 298.0
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("6_2cjmi")
+
+[node name="EN" type="TextureButton" parent="Buttons"]
+offset_left = 926.0
+offset_top = 166.0
+offset_right = 1176.0
+offset_bottom = 306.0
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("7_b16ck")
