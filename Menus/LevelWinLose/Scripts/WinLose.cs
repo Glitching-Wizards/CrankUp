@@ -12,7 +12,7 @@ namespace CrankUp
 
 		public override void _Ready()
 		{
-			endButton = GetNodeOrNull<Button>("../../Background/ConveyerBelt/ConveyerBelt2/FinishButton"); 
+			endButton = GetNodeOrNull<Button>("/root/Level1/Background/ConveyerBelt/ConveyerBelt2/FinishButton");
 
 			victoryScreen1 = GetNodeOrNull<Window>("Win");
 			victoryScreen2 = GetNodeOrNull<Window>("Win2");
@@ -22,7 +22,9 @@ namespace CrankUp
 			if (victoryScreen2 != null) victoryScreen2.Visible = false;
 			if (victoryScreen3 != null) victoryScreen3.Visible = false;
 
-			placementArea = GetNodeOrNull<PlacementArea>("Level1/PlacementArea"); 
+			CallDeferred(nameof(Setup));
+
+			placementArea = GetNodeOrNull<PlacementArea>("/root/Level1/PlacementArea"); 
 			if (placementArea == null)
 				GD.PrintErr("PlacementArea not found!");
 
@@ -36,21 +38,20 @@ namespace CrankUp
 
 			TextureButton MenuButton = GetNodeOrNull<TextureButton>("MenuButton");
 			if (MenuButton != null) MenuButton.Pressed += MenuButtonPressed;
+
+			if (placementArea == null)
+			GD.PrintErr("PlacementArea not found in the scene!");
+
+			if (endButton == null)
+			GD.PrintErr("FinishButton not found in the scene!");
+
 		}
 
 		private void OnButtonPressed()
 		{
 			GD.Print("Finish Button Pressed! Checking score...");
 
-			if (placementArea != null)
-				score = placementArea.GetScore();
-			else
-			{
-				GD.PrintErr("Cannot get score - PlacementArea is null!");
-				return;
-			}
-
-			GD.Print($"Score: {score}%");
+			score = placementArea.GetScore();
 
 			if (score >= 70 && score < 80)
 			{
@@ -73,15 +74,18 @@ namespace CrankUp
 			}
 		}
 
-		public void RetryButtonPressed()
-		{
+		public void RetryButtonPressed() {
 			GD.Print("Retry Pressed");
 		}
 
-		public void MenuButtonPressed()
-		{
+		public void MenuButtonPressed() {
 			GD.Print("Menu Pressed");
 			GetTree().ChangeSceneToFile("res://Menus/Levels/Scenes/Levels.tscn");
+		}
+		private void Setup() {
+   		 placementArea = GetTree().Root.GetNodeOrNull<PlacementArea>("Level1/PlacementArea");
+   		 if (placementArea == null)
+		GD.PrintErr("PlacementArea not found even after defer!");
 		}
 	}
 }
