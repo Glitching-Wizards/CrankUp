@@ -24,9 +24,14 @@ namespace CrankUp
         public void PlayButtonPressed()
         {
             GD.Print("Play Pressed");
-            GetTree().ChangeSceneToFile("res://Game/Level1/Scenes/Level1.tscn");
 
-        }
+            CallDeferred(nameof(ChangeScene));
+		}
+
+		private void ChangeScene()
+		{
+			GetTree().ChangeSceneToFile("res://Game/Level1/Scenes/Level1.tscn");
+		}
     }
 }
 

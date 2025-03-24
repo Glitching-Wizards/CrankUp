@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://t8di6gto22h3"]
+[gd_scene load_steps=8 format=3 uid="uid://t8di6gto22h3"]
 
 [ext_resource type="Texture2D" uid="uid://cka1nt588tjap" path="res://Assets/Backgrounds/DefeatScreen.png" id="1_nb1yv"]
-[ext_resource type="Texture2D" uid="uid://ttq1of7d5af8" path="res://Assets/Gui/Buttons/yellow_button1.png" id="2_yfe5r"]
-[ext_resource type="Texture2D" uid="uid://dsk0vhi3yx2tq" path="res://Assets/Gui/Buttons/yellow_button2.png" id="3_07gpf"]
+[ext_resource type="Texture2D" uid="uid://d2ne652846407" path="res://Assets/Gui/Buttons/green_button_retry1.png" id="2_03ryq"]
+[ext_resource type="Texture2D" uid="uid://xo18uc0tpsnf" path="res://Assets/Gui/Buttons/green_button_retry2.png" id="3_0o6ys"]
+[ext_resource type="Texture2D" uid="uid://1pedsn4616vk" path="res://Assets/Gui/Buttons/grey_button_home1.png" id="4_01gye"]
 [ext_resource type="Texture2D" uid="uid://bvgtg0q0k8n42" path="res://Assets/Gui/BlankStar.png" id="4_sbl07"]
+[ext_resource type="Texture2D" uid="uid://bqti4reoj73jh" path="res://Assets/Gui/Buttons/grey_button_home2.png" id="5_82b2m"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="5_ljc6y"]
 
 [node name="Lose" type="Window"]
@@ -19,7 +21,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_nb1yv")
 
-[node name="MenuButton" type="TextureButton" parent="."]
+[node name="RetryButton" type="TextureButton" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -32,11 +34,11 @@ offset_bottom = 222.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.9, 0.9)
-texture_normal = ExtResource("2_yfe5r")
-texture_pressed = ExtResource("3_07gpf")
-texture_hover = ExtResource("2_yfe5r")
+texture_normal = ExtResource("2_03ryq")
+texture_pressed = ExtResource("3_0o6ys")
+texture_hover = ExtResource("2_03ryq")
 
-[node name="RetryButton" type="TextureButton" parent="."]
+[node name="MenuButton" type="TextureButton" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -49,9 +51,9 @@ offset_bottom = 222.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.9, 0.9)
-texture_normal = ExtResource("2_yfe5r")
-texture_pressed = ExtResource("3_07gpf")
-texture_hover = ExtResource("2_yfe5r")
+texture_normal = ExtResource("4_01gye")
+texture_pressed = ExtResource("5_82b2m")
+texture_hover = ExtResource("4_01gye")
 
 [node name="Star1" type="TextureRect" parent="."]
 offset_left = 342.0
