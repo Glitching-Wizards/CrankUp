@@ -5,8 +5,13 @@ namespace CrankUp
 {
     public partial class Levels : Node
     {
-        [Export] private string _startLevelScenePath = "res://Menus/LevelStart/Scenes/StartLevel1.tscn";
+        [Export] private string _startLevel1ScenePath = "res://Menus/LevelStart/Scenes/StartLevel1.tscn";
+        [Export] private string _startLevel2ScenePath = "res://Menus/LevelStart/Scenes/StartLevel2.tscn";
+        [Export] private string _startLevel3ScenePath = "res://Menus/LevelStart/Scenes/StartLevel3.tscn";
+        [Export] private string _startLevel4ScenePath = "res://Menus/LevelStart/Scenes/StartLevel4.tscn";
+        [Export] private string _startLevel5ScenePath = "res://Menus/LevelStart/Scenes/StartLevel5.tscn";
         [Export] private string _settingsScenePath = "res://Menus/Settings/Scenes/Settings.tscn";
+        private string _startLevelScenePath = "";
         private Window startLevelWindow;
         private Window settingsWindow;
         private TextureButton settingsButton;
@@ -14,12 +19,6 @@ namespace CrankUp
         // Called when the node enters the scene tree for the first time.
         public override void _Ready()
         {
-            PackedScene startScene = (PackedScene)GD.Load(_startLevelScenePath);
-            startLevelWindow = (Window)startScene.Instantiate();
-            AddChild(startLevelWindow);
-
-            startLevelWindow.Visible = false;
-
             TextureButton LevelButton1 = GetNode<TextureButton>("Buttons/Level1");
             LevelButton1.Pressed += () => LevelButtonPressed(1);
 
@@ -69,9 +68,17 @@ namespace CrankUp
         {
             GD.Print($"Level {level} button pressed");
 
-            string scenePath = GetLevelScenePath(level);
+            _startLevelScenePath = GetLevelScenePath(level);
 
+            PackedScene startSceneLevel = (PackedScene)GD.Load(_startLevelScenePath);
+            startLevelWindow = (Window)startSceneLevel.Instantiate();
+            AddChild(startLevelWindow);
             startLevelWindow.Popup();
+
+            if (startLevelWindow is LevelStart levelStartWindow)
+            {
+                levelStartWindow.SetLevel(level);
+            }
         }
 
         /// <summary>

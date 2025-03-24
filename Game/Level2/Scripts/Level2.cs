@@ -4,10 +4,10 @@ using System.Numerics;
 using System.Runtime.CompilerServices;
 
 namespace CrankUp;
-public partial class Level1 : Node2D
+public partial class Level2 : Node2D
 {
-	private static Level1 _current = null;
-	public static Level1 Current
+	private static Level2 _current = null;
+	public static Level2 Current
 	{
 		get { return _current; }
 	}
@@ -76,7 +76,7 @@ public partial class Level1 : Node2D
 		};
 	}
 
-	public Level1()
+	public Level2()
 	{
 		_current = this;
 	}
@@ -143,25 +143,4 @@ public partial class Level1 : Node2D
 			}
 		}
 	}
-
-	//public void GameStop()
-	//public void GameFinish()
-	//{
-	//	if  (Score > 30)
-	//	{
-	//		WinWindow.Popup();
-	//	}
-	//	if else (Score > 50)
-	//	{
-	//		Win2Window.Popup();
-	//	}
-	//	if else (Score > 70)
-	//	{
-	//		Win3Window.Popup();
-	//	}
-	//	else
-	//	{
-	//		LoseWindow.Popup();
-	//	}
-	//}
 }

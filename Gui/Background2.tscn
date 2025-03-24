@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dnr4wgld8simd"]
+[gd_scene load_steps=8 format=3 uid="uid://bijpbkcqtiber"]
 
-[ext_resource type="Texture2D" uid="uid://k2ji4rswhfbd" path="res://Assets/Backgrounds/Level1Background.png" id="1_4yqy1"]
-[ext_resource type="Texture2D" uid="uid://duxnkmbpy8csc" path="res://Assets/Misc/Beam.png" id="2_2d1b3"]
-[ext_resource type="Texture2D" uid="uid://d4axb8wy7ry3s" path="res://Assets/Backgrounds/TruckModel2.png" id="5_s8oss"]
-[ext_resource type="Texture2D" uid="uid://daile572kg6n5" path="res://Assets/Victory/VictoryScreen.png" id="9_m62ga"]
+[ext_resource type="Texture2D" uid="uid://c8gfkxwcmtg22" path="res://Assets/Backgrounds/Level2Background.png" id="1_jrswi"]
+[ext_resource type="Texture2D" uid="uid://duxnkmbpy8csc" path="res://Assets/Misc/Beam.png" id="2_u6ejk"]
+[ext_resource type="Texture2D" uid="uid://d4axb8wy7ry3s" path="res://Assets/Backgrounds/TruckModel2.png" id="3_qaka2"]
+[ext_resource type="Texture2D" uid="uid://daile572kg6n5" path="res://Assets/Victory/VictoryScreen.png" id="4_tpi8t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_imtd3"]
 size = Vector2(1055, 58)
@@ -30,7 +30,7 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
-texture = ExtResource("1_4yqy1")
+texture = ExtResource("1_jrswi")
 
 [node name="Beam" type="StaticBody2D" parent="Background"]
 position = Vector2(67, 516)
@@ -38,79 +38,79 @@ position = Vector2(67, 516)
 [node name="TextureRect" type="TextureRect" parent="Background/Beam"]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("2_2d1b3")
+texture = ExtResource("2_u6ejk")
 
 [node name="TextureRect2" type="TextureRect" parent="Background/Beam"]
 offset_left = 84.0
 offset_right = 204.0
 offset_bottom = 120.0
-texture = ExtResource("2_2d1b3")
+texture = ExtResource("2_u6ejk")
 
 [node name="TextureRect3" type="TextureRect" parent="Background/Beam"]
 offset_left = 168.0
 offset_right = 288.0
 offset_bottom = 120.0
-texture = ExtResource("2_2d1b3")
+texture = ExtResource("2_u6ejk")
 
 [node name="TextureRect4" type="TextureRect" parent="Background/Beam"]
 offset_left = 252.0
 offset_right = 372.0
 offset_bottom = 120.0
-texture = ExtResource("2_2d1b3")
+texture = ExtResource("2_u6ejk")
 
 [node name="TextureRect5" type="TextureRect" parent="Background/Beam"]
 offset_left = 336.0
 offset_right = 456.0
 offset_bottom = 120.0
-texture = ExtResource("2_2d1b3")
+texture = ExtResource("2_u6ejk")
 
 [node name="TextureRect6" type="TextureRect" parent="Background/Beam"]
 offset_left = 420.0
 offset_right = 540.0
 offset_bottom = 120.0
-texture = ExtResource("2_2d1b3")
+texture = ExtResource("2_u6ejk")
 
 [node name="TextureRect7" type="TextureRect" parent="Background/Beam"]
 offset_left = 504.0
 offset_right = 624.0
 offset_bottom = 120.0
-texture = ExtResource("2_2d1b3")
+texture = ExtResource("2_u6ejk")
 
 [node name="TextureRect8" type="TextureRect" parent="Background/Beam"]
 offset_left = 588.0
 offset_right = 708.0
 offset_bottom = 120.0
-texture = ExtResource("2_2d1b3")
+texture = ExtResource("2_u6ejk")
 
 [node name="TextureRect9" type="TextureRect" parent="Background/Beam"]
 offset_left = 672.0
 offset_right = 792.0
 offset_bottom = 120.0
-texture = ExtResource("2_2d1b3")
+texture = ExtResource("2_u6ejk")
 
 [node name="TextureRect10" type="TextureRect" parent="Background/Beam"]
 offset_left = 756.0
 offset_right = 876.0
 offset_bottom = 120.0
-texture = ExtResource("2_2d1b3")
+texture = ExtResource("2_u6ejk")
 
 [node name="TextureRect11" type="TextureRect" parent="Background/Beam"]
 offset_left = 840.0
 offset_right = 960.0
 offset_bottom = 120.0
-texture = ExtResource("2_2d1b3")
+texture = ExtResource("2_u6ejk")
 
 [node name="TextureRect12" type="TextureRect" parent="Background/Beam"]
 offset_left = 924.0
 offset_right = 1044.0
 offset_bottom = 120.0
-texture = ExtResource("2_2d1b3")
+texture = ExtResource("2_u6ejk")
 
 [node name="TextureRect13" type="TextureRect" parent="Background/Beam"]
 offset_left = 1008.0
 offset_right = 1128.0
 offset_bottom = 120.0
-texture = ExtResource("2_2d1b3")
+texture = ExtResource("2_u6ejk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Beam"]
 position = Vector2(571.5, 73)
@@ -118,11 +118,11 @@ shape = SubResource("RectangleShape2D_imtd3")
 
 [node name="Truck" type="TextureRect" parent="Background"]
 layout_mode = 0
-offset_left = 180.0
-offset_right = 1494.0
+offset_left = -6.0
+offset_right = 1308.0
 offset_bottom = 738.0
 scale = Vector2(0.9, 0.9)
-texture = ExtResource("5_s8oss")
+texture = ExtResource("3_qaka2")
 
 [node name="Area2D" type="StaticBody2D" parent="."]
 
@@ -145,4 +145,4 @@ z_index = 100
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("9_m62ga")
+texture = ExtResource("4_tpi8t")
