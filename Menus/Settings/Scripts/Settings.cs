@@ -7,17 +7,15 @@ namespace CrankUp
 	{
 		public override void _Ready()
 		{
-			TextureButton backButton = GetNode<TextureButton>("BackButton");
-			backButton.Pressed += () => BackButtonPressed();
 
-			Button quitButton = GetNode<Button>("QuitButton");
-			if (quitButton == null)
+			TextureButton exitButton = GetNode<TextureButton>("ExitButton");
+			if (exitButton == null)
 			{
-				GD.PrintErr("[ERROR] QuitButton not found in Settings.tscn");
+				GD.PrintErr("[ERROR] ExitButton not found in Settings.tscn");
 			}
 			else
 			{
-				quitButton.Pressed += QuitButtonPressed;
+				exitButton.Pressed += ExitButtonPressed;
 			}
 		}
 
@@ -31,13 +29,13 @@ namespace CrankUp
 			this.Hide();
 		}
 
-		public void QuitButtonPressed()
+		public void ExitButtonPressed()
 		{
-			GD.Print("Quit Pressed");
+			GD.Print("Exit Pressed");
 
 			Node currentScene = GetTree().CurrentScene;
 
-			if (currentScene != null && currentScene.Name == "MainMenu" || currentScene.Name == "Levels")
+			if (currentScene != null && currentScene.Name == "MainMenu" || currentScene.Name == "Levels" || currentScene.Name == "Level1")
 			{
 				this.Hide();
 			}

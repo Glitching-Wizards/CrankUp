@@ -53,13 +53,13 @@ public partial class Level1 : Node2D
 		blockButton = GetNodeOrNull<TextureButton>("BlockButtons/Block");
 		longBlockButton = GetNodeOrNull<TextureButton>("BlockButtons/LongBlock");
 
-		blockButton.Pressed += () => 
+		blockButton.Pressed += () =>
 		{
 			blockButtonPressed = true;
 			SpawnBlockButtonPressed(_blockScene, blockButton);
 		};
 
-		longBlockButton.Pressed += () => 
+		longBlockButton.Pressed += () =>
 		{
 			longBlockButtonPressed = true;
 			SpawnBlockButtonPressed(_longBlockScene, longBlockButton);
