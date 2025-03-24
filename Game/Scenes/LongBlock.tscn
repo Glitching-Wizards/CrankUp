@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://4bdi2ey82rpd" path="res://Assets/Blocks/container_green_damaged.png" id="3_uuhr1"]
 [ext_resource type="Texture2D" uid="uid://qcjcu35ojsmh" path="res://Assets/Blocks/container_green_broken.png" id="4_qyafp"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8oph1"]
-size = Vector2(30, 120)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mctly"]
+size = Vector2(42, 168)
 
 [node name="LongBlock" type="RigidBody2D"]
 script = ExtResource("1_6rhtg")
@@ -16,23 +16,23 @@ broken = ExtResource("4_qyafp")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 rotation = 1.5708
-scale = Vector2(0.502021, 0.235283)
+scale = Vector2(0.7, 0.328)
 texture = ExtResource("2_o8yqi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_8oph1")
+shape = SubResource("RectangleShape2D_mctly")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(0, -60)
+position = Vector2(0, -84)
 
 [node name="Marker2D2" type="Marker2D" parent="."]
-position = Vector2(15, 0)
+position = Vector2(21, 0)
 rotation = 1.5708
 
 [node name="Marker2D3" type="Marker2D" parent="."]
-position = Vector2(0, 60)
+position = Vector2(0, 84)
 rotation = 3.14159
 
 [node name="Marker2D4" type="Marker2D" parent="."]
-position = Vector2(-15, 0)
+position = Vector2(-21, 0)
 rotation = 4.71239

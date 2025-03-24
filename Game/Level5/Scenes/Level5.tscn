@@ -1,32 +1,32 @@
-[gd_scene load_steps=18 format=3 uid="uid://cts5ygn8db8c0"]
+[gd_scene load_steps=18 format=3 uid="uid://252rm6ype62b"]
 
-[ext_resource type="Script" path="res://Game/Level1/Scripts/Level1.cs" id="1_4cxg7"]
-[ext_resource type="PackedScene" uid="uid://dnr4wgld8simd" path="res://Gui/Background.tscn" id="2_gy3yl"]
-[ext_resource type="PackedScene" uid="uid://bu16bdidc32ex" path="res://Gui/ControlsLeftUi.tscn" id="3_qb5ov"]
-[ext_resource type="PackedScene" uid="uid://cbrwler8lk051" path="res://Gui/ControlsRightUi.tscn" id="4_sh1e6"]
-[ext_resource type="PackedScene" uid="uid://ck4oieai5v8t6" path="res://Game/Scenes/Claw.tscn" id="5_d4ees"]
-[ext_resource type="Script" path="res://Game/Scripts/PlacementArea.cs" id="7_p8h2n"]
-[ext_resource type="Texture2D" uid="uid://15t504ih4j83" path="res://Assets/Blocks/container_blue.png" id="8_t34tc"]
-[ext_resource type="Texture2D" uid="uid://4fnl4lgyb4th" path="res://Assets/Blocks/container_green_healthy.png" id="9_i0tpf"]
-[ext_resource type="PackedScene" uid="uid://c0y7av58m1gyx" path="res://Game/Level1/Scenes/BoxShadow.tscn" id="9_p0web"]
-[ext_resource type="PackedScene" uid="uid://d3h8yejbsuxbm" path="res://Menus/LevelWinLose/Scenes/Win.tscn" id="10_wd1q1"]
-[ext_resource type="PackedScene" uid="uid://te4xswc06au0" path="res://Game/Scenes/ContainerRed.tscn" id="11_yj5lg"]
-[ext_resource type="PackedScene" uid="uid://dln6wt6vmcoke" path="res://Game/Scenes/ContainerBlueL.tscn" id="12_rcchi"]
-[ext_resource type="Texture2D" uid="uid://bw7uqlawbr5or" path="res://Assets/Misc/Conveyor.png" id="13_6ktvu"]
-[ext_resource type="Theme" uid="uid://6td37p2nd7m3" path="res://Gui/PlayTheme.tres" id="14_xaqlu"]
-[ext_resource type="Script" path="res://Game/Scripts/FinishButton.cs" id="15_eljpa"]
+[ext_resource type="Script" path="res://Game/Level1/Scripts/Level1.cs" id="1_y42th"]
+[ext_resource type="PackedScene" uid="uid://dnr4wgld8simd" path="res://Gui/Background.tscn" id="2_xlix4"]
+[ext_resource type="Texture2D" uid="uid://bw7uqlawbr5or" path="res://Assets/Misc/Conveyor.png" id="3_6v07u"]
+[ext_resource type="Theme" uid="uid://6td37p2nd7m3" path="res://Gui/PlayTheme.tres" id="4_xuls4"]
+[ext_resource type="Script" path="res://Game/Scripts/FinishButton.cs" id="5_aovdx"]
+[ext_resource type="Texture2D" uid="uid://15t504ih4j83" path="res://Assets/Blocks/container_blue.png" id="6_jhpop"]
+[ext_resource type="Texture2D" uid="uid://4fnl4lgyb4th" path="res://Assets/Blocks/container_green_healthy.png" id="7_ipobf"]
+[ext_resource type="PackedScene" uid="uid://bu16bdidc32ex" path="res://Gui/ControlsLeftUi.tscn" id="8_dleq3"]
+[ext_resource type="PackedScene" uid="uid://cbrwler8lk051" path="res://Gui/ControlsRightUi.tscn" id="9_0wklt"]
+[ext_resource type="PackedScene" uid="uid://ck4oieai5v8t6" path="res://Game/Scenes/Claw.tscn" id="10_mel3e"]
+[ext_resource type="Script" path="res://Game/Scripts/PlacementArea.cs" id="11_ax0fi"]
+[ext_resource type="PackedScene" uid="uid://c0y7av58m1gyx" path="res://Game/Level1/Scenes/BoxShadow.tscn" id="12_bly8e"]
+[ext_resource type="PackedScene" uid="uid://d3h8yejbsuxbm" path="res://Menus/LevelWinLose/Scenes/Win.tscn" id="13_83gl8"]
+[ext_resource type="PackedScene" uid="uid://te4xswc06au0" path="res://Game/Scenes/ContainerRed.tscn" id="14_4gjvo"]
+[ext_resource type="PackedScene" uid="uid://dln6wt6vmcoke" path="res://Game/Scenes/ContainerBlueL.tscn" id="15_cui7r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_idrmk"]
-atlas = ExtResource("8_t34tc")
+atlas = ExtResource("6_jhpop")
 region = Rect2(0, 0, 262, 150)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aeeyk"]
 size = Vector2(261, 150)
 
 [node name="Level1" type="Node2D"]
-script = ExtResource("1_4cxg7")
+script = ExtResource("1_y42th")
 
-[node name="Background" parent="." instance=ExtResource("2_gy3yl")]
+[node name="Background" parent="." instance=ExtResource("2_xlix4")]
 z_index = -2
 offset_left = -640.0
 offset_top = -360.0
@@ -40,7 +40,7 @@ offset_top = 225.0
 offset_right = -487.0
 offset_bottom = 362.0
 mouse_filter = 2
-texture = ExtResource("13_6ktvu")
+texture = ExtResource("3_6v07u")
 
 [node name="ConveyorBelt2" type="TextureRect" parent="ConveyorBelt"]
 layout_mode = 0
@@ -48,7 +48,7 @@ offset_left = -999.0
 offset_right = 24.0
 offset_bottom = 137.0
 mouse_filter = 2
-texture = ExtResource("13_6ktvu")
+texture = ExtResource("3_6v07u")
 
 [node name="ConveyorBelt3" type="TextureRect" parent="ConveyorBelt"]
 layout_mode = 0
@@ -56,7 +56,7 @@ offset_left = 1000.0
 offset_right = 2023.0
 offset_bottom = 137.0
 mouse_filter = 2
-texture = ExtResource("13_6ktvu")
+texture = ExtResource("3_6v07u")
 
 [node name="FinishButton" type="Button" parent="ConveyorBelt/ConveyorBelt3"]
 layout_mode = 0
@@ -64,9 +64,9 @@ offset_left = -1599.0
 offset_top = -23.0
 offset_right = -1329.0
 offset_bottom = 139.0
-theme = ExtResource("14_xaqlu")
+theme = ExtResource("4_xuls4")
 text = "Finish"
-script = ExtResource("15_eljpa")
+script = ExtResource("5_aovdx")
 
 [node name="BlockButtons" type="Control" parent="ConveyorBelt"]
 layout_mode = 3
@@ -93,7 +93,7 @@ offset_top = 224.0
 offset_right = 912.0
 offset_bottom = 256.0
 rotation = 1.5708
-texture_normal = ExtResource("9_i0tpf")
+texture_normal = ExtResource("7_ipobf")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -103,7 +103,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ControlsLeftUi" parent="Ui" instance=ExtResource("3_qb5ov")]
+[node name="ControlsLeftUi" parent="Ui" instance=ExtResource("8_dleq3")]
 layout_mode = 1
 offset_left = -640.0
 offset_top = -360.0
@@ -111,7 +111,7 @@ offset_right = -640.0
 offset_bottom = -360.0
 mouse_filter = 0
 
-[node name="ControlsRightUi" parent="Ui" instance=ExtResource("4_sh1e6")]
+[node name="ControlsRightUi" parent="Ui" instance=ExtResource("9_0wklt")]
 layout_mode = 1
 offset_left = -640.0
 offset_top = -360.0
@@ -120,11 +120,11 @@ offset_bottom = -360.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Claw" parent="." instance=ExtResource("5_d4ees")]
+[node name="Claw" parent="." instance=ExtResource("10_mel3e")]
 
 [node name="PlacementArea" type="Area2D" parent="."]
 position = Vector2(0, 114)
-script = ExtResource("7_p8h2n")
+script = ExtResource("11_ax0fi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlacementArea"]
 position = Vector2(-0.5, 11)
@@ -136,7 +136,7 @@ offset_top = -82.0
 offset_right = 289.0
 offset_bottom = -59.0
 
-[node name="PlacementBox" parent="." instance=ExtResource("9_p0web")]
+[node name="PlacementBox" parent="." instance=ExtResource("12_bly8e")]
 position = Vector2(-137, 25)
 
 [node name="WinLose" type="Control" parent="."]
@@ -145,13 +145,13 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Win" parent="WinLose" instance=ExtResource("10_wd1q1")]
+[node name="Win" parent="WinLose" instance=ExtResource("13_83gl8")]
 visible = false
 
-[node name="ContainerRed" parent="." instance=ExtResource("11_yj5lg")]
+[node name="ContainerRed" parent="." instance=ExtResource("14_4gjvo")]
 position = Vector2(-48, 155)
 
-[node name="ContainerBlueL" parent="." instance=ExtResource("12_rcchi")]
+[node name="ContainerBlueL" parent="." instance=ExtResource("15_cui7r")]
 position = Vector2(87, 141)
 rotation = 1.5708
 
