@@ -127,11 +127,12 @@ texture = ExtResource("3_qaka2")
 [node name="Area2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 shape = SubResource("SegmentShape2D_5n6r5")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 visible = false
-position = Vector2(-218, 0)
+position = Vector2(-159, 0)
 shape = SubResource("SegmentShape2D_liobq")
 
 [node name="Control" type="Control" parent="."]
