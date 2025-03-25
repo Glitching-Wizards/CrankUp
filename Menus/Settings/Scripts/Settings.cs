@@ -5,6 +5,8 @@ namespace CrankUp
 {
 	public partial class Settings : Window
 	{
+		[Export] private string _levelsScenePath = "res://Menus/Levels/Scenes/Levels.tscn";
+
 		public override void _Ready()
 		{
 
@@ -35,13 +37,16 @@ namespace CrankUp
 
 			Node currentScene = GetTree().CurrentScene;
 
-			if (currentScene != null && currentScene.Name == "MainMenu" || currentScene.Name == "Levels" || currentScene.Name == "Level1")
+			if (currentScene != null && currentScene.Name == "MainMenu"
+			|| currentScene.Name == "Levels" || currentScene.Name == "Level1"
+			|| currentScene.Name == "Level2" || currentScene.Name == "Level3"
+			|| currentScene.Name == "Level4" || currentScene.Name == "Level5")
 			{
 				this.Hide();
 			}
 			else
 			{
-            	GetTree().ChangeSceneToFile("res://Menus/Levels/Scenes/Levels.tscn");
+            	GetTree().ChangeSceneToFile(_levelsScenePath);
 			}
 		}
 	}

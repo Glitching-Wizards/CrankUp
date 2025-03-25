@@ -13,7 +13,7 @@ public partial class Level1 : Node2D
 	}
 
 	[Export] private string _clawScenePath = "res://Game/Scenes/Claw.tscn";
-	[Export] private string _settingsScenePath = "res://Menus/Settings/Scenes/Settings.tscn";
+	[Export] private string _settingsScenePath = "res://Menus/Settings/Scenes/Pause.tscn";
 
 	[Export] private string _blockScenePath = "res://Game/Scenes/Block.tscn";
 	[Export] private string _longBlockScenePath = "res://Game/Scenes/LongBlock.tscn";
@@ -125,7 +125,7 @@ public partial class Level1 : Node2D
 	{
 		if (conveyorBelt != null && startLevel)
 		{
-			float step = beltMoveSpeed * (float) delta;
+			float step = beltMoveSpeed * (float)delta;
 
 			if (conveyorBelt.Position.X < beltTargetPositionStart)
 			{
@@ -135,7 +135,7 @@ public partial class Level1 : Node2D
 
 		if (conveyorBelt != null && endLevel)
 		{
-			float step = beltMoveSpeed * (float) delta;
+			float step = beltMoveSpeed * (float)delta;
 
 			if (conveyorBelt.Position.X < beltTargetPositionEnd)
 			{
@@ -143,25 +143,4 @@ public partial class Level1 : Node2D
 			}
 		}
 	}
-
-	//public void GameStop()
-	//public void GameFinish()
-	//{
-	//	if  (Score > 30)
-	//	{
-	//		WinWindow.Popup();
-	//	}
-	//	if else (Score > 50)
-	//	{
-	//		Win2Window.Popup();
-	//	}
-	//	if else (Score > 70)
-	//	{
-	//		Win3Window.Popup();
-	//	}
-	//	else
-	//	{
-	//		LoseWindow.Popup();
-	//	}
-	//}
 }

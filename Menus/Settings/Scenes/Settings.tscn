@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://ckb1t7ko0dp0p"]
+[gd_scene load_steps=9 format=3 uid="uid://ckb1t7ko0dp0p"]
 
 [ext_resource type="Script" path="res://Menus/Settings/Scripts/Settings.cs" id="1_n5s8t"]
 [ext_resource type="Texture2D" uid="uid://dgeqhabsqprjl" path="res://Assets/Gui/Settings/OptionsScreenFinal.png" id="2_hd04c"]
+[ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="2_lqclo"]
 [ext_resource type="Theme" uid="uid://6td37p2nd7m3" path="res://Gui/PlayTheme.tres" id="3_c0bsf"]
 [ext_resource type="Texture2D" uid="uid://dtj7v04qhhxhi" path="res://Assets/Gui/Buttons/cross_button1.png" id="4_c3tkn"]
 [ext_resource type="Texture2D" uid="uid://djyg326tkq217" path="res://Assets/Gui/Buttons/cross_button2.png" id="5_0i663"]
@@ -19,7 +20,17 @@ always_on_top = true
 transparent = true
 script = ExtResource("1_n5s8t")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="GrayBackground" type="TextureRect" parent="."]
+modulate = Color(0.462745, 0.427451, 0.4, 0.286275)
+z_index = -10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_lqclo")
+
+[node name="Settings" type="TextureRect" parent="."]
 offset_right = 1280.0
 offset_bottom = 720.0
 texture = ExtResource("2_hd04c")

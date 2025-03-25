@@ -1,5 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://cusyv8gojbcca"]
 
+
 [ext_resource type="Script" path="res://Game/Level2/Scripts/Level2.cs" id="1_rv4ft"]
 [ext_resource type="PackedScene" uid="uid://te4xswc06au0" path="res://Game/Scenes/ContainerRed.tscn" id="2_6y1dh"]
 [ext_resource type="PackedScene" uid="uid://dln6wt6vmcoke" path="res://Game/Scenes/ContainerBlueL.tscn" id="2_567ei"]
@@ -20,13 +21,14 @@
 [ext_resource type="PackedScene" uid="uid://lyxtd003i5wb" path="res://Menus/LevelWinLose/Scenes/Win3.tscn" id="15_4n7qn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_idrmk"]
-atlas = ExtResource("6_xirey")
+atlas = ExtResource("8_t34tc")
 region = Rect2(0, 0, 262, 150)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aeeyk"]
 size = Vector2(261, 150)
 
 [node name="Level1" type="Node2D"]
+
 script = ExtResource("1_rv4ft")
 
 [node name="ContainerRed" parent="." instance=ExtResource("2_6y1dh")]
@@ -37,6 +39,7 @@ scale = Vector2(2, 2)
 position = Vector2(100, 100)
 
 [node name="Background" parent="." instance=ExtResource("2_bkcuh")]
+
 z_index = -10
 offset_left = -640.0
 offset_top = -360.0
@@ -50,7 +53,7 @@ offset_top = 225.0
 offset_right = -487.0
 offset_bottom = 362.0
 mouse_filter = 2
-texture = ExtResource("3_4mjje")
+texture = ExtResource("3_i108q")
 
 [node name="ConveyorBelt2" type="TextureRect" parent="ConveyorBelt"]
 layout_mode = 0
@@ -58,7 +61,7 @@ offset_left = -999.0
 offset_right = 24.0
 offset_bottom = 137.0
 mouse_filter = 2
-texture = ExtResource("3_4mjje")
+texture = ExtResource("3_i108q")
 
 [node name="ConveyorBelt3" type="TextureRect" parent="ConveyorBelt"]
 layout_mode = 0
@@ -66,7 +69,7 @@ offset_left = 1000.0
 offset_right = 2023.0
 offset_bottom = 137.0
 mouse_filter = 2
-texture = ExtResource("3_4mjje")
+texture = ExtResource("3_i108q")
 
 [node name="FinishButton" type="Button" parent="ConveyorBelt/ConveyorBelt3"]
 layout_mode = 0
@@ -74,9 +77,9 @@ offset_left = -1599.0
 offset_top = -23.0
 offset_right = -1329.0
 offset_bottom = 139.0
-theme = ExtResource("4_a4x3l")
+theme = ExtResource("4_34mt2")
 text = "Finish"
-script = ExtResource("5_gdxod")
+script = ExtResource("5_a8mqr")
 
 [node name="BlockButtons" type="Control" parent="ConveyorBelt"]
 layout_mode = 3
@@ -103,7 +106,7 @@ offset_top = 224.0
 offset_right = 912.0
 offset_bottom = 256.0
 rotation = 1.5708
-texture_normal = ExtResource("7_rgkdk")
+texture_normal = ExtResource("9_i0tpf")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -113,7 +116,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ControlsLeftUi" parent="Ui" instance=ExtResource("8_fytdm")]
+[node name="ControlsLeftUi" parent="Ui" instance=ExtResource("3_qb5ov")]
 layout_mode = 1
 offset_left = -640.0
 offset_top = -360.0
@@ -121,20 +124,20 @@ offset_right = -640.0
 offset_bottom = -360.0
 mouse_filter = 0
 
-[node name="ControlsRightUi" parent="Ui" instance=ExtResource("9_nyigl")]
+[node name="ControlsRightUi" parent="Ui" instance=ExtResource("4_sh1e6")]
 layout_mode = 1
 offset_left = -640.0
 offset_top = -360.0
 offset_right = -640.0
-offset_bottom = -360.0
+offset_bottom = -297.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Claw" parent="." instance=ExtResource("10_1b6od")]
+[node name="Claw" parent="." instance=ExtResource("5_d4ees")]
 
 [node name="PlacementArea" type="Area2D" parent="."]
 position = Vector2(0, 114)
-script = ExtResource("11_ne26j")
+script = ExtResource("7_p8h2n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlacementArea"]
 position = Vector2(-0.5, 11)
@@ -146,8 +149,8 @@ offset_top = -82.0
 offset_right = 289.0
 offset_bottom = -59.0
 
-[node name="PlacementBox" parent="." instance=ExtResource("12_6ux1j")]
-position = Vector2(-330, -154)
+[node name="PlacementBox" parent="." instance=ExtResource("9_djva6")]
+position = Vector2(-330, -152)
 
 [node name="WinLose" type="Control" parent="."]
 layout_mode = 3
@@ -155,7 +158,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Win" parent="WinLose" instance=ExtResource("13_l7llk")]
+[node name="Win" parent="WinLose" instance=ExtResource("14_ut77x")]
 visible = false
 
 [node name="Win2" parent="WinLose" instance=ExtResource("14_lt0e4")]

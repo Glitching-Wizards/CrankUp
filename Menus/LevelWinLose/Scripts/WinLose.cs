@@ -31,6 +31,7 @@ namespace CrankUp
 		private void FindFinishButton()
 		{
 			endButton = GetNodeOrNull<Button>("/root/Level1/ConveyorBelt/ConveyorBelt3/FinishButton");
+
 			if (endButton != null)
 				endButton.Pressed += OnButtonPressed;
 		}
@@ -54,6 +55,7 @@ namespace CrankUp
 
 		public void RetryButtonPressed()
 		{
+			GD.Print("Retry Pressed");
 			GetTree().ReloadCurrentScene();
 		}
 
