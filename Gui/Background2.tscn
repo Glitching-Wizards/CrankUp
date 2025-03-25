@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bijpbkcqtiber"]
+[gd_scene load_steps=8 format=3 uid="uid://bh25upnb64myu"]
 
 [ext_resource type="Texture2D" uid="uid://c8gfkxwcmtg22" path="res://Assets/Backgrounds/Level2Background.png" id="1_jrswi"]
 [ext_resource type="Texture2D" uid="uid://duxnkmbpy8csc" path="res://Assets/Misc/Beam.png" id="2_u6ejk"]
@@ -118,8 +118,8 @@ shape = SubResource("RectangleShape2D_imtd3")
 
 [node name="Truck" type="TextureRect" parent="Background"]
 layout_mode = 0
-offset_left = -6.0
-offset_right = 1308.0
+offset_left = 180.0
+offset_right = 1494.0
 offset_bottom = 738.0
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("3_qaka2")
@@ -127,10 +127,12 @@ texture = ExtResource("3_qaka2")
 [node name="Area2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 shape = SubResource("SegmentShape2D_5n6r5")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-218, 0)
+visible = false
+position = Vector2(-159, 0)
 shape = SubResource("SegmentShape2D_liobq")
 
 [node name="Control" type="Control" parent="."]

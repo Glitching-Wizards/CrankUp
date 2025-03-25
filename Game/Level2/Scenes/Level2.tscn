@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://b54grpygrbq3i"]
 
 [ext_resource type="Script" path="res://Game/Level2/Scripts/Level2.cs" id="1_gqdgr"]
-[ext_resource type="PackedScene" uid="uid://bijpbkcqtiber" path="res://Gui/Background2.tscn" id="1_om3yl"]
+[ext_resource type="PackedScene" uid="uid://bh25upnb64myu" path="res://Gui/Background2.tscn" id="1_om3yl"]
 [ext_resource type="Texture2D" uid="uid://bw7uqlawbr5or" path="res://Assets/Misc/Conveyor.png" id="3_6sg4l"]
 [ext_resource type="Theme" uid="uid://6td37p2nd7m3" path="res://Gui/PlayTheme.tres" id="4_bi5ep"]
 [ext_resource type="Script" path="res://Game/Scripts/FinishButton.cs" id="5_88stb"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cbrwler8lk051" path="res://Gui/ControlsRightUi.tscn" id="9_5gc6c"]
 [ext_resource type="PackedScene" uid="uid://ck4oieai5v8t6" path="res://Game/Scenes/Claw.tscn" id="10_wb5s4"]
 [ext_resource type="Script" path="res://Game/Scripts/PlacementArea.cs" id="11_36ex4"]
-[ext_resource type="PackedScene" uid="uid://c0y7av58m1gyx" path="res://Game/Level1/Scenes/BoxShadow.tscn" id="12_rtold"]
+[ext_resource type="PackedScene" uid="uid://c4xvu4xi20yxg" path="res://Game/Level1/Scenes/BoxShadow.tscn" id="12_rtold"]
 [ext_resource type="PackedScene" uid="uid://d3h8yejbsuxbm" path="res://Menus/LevelWinLose/Scenes/Win.tscn" id="13_d0k8e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_idrmk"]
@@ -135,7 +135,7 @@ offset_right = 289.0
 offset_bottom = -59.0
 
 [node name="PlacementBox" parent="." instance=ExtResource("12_rtold")]
-position = Vector2(-137, 25)
+position = Vector2(-330, -152)
 
 [node name="WinLose" type="Control" parent="."]
 layout_mode = 3

@@ -4,7 +4,7 @@ using System;
 namespace CrankUp;
 public partial class ControlsRightUi : Control
 {
-    [Export] private string _settingsScenePath = "res://Menus/Settings/Scenes/Settings.tscn";
+    [Export] private string _settingsScenePath = "res://Menus/Settings/Scenes/Pause.tscn";
     private ClawHead clawHead;
     private ClawBase clawBase;
     private Window settingsWindow;
