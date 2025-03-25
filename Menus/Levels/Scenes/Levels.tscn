@@ -52,6 +52,19 @@ position = Vector2(99.9999, -12)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("4_2ar3c")
 
+[node name="Level6" type="TextureButton" parent="Buttons"]
+offset_left = 242.0
+offset_top = 509.0
+offset_right = 354.0
+offset_bottom = 583.0
+texture_normal = ExtResource("3_h5sxm")
+
+[node name="Flag" type="Sprite2D" parent="Buttons/Level6"]
+visible = false
+position = Vector2(99.9999, -12)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_2ar3c")
+
 [node name="Level3" type="TextureButton" parent="Buttons"]
 offset_left = 499.0
 offset_top = 547.0

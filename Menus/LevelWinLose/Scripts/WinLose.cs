@@ -12,7 +12,7 @@ namespace CrankUp
 
 		public override void _Ready()
 		{
-			endButton = GetNodeOrNull<Button>("../../Background/ConveyerBelt/ConveyerBelt2/FinishButton"); 
+			endButton = GetNodeOrNull<Button>("../../Background/ConveyerBelt/ConveyerBelt2/FinishButton");
 
 			victoryScreen1 = GetNodeOrNull<Window>("Win");
 			victoryScreen2 = GetNodeOrNull<Window>("Win2");
@@ -22,11 +22,11 @@ namespace CrankUp
 			if (victoryScreen2 != null) victoryScreen2.Visible = false;
 			if (victoryScreen3 != null) victoryScreen3.Visible = false;
 
-			placementArea = GetNodeOrNull<PlacementArea>("Level1/PlacementArea"); 
+			placementArea = GetNodeOrNull<PlacementArea>("Level1/PlacementArea");
 			if (placementArea == null)
 				GD.PrintErr("PlacementArea not found!");
 
-			if (endButton != null) 
+			if (endButton != null)
 				endButton.Pressed += OnButtonPressed;
 			else
 				GD.PrintErr("FinishButton not found!");
@@ -76,6 +76,8 @@ namespace CrankUp
 		public void RetryButtonPressed()
 		{
 			GD.Print("Retry Pressed");
+			GetTree().ReloadCurrentScene();
+			// testaa toimivuus
 		}
 
 		public void MenuButtonPressed()

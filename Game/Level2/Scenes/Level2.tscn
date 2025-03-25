@@ -135,7 +135,7 @@ offset_right = 289.0
 offset_bottom = -59.0
 
 [node name="PlacementBox" parent="." instance=ExtResource("12_rtold")]
-position = Vector2(-330, -154)
+position = Vector2(-330, -152)
 
 [node name="WinLose" type="Control" parent="."]
 layout_mode = 3
