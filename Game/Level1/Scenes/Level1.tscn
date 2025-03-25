@@ -87,6 +87,7 @@ offset_right = -448.0
 offset_bottom = -183.0
 
 [node name="Block" type="TextureButton" parent="ConveyorBelt/BlockButtons"]
+layout_mode = 0
 offset_left = 540.0
 offset_top = 241.0
 offset_right = 706.0
