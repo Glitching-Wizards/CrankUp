@@ -10,42 +10,47 @@ namespace CrankUp
 		private PlacementArea placementArea;
 		private float score;
 
-		public override void _Ready()
-		{
-			endButton = GetNodeOrNull<Button>("/root/Level1/Background/ConveyerBelt/ConveyerBelt2/FinishButton");
+public override void _Ready()
+{
+	GD.Print("Starting _Ready...");
 
-			victoryScreen1 = GetNodeOrNull<Window>("Win");
-			victoryScreen2 = GetNodeOrNull<Window>("Win2");
-			victoryScreen3 = GetNodeOrNull<Window>("Win3");
+	// Debug: Print Root Children
+	GD.Print("Children of root:");
+	foreach (Node child in GetTree().Root.GetChildren()) {
+		GD.Print("- " + child.Name);
+	}
 
-			if (victoryScreen1 != null) victoryScreen1.Visible = false;
-			if (victoryScreen2 != null) victoryScreen2.Visible = false;
-			if (victoryScreen3 != null) victoryScreen3.Visible = false;
-
-			CallDeferred(nameof(Setup));
-
-			placementArea = GetNodeOrNull<PlacementArea>("/root/Level1/PlacementArea"); 
-			if (placementArea == null)
-				GD.PrintErr("PlacementArea not found!");
-
-			if (endButton != null) 
-				endButton.Pressed += OnButtonPressed;
-			else
-				GD.PrintErr("FinishButton not found!");
-
-			TextureButton RetryButton = GetNodeOrNull<TextureButton>("RetryButton");
-			if (RetryButton != null) RetryButton.Pressed += RetryButtonPressed;
-
-			TextureButton MenuButton = GetNodeOrNull<TextureButton>("MenuButton");
-			if (MenuButton != null) MenuButton.Pressed += MenuButtonPressed;
-
-			if (placementArea == null)
-			GD.PrintErr("PlacementArea not found in the scene!");
-
-			if (endButton == null)
-			GD.PrintErr("FinishButton not found in the scene!");
-
+	// Debug: Print Level1 Children
+	Node level1 = GetTree().Root.GetNodeOrNull("Level1");
+	if (level1 != null)
+	{
+		GD.Print("Children of Level1:");
+		foreach (Node child in level1.GetChildren()) {
+			GD.Print("- " + child.Name);
 		}
+	}
+
+	// Call deferred setup for PlacementArea & FinishButton
+	CallDeferred(nameof(FindFinishButton));
+	CallDeferred(nameof(FindPlacementArea));
+}
+
+private void FindFinishButton()
+{
+	endButton = GetNodeOrNull<Button>("/root/Level1/ConveyorBelt/ConveyorBelt3/FinishButton");
+	if (endButton != null) 
+		endButton.Pressed += OnButtonPressed;
+	else
+		GD.PrintErr("FinishButton still not found after defer!");
+}
+
+private void FindPlacementArea()
+{
+	placementArea = GetNodeOrNull<PlacementArea>("/root/Level1/PlacementArea");
+	if (placementArea == null)
+		GD.PrintErr("PlacementArea still not found after defer!");
+}
+
 
 		private void OnButtonPressed()
 		{
@@ -82,10 +87,11 @@ namespace CrankUp
 			GD.Print("Menu Pressed");
 			GetTree().ChangeSceneToFile("res://Menus/Levels/Scenes/Levels.tscn");
 		}
-		private void Setup() {
-   		 placementArea = GetTree().Root.GetNodeOrNull<PlacementArea>("Level1/PlacementArea");
-   		 if (placementArea == null)
-		GD.PrintErr("PlacementArea not found even after defer!");
+			private void Setup() {
+			GD.Print("Running Setup...");
+			placementArea = GetTree().Root.GetNodeOrNull<PlacementArea>("PlacementArea");
+			if (placementArea == null)
+				GD.PrintErr("PlacementArea still not found!");
 		}
 	}
 }

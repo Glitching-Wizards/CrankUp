@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dnr4wgld8simd"]
+[gd_scene load_steps=7 format=3 uid="uid://dnr4wgld8simd"]
 
 [ext_resource type="Texture2D" uid="uid://k2ji4rswhfbd" path="res://Assets/Backgrounds/Level1Background.png" id="1_4yqy1"]
 [ext_resource type="Texture2D" uid="uid://duxnkmbpy8csc" path="res://Assets/Misc/Beam.png" id="2_2d1b3"]
 [ext_resource type="Texture2D" uid="uid://d4axb8wy7ry3s" path="res://Assets/Backgrounds/TruckModel2.png" id="5_s8oss"]
-[ext_resource type="Texture2D" uid="uid://daile572kg6n5" path="res://Assets/Victory/VictoryScreen.png" id="9_m62ga"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_imtd3"]
 size = Vector2(1055, 58)
@@ -132,17 +131,3 @@ shape = SubResource("SegmentShape2D_5n6r5")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-218, 0)
 shape = SubResource("SegmentShape2D_liobq")
-
-[node name="Control" type="Control" parent="."]
-visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="VictoryScreen" type="TextureRect" parent="Control"]
-visible = false
-z_index = 100
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("9_m62ga")

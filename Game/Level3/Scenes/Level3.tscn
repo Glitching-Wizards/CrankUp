@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cbrwler8lk051" path="res://Gui/ControlsRightUi.tscn" id="9_bkrhv"]
 [ext_resource type="PackedScene" uid="uid://ck4oieai5v8t6" path="res://Game/Scenes/Claw.tscn" id="10_18eys"]
 [ext_resource type="Script" path="res://Game/Scripts/PlacementArea.cs" id="11_w4wx5"]
-[ext_resource type="PackedScene" uid="uid://c0y7av58m1gyx" path="res://Game/Level1/Scenes/BoxShadow.tscn" id="12_6sj4l"]
+[ext_resource type="PackedScene" uid="uid://c4xvu4xi20yxg" path="res://Game/Level1/Scenes/BoxShadow.tscn" id="12_6sj4l"]
 [ext_resource type="PackedScene" uid="uid://d3h8yejbsuxbm" path="res://Menus/LevelWinLose/Scenes/Win.tscn" id="13_abs2d"]
 [ext_resource type="PackedScene" uid="uid://te4xswc06au0" path="res://Game/Scenes/ContainerRed.tscn" id="14_lq3ws"]
 [ext_resource type="PackedScene" uid="uid://dln6wt6vmcoke" path="res://Game/Scenes/ContainerBlueL.tscn" id="15_h4h5a"]
