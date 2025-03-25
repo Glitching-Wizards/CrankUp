@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dowsong66nhnv"
-path="res://.godot/imported/main_menu.png-d73406f3a574df0d202f4c635eb3acab.ctex"
+uid="uid://cni08607lgf15"
+path="res://.godot/imported/green_button_next2.png-41730fb7b26a058b81ca8dc004fed773.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/main_menu.png"
-dest_files=["res://.godot/imported/main_menu.png-d73406f3a574df0d202f4c635eb3acab.ctex"]
+source_file="res://Assets/Gui/Buttons/green_button_next2.png"
+dest_files=["res://.godot/imported/green_button_next2.png-41730fb7b26a058b81ca8dc004fed773.ctex"]
 
 [params]
 

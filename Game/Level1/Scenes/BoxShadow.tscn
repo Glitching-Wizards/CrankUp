@@ -5,7 +5,7 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 274.0
-offset_bottom = 189.0
+offset_right = 666.0
+offset_bottom = 378.0
 texture = ExtResource("1_nmhjt")
 expand_mode = 1
