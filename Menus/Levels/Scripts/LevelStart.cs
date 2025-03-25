@@ -15,10 +15,10 @@ namespace CrankUp
 
 		public override void _Ready()
         {
-            TextureButton PlayButton = GetNode<TextureButton>("PlayButton");
+            TextureButton PlayButton = GetNode<TextureButton>("Buttons/PlayButton");
             PlayButton.Pressed += PlayButtonPressed;
 
-            TextureButton MenuButton = GetNode<TextureButton>("MenuButton");
+            TextureButton MenuButton = GetNode<TextureButton>("Buttons/MenuButton");
 			MenuButton.Pressed += () => MenuButtonPressed();
         }
 
