@@ -5,6 +5,7 @@ namespace CrankUp
 {
 	public partial class WinLose : Window
 	{
+		[Export] private string _menuScenePath = "res://Menus/Levels/Scenes/Levels.tscn";
 		private Button endButton;
 		private Window victoryScreen1, victoryScreen2, victoryScreen3;
 		private PlacementArea placementArea;
@@ -26,6 +27,14 @@ namespace CrankUp
 
 			CallDeferred(nameof(FindFinishButton));
 			CallDeferred(nameof(FindPlacementArea));
+
+			TextureButton retryButton = GetNode<TextureButton>("Buttons/RetryButton");
+			retryButton.Pressed += RetryButtonPressed;
+
+			TextureButton menuButton = GetNode<TextureButton>("Buttons/MenuButton");
+			menuButton.Pressed += MenuButtonPressed;
+
+			// next
 		}
 
 		private void FindFinishButton()
@@ -61,7 +70,9 @@ namespace CrankUp
 
 		public void MenuButtonPressed()
 		{
-			GetTree().ChangeSceneToFile("res://Menus/Levels/Scenes/Levels.tscn");
+			GetTree().ChangeSceneToFile(_menuScenePath);
 		}
+
+		// next
 	}
 }
