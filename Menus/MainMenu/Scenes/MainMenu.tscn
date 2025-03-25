@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d1bgreietkn5y" path="res://Assets/Misc/CrankUpTitle.png" id="3_po8ey"]
 [ext_resource type="Texture2D" uid="uid://cft6g2o1608dq" path="res://Assets/Backgrounds/TruckBLUE.png" id="6_q0w1u"]
 [ext_resource type="Texture2D" uid="uid://kc8uiwcrayf8" path="res://Assets/Models/Jarkko.png" id="7_31tnq"]
-[ext_resource type="Theme" uid="uid://d11mtqc1e8y55" path="res://Gui/PlayTheme.tres" id="7_fu8vc"]
+[ext_resource type="Theme" uid="uid://6td37p2nd7m3" path="res://Gui/PlayTheme.tres" id="7_fu8vc"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
