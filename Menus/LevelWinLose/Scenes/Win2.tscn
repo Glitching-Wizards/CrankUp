@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://b7kwcha2ue58l"]
+[gd_scene load_steps=13 format=3 uid="uid://b7kwcha2ue58l"]
 
+[ext_resource type="Script" path="res://Menus/LevelWinLose/Scripts/WinLose.cs" id="1_20kg7"]
 [ext_resource type="Texture2D" uid="uid://0pnu3tgvsyv6" path="res://Assets/Backgrounds/VictoryScreen.png" id="1_iuvmb"]
 [ext_resource type="Texture2D" uid="uid://d2ne652846407" path="res://Assets/Gui/Buttons/green_button_retry1.png" id="2_oiigu"]
 [ext_resource type="Texture2D" uid="uid://xo18uc0tpsnf" path="res://Assets/Gui/Buttons/green_button_retry2.png" id="3_cxfyp"]
@@ -10,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ckiwhmwu30y57" path="res://Assets/Gui/Buttons/green_button_next1.png" id="6_bkqar"]
 [ext_resource type="Texture2D" uid="uid://iltf4ckdrglj" path="res://Assets/Victory/StarFinal.png" id="6_c7qtu"]
 [ext_resource type="Texture2D" uid="uid://cni08607lgf15" path="res://Assets/Gui/Buttons/green_button_next2.png" id="7_pfq36"]
+[ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="11_5gyky"]
 
 [node name="Win" type="Window"]
 transparent_bg = true
@@ -18,13 +20,76 @@ unresizable = true
 borderless = true
 always_on_top = true
 transparent = true
+script = ExtResource("1_20kg7")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1280.0
 offset_bottom = 720.0
 texture = ExtResource("1_iuvmb")
 
-[node name="RetryButton" type="TextureButton" parent="."]
+[node name="LevelPassed" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -292.0
+offset_top = 62.0
+offset_right = 320.0
+offset_bottom = 164.0
+grow_horizontal = 2
+theme = ExtResource("5_swlj3")
+theme_override_font_sizes/font_size = 75
+text = "Level Passed!"
+
+[node name="Stars" type="Node" parent="."]
+
+[node name="Star1" type="TextureRect" parent="Stars"]
+offset_left = 343.0
+offset_top = 210.0
+offset_right = 493.0
+offset_bottom = 360.0
+texture = ExtResource("4_0kf3p")
+
+[node name="Star2" type="TextureRect" parent="Stars"]
+offset_left = 565.0
+offset_top = 262.0
+offset_right = 715.0
+offset_bottom = 412.0
+texture = ExtResource("4_0kf3p")
+
+[node name="Star3" type="TextureRect" parent="Stars"]
+offset_left = 780.0
+offset_top = 210.0
+offset_right = 930.0
+offset_bottom = 360.0
+texture = ExtResource("4_0kf3p")
+
+[node name="Comment" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 198.0
+offset_top = 597.0
+offset_right = 810.0
+offset_bottom = 730.0
+grow_horizontal = 2
+theme = ExtResource("5_swlj3")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 75
+text = "Amazing!"
+
+[node name="GrayBackground" type="TextureRect" parent="."]
+modulate = Color(0.462745, 0.427451, 0.4, 0.286275)
+z_index = -10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_5gyky")
+
+[node name="Buttons" type="Node" parent="."]
+
+[node name="RetryButton" type="TextureButton" parent="Buttons"]
 offset_left = 270.0
 offset_top = 375.0
 offset_right = 539.0
@@ -34,7 +99,7 @@ texture_normal = ExtResource("2_oiigu")
 texture_pressed = ExtResource("3_cxfyp")
 texture_hover = ExtResource("2_oiigu")
 
-[node name="MenuButton" type="TextureButton" parent="."]
+[node name="MenuButton" type="TextureButton" parent="Buttons"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -51,7 +116,7 @@ texture_normal = ExtResource("4_oh6qe")
 texture_pressed = ExtResource("5_6jevo")
 texture_hover = ExtResource("4_oh6qe")
 
-[node name="NextButton" type="TextureButton" parent="."]
+[node name="NextButton" type="TextureButton" parent="Buttons"]
 offset_left = 766.0
 offset_top = 375.0
 offset_right = 1035.0
@@ -61,55 +126,9 @@ texture_normal = ExtResource("6_bkqar")
 texture_pressed = ExtResource("7_pfq36")
 texture_hover = ExtResource("6_bkqar")
 
-[node name="Star1" type="TextureRect" parent="."]
-offset_left = 343.0
-offset_top = 210.0
-offset_right = 493.0
-offset_bottom = 360.0
-texture = ExtResource("4_0kf3p")
+[node name="ShinyStar" type="Node" parent="."]
 
-[node name="Star2" type="TextureRect" parent="."]
-offset_left = 565.0
-offset_top = 262.0
-offset_right = 715.0
-offset_bottom = 412.0
-texture = ExtResource("4_0kf3p")
-
-[node name="Star3" type="TextureRect" parent="."]
-offset_left = 780.0
-offset_top = 210.0
-offset_right = 930.0
-offset_bottom = 360.0
-texture = ExtResource("4_0kf3p")
-
-[node name="LevelPassed" type="Label" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -292.0
-offset_top = 62.0
-offset_right = 320.0
-offset_bottom = 164.0
-grow_horizontal = 2
-theme = ExtResource("5_swlj3")
-theme_override_font_sizes/font_size = 75
-text = "Level Passed!"
-
-[node name="Comment" type="Label" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 198.0
-offset_top = 597.0
-offset_right = 810.0
-offset_bottom = 730.0
-grow_horizontal = 2
-theme = ExtResource("5_swlj3")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 75
-text = "Amazing!"
-
-[node name="ShinyStar" type="TextureRect" parent="."]
+[node name="ShinyStar" type="TextureRect" parent="ShinyStar"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -122,7 +141,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_c7qtu")
 
-[node name="ShinyStar2" type="TextureRect" parent="."]
+[node name="ShinyStar2" type="TextureRect" parent="ShinyStar"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
