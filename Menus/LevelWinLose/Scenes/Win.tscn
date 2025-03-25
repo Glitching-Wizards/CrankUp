@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" path="res://Menus/LevelWinLose/Scripts/WinLose.cs" id="1_44c7w"]
 [ext_resource type="Texture2D" uid="uid://0pnu3tgvsyv6" path="res://Assets/Backgrounds/VictoryScreen.png" id="1_qyqnw"]
-[ext_resource type="Texture2D" uid="uid://djwfyxqj61amm" path="res://Assets/Gui/Buttons/green_button1.png" id="2_novug"]
-[ext_resource type="Texture2D" uid="uid://daxerwiiludsn" path="res://Assets/Gui/Buttons/green_button2.png" id="3_aaoqe"]
 [ext_resource type="Texture2D" uid="uid://d2ne652846407" path="res://Assets/Gui/Buttons/green_button_retry1.png" id="3_fa8s8"]
 [ext_resource type="Texture2D" uid="uid://bvgtg0q0k8n42" path="res://Assets/Gui/BlankStar.png" id="4_7m4kl"]
 [ext_resource type="Texture2D" uid="uid://xo18uc0tpsnf" path="res://Assets/Gui/Buttons/green_button_retry2.png" id="4_02060"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="5_1enaj"]
-[ext_resource type="Texture2D" uid="uid://dhf1xnfhc2bps" path="res://Assets/Gui/Buttons/grey_button_menu1.png" id="5_tajhy"]
-[ext_resource type="Texture2D" uid="uid://bv0sr1f2mkmp6" path="res://Assets/Gui/Buttons/grey_button_menu2.png" id="6_fa8o5"]
+[ext_resource type="Texture2D" uid="uid://1pedsn4616vk" path="res://Assets/Gui/Buttons/grey_button_home1.png" id="5_yt6ol"]
 [ext_resource type="Texture2D" uid="uid://iltf4ckdrglj" path="res://Assets/Victory/StarFinal.png" id="6_ixclm"]
+[ext_resource type="Texture2D" uid="uid://bqti4reoj73jh" path="res://Assets/Gui/Buttons/grey_button_home2.png" id="6_jqoje"]
+[ext_resource type="Texture2D" uid="uid://ckiwhmwu30y57" path="res://Assets/Gui/Buttons/green_button_next1.png" id="7_fsq0i"]
+[ext_resource type="Texture2D" uid="uid://cni08607lgf15" path="res://Assets/Gui/Buttons/green_button_next2.png" id="8_wx1vr"]
 
 [node name="Win" type="Window"]
 transparent_bg = true
@@ -49,9 +49,9 @@ offset_bottom = 268.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.9, 0.9)
-texture_normal = ExtResource("5_tajhy")
-texture_pressed = ExtResource("6_fa8o5")
-texture_hover = ExtResource("5_tajhy")
+texture_normal = ExtResource("5_yt6ol")
+texture_pressed = ExtResource("6_jqoje")
+texture_hover = ExtResource("5_yt6ol")
 
 [node name="NextButton" type="TextureButton" parent="."]
 offset_left = 766.0
@@ -59,9 +59,9 @@ offset_top = 375.0
 offset_right = 1035.0
 offset_bottom = 537.0
 scale = Vector2(0.9, 0.9)
-texture_normal = ExtResource("2_novug")
-texture_pressed = ExtResource("3_aaoqe")
-texture_hover = ExtResource("2_novug")
+texture_normal = ExtResource("7_fsq0i")
+texture_pressed = ExtResource("8_wx1vr")
+texture_hover = ExtResource("7_fsq0i")
 
 [node name="Star1" type="TextureRect" parent="."]
 offset_left = 343.0

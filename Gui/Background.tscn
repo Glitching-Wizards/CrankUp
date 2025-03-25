@@ -1,15 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://dnr4wgld8simd"]
+[gd_scene load_steps=7 format=3 uid="uid://dnr4wgld8simd"]
 
 [ext_resource type="Texture2D" uid="uid://k2ji4rswhfbd" path="res://Assets/Backgrounds/Level1Background.png" id="1_4yqy1"]
 [ext_resource type="Texture2D" uid="uid://duxnkmbpy8csc" path="res://Assets/Misc/Beam.png" id="2_2d1b3"]
-[ext_resource type="Texture2D" uid="uid://btcu3yow8pr65" path="res://Assets/Backgrounds/LeftConsole.png" id="3_fphpx"]
-[ext_resource type="Theme" uid="uid://d11mtqc1e8y55" path="res://Gui/PlayTheme.tres" id="4_416ob"]
-[ext_resource type="Texture2D" uid="uid://dl1c78xcnlm4f" path="res://Assets/Gui/SliderRail.png" id="4_so2d5"]
-[ext_resource type="Script" path="res://Game/Scripts/FinishButton.cs" id="5_8mdmb"]
 [ext_resource type="Texture2D" uid="uid://d4axb8wy7ry3s" path="res://Assets/Backgrounds/TruckModel2.png" id="5_s8oss"]
-[ext_resource type="Texture2D" uid="uid://bsiciqmbbksx3" path="res://Assets/Backgrounds/RightConsole.png" id="6_kekye"]
-[ext_resource type="Texture2D" uid="uid://bw7uqlawbr5or" path="res://Assets/Misc/Conveyor.png" id="7_l4amd"]
-[ext_resource type="Texture2D" uid="uid://daile572kg6n5" path="res://Assets/Victory/VictoryScreen.png" id="9_m62ga"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_imtd3"]
 size = Vector2(1055, 58)
@@ -122,70 +115,13 @@ texture = ExtResource("2_2d1b3")
 position = Vector2(571.5, 73)
 shape = SubResource("RectangleShape2D_imtd3")
 
-[node name="ConveyorBelt" type="TextureRect" parent="Background"]
-light_mask = 2
-visibility_layer = 2
-layout_mode = 0
-offset_left = 128.0
-offset_top = 581.0
-offset_right = 1151.0
-offset_bottom = 718.0
-mouse_filter = 2
-texture = ExtResource("7_l4amd")
-
-[node name="ConveyorBelt2" type="TextureRect" parent="Background/ConveyorBelt"]
-layout_mode = 0
-offset_left = 1000.0
-offset_right = 2023.0
-offset_bottom = 137.0
-mouse_filter = 2
-texture = ExtResource("7_l4amd")
-
-[node name="FinishButton" type="Button" parent="Background/ConveyorBelt/ConveyorBelt2"]
-layout_mode = 0
-offset_left = 374.0
-offset_top = -19.0
-offset_right = 644.0
-offset_bottom = 143.0
-theme = ExtResource("4_416ob")
-text = "Finish"
-script = ExtResource("5_8mdmb")
-
-[node name="LeftConsole" type="TextureRect" parent="Background"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("3_fphpx")
-
-[node name="LeftRail" type="TextureRect" parent="Background/LeftConsole"]
-layout_mode = 0
-offset_top = 130.0
-offset_right = 130.0
-offset_bottom = 590.0
-texture = ExtResource("4_so2d5")
-
 [node name="Truck" type="TextureRect" parent="Background"]
 layout_mode = 0
-offset_left = -6.0
-offset_right = 1308.0
+offset_left = 180.0
+offset_right = 1494.0
 offset_bottom = 738.0
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("5_s8oss")
-
-[node name="RightConsole" type="TextureRect" parent="Background"]
-layout_mode = 0
-offset_left = 1144.0
-offset_right = 1280.0
-offset_bottom = 720.0
-texture = ExtResource("6_kekye")
-
-[node name="RightRail" type="TextureRect" parent="Background/RightConsole"]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 130.0
-offset_right = 136.0
-offset_bottom = 590.0
-texture = ExtResource("4_so2d5")
 
 [node name="Area2D" type="StaticBody2D" parent="."]
 
@@ -193,20 +129,5 @@ texture = ExtResource("4_so2d5")
 shape = SubResource("SegmentShape2D_5n6r5")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-218, 0)
 shape = SubResource("SegmentShape2D_liobq")
-
-[node name="Control" type="Control" parent="."]
-visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="VictoryScreen" type="TextureRect" parent="Control"]
-visible = false
-z_index = 100
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("9_m62ga")
-
-[connection signal="pressed" from="Background/ConveyorBelt/ConveyorBelt2/FinishButton" to="Background/ConveyorBelt/ConveyorBelt2/FinishButton" method="OnButtonPressed"]

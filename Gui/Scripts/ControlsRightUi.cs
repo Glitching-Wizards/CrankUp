@@ -8,7 +8,7 @@ public partial class ControlsRightUi : Control
     private ClawHead clawHead;
     private ClawBase clawBase;
     private Window settingsWindow;
-    private TextureButton releaseButton;
+    private TextureButton grabButton;
     private TextureButton settingsButton;
     private VSlider moveSlider;
     private float moveSliderValue;
@@ -16,10 +16,11 @@ public partial class ControlsRightUi : Control
 
     public override void _Ready()
     {
-        releaseButton = GetNodeOrNull<TextureButton>("Panel/Release");
-        if (releaseButton == null)
+        // Find the Grab button safely
+        grabButton = GetNodeOrNull<TextureButton>("Panel/Grab");
+        if (grabButton == null)
         {
-            GD.PrintErr("[ERROR] TextureButton 'Release' not found in ControlsRightUi!");
+            GD.PrintErr("[ERROR] TextureButton 'Grab' not found in ControlsLeftUi!");
             return;
         }
 
@@ -57,20 +58,15 @@ public partial class ControlsRightUi : Control
         }
 
         // Connect button signals
-        releaseButton.Pressed += OnDropPressed;
+        grabButton.Pressed += OnGrabPressed;
         settingsButton.Pressed += OnSettingsPressed;
         moveSlider.ValueChanged += OnSliderValueChanged;
         moveSlider.DragEnded += OnSliderReleased;
     }
 
-    private void OnDropPressed()
+    private void OnGrabPressed()
     {
-        if (clawHead == null)
-        {
-            GD.PrintErr("[ERROR] ClawHead reference is missing!");
-            return;
-        }
-        clawHead.DropBlock();
+        if (clawHead != null) clawHead.GrabBlock();
     }
 
     private void OnSliderValueChanged(double value)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://df6jd6rkwbhv"]
+[gd_scene load_steps=7 format=3 uid="uid://df6jd6rkwbhv"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu/Scripts/MainMenu.cs" id="1_bemtd"]
-[ext_resource type="Texture2D" uid="uid://dowsong66nhnv" path="res://Assets/Backgrounds/main_menu.png" id="2_7d4kp"]
+[ext_resource type="Texture2D" uid="uid://d0d6rx2ilraop" path="res://Assets/Backgrounds/MainMenu.png" id="2_fukp5"]
 [ext_resource type="Texture2D" uid="uid://d1bgreietkn5y" path="res://Assets/Misc/CrankUpTitle.png" id="3_po8ey"]
+[ext_resource type="Texture2D" uid="uid://cft6g2o1608dq" path="res://Assets/Backgrounds/TruckBLUE.png" id="6_q0w1u"]
 [ext_resource type="Texture2D" uid="uid://kc8uiwcrayf8" path="res://Assets/Models/Jarkko.png" id="7_31tnq"]
-[ext_resource type="Theme" uid="uid://d11mtqc1e8y55" path="res://Gui/PlayTheme.tres" id="7_fu8vc"]
+[ext_resource type="Theme" uid="uid://6td37p2nd7m3" path="res://Gui/PlayTheme.tres" id="7_fu8vc"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -22,7 +23,7 @@ position = Vector2(640, 360)
 layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
-texture = ExtResource("2_7d4kp")
+texture = ExtResource("2_fukp5")
 
 [node name="Title" type="TextureRect" parent="."]
 layout_mode = 1
@@ -108,3 +109,8 @@ position = Vector2(1092, 558)
 scale = Vector2(2.34438, 2.34438)
 texture = ExtResource("7_31tnq")
 flip_h = true
+
+[node name="TruckBlue" type="Sprite2D" parent="."]
+position = Vector2(252, 380)
+scale = Vector2(1.1059, 1.1059)
+texture = ExtResource("6_q0w1u")

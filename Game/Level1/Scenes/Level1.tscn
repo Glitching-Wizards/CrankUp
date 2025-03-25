@@ -1,38 +1,111 @@
-[gd_scene load_steps=17 format=3 uid="uid://cts5ygn8db8c0"]
+[gd_scene load_steps=21 format=3 uid="uid://cusyv8gojbcca"]
 
-[ext_resource type="Script" path="res://Game/Level1/Scripts/Level1.cs" id="1_4cxg7"]
-[ext_resource type="PackedScene" uid="uid://dnr4wgld8simd" path="res://Gui/Background.tscn" id="2_gy3yl"]
-[ext_resource type="PackedScene" uid="uid://bu16bdidc32ex" path="res://Gui/ControlsLeftUi.tscn" id="3_qb5ov"]
-[ext_resource type="PackedScene" uid="uid://cbrwler8lk051" path="res://Gui/ControlsRightUi.tscn" id="4_sh1e6"]
-[ext_resource type="PackedScene" uid="uid://ck4oieai5v8t6" path="res://Game/Scenes/Claw.tscn" id="5_d4ees"]
-[ext_resource type="Script" path="res://Game/Scripts/PlacementArea.cs" id="7_p8h2n"]
-[ext_resource type="Texture2D" uid="uid://15t504ih4j83" path="res://Assets/Blocks/container_blue.png" id="8_t34tc"]
-[ext_resource type="PackedScene" uid="uid://c4xvu4xi20yxg" path="res://Game/Level1/Scenes/BoxShadow.tscn" id="9_djva6"]
-[ext_resource type="Texture2D" uid="uid://4fnl4lgyb4th" path="res://Assets/Blocks/container_green_healthy.png" id="9_i0tpf"]
-[ext_resource type="PackedScene" uid="uid://b0v7nubn6744q" path="res://Game/Scenes/ContainerBlueL.tscn" id="10_nmtbf"]
-[ext_resource type="PackedScene" uid="uid://wyotxfdb7b7l" path="res://Game/Scenes/ContainerRed.tscn" id="11_itc4r"]
-[ext_resource type="PackedScene" uid="uid://cbxq30fl1n3kd" path="res://Game/Scenes/ContainerYellow.tscn" id="13_8l0at"]
-[ext_resource type="PackedScene" uid="uid://br88ir8sd35jl" path="res://Game/Scenes/LongBlock.tscn" id="13_xxycs"]
-[ext_resource type="PackedScene" uid="uid://d3h8yejbsuxbm" path="res://Menus/LevelWinLose/Scenes/Win.tscn" id="14_ut77x"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aeeyk"]
-size = Vector2(262, 152)
+[ext_resource type="Script" path="res://Game/Level2/Scripts/Level2.cs" id="1_rv4ft"]
+[ext_resource type="PackedScene" uid="uid://te4xswc06au0" path="res://Game/Scenes/ContainerRed.tscn" id="2_6y1dh"]
+[ext_resource type="PackedScene" uid="uid://dln6wt6vmcoke" path="res://Game/Scenes/ContainerBlueL.tscn" id="2_567ei"]
+[ext_resource type="PackedScene" uid="uid://dnr4wgld8simd" path="res://Gui/Background.tscn" id="2_bkcuh"]
+[ext_resource type="Texture2D" uid="uid://bw7uqlawbr5or" path="res://Assets/Misc/Conveyor.png" id="3_4mjje"]
+[ext_resource type="Theme" uid="uid://6td37p2nd7m3" path="res://Gui/PlayTheme.tres" id="4_a4x3l"]
+[ext_resource type="Script" path="res://Game/Scripts/FinishButton.cs" id="5_gdxod"]
+[ext_resource type="Texture2D" uid="uid://15t504ih4j83" path="res://Assets/Blocks/container_blue.png" id="6_xirey"]
+[ext_resource type="Texture2D" uid="uid://4fnl4lgyb4th" path="res://Assets/Blocks/container_green_healthy.png" id="7_rgkdk"]
+[ext_resource type="PackedScene" uid="uid://bu16bdidc32ex" path="res://Gui/ControlsLeftUi.tscn" id="8_fytdm"]
+[ext_resource type="PackedScene" uid="uid://cbrwler8lk051" path="res://Gui/ControlsRightUi.tscn" id="9_nyigl"]
+[ext_resource type="PackedScene" uid="uid://ck4oieai5v8t6" path="res://Game/Scenes/Claw.tscn" id="10_1b6od"]
+[ext_resource type="Script" path="res://Game/Scripts/PlacementArea.cs" id="11_ne26j"]
+[ext_resource type="PackedScene" uid="uid://c4xvu4xi20yxg" path="res://Game/Level1/Scenes/BoxShadow.tscn" id="12_6ux1j"]
+[ext_resource type="Script" path="res://Menus/LevelWinLose/Scripts/WinLose.cs" id="13_fbatr"]
+[ext_resource type="PackedScene" uid="uid://d3h8yejbsuxbm" path="res://Menus/LevelWinLose/Scenes/Win.tscn" id="13_l7llk"]
+[ext_resource type="PackedScene" uid="uid://b7kwcha2ue58l" path="res://Menus/LevelWinLose/Scenes/Win2.tscn" id="14_lt0e4"]
+[ext_resource type="PackedScene" uid="uid://lyxtd003i5wb" path="res://Menus/LevelWinLose/Scenes/Win3.tscn" id="15_4n7qn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_idrmk"]
-atlas = ExtResource("8_t34tc")
+atlas = ExtResource("6_xirey")
 region = Rect2(0, 0, 262, 150)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aeeyk"]
+size = Vector2(261, 150)
+
 [node name="Level1" type="Node2D"]
-script = ExtResource("1_4cxg7")
+script = ExtResource("1_rv4ft")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="ContainerRed" parent="." instance=ExtResource("2_6y1dh")]
+position = Vector2(-100, 0)
+scale = Vector2(2, 2)
 
-[node name="Background" parent="." instance=ExtResource("2_gy3yl")]
-z_index = -1
+[node name="ContainerBlueL" parent="." instance=ExtResource("2_567ei")]
+position = Vector2(100, 100)
+
+[node name="Background" parent="." instance=ExtResource("2_bkcuh")]
+z_index = -10
 offset_left = -640.0
 offset_top = -360.0
 offset_right = -640.0
 offset_bottom = -360.0
+
+[node name="ConveyorBelt" type="TextureRect" parent="."]
+z_index = -2
+offset_left = -1510.0
+offset_top = 225.0
+offset_right = -487.0
+offset_bottom = 362.0
+mouse_filter = 2
+texture = ExtResource("3_4mjje")
+
+[node name="ConveyorBelt2" type="TextureRect" parent="ConveyorBelt"]
+layout_mode = 0
+offset_left = -999.0
+offset_right = 24.0
+offset_bottom = 137.0
+mouse_filter = 2
+texture = ExtResource("3_4mjje")
+
+[node name="ConveyorBelt3" type="TextureRect" parent="ConveyorBelt"]
+layout_mode = 0
+offset_left = 1000.0
+offset_right = 2023.0
+offset_bottom = 137.0
+mouse_filter = 2
+texture = ExtResource("3_4mjje")
+
+[node name="FinishButton" type="Button" parent="ConveyorBelt/ConveyorBelt3"]
+layout_mode = 0
+offset_left = -1599.0
+offset_top = -23.0
+offset_right = -1329.0
+offset_bottom = 139.0
+theme = ExtResource("4_a4x3l")
+text = "Finish"
+script = ExtResource("5_gdxod")
+
+[node name="BlockButtons" type="Control" parent="ConveyorBelt"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -488.0
+offset_top = -223.0
+offset_right = -448.0
+offset_bottom = -183.0
+
+[node name="Block" type="TextureButton" parent="ConveyorBelt/BlockButtons"]
+layout_mode = 0
+offset_left = 540.0
+offset_top = 241.0
+offset_right = 706.0
+offset_bottom = 343.0
+texture_normal = SubResource("AtlasTexture_idrmk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="LongBlock" type="TextureButton" parent="ConveyorBelt/BlockButtons"]
+layout_mode = 0
+offset_left = 780.0
+offset_top = 224.0
+offset_right = 912.0
+offset_bottom = 256.0
+rotation = 1.5708
+texture_normal = ExtResource("7_rgkdk")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Ui" type="Control" parent="."]
 layout_mode = 3
@@ -40,78 +113,41 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ControlsLeftUi" parent="Ui" instance=ExtResource("3_qb5ov")]
+[node name="ControlsLeftUi" parent="Ui" instance=ExtResource("8_fytdm")]
+layout_mode = 1
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -640.0
+offset_bottom = -360.0
+mouse_filter = 0
+
+[node name="ControlsRightUi" parent="Ui" instance=ExtResource("9_nyigl")]
 layout_mode = 1
 offset_left = -640.0
 offset_top = -360.0
 offset_right = -640.0
 offset_bottom = -360.0
 
-[node name="ControlsRightUi" parent="Ui" instance=ExtResource("4_sh1e6")]
-layout_mode = 1
-offset_left = -640.0
-offset_top = -360.0
-offset_right = -640.0
-offset_bottom = -360.0
+[node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Claw" parent="." instance=ExtResource("5_d4ees")]
+[node name="Claw" parent="." instance=ExtResource("10_1b6od")]
 
 [node name="PlacementArea" type="Area2D" parent="."]
 position = Vector2(0, 114)
-script = ExtResource("7_p8h2n")
+script = ExtResource("11_ne26j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlacementArea"]
-position = Vector2(5, 10)
+position = Vector2(-0.5, 11)
 shape = SubResource("RectangleShape2D_aeeyk")
 
 [node name="ScoreLabel" type="Label" parent="PlacementArea"]
-offset_left = 289.0
-offset_top = -70.0
-offset_right = 329.0
-offset_bottom = -47.0
+offset_left = 249.0
+offset_top = -82.0
+offset_right = 289.0
+offset_bottom = -59.0
 
-[node name="BlockButtons" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Block" type="TextureButton" parent="BlockButtons"]
-layout_mode = 0
-offset_left = -497.0
-offset_top = 241.0
-offset_right = -331.0
-offset_bottom = 343.0
-texture_normal = SubResource("AtlasTexture_idrmk")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="LongBlock" type="TextureButton" parent="BlockButtons"]
-layout_mode = 0
-offset_left = -250.0
-offset_top = 223.0
-offset_right = -118.0
-offset_bottom = 255.0
-rotation = 1.5708
-texture_normal = ExtResource("9_i0tpf")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="PlacementAreaBox" parent="." instance=ExtResource("9_djva6")]
-position = Vector2(-132, 24)
-
-[node name="ContainerBlueL" parent="." instance=ExtResource("10_nmtbf")]
-position = Vector2(87, 99)
-
-[node name="ContainerRed" parent="." instance=ExtResource("11_itc4r")]
-position = Vector2(66, -1)
-rotation = 1.5708
-
-[node name="LongBlock" parent="." instance=ExtResource("13_xxycs")]
-position = Vector2(-113, 141)
-
-[node name="ContainerYellow" parent="." instance=ExtResource("13_8l0at")]
-position = Vector2(171, -23)
+[node name="PlacementBox" parent="." instance=ExtResource("12_6ux1j")]
+position = Vector2(-330, -154)
 
 [node name="WinLose" type="Control" parent="."]
 layout_mode = 3
@@ -119,9 +155,23 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Win" parent="WinLose" instance=ExtResource("14_ut77x")]
+[node name="Win" parent="WinLose" instance=ExtResource("13_l7llk")]
 visible = false
 
+[node name="Win2" parent="WinLose" instance=ExtResource("14_lt0e4")]
+visible = false
+script = ExtResource("13_fbatr")
+
+[node name="Win3" parent="WinLose" instance=ExtResource("15_4n7qn")]
+visible = false
+script = ExtResource("13_fbatr")
+
+[node name="ContainerRed2" parent="." instance=ExtResource("2_6y1dh")]
+position = Vector2(200, -150)
+rotation = 1.5708
+scale = Vector2(2, 2)
+
+[connection signal="pressed" from="ConveyorBelt/ConveyorBelt3/FinishButton" to="." method="_on_finish_button_pressed"]
+[connection signal="pressed" from="ConveyorBelt/BlockButtons/Block" to="." method="_on_block_pressed"]
+[connection signal="pressed" from="ConveyorBelt/BlockButtons/LongBlock" to="." method="_on_long_block_pressed"]
 [connection signal="body_entered" from="PlacementArea" to="PlacementArea" method="_on_body_entered"]
-[connection signal="pressed" from="BlockButtons/Block" to="." method="_on_block_pressed"]
-[connection signal="pressed" from="BlockButtons/LongBlock" to="." method="_on_long_block_pressed"]

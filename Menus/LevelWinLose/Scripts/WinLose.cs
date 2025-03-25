@@ -6,69 +6,60 @@ namespace CrankUp
 	public partial class WinLose : Window
 	{
 		private Button endButton;
-		private Window victoryScreen;
+		private Window victoryScreen1, victoryScreen2, victoryScreen3;
+		private PlacementArea placementArea;
+		private float score;
+
 		public override void _Ready()
 		{
-			endButton = GetNode<Button>("/root/Background/Background/ConveyerBelt/ConveyerBelt2/FinishButton"); 
-			victoryScreen = GetNode<Window>("Win");
+			Node level1 = GetTree().Root.GetNodeOrNull("Level1");
+			if (level1 != null)
+			{
+				victoryScreen1 = level1.GetNodeOrNull<Window>("WinLose/Win");
+				victoryScreen2 = level1.GetNodeOrNull<Window>("WinLose/Win2");
+				victoryScreen3 = level1.GetNodeOrNull<Window>("WinLose/Win3");
 
-			if (victoryScreen != null) 
-			victoryScreen.Visible = false;
-		
-			if (endButton != null) 
-			endButton.Pressed += OnButtonPressed;
+				if (victoryScreen1 != null) victoryScreen1.Visible = false;
+				if (victoryScreen2 != null) victoryScreen2.Visible = false;
+				if (victoryScreen3 != null) victoryScreen3.Visible = false;
+			}
 
-			TextureButton RetryButton = GetNode<TextureButton>("RetryButton");
-			RetryButton.Pressed += RetryButtonPressed;
-
-			TextureButton MenuButton = GetNode<TextureButton>("MenuButton");
-			MenuButton.Pressed += MenuButtonPressed;
-
-			//TextureButton NextButton = GetNode<TextureButton>("NextButton");
-			//NextButton.Pressed += NextButtonPressed;
+			CallDeferred(nameof(FindFinishButton));
+			CallDeferred(nameof(FindPlacementArea));
 		}
 
-		// Called every frame. 'delta' is the elapsed time since the previous frame.
-		public override void _Process(double delta)
+		private void FindFinishButton()
 		{
+			endButton = GetNodeOrNull<Button>("/root/Level1/ConveyorBelt/ConveyorBelt3/FinishButton");
+			if (endButton != null)
+				endButton.Pressed += OnButtonPressed;
+		}
+
+		private void FindPlacementArea()
+		{
+			placementArea = GetNodeOrNull<PlacementArea>("/root/Level1/PlacementArea");
+		}
+
+		private void OnButtonPressed()
+		{
+			score = placementArea.GetScore();
+
+			if (score >= 70 && score < 80 && victoryScreen1 != null)
+				victoryScreen1.Visible = true;
+			else if (score >= 80 && score < 90 && victoryScreen2 != null)
+				victoryScreen2.Visible = true;
+			else if (score >= 90 && victoryScreen3 != null)
+				victoryScreen3.Visible = true;
 		}
 
 		public void RetryButtonPressed()
 		{
-			GD.Print("Retry Pressed");
-
-			// return level switch
-			//{
-			//    1 => "res://Game/Level1/Scenes/Level1.tscn",
-			//   2 => "res://Game/Level1/Scenes/Level2.tscn",
-			//   3 => "res://Game/Level1/Scenes/Level3.tscn",
-			//   4 => "res://Game/Level1/Scenes/Level4.tscn",
-			//   5 => "res://Game/Level1/Scenes/Level5.tscn",
-			//   _ => string.Empty
-		}
-
-		private void OnButtonPressed() {
-			GD.Print("TOIMII");
-			victoryScreen.Visible = true;
+			GetTree().ReloadCurrentScene();
 		}
 
 		public void MenuButtonPressed()
 		{
-			GD.Print("Menu Pressed");
 			GetTree().ChangeSceneToFile("res://Menus/Levels/Scenes/Levels.tscn");
 		}
-
-		//public void NextButtonPressed()
-		//{
-		//    GD.Print("Next Pressed");
-		// return level switch
-		//{
-		//    1 => "res://Menus/LevelStart/Scenes/StartLevel2.tscn",
-		//   2 => "res://Menus/LevelStart/Scenes/StartLevel3.tscn",
-		//   3 => "res://Menus/LevelStart/Scenes/StartLevel4.tscn",
-		//   4 => "res://Menus/LevelStart/Scenes/StartLevel5.tscn",
-		//   5 => "res://Menus/Levels/Scenes/Levels.tscn",
-		//   _ => string.Empty
-		//};
 	}
 }
