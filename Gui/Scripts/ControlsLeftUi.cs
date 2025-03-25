@@ -12,6 +12,8 @@ public partial class ControlsLeftUi : Control
 
     public override void _Ready()
     {
+        AddToGroup("multi_sliders");
+
         rotateButton = GetNodeOrNull<TextureButton>("Panel/Rotate");
         if (rotateButton == null)
         {
@@ -51,9 +53,9 @@ public partial class ControlsLeftUi : Control
     {
         moveSliderValue = (float)value;
 
-        if (moveSliderValue > 5)
+        if (moveSliderValue > 0)
             movementDirection = Vector2.Up;
-        else if (moveSliderValue < -5)
+        else if (moveSliderValue < 0)
             movementDirection = Vector2.Down;
         else
             movementDirection = Vector2.Zero;

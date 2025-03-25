@@ -12,7 +12,6 @@ public partial class ClawHead : CharacterBody2D
 	private Area2D grabArea;
 	private List<Block> nearbyBlocks = new List<Block>();
 	private float _currentSpeed = 0f;
-	private int currentGrabPointIndex = 0;  // Index to track the current grab point
 
     private List<Marker2D> grabMarkers = new List<Marker2D>(); // List to hold the Marker2D grab points on the block
 
@@ -101,7 +100,7 @@ public partial class ClawHead : CharacterBody2D
 		return closestMarker;
 	}
 
-    public void DropBlock()
+    public async void DropBlock()
 	{
 		if (joint != null)
 		{
@@ -110,8 +109,7 @@ public partial class ClawHead : CharacterBody2D
 		}
 		grabbedBlock = null;
 
-		currentGrabPointIndex = 0; // Reset grab point index on drop
-
+		await ToSignal(GetTree().CreateTimer(0.2f), "timeout");
         collisionShape.SetDeferred("disabled", false);
 	}
 
@@ -123,7 +121,13 @@ public partial class ClawHead : CharacterBody2D
 			grabbedBlock.RotationDegrees -= 90;
 
 			// Re-grab the block
-			DropBlock();
+			if (joint != null)
+			{
+				joint.QueueFree();
+				joint = null;
+			}
+			grabbedBlock = null;
+
 			GrabBlock();
         }
     }

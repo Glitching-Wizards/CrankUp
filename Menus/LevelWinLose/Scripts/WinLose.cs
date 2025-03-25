@@ -13,6 +13,7 @@ namespace CrankUp
 
 		public override void _Ready()
 		{
+
 			Node level1 = GetTree().Root.GetNodeOrNull("Level1");
 			if (level1 != null)
 			{

@@ -44,11 +44,6 @@ public partial class Level2 : Node2D
 		_claw = CreateClaw();
 
 		clawHead = GetTree().Root.FindChild("ClawHead", true, false) as ClawHead;
-		if (clawHead == null)
-		{
-			GD.PrintErr("[ERROR] ClawHead not found! Block cannot be spawned.");
-			return;
-		}
 
 		conveyorBelt = GetNodeOrNull<TextureRect>("ConveyorBelt");
 

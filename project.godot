@@ -15,6 +15,10 @@ run/main_scene="res://Menus/MainMenu/Scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "C#", "Mobile")
 config/icon="res://Assets/Misc/Icon.png"
 
+[autoload]
+
+MultiTouchVSlider="*res://Gui/Scripts/MultiTouchVSlider.cs"
+
 [display]
 
 window/size/viewport_width=1280
@@ -59,6 +63,10 @@ Rotate={
 "deadzone": 0.5,
 "events": []
 }
+
+[navigation]
+
+3d/autoload_on_startup=false
 
 [rendering]
 
