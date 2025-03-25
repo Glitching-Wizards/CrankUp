@@ -16,6 +16,8 @@ public partial class ControlsRightUi : Control
 
     public override void _Ready()
     {
+        AddToGroup("multi_sliders");
+
         // Find the Grab button safely
         grabButton = GetNodeOrNull<TextureButton>("Panel/Grab");
         if (grabButton == null)
@@ -73,9 +75,9 @@ public partial class ControlsRightUi : Control
     {
         moveSliderValue = (float)value;
 
-        if (moveSliderValue > 5)
+        if (moveSliderValue > 0)
             movementDirection = Vector2.Right;
-        else if (moveSliderValue < -5)
+        else if (moveSliderValue < 0)
             movementDirection = Vector2.Left;
         else
             movementDirection = Vector2.Zero;

@@ -9,13 +9,13 @@ namespace CrankUp
 		private Window victoryScreen;
 		public override void _Ready()
 		{
-			endButton = GetNode<Button>("/root/Background/Background/ConveyerBelt/ConveyerBelt2/FinishButton"); 
-			victoryScreen = GetNode<Window>("Win");
+			endButton = GetNodeOrNull<Button>("Level1/ConveyerBelt/ConveyerBelt3/FinishButton");
+			victoryScreen = GetNodeOrNull<Window>("Level1/WinLose/Win");
 
-			if (victoryScreen != null) 
+			if (victoryScreen != null)
 			victoryScreen.Visible = false;
-		
-			if (endButton != null) 
+
+			if (endButton != null)
 			endButton.Pressed += OnButtonPressed;
 
 			TextureButton RetryButton = GetNode<TextureButton>("RetryButton");

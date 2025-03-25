@@ -5,7 +5,6 @@ namespace CrankUp
 {
     public partial class LevelStart : Window
     {
-		// Called when the node enters the scene tree for the first time.
         [Export] private string _level1ScenePath = "res://Game/Level1/Scenes/Level1.tscn";
         [Export] private string _level2ScenePath = "res://Game/Level2/Scenes/Level2.tscn";
         [Export] private string _level3ScenePath = "res://Game/Level3/Scenes/Level3.tscn";
@@ -15,10 +14,10 @@ namespace CrankUp
 
 		public override void _Ready()
         {
-            TextureButton PlayButton = GetNode<TextureButton>("PlayButton");
+            TextureButton PlayButton = GetNodeOrNull<TextureButton>("PlayButton");
             PlayButton.Pressed += PlayButtonPressed;
 
-            TextureButton MenuButton = GetNode<TextureButton>("MenuButton");
+            TextureButton MenuButton = GetNodeOrNull<TextureButton>("MenuButton");
 			MenuButton.Pressed += () => MenuButtonPressed();
         }
 

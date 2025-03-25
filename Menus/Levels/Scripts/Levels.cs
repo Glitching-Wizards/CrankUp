@@ -16,41 +16,34 @@ namespace CrankUp
         private Window settingsWindow;
         private TextureButton settingsButton;
 
-        // Called when the node enters the scene tree for the first time.
         public override void _Ready()
         {
-            TextureButton LevelButton1 = GetNode<TextureButton>("Buttons/Level1");
+            TextureButton LevelButton1 = GetNodeOrNull<TextureButton>("Buttons/Level1");
             LevelButton1.Pressed += () => LevelButtonPressed(1);
 
-            TextureButton LevelButton2 = GetNode<TextureButton>("Buttons/Level2");
+            TextureButton LevelButton2 = GetNodeOrNull<TextureButton>("Buttons/Level2");
             LevelButton2.Pressed += () => LevelButtonPressed(2);
 
-            TextureButton LevelButton3 = GetNode<TextureButton>("Buttons/Level3");
+            TextureButton LevelButton3 = GetNodeOrNull<TextureButton>("Buttons/Level3");
             LevelButton3.Pressed += () => LevelButtonPressed(3);
 
-            TextureButton LevelButton4 = GetNode<TextureButton>("Buttons/Level4");
+            TextureButton LevelButton4 = GetNodeOrNull<TextureButton>("Buttons/Level4");
             LevelButton4.Pressed += () => LevelButtonPressed(4);
 
-            TextureButton LevelButton5 = GetNode<TextureButton>("Buttons/Level5");
+            TextureButton LevelButton5 = GetNodeOrNull<TextureButton>("Buttons/Level5");
             LevelButton5.Pressed += () => LevelButtonPressed(5);
 
-            TextureButton Back = GetNode<TextureButton>("Buttons/BackButton");
+            TextureButton Back = GetNodeOrNull<TextureButton>("Buttons/BackButton");
             Back.Pressed += () => BackButtonPressed();
 
             settingsButton = GetNodeOrNull<TextureButton>("Buttons/SettingsButton");
-            if (settingsButton == null)
-            {
-                GD.PrintErr("[ERROR] TextureButton 'Settings' not found in Levels!");
-            }
+            settingsButton.Pressed += SettingsButtonPressed;
 
             PackedScene settingsScene = (PackedScene)GD.Load(_settingsScenePath);
             settingsWindow = (Window)settingsScene.Instantiate();
             AddChild(settingsWindow);
             settingsWindow.Hide();
-
-            settingsButton.Pressed += SettingsButtonPressed;
         }
-
 
         public void BackButtonPressed()
         {
@@ -90,11 +83,11 @@ namespace CrankUp
         {
             return level switch
             {
-                1 => "res://Menus/LevelStart/Scenes/StartLevel1.tscn",
-                2 => "res://Menus/LevelStart/Scenes/StartLevel2.tscn",
-                3 => "res://Menus/LevelStart/Scenes/StartLevel3.tscn",
-                4 => "res://Menus/LevelStart/Scenes/StartLevel4.tscn",
-                5 => "res://Menus/LevelStart/Scenes/StartLevel5.tscn",
+                1 => _startLevel1ScenePath,
+                2 => _startLevel2ScenePath,
+                3 => _startLevel3ScenePath,
+                4 => _startLevel4ScenePath,
+                5 => _startLevel5ScenePath,
                 _ => string.Empty
             };
         }
