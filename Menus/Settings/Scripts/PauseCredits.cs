@@ -3,7 +3,7 @@ using System;
 
 namespace CrankUp
 {
-    public partial class Pause : Window
+    public partial class PauseCredits : Window
     {
         [Export] private string _settingsScenePath = "res://Menus/Settings/Scenes/Settings.tscn";
         [Export] private string _levelsScenePath = "res://Menus/Levels/Scenes/Levels.tscn";
@@ -20,7 +20,7 @@ namespace CrankUp
             TextureButton exitButton = GetNode<TextureButton>("Buttons/ExitButton");
             if (exitButton == null)
             {
-                GD.PrintErr("[ERROR] ExitButton not found in Pause.tscn");
+                GD.PrintErr("[ERROR] ExitButton not found in PauseCredits.tscn");
             }
             else
             {

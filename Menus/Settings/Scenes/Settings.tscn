@@ -1,13 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://ckb1t7ko0dp0p"]
+[gd_scene load_steps=16 format=3 uid="uid://ckb1t7ko0dp0p"]
 
 [ext_resource type="Script" path="res://Menus/Settings/Scripts/Settings.cs" id="1_n5s8t"]
-[ext_resource type="Texture2D" uid="uid://dgeqhabsqprjl" path="res://Assets/Gui/Settings/OptionsScreenFinal.png" id="2_hd04c"]
 [ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="2_lqclo"]
 [ext_resource type="Theme" uid="uid://6td37p2nd7m3" path="res://Gui/PlayTheme.tres" id="3_c0bsf"]
+[ext_resource type="Texture2D" uid="uid://biwqqyd2e0hyd" path="res://Assets/Settings/BlueBlankScreen.png" id="3_oyqlg"]
 [ext_resource type="Texture2D" uid="uid://dtj7v04qhhxhi" path="res://Assets/Gui/Buttons/cross_button1.png" id="4_c3tkn"]
 [ext_resource type="Texture2D" uid="uid://djyg326tkq217" path="res://Assets/Gui/Buttons/cross_button2.png" id="5_0i663"]
 [ext_resource type="Texture2D" uid="uid://clltbel2u0p2u" path="res://Assets/Settings/FinnishFlag.png" id="6_2cjmi"]
+[ext_resource type="Texture2D" uid="uid://bivg4xjox4tp3" path="res://Assets/Settings/BlockBlueBigger.png" id="6_l33fb"]
 [ext_resource type="Texture2D" uid="uid://dlswobb8oympm" path="res://Assets/Settings/UKFlag.png" id="7_b16ck"]
+[ext_resource type="Texture2D" uid="uid://d1mjxk06ip5rp" path="res://Assets/Settings/FinnishFlagGray.png" id="9_n7i0m"]
+[ext_resource type="Texture2D" uid="uid://b68icohpv4j7x" path="res://Assets/Settings/AudioSliderBase.png" id="10_in284"]
+[ext_resource type="Texture2D" uid="uid://cf7fyoentx14n" path="res://Assets/Settings/UKFlagGray.png" id="11_23pnq"]
+[ext_resource type="Texture2D" uid="uid://8tm6qswgs2h6" path="res://Assets/Settings/AudioSliderButton.png" id="11_rm7lk"]
+[ext_resource type="Texture2D" uid="uid://104qw0r1df7a" path="res://Assets/Settings/AudioFull.png" id="12_tf0j5"]
+[ext_resource type="Texture2D" uid="uid://l4o2w7xwbjb2" path="res://Assets/Settings/AudioMute.png" id="13_00pst"]
 
 [node name="Settings" type="Window"]
 transparent_bg = true
@@ -19,6 +26,8 @@ borderless = true
 always_on_top = true
 transparent = true
 script = ExtResource("1_n5s8t")
+metadata/_edit_vertical_guides_ = [641.0]
+metadata/_edit_horizontal_guides_ = [359.0]
 
 [node name="GrayBackground" type="TextureRect" parent="."]
 modulate = Color(0.462745, 0.427451, 0.4, 0.286275)
@@ -33,7 +42,7 @@ texture = ExtResource("2_lqclo")
 [node name="Settings" type="TextureRect" parent="."]
 offset_right = 1280.0
 offset_bottom = 720.0
-texture = ExtResource("2_hd04c")
+texture = ExtResource("3_oyqlg")
 
 [node name="ExitButton" type="TextureButton" parent="."]
 offset_left = 1094.0
@@ -45,29 +54,46 @@ texture_normal = ExtResource("4_c3tkn")
 texture_pressed = ExtResource("5_0i663")
 texture_hover = ExtResource("4_c3tkn")
 
-[node name="Texts" type="Node" parent="."]
+[node name="Boxes" type="Node" parent="."]
 
-[node name="Options" type="Label" parent="Texts"]
+[node name="Options" type="TextureRect" parent="Boxes"]
+offset_left = 262.0
+offset_top = 1.0
+offset_right = 717.0
+offset_bottom = 131.0
+scale = Vector2(1.7, 1.1)
+texture = ExtResource("6_l33fb")
+
+[node name="Options2" type="Label" parent="Boxes"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -213.0
-offset_top = 26.0
-offset_right = 587.0
-offset_bottom = 826.0
+offset_left = -181.5
+offset_top = 27.0
+offset_right = 618.5
+offset_bottom = 827.0
 grow_horizontal = 2
 theme = ExtResource("3_c0bsf")
 theme_override_font_sizes/font_size = 90
 text = "Options"
 
-[node name="Language" type="Label" parent="Texts"]
+[node name="Language" type="TextureRect" parent="Boxes"]
+offset_left = 60.0
+offset_top = 140.0
+offset_right = 515.0
+offset_bottom = 270.0
+texture = ExtResource("6_l33fb")
+
+[node name="Language" type="Label" parent="Boxes/Language"]
+z_index = 1
+layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 192.0
-offset_top = -172.0
-offset_right = 992.0
-offset_bottom = 628.0
+offset_left = 134.0
+offset_top = -18.0
+offset_right = 934.0
+offset_bottom = 782.0
 grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -75,44 +101,23 @@ theme = ExtResource("3_c0bsf")
 theme_override_font_sizes/font_size = 40
 text = "Language"
 
-[node name="Music" type="Label" parent="Texts"]
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 218.0
-offset_top = -46.0
-offset_right = 1018.0
-offset_bottom = 754.0
-grow_vertical = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme = ExtResource("3_c0bsf")
-theme_override_font_sizes/font_size = 40
-text = "Music"
+[node name="Music" type="TextureRect" parent="Boxes"]
+offset_left = 60.0
+offset_top = 268.0
+offset_right = 515.0
+offset_bottom = 398.0
+texture = ExtResource("6_l33fb")
 
-[node name="SFX" type="Label" parent="Texts"]
+[node name="Music" type="Label" parent="Boxes/Music"]
+z_index = 1
+layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 138.0
-offset_top = 82.0
-offset_right = 938.0
-offset_bottom = 882.0
-grow_vertical = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme = ExtResource("3_c0bsf")
-theme_override_font_sizes/font_size = 40
-text = "Sound effects"
-
-[node name="Master" type="Label" parent="Texts"]
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 132.0
-offset_top = 212.0
-offset_right = 932.0
-offset_bottom = 1012.0
+offset_left = 76.0
+offset_top = -21.0
+offset_right = 876.0
+offset_bottom = 779.0
 grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -120,14 +125,53 @@ theme = ExtResource("3_c0bsf")
 theme_override_font_sizes/font_size = 40
 text = "Master Volume"
 
-[node name="Panel" type="Panel" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="SFX" type="TextureRect" parent="Boxes"]
+offset_left = 60.0
+offset_top = 398.0
+offset_right = 515.0
+offset_bottom = 528.0
+texture = ExtResource("6_l33fb")
 
-[node name="HSlider" type="HSlider" parent="Panel"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 16.0
+[node name="SFX" type="Label" parent="Boxes/SFX"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 78.0
+offset_top = -23.0
+offset_right = 878.0
+offset_bottom = 777.0
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("3_c0bsf")
+theme_override_font_sizes/font_size = 40
+text = "Sound effects"
+
+[node name="TextureRect4" type="TextureRect" parent="Boxes"]
+offset_left = 60.0
+offset_top = 523.0
+offset_right = 515.0
+offset_bottom = 653.0
+texture = ExtResource("6_l33fb")
+
+[node name="Master" type="Label" parent="Boxes/TextureRect4"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 72.0
+offset_top = -23.0
+offset_right = 872.0
+offset_bottom = 777.0
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("3_c0bsf")
+theme_override_font_sizes/font_size = 40
+text = "Master Volume"
 
 [node name="Buttons" type="Node" parent="."]
 
@@ -138,6 +182,7 @@ offset_right = 945.0
 offset_bottom = 298.0
 scale = Vector2(0.7, 0.7)
 texture_normal = ExtResource("6_2cjmi")
+texture_disabled = ExtResource("9_n7i0m")
 
 [node name="EN" type="TextureButton" parent="Buttons"]
 offset_left = 926.0
@@ -146,3 +191,140 @@ offset_right = 1176.0
 offset_bottom = 306.0
 scale = Vector2(0.7, 0.7)
 texture_normal = ExtResource("7_b16ck")
+texture_disabled = ExtResource("11_23pnq")
+
+[node name="Music" type="Node" parent="Buttons"]
+
+[node name="Audio" type="TextureButton" parent="Buttons/Music"]
+offset_left = 518.0
+offset_top = 294.0
+offset_right = 688.0
+offset_bottom = 434.0
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("12_tf0j5")
+
+[node name="Mute2" type="TextureButton" parent="Buttons/Music"]
+visible = false
+offset_left = 503.0
+offset_top = 293.0
+offset_right = 673.0
+offset_bottom = 433.0
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("13_00pst")
+
+[node name="Music2" type="Node" parent="Buttons"]
+
+[node name="Audio" type="TextureButton" parent="Buttons/Music2"]
+offset_left = 518.0
+offset_top = 425.0
+offset_right = 688.0
+offset_bottom = 565.0
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("12_tf0j5")
+
+[node name="Mute2" type="TextureButton" parent="Buttons/Music2"]
+visible = false
+offset_left = 503.0
+offset_top = 425.0
+offset_right = 673.0
+offset_bottom = 565.0
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("13_00pst")
+
+[node name="Music3" type="Node" parent="Buttons"]
+
+[node name="Audio" type="TextureButton" parent="Buttons/Music3"]
+offset_left = 518.0
+offset_top = 554.0
+offset_right = 688.0
+offset_bottom = 694.0
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("12_tf0j5")
+
+[node name="Mute2" type="TextureButton" parent="Buttons/Music3"]
+offset_left = 503.0
+offset_top = 554.0
+offset_right = 673.0
+offset_bottom = 694.0
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("13_00pst")
+
+[node name="Sliders" type="Node" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Sliders"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -60.0
+offset_right = 10.0
+offset_bottom = 40.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.755, 0.755)
+texture = ExtResource("10_in284")
+
+[node name="MusicSlider" type="HSlider" parent="Sliders"]
+offset_left = 647.0
+offset_top = 296.0
+offset_right = 1127.0
+offset_bottom = 376.0
+theme_override_icons/grabber = ExtResource("11_rm7lk")
+theme_override_icons/grabber_highlight = ExtResource("11_rm7lk")
+theme_override_icons/tick = ExtResource("11_rm7lk")
+min_value = -100.0
+scrollable = false
+
+[node name="TextureRect2" type="TextureRect" parent="Sliders"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = 70.0
+offset_right = 10.0
+offset_bottom = 170.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.755, 0.755)
+texture = ExtResource("10_in284")
+
+[node name="SoundEffectSlider" type="HSlider" parent="Sliders"]
+offset_left = 647.0
+offset_top = 426.0
+offset_right = 1127.0
+offset_bottom = 506.0
+theme_override_icons/grabber = ExtResource("11_rm7lk")
+theme_override_icons/grabber_highlight = ExtResource("11_rm7lk")
+theme_override_icons/tick = ExtResource("11_rm7lk")
+min_value = -100.0
+scrollable = false
+
+[node name="TextureRect3" type="TextureRect" parent="Sliders"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = 200.0
+offset_right = 10.0
+offset_bottom = 300.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.755, 0.755)
+texture = ExtResource("10_in284")
+
+[node name="MasterSlider" type="HSlider" parent="Sliders"]
+offset_left = 647.0
+offset_top = 556.0
+offset_right = 1127.0
+offset_bottom = 636.0
+theme_override_icons/grabber = ExtResource("11_rm7lk")
+theme_override_icons/grabber_highlight = ExtResource("11_rm7lk")
+theme_override_icons/tick = ExtResource("11_rm7lk")
+min_value = -100.0
+scrollable = false

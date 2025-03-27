@@ -13,7 +13,7 @@ config_version=5
 config/name="Crank Up!"
 run/main_scene="res://Menus/MainMenu/Scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "C#", "Mobile")
-config/icon="res://Assets/Misc/Icon.png"
+config/icon="res://Assets/Logos/Icon.png"
 
 [autoload]
 

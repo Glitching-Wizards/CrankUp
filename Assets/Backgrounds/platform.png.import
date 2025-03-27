@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1bgreietkn5y"
-path="res://.godot/imported/CrankUpTitle.png-f88e2ee0fc2a6d46355232e00da328ac.ctex"
+uid="uid://ig6u8vw34kal"
+path="res://.godot/imported/platform.png-f2d898194cf6a866d41c050b1d9a4335.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Misc/CrankUpTitle.png"
-dest_files=["res://.godot/imported/CrankUpTitle.png-f88e2ee0fc2a6d46355232e00da328ac.ctex"]
+source_file="res://Assets/Backgrounds/platform.png"
+dest_files=["res://.godot/imported/platform.png-f2d898194cf6a866d41c050b1d9a4335.ctex"]
 
 [params]
 

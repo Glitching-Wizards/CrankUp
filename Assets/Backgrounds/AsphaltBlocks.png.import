@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvuuyxkfsqlbw"
-path="res://.godot/imported/back_arrow.png-d5cb577b7b219430d3f88c74aa1e5050.ctex"
+uid="uid://dhqs8welv03pn"
+path="res://.godot/imported/AsphaltBlocks.png-f06b0002bb6598f280bdeb61516f6f3c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Gui/Buttons/back_arrow.png"
-dest_files=["res://.godot/imported/back_arrow.png-d5cb577b7b219430d3f88c74aa1e5050.ctex"]
+source_file="res://Assets/Backgrounds/AsphaltBlocks.png"
+dest_files=["res://.godot/imported/AsphaltBlocks.png-f06b0002bb6598f280bdeb61516f6f3c.ctex"]
 
 [params]
 

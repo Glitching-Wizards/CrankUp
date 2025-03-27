@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccrmkcjbysbh0"
-path="res://.godot/imported/crank_up_logo_grnblu.png-591b55aa1541329c05890cc45c2a58aa.ctex"
+uid="uid://bthqt0883ihxe"
+path="res://.godot/imported/left_console.png-6d8ccfa37637a17b02828a7602f34875.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Misc/crank_up_logo_grnblu.png"
-dest_files=["res://.godot/imported/crank_up_logo_grnblu.png-591b55aa1541329c05890cc45c2a58aa.ctex"]
+source_file="res://Assets/Backgrounds/left_console.png"
+dest_files=["res://.godot/imported/left_console.png-6d8ccfa37637a17b02828a7602f34875.ctex"]
 
 [params]
 

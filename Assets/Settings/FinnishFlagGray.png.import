@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvuuyxkfsqlbw"
-path="res://.godot/imported/back_arrow.png-d5cb577b7b219430d3f88c74aa1e5050.ctex"
+uid="uid://d1mjxk06ip5rp"
+path="res://.godot/imported/FinnishFlagGray.png-5e83f914ffa75e1f190de21bd55ccf1c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Gui/Buttons/back_arrow.png"
-dest_files=["res://.godot/imported/back_arrow.png-d5cb577b7b219430d3f88c74aa1e5050.ctex"]
+source_file="res://Assets/Settings/FinnishFlagGray.png"
+dest_files=["res://.godot/imported/FinnishFlagGray.png-5e83f914ffa75e1f190de21bd55ccf1c.ctex"]
 
 [params]
 

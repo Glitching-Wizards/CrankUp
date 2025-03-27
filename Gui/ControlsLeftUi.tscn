@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bu16bdidc32ex"]
+[gd_scene load_steps=5 format=3 uid="uid://bu16bdidc32ex"]
 
 [ext_resource type="Script" path="res://Gui/Scripts/ControlsLeftUi.cs" id="1_bx7ei"]
 [ext_resource type="Texture2D" uid="uid://dr5ia7hmpuu0l" path="res://Assets/Gui/Buttons/Rotate.png" id="1_ty1st"]
 [ext_resource type="Texture2D" uid="uid://bkv6f6qua35ki" path="res://Assets/Gui/Slider.png" id="3_1glo6"]
-[ext_resource type="Texture2D" uid="uid://btcu3yow8pr65" path="res://Assets/Backgrounds/LeftConsole.png" id="5_dvyrw"]
-[ext_resource type="Texture2D" uid="uid://dl1c78xcnlm4f" path="res://Assets/Gui/SliderRail.png" id="6_6ufe4"]
+[ext_resource type="Texture2D" uid="uid://bthqt0883ihxe" path="res://Assets/Backgrounds/left_console.png" id="4_avya5"]
 
 [node name="ControlsLeftUi" type="Control"]
 layout_mode = 3
@@ -25,17 +24,19 @@ mouse_filter = 2
 
 [node name="Rotate" type="TextureButton" parent="Panel"]
 layout_mode = 0
-offset_top = 589.0
-offset_right = 130.0
-offset_bottom = 719.0
+offset_left = 9.0
+offset_top = 576.0
+offset_right = 139.0
+offset_bottom = 706.0
 action_mode = 0
 texture_normal = ExtResource("1_ty1st")
 
 [node name="MoveSlider" type="VSlider" parent="Panel"]
 layout_mode = 0
-offset_top = 130.0
-offset_right = 130.0
-offset_bottom = 590.0
+offset_left = 7.0
+offset_top = 133.0
+offset_right = 137.0
+offset_bottom = 561.0
 theme_override_icons/grabber = ExtResource("3_1glo6")
 theme_override_icons/grabber_highlight = ExtResource("3_1glo6")
 theme_override_icons/tick = ExtResource("3_1glo6")
@@ -49,15 +50,7 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
-texture = ExtResource("5_dvyrw")
-
-[node name="LeftRail" type="TextureRect" parent="LeftConsole"]
-layout_mode = 0
-offset_top = 130.0
-offset_right = 130.0
-offset_bottom = 590.0
-mouse_filter = 2
-texture = ExtResource("6_6ufe4")
+texture = ExtResource("4_avya5")
 
 [connection signal="pressed" from="Panel/Rotate" to="." method="_on_rotate_pressed"]
 [connection signal="drag_ended" from="Panel/MoveSlider" to="." method="_on_move_slider_drag_ended"]

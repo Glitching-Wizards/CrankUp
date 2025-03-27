@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvuuyxkfsqlbw"
-path="res://.godot/imported/back_arrow.png-d5cb577b7b219430d3f88c74aa1e5050.ctex"
+uid="uid://dhe1uau85d4el"
+path="res://.godot/imported/CrankUpLogoPinkOrangeFINAL.png-8c9d1b4783fc0c3378da792515d9de42.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Gui/Buttons/back_arrow.png"
-dest_files=["res://.godot/imported/back_arrow.png-d5cb577b7b219430d3f88c74aa1e5050.ctex"]
+source_file="res://Assets/Logos/CrankUpLogoPinkOrangeFINAL.png"
+dest_files=["res://.godot/imported/CrankUpLogoPinkOrangeFINAL.png-8c9d1b4783fc0c3378da792515d9de42.ctex"]
 
 [params]
 

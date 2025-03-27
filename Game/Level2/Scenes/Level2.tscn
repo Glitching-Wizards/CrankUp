@@ -19,7 +19,7 @@ atlas = ExtResource("6_ocxn5")
 region = Rect2(0, 0, 262, 150)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aeeyk"]
-size = Vector2(261, 150)
+size = Vector2(536, 251)
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_gqdgr")
@@ -125,7 +125,7 @@ position = Vector2(0, 114)
 script = ExtResource("11_36ex4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlacementArea"]
-position = Vector2(-0.5, 11)
+position = Vector2(-3, -71.5)
 shape = SubResource("RectangleShape2D_aeeyk")
 
 [node name="ScoreLabel" type="Label" parent="PlacementArea"]
@@ -135,7 +135,7 @@ offset_right = 289.0
 offset_bottom = -59.0
 
 [node name="PlacementBox" parent="." instance=ExtResource("12_rtold")]
-position = Vector2(-330, -152)
+position = Vector2(-281, -183)
 
 [node name="WinLose" type="Control" parent="."]
 layout_mode = 3

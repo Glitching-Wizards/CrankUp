@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://oe4uwnuqj7va"
-path="res://.godot/imported/crank_up_logo_red.png-d446bd3f20213a10e21768deff3b8cd2.ctex"
+uid="uid://b68icohpv4j7x"
+path="res://.godot/imported/AudioSliderBase.png-ea04121867b351e1e9aff6f494934a54.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Misc/crank_up_logo_red.png"
-dest_files=["res://.godot/imported/crank_up_logo_red.png-d446bd3f20213a10e21768deff3b8cd2.ctex"]
+source_file="res://Assets/Settings/AudioSliderBase.png"
+dest_files=["res://.godot/imported/AudioSliderBase.png-ea04121867b351e1e9aff6f494934a54.ctex"]
 
 [params]
 
