@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cusyv8gojbcca"]
+[gd_scene load_steps=22 format=3 uid="uid://cusyv8gojbcca"]
 
 [ext_resource type="Script" path="res://Game/Level2/Scripts/Level2.cs" id="1_rv4ft"]
 [ext_resource type="PackedScene" uid="uid://te4xswc06au0" path="res://Game/Scenes/ContainerRed.tscn" id="2_6y1dh"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bu16bdidc32ex" path="res://Gui/ControlsLeftUi.tscn" id="8_fytdm"]
 [ext_resource type="PackedScene" uid="uid://cbrwler8lk051" path="res://Gui/ControlsRightUi.tscn" id="9_nyigl"]
 [ext_resource type="PackedScene" uid="uid://ck4oieai5v8t6" path="res://Game/Scenes/Claw.tscn" id="10_1b6od"]
+[ext_resource type="Script" path="res://Game/Scripts/Ui.cs" id="10_rbe0n"]
 [ext_resource type="Script" path="res://Game/Scripts/PlacementArea.cs" id="11_ne26j"]
 [ext_resource type="PackedScene" uid="uid://c4xvu4xi20yxg" path="res://Game/Level1/Scenes/BoxShadow.tscn" id="12_6ux1j"]
 [ext_resource type="PackedScene" uid="uid://d3h8yejbsuxbm" path="res://Menus/LevelWinLose/Scenes/Win.tscn" id="13_l7llk"]
@@ -112,6 +113,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("10_rbe0n")
 
 [node name="ControlsLeftUi" parent="Ui" instance=ExtResource("8_fytdm")]
 layout_mode = 1
@@ -127,6 +129,18 @@ offset_left = -640.0
 offset_top = -360.0
 offset_right = -640.0
 offset_bottom = -360.0
+
+[node name="Timer" type="Timer" parent="Ui"]
+one_shot = true
+autostart = true
+
+[node name="Label" type="Label" parent="Ui"]
+layout_mode = 0
+offset_left = -502.0
+offset_top = -346.0
+offset_right = -462.0
+offset_bottom = -323.0
+text = "60"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -157,8 +171,10 @@ scale = Vector2(2, 2)
 [node name="WinLose" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -488.0
+offset_top = -353.0
+offset_right = -448.0
+offset_bottom = -313.0
 
 [node name="Lose" parent="WinLose" instance=ExtResource("15_ypye6")]
 visible = false
