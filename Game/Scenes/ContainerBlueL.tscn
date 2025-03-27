@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dln6wt6vmcoke"]
+[gd_scene load_steps=7 format=3 uid="uid://dln6wt6vmcoke"]
 
 [ext_resource type="Script" path="res://Game/Scripts/Block.cs" id="1_phlf7"]
 [ext_resource type="Texture2D" uid="uid://dhfsv772pihq1" path="res://Assets/Blocks/container_L_blue.png" id="2_nl5bx"]
@@ -19,12 +19,6 @@ region = Rect2(600, 0, 300, 300)
 atlas = ExtResource("2_nl5bx")
 region = Rect2(0, 0, 300, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tplx0"]
-size = Vector2(240, 82)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ex00"]
-size = Vector2(75, 122)
-
 [node name="ContainerBlueL" type="RigidBody2D"]
 script = ExtResource("1_phlf7")
 healthy = SubResource("AtlasTexture_y4ikk")
@@ -32,34 +26,30 @@ damaged = SubResource("AtlasTexture_ijdme")
 broken = SubResource("AtlasTexture_pm25f")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
+position = Vector2(-1.49999, 0)
+scale = Vector2(0.996667, 1)
 texture = SubResource("AtlasTexture_7of12")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 30.5)
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-1, 61)
 scale = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_tplx0")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(41.25, -20.5)
-scale = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_3ex00")
+polygon = PackedVector2Array(-240, -82, 88, -82, 88, -326, 238, -326, 238, 82, -240, 82)
 
 [node name="Marker2D2" type="Marker2D" parent="."]
-position = Vector2(41.5, -51)
+position = Vector2(82, -102)
 scale = Vector2(0.5, 0.5)
 
 [node name="Marker2D3" type="Marker2D" parent="."]
-position = Vector2(60, 0)
+position = Vector2(120, 0)
 rotation = 1.5708
 scale = Vector2(0.5, 0.5)
 
 [node name="Marker2D4" type="Marker2D" parent="."]
-position = Vector2(4, 51)
+position = Vector2(0, 102)
 rotation = 3.14159
 scale = Vector2(0.5, 0.5)
 
 [node name="Marker2D5" type="Marker2D" parent="."]
-position = Vector2(-60, 30.5)
+position = Vector2(-120, 61)
 rotation = -1.5708
 scale = Vector2(0.5, 0.5)

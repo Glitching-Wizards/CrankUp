@@ -16,7 +16,9 @@ public partial class Level1 : Node2D
 	[Export] private string _settingsScenePath = "res://Menus/Settings/Scenes/Pause.tscn";
 
 	[Export] private string _blockScenePath = "res://Game/Scenes/Block.tscn";
-	[Export] private string _longBlockScenePath = "res://Game/Scenes/LongBlock.tscn";
+	[Export] private string _containerYellowLScenePath = "res://Game/Scenes/ContainerYellowL.tscn";
+	[Export] private string _containerBlueLScenePath = "res://Game/Scenes/ContainerBlueL.tscn";
+	[Export] private string _containerRedScenePath = "res://Game/Scenes/ContainerRed.tscn";
 
 	private Window settingsWindow;
 	private PackedScene _clawScene = null;
@@ -26,17 +28,24 @@ public partial class Level1 : Node2D
 
 	private TextureRect conveyorBelt;
 	private PackedScene _blockScene;
-	private PackedScene _longBlockScene;
+	private PackedScene _containerYellowLScene;
+	private PackedScene _containerBlueLScene;
+	private PackedScene _containerRedScene;
 	private TextureButton blockButton;
-	private TextureButton longBlockButton;
-	private bool longBlockButtonPressed = false;
+	private TextureButton containerYellowLButton;
+	private TextureButton containerBlueLButton;
+	private TextureButton containerRedButton;
+
 	private bool blockButtonPressed = false;
+	private bool containerYellowLButtonPressed = false;
+	private bool containerBlueLButtonPressed = false;
+	private bool containerRedButtonPressed = false;
 
 	private bool startLevel = true;
 	private bool endLevel = false;
 	private float beltTargetPositionStart = -540;
-	private float beltTargetPositionEnd = 460; // conveyorBelt target position when all blocks are in play
-	private float beltMoveSpeed = 200f; // conveyorBelts speed of movement per frame
+	private float beltTargetPositionEnd = 460; // ConveyorBelt target position when all blocks are in play
+	private float beltMoveSpeed = 200f; // ConveyorBelts speed of movement per frame
 
 
 	public override void _Ready()
@@ -58,10 +67,15 @@ public partial class Level1 : Node2D
 		settingsWindow.Hide();
 
 		_blockScene = ResourceLoader.Load<PackedScene>(_blockScenePath);
-		_longBlockScene = ResourceLoader.Load<PackedScene>(_longBlockScenePath);
+		_containerYellowLScene = ResourceLoader.Load<PackedScene>(_containerYellowLScenePath);
+		_containerBlueLScene = ResourceLoader.Load<PackedScene>(_containerBlueLScenePath);
+		_containerRedScene = ResourceLoader.Load<PackedScene>(_containerRedScenePath);
 
 		blockButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/Block");
-		longBlockButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/LongBlock");
+		containerYellowLButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerYellowL");
+		containerBlueLButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerBlueL");
+		containerRedButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerRed");
+
 
 		blockButton.Pressed += () =>
 		{
@@ -69,10 +83,22 @@ public partial class Level1 : Node2D
 			SpawnBlockButtonPressed(_blockScene, blockButton);
 		};
 
-		longBlockButton.Pressed += () =>
+		containerYellowLButton.Pressed += () =>
 		{
-			longBlockButtonPressed = true;
-			SpawnBlockButtonPressed(_longBlockScene, longBlockButton);
+			containerYellowLButtonPressed = true;
+			SpawnBlockButtonPressed(_containerYellowLScene, containerYellowLButton);
+		};
+
+		containerBlueLButton.Pressed += () =>
+		{
+			containerBlueLButtonPressed = true;
+			SpawnBlockButtonPressed(_containerBlueLScene, containerBlueLButton);
+		};
+
+		containerRedButton.Pressed += () =>
+		{
+			containerRedButtonPressed = true;
+			SpawnBlockButtonPressed(_containerRedScene, containerRedButton);
 		};
 	}
 
@@ -117,8 +143,8 @@ public partial class Level1 : Node2D
 
 		button.QueueFree();
 
-		// Check if all buttons are removed
-		if (blockButtonPressed && longBlockButtonPressed) endLevel = true;
+		// Check if all buttons are pressed
+		if (blockButtonPressed && containerYellowLButtonPressed && containerBlueLButtonPressed && containerRedButtonPressed) endLevel = true;
 	}
 
 	public override void _Process(double delta)

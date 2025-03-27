@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b54grpygrbq3i"]
+[gd_scene load_steps=14 format=3 uid="uid://b54grpygrbq3i"]
 
 [ext_resource type="Script" path="res://Game/Level2/Scripts/Level2.cs" id="1_gqdgr"]
 [ext_resource type="PackedScene" uid="uid://bh25upnb64myu" path="res://Gui/Background2.tscn" id="1_om3yl"]
@@ -6,12 +6,10 @@
 [ext_resource type="Theme" uid="uid://6td37p2nd7m3" path="res://Gui/PlayTheme.tres" id="4_bi5ep"]
 [ext_resource type="Script" path="res://Game/Scripts/FinishButton.cs" id="5_88stb"]
 [ext_resource type="Texture2D" uid="uid://15t504ih4j83" path="res://Assets/Blocks/container_blue.png" id="6_ocxn5"]
-[ext_resource type="Texture2D" uid="uid://4fnl4lgyb4th" path="res://Assets/Blocks/container_green_healthy.png" id="7_04tlk"]
 [ext_resource type="PackedScene" uid="uid://bu16bdidc32ex" path="res://Gui/ControlsLeftUi.tscn" id="8_664pu"]
 [ext_resource type="PackedScene" uid="uid://cbrwler8lk051" path="res://Gui/ControlsRightUi.tscn" id="9_5gc6c"]
 [ext_resource type="PackedScene" uid="uid://ck4oieai5v8t6" path="res://Game/Scenes/Claw.tscn" id="10_wb5s4"]
 [ext_resource type="Script" path="res://Game/Scripts/PlacementArea.cs" id="11_36ex4"]
-[ext_resource type="PackedScene" uid="uid://c4xvu4xi20yxg" path="res://Game/Level1/Scenes/BoxShadow.tscn" id="12_rtold"]
 [ext_resource type="PackedScene" uid="uid://d3h8yejbsuxbm" path="res://Menus/LevelWinLose/Scenes/Win.tscn" id="13_d0k8e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_idrmk"]
@@ -84,17 +82,6 @@ texture_normal = SubResource("AtlasTexture_idrmk")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="LongBlock" type="TextureButton" parent="ConveyorBelt/BlockButtons"]
-layout_mode = 0
-offset_left = 780.0
-offset_top = 224.0
-offset_right = 912.0
-offset_bottom = 256.0
-rotation = 1.5708
-texture_normal = ExtResource("7_04tlk")
-ignore_texture_size = true
-stretch_mode = 0
-
 [node name="Ui" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -134,9 +121,6 @@ offset_top = -82.0
 offset_right = 289.0
 offset_bottom = -59.0
 
-[node name="PlacementBox" parent="." instance=ExtResource("12_rtold")]
-position = Vector2(-330, -152)
-
 [node name="WinLose" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -148,5 +132,4 @@ visible = false
 
 [connection signal="pressed" from="ConveyorBelt/ConveyorBelt3/FinishButton" to="." method="_on_finish_button_pressed"]
 [connection signal="pressed" from="ConveyorBelt/BlockButtons/Block" to="." method="_on_block_pressed"]
-[connection signal="pressed" from="ConveyorBelt/BlockButtons/LongBlock" to="." method="_on_long_block_pressed"]
 [connection signal="body_entered" from="PlacementArea" to="PlacementArea" method="_on_body_entered"]
