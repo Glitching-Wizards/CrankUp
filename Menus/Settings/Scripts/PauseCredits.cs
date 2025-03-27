@@ -36,23 +36,11 @@ namespace CrankUp
             settingsWindow.Hide();
         }
 
-        // Called every frame. 'delta' is the elapsed time since the previous frame.
-        public override void _Process(double delta)
-        {
-        }
 
         public void RetryButtonPressed()
         {
             GD.Print("Retry Pressed");
-
             GetTree().ReloadCurrentScene();
-        }
-
-        // Onko tarpeellinen?
-        private void OnButtonPressed()
-        {
-            GD.Print("TOIMII");
-            victoryScreen.Visible = true;
         }
 
         public void MenuButtonPressed()

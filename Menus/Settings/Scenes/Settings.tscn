@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ckb1t7ko0dp0p"]
+[gd_scene load_steps=17 format=3 uid="uid://ckb1t7ko0dp0p"]
 
 [ext_resource type="Script" path="res://Menus/Settings/Scripts/Settings.cs" id="1_n5s8t"]
 [ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="2_lqclo"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://8tm6qswgs2h6" path="res://Assets/Settings/AudioSliderButton.png" id="11_rm7lk"]
 [ext_resource type="Texture2D" uid="uid://104qw0r1df7a" path="res://Assets/Settings/AudioFull.png" id="12_tf0j5"]
 [ext_resource type="Texture2D" uid="uid://l4o2w7xwbjb2" path="res://Assets/Settings/AudioMute.png" id="13_00pst"]
+[ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="16_uom7k"]
 
 [node name="Settings" type="Window"]
 transparent_bg = true
@@ -57,25 +58,31 @@ texture_hover = ExtResource("4_c3tkn")
 [node name="Boxes" type="Node" parent="."]
 
 [node name="Options" type="TextureRect" parent="Boxes"]
-offset_left = 262.0
-offset_top = 1.0
-offset_right = 717.0
-offset_bottom = 131.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -390.0
+offset_right = 65.0
+offset_bottom = 130.0
+grow_horizontal = 2
 scale = Vector2(1.7, 1.1)
 texture = ExtResource("6_l33fb")
+stretch_mode = 1
 
 [node name="Options2" type="Label" parent="Boxes"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -181.5
-offset_top = 27.0
-offset_right = 618.5
-offset_bottom = 827.0
+offset_left = -227.5
+offset_top = 4.0
+offset_right = 227.5
+offset_bottom = 134.0
 grow_horizontal = 2
 theme = ExtResource("3_c0bsf")
 theme_override_font_sizes/font_size = 90
-text = "Options"
+text = "OPTIONS"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Language" type="TextureRect" parent="Boxes"]
 offset_left = 60.0
@@ -87,43 +94,49 @@ texture = ExtResource("6_l33fb")
 [node name="Language" type="Label" parent="Boxes/Language"]
 z_index = 1
 layout_mode = 1
-anchors_preset = 4
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 134.0
+offset_left = -96.0
 offset_top = -18.0
-offset_right = 934.0
-offset_bottom = 782.0
+offset_right = 96.0
+offset_bottom = 18.0
+grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource("3_c0bsf")
 theme_override_font_sizes/font_size = 40
-text = "Language"
+text = "LANGUAGE"
 
-[node name="Music" type="TextureRect" parent="Boxes"]
+[node name="Master" type="TextureRect" parent="Boxes"]
 offset_left = 60.0
 offset_top = 268.0
 offset_right = 515.0
 offset_bottom = 398.0
 texture = ExtResource("6_l33fb")
 
-[node name="Music" type="Label" parent="Boxes/Music"]
+[node name="Language" type="Label" parent="Boxes/Master"]
 z_index = 1
 layout_mode = 1
-anchors_preset = 4
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 76.0
-offset_top = -21.0
-offset_right = 876.0
-offset_bottom = 779.0
+offset_left = -96.0
+offset_top = -18.0
+offset_right = 96.0
+offset_bottom = 18.0
+grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource("3_c0bsf")
 theme_override_font_sizes/font_size = 40
-text = "Master Volume"
+text = "MASTER"
 
 [node name="SFX" type="TextureRect" parent="Boxes"]
 offset_left = 60.0
@@ -132,46 +145,52 @@ offset_right = 515.0
 offset_bottom = 528.0
 texture = ExtResource("6_l33fb")
 
-[node name="SFX" type="Label" parent="Boxes/SFX"]
+[node name="Language" type="Label" parent="Boxes/SFX"]
 z_index = 1
 layout_mode = 1
-anchors_preset = 4
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 78.0
-offset_top = -23.0
-offset_right = 878.0
-offset_bottom = 777.0
+offset_left = -96.0
+offset_top = -18.0
+offset_right = 96.0
+offset_bottom = 18.0
+grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource("3_c0bsf")
 theme_override_font_sizes/font_size = 40
-text = "Sound effects"
+text = "SFX"
 
-[node name="TextureRect4" type="TextureRect" parent="Boxes"]
+[node name="Music" type="TextureRect" parent="Boxes"]
 offset_left = 60.0
 offset_top = 523.0
 offset_right = 515.0
 offset_bottom = 653.0
 texture = ExtResource("6_l33fb")
 
-[node name="Master" type="Label" parent="Boxes/TextureRect4"]
+[node name="Language" type="Label" parent="Boxes/Music"]
 z_index = 1
 layout_mode = 1
-anchors_preset = 4
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 72.0
-offset_top = -23.0
-offset_right = 872.0
-offset_bottom = 777.0
+offset_left = -96.0
+offset_top = -18.0
+offset_right = 96.0
+offset_bottom = 18.0
+grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource("3_c0bsf")
 theme_override_font_sizes/font_size = 40
-text = "Master Volume"
+text = "MUSIC"
 
 [node name="Buttons" type="Node" parent="."]
 
@@ -328,3 +347,24 @@ theme_override_icons/grabber_highlight = ExtResource("11_rm7lk")
 theme_override_icons/tick = ExtResource("11_rm7lk")
 min_value = -100.0
 scrollable = false
+
+[node name="Header" type="TextureRect" parent="."]
+visible = false
+offset_left = 262.0
+offset_top = 1.0
+offset_right = 717.0
+offset_bottom = 131.0
+scale = Vector2(1.7, 1.1)
+tooltip_text = "CREDITS"
+theme = ExtResource("16_uom7k")
+texture = ExtResource("6_l33fb")
+
+[node name="Label" type="Label" parent="Header"]
+layout_mode = 0
+offset_right = 455.0
+offset_bottom = 130.0
+theme = ExtResource("3_c0bsf")
+theme_override_font_sizes/font_size = 65
+text = "OPTIONS"
+horizontal_alignment = 1
+vertical_alignment = 1

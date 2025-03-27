@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://dwjipci1bcx2c"]
+[gd_scene load_steps=10 format=3 uid="uid://dwjipci1bcx2c"]
 
 [ext_resource type="Script" path="res://Menus/Levels/Scripts/LevelStart.cs" id="1_8e0o0"]
 [ext_resource type="Texture2D" uid="uid://0pnu3tgvsyv6" path="res://Assets/Backgrounds/VictoryScreen.png" id="2_bpdbd"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="3_ll443"]
 [ext_resource type="Texture2D" uid="uid://bvgtg0q0k8n42" path="res://Assets/Gui/BlankStar.png" id="4_wbj8s"]
-[ext_resource type="Texture2D" uid="uid://djwfyxqj61amm" path="res://Assets/Gui/Buttons/green_button1.png" id="5_xemwi"]
-[ext_resource type="Texture2D" uid="uid://daxerwiiludsn" path="res://Assets/Gui/Buttons/green_button2.png" id="6_y2fbo"]
-[ext_resource type="Texture2D" uid="uid://ttq1of7d5af8" path="res://Assets/Gui/Buttons/yellow_button1.png" id="7_5ndgq"]
-[ext_resource type="Texture2D" uid="uid://dsk0vhi3yx2tq" path="res://Assets/Gui/Buttons/yellow_button2.png" id="8_bsnoc"]
+[ext_resource type="Texture2D" uid="uid://ckiwhmwu30y57" path="res://Assets/Gui/Buttons/green_button_next1.png" id="5_wfdvi"]
+[ext_resource type="Texture2D" uid="uid://cni08607lgf15" path="res://Assets/Gui/Buttons/green_button_next2.png" id="6_twqpy"]
+[ext_resource type="Texture2D" uid="uid://1pedsn4616vk" path="res://Assets/Gui/Buttons/grey_button_home1.png" id="7_dhjkw"]
+[ext_resource type="Texture2D" uid="uid://bqti4reoj73jh" path="res://Assets/Gui/Buttons/grey_button_home2.png" id="8_5atlm"]
+[ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="9_x1jip"]
 
 [node name="StartLevel" type="Window"]
 transparent_bg = true
@@ -18,6 +19,16 @@ always_on_top = true
 transparent = true
 script = ExtResource("1_8e0o0")
 
+[node name="GrayBackground" type="TextureRect" parent="."]
+modulate = Color(0.462745, 0.427451, 0.4, 0.286275)
+z_index = -10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_x1jip")
+
 [node name="Start" type="TextureRect" parent="."]
 texture = ExtResource("2_bpdbd")
 
@@ -25,14 +36,14 @@ texture = ExtResource("2_bpdbd")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -143.0
-offset_top = 64.0
-offset_right = 143.0
-offset_bottom = 158.0
+offset_left = -151.0
+offset_top = 62.0
+offset_right = 151.0
+offset_bottom = 156.0
 grow_horizontal = 2
 theme = ExtResource("3_ll443")
 theme_override_font_sizes/font_size = 70
-text = "Level 2"
+text = "LEVEL 2"
 
 [node name="Star1" type="TextureRect" parent="."]
 offset_left = 343.0
@@ -68,9 +79,9 @@ offset_bottom = 222.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.9, 0.9)
-texture_normal = ExtResource("5_xemwi")
-texture_pressed = ExtResource("6_y2fbo")
-texture_hover = ExtResource("5_xemwi")
+texture_normal = ExtResource("5_wfdvi")
+texture_pressed = ExtResource("6_twqpy")
+texture_hover = ExtResource("5_wfdvi")
 
 [node name="MenuButton" type="TextureButton" parent="."]
 anchors_preset = 8
@@ -85,6 +96,6 @@ offset_bottom = 222.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.9, 0.9)
-texture_normal = ExtResource("7_5ndgq")
-texture_pressed = ExtResource("8_bsnoc")
-texture_hover = ExtResource("7_5ndgq")
+texture_normal = ExtResource("7_dhjkw")
+texture_pressed = ExtResource("8_5atlm")
+texture_hover = ExtResource("7_dhjkw")

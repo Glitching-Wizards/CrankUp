@@ -7,16 +7,15 @@ namespace CrankUp
 	{
 		[Export] private string _levelsScenePath = "res://Menus/Levels/Scenes/Levels.tscn";
 		[Export] private string _settingsScenePath = "res://Menus/Settings/Scenes/Settings.tscn";
+		[Export] private string _creditsScenePath = "res://Menus/Settings/Scenes/Credits.tscn";
         private Window settingsWindow;
+		private Window creditsWindow;
 
 		private bool isSceneChanging = false;
 		public override void _Ready()
 		{
 			Button playButton = GetNode<Button>("Buttons/PlayButton");
 			playButton.Pressed += PlayButtonPressed;
-
-			Button creditButton = GetNode<Button>("Buttons/CreditsButton");
-			creditButton.Pressed += CreditButtonPressed;
 
 			Button settingsButton = GetNode<Button>("Buttons/SettingsButton");
 			settingsButton.Pressed += SettingsButtonPressed;
@@ -25,6 +24,14 @@ namespace CrankUp
             settingsWindow = (Window)settingsScene.Instantiate();
             AddChild(settingsWindow);
             settingsWindow.Hide();
+
+			Button creditsButton = GetNode<Button>("Buttons/CreditsButton");
+			creditsButton.Pressed += CreditsButtonPressed;
+
+            PackedScene creditsScene = (PackedScene)GD.Load(_creditsScenePath);
+            creditsWindow = (Window)creditsScene.Instantiate();
+            AddChild(creditsWindow);
+            creditsWindow.Hide();
 		}
 
 		public void PlayButtonPressed()
@@ -42,7 +49,6 @@ namespace CrankUp
 			if (tree != null)
 			{
 				tree.ChangeSceneToFile(_levelsScenePath);
-				GD.Print("Play scene loaded");
 			}
 			else
 			{
@@ -56,8 +62,10 @@ namespace CrankUp
 			settingsWindow.Popup();
 		}
 
-		public void CreditButtonPressed()
+		public void CreditsButtonPressed()
 		{
+			GD.Print("Credits Pressed");
+			creditsWindow.Popup();
 		}
 	}
 }
