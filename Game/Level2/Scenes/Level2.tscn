@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b54grpygrbq3i"]
+[gd_scene load_steps=19 format=3 uid="uid://b54grpygrbq3i"]
 
 [ext_resource type="Script" path="res://Game/Level2/Scripts/Level2.cs" id="1_gqdgr"]
 [ext_resource type="PackedScene" uid="uid://bh25upnb64myu" path="res://Gui/Background2.tscn" id="1_om3yl"]
@@ -13,6 +13,9 @@
 [ext_resource type="Script" path="res://Game/Scripts/PlacementArea.cs" id="11_36ex4"]
 [ext_resource type="PackedScene" uid="uid://c4xvu4xi20yxg" path="res://Game/Level1/Scenes/BoxShadow.tscn" id="12_rtold"]
 [ext_resource type="PackedScene" uid="uid://d3h8yejbsuxbm" path="res://Menus/LevelWinLose/Scenes/Win.tscn" id="13_d0k8e"]
+[ext_resource type="PackedScene" uid="uid://b7kwcha2ue58l" path="res://Menus/LevelWinLose/Scenes/Win2.tscn" id="14_jw5bb"]
+[ext_resource type="PackedScene" uid="uid://lyxtd003i5wb" path="res://Menus/LevelWinLose/Scenes/Win3.tscn" id="15_wkfif"]
+[ext_resource type="PackedScene" uid="uid://t8di6gto22h3" path="res://Menus/LevelWinLose/Scenes/Lose.tscn" id="16_e37xx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_idrmk"]
 atlas = ExtResource("6_ocxn5")
@@ -144,6 +147,16 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Win" parent="WinLose" instance=ExtResource("13_d0k8e")]
+visible = false
+script = null
+
+[node name="Win2" parent="WinLose" instance=ExtResource("14_jw5bb")]
+visible = false
+
+[node name="Win3" parent="WinLose" instance=ExtResource("15_wkfif")]
+visible = false
+
+[node name="Lose" parent="WinLose" instance=ExtResource("16_e37xx")]
 visible = false
 
 [connection signal="pressed" from="ConveyorBelt/ConveyorBelt3/FinishButton" to="." method="_on_finish_button_pressed"]

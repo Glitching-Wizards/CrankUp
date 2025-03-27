@@ -5,7 +5,7 @@ namespace CrankUp
 {
 	public partial class FinishButton : Button
 	{
-		private Window victoryScreen1, victoryScreen2, victoryScreen3;
+		private Window victoryScreen1, victoryScreen2, victoryScreen3, loseScreen;
 		private PlacementArea placementArea;
 		private float score;
 		private Node currentLevel;
@@ -20,10 +20,12 @@ namespace CrankUp
 				victoryScreen1 = winLose.GetNodeOrNull<Window>("Win");
 				victoryScreen2 = winLose.GetNodeOrNull<Window>("Win2");
 				victoryScreen3 = winLose.GetNodeOrNull<Window>("Win3");
+				loseScreen = winLose.GetNodeOrNull<Window>("Lose");
 
 				if (victoryScreen1 != null) victoryScreen1.Visible = false;
 				if (victoryScreen2 != null) victoryScreen2.Visible = false;
 				if (victoryScreen3 != null) victoryScreen3.Visible = false;
+				if (loseScreen != null) loseScreen.Visible = false;
 			}
 
 			Pressed += OnButtonPressed;
@@ -45,6 +47,8 @@ namespace CrankUp
 				victoryScreen2.Visible = true;
 			else if (score >= 90 && victoryScreen3 != null)
 				victoryScreen3.Visible = true;
+			else if (score < 70 && loseScreen != null)
+				loseScreen.Visible = true;
 		}
 
 		public void RetryButtonPressed() {

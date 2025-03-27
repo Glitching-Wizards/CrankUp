@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cusyv8gojbcca"]
+[gd_scene load_steps=21 format=3 uid="uid://cusyv8gojbcca"]
 
 [ext_resource type="Script" path="res://Game/Level2/Scripts/Level2.cs" id="1_rv4ft"]
 [ext_resource type="PackedScene" uid="uid://te4xswc06au0" path="res://Game/Scenes/ContainerRed.tscn" id="2_6y1dh"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://d3h8yejbsuxbm" path="res://Menus/LevelWinLose/Scenes/Win.tscn" id="13_l7llk"]
 [ext_resource type="PackedScene" uid="uid://b7kwcha2ue58l" path="res://Menus/LevelWinLose/Scenes/Win2.tscn" id="14_lt0e4"]
 [ext_resource type="PackedScene" uid="uid://lyxtd003i5wb" path="res://Menus/LevelWinLose/Scenes/Win3.tscn" id="15_4n7qn"]
+[ext_resource type="PackedScene" uid="uid://t8di6gto22h3" path="res://Menus/LevelWinLose/Scenes/Lose.tscn" id="15_ypye6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_idrmk"]
 atlas = ExtResource("6_xirey")
@@ -158,6 +159,9 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Lose" parent="WinLose" instance=ExtResource("15_ypye6")]
+visible = false
 
 [node name="Win" parent="WinLose" instance=ExtResource("13_l7llk")]
 visible = false
