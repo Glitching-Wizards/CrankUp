@@ -14,7 +14,7 @@ public partial class ClawHead : CharacterBody2D
 	private float _currentSpeed = 0f;
 	private int currentGrabPointIndex = 0;  // Index to track the current grab point
 
-    private List<Marker2D> grabMarkers = new List<Marker2D>(); // List to hold the Marker2D grab points on the block
+	private List<Marker2D> grabMarkers = new List<Marker2D>(); // List to hold the Marker2D grab points on the block
 
 	public override void _Ready()
 	{
@@ -55,7 +55,7 @@ public partial class ClawHead : CharacterBody2D
 		grabbedBlock = nearbyBlocks[0];
 
 		// Find the nearest Marker2D on the block
-        Marker2D grabMarker = FindGrabMarkers(grabbedBlock);
+		Marker2D grabMarker = FindGrabMarkers(grabbedBlock);
 
 		// Grabbed block is aligned with claw
 		grabbedBlock.GlobalPosition += GlobalPosition - grabMarker.GlobalPosition;
@@ -78,12 +78,12 @@ public partial class ClawHead : CharacterBody2D
 	private Marker2D FindGrabMarkers(Block block)
 	{
 		// Get all Marker2D children of the block
-        grabMarkers.Clear();
+		grabMarkers.Clear();
 		Marker2D closestMarker = null;
 		float closestDistance = float.MaxValue;
 
 		// Find the closest marker
-        foreach (Node child in block.GetChildren())
+		foreach (Node child in block.GetChildren())
 		{
 			if (child is Marker2D marker)
 			{
@@ -101,7 +101,7 @@ public partial class ClawHead : CharacterBody2D
 		return closestMarker;
 	}
 
-    public void DropBlock()
+	public void DropBlock()
 	{
 		if (joint != null)
 		{
@@ -112,34 +112,34 @@ public partial class ClawHead : CharacterBody2D
 
 		currentGrabPointIndex = 0; // Reset grab point index on drop
 
-        collisionShape.SetDeferred("disabled", false);
+		collisionShape.SetDeferred("disabled", false);
 	}
 
 	public void RotateBlock()
-    {
-        if (grabbedBlock != null)
-        {
-           // Rotate counterclockwise
+	{
+		if (grabbedBlock != null)
+		{
+		   // Rotate counterclockwise
 			grabbedBlock.RotationDegrees -= 90;
 
 			// Re-grab the block
 			DropBlock();
 			GrabBlock();
-        }
-    }
+		}
+	}
 
-    public void Move(Vector2 direction, float speedFactor, double delta)
+	public void Move(Vector2 direction, float speedFactor, double delta)
 	{
 		if (direction != Vector2.Zero)
-        {
-            Velocity = direction * (speedFactor * speed) * (speedFactor / 50.0f);
-        }
-        else
-        {
-            Velocity = Vector2.Zero;
-        }
+		{
+			Velocity = direction * (speedFactor * speed) * (speedFactor / 50.0f);
+		}
+		else
+		{
+			Velocity = Vector2.Zero;
+		}
 
-        MoveAndSlide();
+		MoveAndSlide();
 
 		GlobalPosition = new Vector2(GlobalPosition.X, Mathf.Clamp(GlobalPosition.Y, -291, 200)); // Restrict Y movement
 	}

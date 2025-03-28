@@ -147,6 +147,7 @@ text = "60"
 [node name="Claw" parent="." instance=ExtResource("10_1b6od")]
 
 [node name="PlacementArea" type="Area2D" parent="."]
+z_index = 1
 position = Vector2(0, 114)
 script = ExtResource("11_ne26j")
 

@@ -26,6 +26,8 @@ size = Vector2(240, 82)
 size = Vector2(75, 122)
 
 [node name="ContainerBlueL" type="RigidBody2D"]
+z_index = 2
+continuous_cd = 1
 script = ExtResource("1_phlf7")
 healthy = SubResource("AtlasTexture_y4ikk")
 damaged = SubResource("AtlasTexture_ijdme")
