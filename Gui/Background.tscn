@@ -15,7 +15,7 @@ b = Vector2(127, 720)
 a = Vector2(1154, 720)
 b = Vector2(1153, 0)
 
-[node name="Background" type="Control"]
+[node name="Background2" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
