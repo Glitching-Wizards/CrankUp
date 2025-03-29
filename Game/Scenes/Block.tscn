@@ -12,25 +12,23 @@ damaged = ExtResource("3_2ipt4")
 broken = ExtResource("4_r1yto")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(-0.49999, -0.437505)
-scale = Vector2(0.688462, 0.939167)
+scale = Vector2(0.831, 0.76)
 texture = ExtResource("2_7btif")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(-0.5, -0.5)
-polygon = PackedVector2Array(-82.5, -61.5, 82.5, -61.5, 82.5, 61.5, -82.5, 61.5)
+polygon = PackedVector2Array(-100, -50, 100, -50, 100, 50, -100, 50)
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(0, -62)
+position = Vector2(0, -51)
 
 [node name="Marker2D2" type="Marker2D" parent="."]
-position = Vector2(82, 0)
+position = Vector2(100, 0)
 rotation = 1.5708
 
 [node name="Marker2D3" type="Marker2D" parent="."]
-position = Vector2(0, 61)
+position = Vector2(0, 50)
 rotation = 3.14159
 
 [node name="Marker2D4" type="Marker2D" parent="."]
-position = Vector2(-83, 0)
+position = Vector2(-100, 0)
 rotation = 4.71239

@@ -26,23 +26,25 @@ damaged = SubResource("AtlasTexture_0fere")
 broken = SubResource("AtlasTexture_xj7ag")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-5.00001, 1.00001)
+scale = Vector2(1.24667, 0.973333)
 texture = SubResource("AtlasTexture_ns08y")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(0, 61)
-polygon = PackedVector2Array(-120, -41, 45, -41, 45, -163, 120, -163, 120, 41, -120, 41)
+position = Vector2(0, 42)
+polygon = PackedVector2Array(-155, -41, 45, -41, 45, -141, 145, -141, 145, 59, -155, 59)
 
 [node name="Marker2D2" type="Marker2D" parent="."]
-position = Vector2(83, -102)
+position = Vector2(83, -80)
 
 [node name="Marker2D3" type="Marker2D" parent="."]
 position = Vector2(120, 0)
 rotation = 1.5708
 
 [node name="Marker2D4" type="Marker2D" parent="."]
-position = Vector2(8, 102)
+position = Vector2(8, 70)
 rotation = -3.14159
 
 [node name="Marker2D5" type="Marker2D" parent="."]
-position = Vector2(-120, 61)
+position = Vector2(-105, 31)
 rotation = -1.5708

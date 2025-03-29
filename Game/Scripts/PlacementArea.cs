@@ -30,18 +30,15 @@ public partial class PlacementArea : Area2D
 
 		foreach (var body in GetOverlappingBodies().OfType<RigidBody2D>())
 		{
-			GD.Print($"Checking body: {body.Name}");
 			var blockCollision = body.GetNodeOrNull<CollisionPolygon2D>("CollisionPolygon2D");
 			
 			if (blockCollision == null)
 			{
-				GD.PrintErr($"Block {body.Name} has no CollisionPolygon2D.");
 				continue;
 			}
 
 			var blockPolygon = blockCollision.Polygon;
 			float overlap = CalculateOverlapArea(placementPolygon, blockPolygon);
-			GD.Print($"Overlap Area: {overlap}");
 
 			filledAreaSize += overlap;
 		}

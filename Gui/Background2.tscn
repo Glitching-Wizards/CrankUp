@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c8gfkxwcmtg22" path="res://Assets/Backgrounds/Level2Background.png" id="1_jrswi"]
 [ext_resource type="Texture2D" uid="uid://duxnkmbpy8csc" path="res://Assets/Misc/Beam.png" id="2_u6ejk"]
-[ext_resource type="Texture2D" uid="uid://d4axb8wy7ry3s" path="res://Assets/Backgrounds/TruckModel2.png" id="3_qaka2"]
+[ext_resource type="Texture2D" uid="uid://ciqc0e7o4i4w5" path="res://Assets/Backgrounds/TruckModel.png" id="3_a7bo6"]
 [ext_resource type="Texture2D" uid="uid://daile572kg6n5" path="res://Assets/Victory/VictoryScreen.png" id="4_tpi8t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_imtd3"]
@@ -122,16 +122,14 @@ offset_left = 180.0
 offset_right = 1494.0
 offset_bottom = 738.0
 scale = Vector2(0.9, 0.9)
-texture = ExtResource("3_qaka2")
+texture = ExtResource("3_a7bo6")
 
 [node name="Area2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
 shape = SubResource("SegmentShape2D_5n6r5")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-visible = false
 position = Vector2(-159, 0)
 shape = SubResource("SegmentShape2D_liobq")
 
