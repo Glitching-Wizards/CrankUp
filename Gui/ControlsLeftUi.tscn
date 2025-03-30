@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bu16bdidc32ex"]
+[gd_scene load_steps=6 format=3 uid="uid://bu16bdidc32ex"]
 
 [ext_resource type="Script" path="res://Gui/Scripts/ControlsLeftUi.cs" id="1_bx7ei"]
 [ext_resource type="Texture2D" uid="uid://dr5ia7hmpuu0l" path="res://Assets/Gui/Buttons/Rotate.png" id="1_ty1st"]
 [ext_resource type="Texture2D" uid="uid://bkv6f6qua35ki" path="res://Assets/Gui/Slider.png" id="3_1glo6"]
+[ext_resource type="Texture2D" uid="uid://bdtyxwn384ufd" path="res://Assets/Gui/Buttons/rotate2.png" id="3_wg554"]
 [ext_resource type="Texture2D" uid="uid://bthqt0883ihxe" path="res://Assets/Backgrounds/left_console.png" id="4_avya5"]
 
 [node name="ControlsLeftUi" type="Control"]
@@ -30,6 +31,7 @@ offset_right = 139.0
 offset_bottom = 706.0
 action_mode = 0
 texture_normal = ExtResource("1_ty1st")
+texture_pressed = ExtResource("3_wg554")
 
 [node name="MoveSlider" type="VSlider" parent="Panel"]
 layout_mode = 0
