@@ -13,7 +13,7 @@ public partial class Level1 : Node2D
 	}
 
 	[Export] private string _clawScenePath = "res://Game/Scenes/Claw.tscn";
-	[Export] private string _settingsScenePath = "res://Menus/Settings/Scenes/Pause.tscn";
+	[Export] private string _settingsScenePath = "res://Menus/Settings/Scenes/Pause&Credits.tscn";
 
 	[Export] private string _blockScenePath = "res://Game/Scenes/Block.tscn";
 	[Export] private string _containerYellowLScenePath = "res://Game/Scenes/ContainerYellowL.tscn";

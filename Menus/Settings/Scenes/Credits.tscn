@@ -1,0 +1,93 @@
+[gd_scene load_steps=9 format=3 uid="uid://cyw88w4jpav4t"]
+
+[ext_resource type="Script" path="res://Menus/Settings/Scripts/PauseCredits.cs" id="1_th065"]
+[ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="2_b5dso"]
+[ext_resource type="Texture2D" uid="uid://biwqqyd2e0hyd" path="res://Assets/Settings/BlueBlankScreen.png" id="3_0e2ea"]
+[ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="4_hikx2"]
+[ext_resource type="Texture2D" uid="uid://bivg4xjox4tp3" path="res://Assets/Settings/BlockBlueBigger.png" id="5_7om3j"]
+[ext_resource type="Theme" uid="uid://6td37p2nd7m3" path="res://Gui/PlayTheme.tres" id="6_src42"]
+[ext_resource type="Texture2D" uid="uid://dtj7v04qhhxhi" path="res://Assets/Gui/Buttons/cross_button1.png" id="7_yu18f"]
+[ext_resource type="Texture2D" uid="uid://djyg326tkq217" path="res://Assets/Gui/Buttons/cross_button2.png" id="8_rof6h"]
+
+[node name="Credits" type="Window"]
+transparent_bg = true
+size = Vector2i(1280, 720)
+exclusive = true
+unresizable = true
+borderless = true
+always_on_top = true
+transparent = true
+script = ExtResource("1_th065")
+metadata/_edit_vertical_guides_ = [640.0]
+metadata/_edit_horizontal_guides_ = [360.0]
+
+[node name="GrayBackground" type="TextureRect" parent="."]
+modulate = Color(0.462745, 0.427451, 0.4, 0.286275)
+z_index = -10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_b5dso")
+
+[node name="Pause" type="TextureRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("3_0e2ea")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 200.0
+offset_top = 160.0
+offset_right = 1183.0
+offset_bottom = 607.0
+theme = ExtResource("4_hikx2")
+theme_override_font_sizes/font_size = 35
+text = "Art: Julia Kurkela and Kai Lindgren
+
+Code: Jonne Rihu, Juho Ström and Jasmin Wärnhjelm
+
+UI: Jasmin Wärnhjelm
+
+Music: Kai Lindgren
+
+Sound effects: Jonne Rihu and Juho Ström"
+
+[node name="Buttons" type="Node" parent="."]
+
+[node name="ExitButton" type="TextureButton" parent="Buttons"]
+offset_left = 1094.0
+offset_top = 22.0
+offset_right = 1344.0
+offset_bottom = 272.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("7_yu18f")
+texture_pressed = ExtResource("8_rof6h")
+texture_hover = ExtResource("7_yu18f")
+
+[node name="Header" type="TextureRect" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -390.0
+offset_right = 65.0
+offset_bottom = 130.0
+grow_horizontal = 2
+scale = Vector2(1.7, 1.1)
+texture = ExtResource("5_7om3j")
+stretch_mode = 1
+
+[node name="Credits" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -227.5
+offset_top = 4.0
+offset_right = 227.5
+offset_bottom = 134.0
+grow_horizontal = 2
+theme = ExtResource("6_src42")
+theme_override_font_sizes/font_size = 90
+text = "CREDITS"
+horizontal_alignment = 1
+vertical_alignment = 1

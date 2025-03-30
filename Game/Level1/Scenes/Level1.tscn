@@ -1,5 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://cusyv8gojbcca"]
+[gd_scene load_steps=25 format=3 uid="uid://cusyv8gojbcca"]
 
+[ext_resource type="Script" path="res://Game/Level1/Scripts/Level1.cs" id="1_e65w2"]
 [ext_resource type="Script" path="res://Game/Level1/Scripts/Level1.cs" id="1_e65w2"]
 [ext_resource type="PackedScene" uid="uid://dnr4wgld8simd" path="res://Gui/Background.tscn" id="2_bkcuh"]
 [ext_resource type="Texture2D" uid="uid://bw7uqlawbr5or" path="res://Assets/Misc/Conveyor.png" id="3_4mjje"]
@@ -8,16 +10,22 @@
 [ext_resource type="Texture2D" uid="uid://15t504ih4j83" path="res://Assets/Blocks/container_blue.png" id="6_xirey"]
 [ext_resource type="Texture2D" uid="uid://dewv11matrj6d" path="res://Assets/Blocks/container_blue_healthy.png" id="7_g7hka"]
 [ext_resource type="Texture2D" uid="uid://dktk418ydlm2w" path="res://Assets/Blocks/container_L_yellow.png" id="7_xqmo7"]
+[ext_resource type="Texture2D" uid="uid://dewv11matrj6d" path="res://Assets/Blocks/container_blue_healthy.png" id="7_g7hka"]
+[ext_resource type="Texture2D" uid="uid://dktk418ydlm2w" path="res://Assets/Blocks/container_L_yellow.png" id="7_xqmo7"]
 [ext_resource type="PackedScene" uid="uid://bu16bdidc32ex" path="res://Gui/ControlsLeftUi.tscn" id="8_fytdm"]
+[ext_resource type="Texture2D" uid="uid://dhfsv772pihq1" path="res://Assets/Blocks/container_L_blue.png" id="8_yh5n8"]
+[ext_resource type="Texture2D" uid="uid://bhsbtyvx1hwir" path="res://Assets/Blocks/container_red.png" id="9_6ub2o"]
 [ext_resource type="Texture2D" uid="uid://dhfsv772pihq1" path="res://Assets/Blocks/container_L_blue.png" id="8_yh5n8"]
 [ext_resource type="Texture2D" uid="uid://bhsbtyvx1hwir" path="res://Assets/Blocks/container_red.png" id="9_6ub2o"]
 [ext_resource type="PackedScene" uid="uid://cbrwler8lk051" path="res://Gui/ControlsRightUi.tscn" id="9_nyigl"]
 [ext_resource type="PackedScene" uid="uid://ck4oieai5v8t6" path="res://Game/Scenes/Claw.tscn" id="10_1b6od"]
 [ext_resource type="Texture2D" uid="uid://cm5ujjuccie1k" path="res://Assets/Blocks/container_yellow.png" id="10_u8uak"]
+[ext_resource type="Texture2D" uid="uid://cm5ujjuccie1k" path="res://Assets/Blocks/container_yellow.png" id="10_u8uak"]
 [ext_resource type="Script" path="res://Game/Scripts/PlacementArea.cs" id="11_ne26j"]
 [ext_resource type="PackedScene" uid="uid://d3h8yejbsuxbm" path="res://Menus/LevelWinLose/Scenes/Win.tscn" id="13_l7llk"]
 [ext_resource type="PackedScene" uid="uid://b7kwcha2ue58l" path="res://Menus/LevelWinLose/Scenes/Win2.tscn" id="14_lt0e4"]
 [ext_resource type="PackedScene" uid="uid://lyxtd003i5wb" path="res://Menus/LevelWinLose/Scenes/Win3.tscn" id="15_4n7qn"]
+[ext_resource type="Texture2D" uid="uid://qlwyq2i23e47" path="res://Assets/Misc/BoxShadow.png" id="17_dellb"]
 [ext_resource type="Texture2D" uid="uid://qlwyq2i23e47" path="res://Assets/Misc/BoxShadow.png" id="17_dellb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_idrmk"]
@@ -39,8 +47,25 @@ region = Rect2(0, 0, 260, 150)
 [sub_resource type="AtlasTexture" id="AtlasTexture_jjs76"]
 atlas = ExtResource("10_u8uak")
 region = Rect2(0, 0, 260, 150)
+[sub_resource type="AtlasTexture" id="AtlasTexture_al5hc"]
+atlas = ExtResource("7_xqmo7")
+region = Rect2(0, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nc3h7"]
+atlas = ExtResource("8_yh5n8")
+region = Rect2(0, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ng1ui"]
+atlas = ExtResource("9_6ub2o")
+region = Rect2(0, 0, 260, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjs76"]
+atlas = ExtResource("10_u8uak")
+region = Rect2(0, 0, 260, 150)
 
 [node name="Level1" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_e65w2")
 process_mode = 3
 script = ExtResource("1_e65w2")
 
@@ -100,10 +125,55 @@ offset_left = 530.0
 offset_top = 244.0
 offset_right = 680.0
 offset_bottom = 344.0
+offset_left = 530.0
+offset_top = 244.0
+offset_right = 680.0
+offset_bottom = 344.0
 texture_normal = SubResource("AtlasTexture_idrmk")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="Block2" type="TextureButton" parent="ConveyorBelt/BlockButtons"]
+layout_mode = 0
+offset_left = 1380.0
+offset_top = 246.0
+offset_right = 1530.0
+offset_bottom = 346.0
+texture_normal = ExtResource("7_g7hka")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ContainerYellowL" type="TextureButton" parent="ConveyorBelt/BlockButtons"]
+layout_mode = 0
+offset_left = 690.0
+offset_top = 211.0
+offset_right = 840.0
+offset_bottom = 361.0
+texture_normal = SubResource("AtlasTexture_al5hc")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ContainerBlueL" type="TextureButton" parent="ConveyorBelt/BlockButtons"]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 210.0
+offset_right = 1000.0
+offset_bottom = 360.0
+texture_normal = SubResource("AtlasTexture_nc3h7")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ContainerRed" type="TextureButton" parent="ConveyorBelt/BlockButtons"]
+layout_mode = 0
+offset_left = 1020.0
+offset_top = 244.0
+offset_right = 1170.0
+offset_bottom = 344.0
+texture_normal = SubResource("AtlasTexture_ng1ui")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ContainerYellow" type="TextureButton" parent="ConveyorBelt/BlockButtons"]
 [node name="Block2" type="TextureButton" parent="ConveyorBelt/BlockButtons"]
 layout_mode = 0
 offset_left = 1380.0
@@ -151,6 +221,11 @@ offset_top = 244.0
 offset_right = 1350.0
 offset_bottom = 344.0
 texture_normal = SubResource("AtlasTexture_jjs76")
+offset_left = 1200.0
+offset_top = 244.0
+offset_right = 1350.0
+offset_bottom = 344.0
+texture_normal = SubResource("AtlasTexture_jjs76")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -188,7 +263,13 @@ offset_left = 376.0
 offset_top = -81.0
 offset_right = 416.0
 offset_bottom = -58.0
+offset_left = 376.0
+offset_top = -81.0
+offset_right = 416.0
+offset_bottom = -58.0
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlacementArea"]
+polygon = PackedVector2Array(-309, -213, 291, -213, 291, 86, -309, 86)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlacementArea"]
 polygon = PackedVector2Array(-309, -213, 291, -213, 291, 86, -309, 86)
 
@@ -214,9 +295,23 @@ offset_right = 298.0
 offset_bottom = 224.0
 texture = ExtResource("17_dellb")
 expand_mode = 1
+[node name="BoxShadow" type="TextureRect" parent="."]
+offset_left = -316.0
+offset_top = -138.0
+offset_right = 298.0
+offset_bottom = 224.0
+texture = ExtResource("17_dellb")
+expand_mode = 1
 
 [connection signal="pressed" from="ConveyorBelt/ConveyorBelt3/FinishButton" to="." method="_on_finish_button_pressed"]
 [connection signal="pressed" from="ConveyorBelt/BlockButtons/Block" to="." method="_on_block_pressed"]
+[connection signal="pressed" from="ConveyorBelt/BlockButtons/Block2" to="." method="_on_block_2_pressed"]
+[connection signal="pressed" from="ConveyorBelt/BlockButtons/ContainerYellowL" to="." method="_on_container_yellow_l_pressed"]
+[connection signal="pressed" from="ConveyorBelt/BlockButtons/ContainerBlueL" to="." method="_on_container_blue_l_pressed"]
+[connection signal="pressed" from="ConveyorBelt/BlockButtons/ContainerRed" to="." method="_on_container_red_pressed"]
+[connection signal="pressed" from="ConveyorBelt/BlockButtons/ContainerYellow" to="." method="_on_container_yellow_pressed"]
+[connection signal="body_entered" from="PlacementArea" to="." method="_on_placement_area_body_entered"]
+
 [connection signal="pressed" from="ConveyorBelt/BlockButtons/Block2" to="." method="_on_block_2_pressed"]
 [connection signal="pressed" from="ConveyorBelt/BlockButtons/ContainerYellowL" to="." method="_on_container_yellow_l_pressed"]
 [connection signal="pressed" from="ConveyorBelt/BlockButtons/ContainerBlueL" to="." method="_on_container_blue_l_pressed"]
