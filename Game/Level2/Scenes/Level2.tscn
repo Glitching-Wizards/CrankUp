@@ -1,5 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://b54grpygrbq3i"]
 
+
 [ext_resource type="Script" path="res://Game/Level2/Scripts/Level2.cs" id="1_gqdgr"]
 [ext_resource type="PackedScene" uid="uid://bh25upnb64myu" path="res://Gui/Background2.tscn" id="1_om3yl"]
 [ext_resource type="Texture2D" uid="uid://bw7uqlawbr5or" path="res://Assets/Misc/Conveyor.png" id="3_6sg4l"]
@@ -13,10 +14,16 @@
 [ext_resource type="PackedScene" uid="uid://ck4oieai5v8t6" path="res://Game/Scenes/Claw.tscn" id="10_wb5s4"]
 [ext_resource type="Script" path="res://Game/Scripts/PlacementArea.cs" id="11_36ex4"]
 [ext_resource type="PackedScene" uid="uid://d3h8yejbsuxbm" path="res://Menus/LevelWinLose/Scenes/Win.tscn" id="13_d0k8e"]
-[ext_resource type="PackedScene" uid="uid://b7kwcha2ue58l" path="res://Menus/LevelWinLose/Scenes/Win2.tscn" id="14_ex1nh"]
-[ext_resource type="PackedScene" uid="uid://lyxtd003i5wb" path="res://Menus/LevelWinLose/Scenes/Win3.tscn" id="15_p7rjx"]
-[ext_resource type="Texture2D" uid="uid://qlwyq2i23e47" path="res://Assets/Misc/BoxShadow.png" id="16_mlmea"]
+[ext_resource type="PackedScene" uid="uid://b7kwcha2ue58l" path="res://Menus/LevelWinLose/Scenes/Win2.tscn" id="14_jw5bb"]
+[ext_resource type="PackedScene" uid="uid://lyxtd003i5wb" path="res://Menus/LevelWinLose/Scenes/Win3.tscn" id="15_wkfif"]
+[ext_resource type="PackedScene" uid="uid://t8di6gto22h3" path="res://Menus/LevelWinLose/Scenes/Lose.tscn" id="16_e37xx"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_idrmk"]
+atlas = ExtResource("6_ocxn5")
+region = Rect2(0, 0, 262, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aeeyk"]
+size = Vector2(261, 150)
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_gqdgr")
 
@@ -213,6 +220,16 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Win" parent="WinLose" instance=ExtResource("13_d0k8e")]
+visible = false
+script = null
+
+[node name="Win2" parent="WinLose" instance=ExtResource("14_jw5bb")]
+visible = false
+
+[node name="Win3" parent="WinLose" instance=ExtResource("15_wkfif")]
+visible = false
+
+[node name="Lose" parent="WinLose" instance=ExtResource("16_e37xx")]
 visible = false
 
 [node name="Win2" parent="WinLose" instance=ExtResource("14_ex1nh")]

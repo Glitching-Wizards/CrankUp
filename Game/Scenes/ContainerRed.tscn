@@ -20,6 +20,8 @@ atlas = ExtResource("2_rx0o6")
 region = Rect2(0, 0, 260, 150)
 
 [node name="ContainerRed" type="RigidBody2D"]
+z_index = 2
+continuous_cd = 1
 script = ExtResource("1_5d1ka")
 healthy = SubResource("AtlasTexture_53041")
 damaged = SubResource("AtlasTexture_a8r47")

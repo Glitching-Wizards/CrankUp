@@ -7,7 +7,8 @@
 atlas = ExtResource("2_3uhdp")
 
 [node name="ContainerBlueL" type="RigidBody2D"]
-rotation = 3.14159
+z_index = 2
+continuous_cd = 1
 script = ExtResource("1_phlf7")
 healthy = ExtResource("2_3uhdp")
 damaged = ExtResource("2_3uhdp")

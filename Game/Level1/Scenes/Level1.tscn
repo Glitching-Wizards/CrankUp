@@ -1,6 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://cusyv8gojbcca"]
 [gd_scene load_steps=25 format=3 uid="uid://cusyv8gojbcca"]
 
+
 [ext_resource type="Script" path="res://Game/Level1/Scripts/Level1.cs" id="1_e65w2"]
 [ext_resource type="Script" path="res://Game/Level1/Scripts/Level1.cs" id="1_e65w2"]
 [ext_resource type="PackedScene" uid="uid://dnr4wgld8simd" path="res://Gui/Background.tscn" id="2_bkcuh"]
@@ -19,15 +20,13 @@
 [ext_resource type="Texture2D" uid="uid://bhsbtyvx1hwir" path="res://Assets/Blocks/container_red.png" id="9_6ub2o"]
 [ext_resource type="PackedScene" uid="uid://cbrwler8lk051" path="res://Gui/ControlsRightUi.tscn" id="9_nyigl"]
 [ext_resource type="PackedScene" uid="uid://ck4oieai5v8t6" path="res://Game/Scenes/Claw.tscn" id="10_1b6od"]
-[ext_resource type="Texture2D" uid="uid://cm5ujjuccie1k" path="res://Assets/Blocks/container_yellow.png" id="10_u8uak"]
-[ext_resource type="Texture2D" uid="uid://cm5ujjuccie1k" path="res://Assets/Blocks/container_yellow.png" id="10_u8uak"]
+[ext_resource type="Script" path="res://Game/Scripts/Ui.cs" id="10_rbe0n"]
 [ext_resource type="Script" path="res://Game/Scripts/PlacementArea.cs" id="11_ne26j"]
+[ext_resource type="PackedScene" uid="uid://c4xvu4xi20yxg" path="res://Game/Level1/Scenes/BoxShadow.tscn" id="12_6ux1j"]
 [ext_resource type="PackedScene" uid="uid://d3h8yejbsuxbm" path="res://Menus/LevelWinLose/Scenes/Win.tscn" id="13_l7llk"]
 [ext_resource type="PackedScene" uid="uid://b7kwcha2ue58l" path="res://Menus/LevelWinLose/Scenes/Win2.tscn" id="14_lt0e4"]
 [ext_resource type="PackedScene" uid="uid://lyxtd003i5wb" path="res://Menus/LevelWinLose/Scenes/Win3.tscn" id="15_4n7qn"]
-[ext_resource type="Texture2D" uid="uid://qlwyq2i23e47" path="res://Assets/Misc/BoxShadow.png" id="17_dellb"]
-[ext_resource type="Texture2D" uid="uid://qlwyq2i23e47" path="res://Assets/Misc/BoxShadow.png" id="17_dellb"]
-
+[ext_resource type="PackedScene" uid="uid://t8di6gto22h3" path="res://Menus/LevelWinLose/Scenes/Lose.tscn" id="15_ypye6"]
 [sub_resource type="AtlasTexture" id="AtlasTexture_idrmk"]
 atlas = ExtResource("6_xirey")
 region = Rect2(0, 0, 262, 150)
@@ -234,6 +233,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("10_rbe0n")
 
 [node name="ControlsLeftUi" parent="Ui" instance=ExtResource("8_fytdm")]
 layout_mode = 1
@@ -250,11 +250,24 @@ offset_top = -360.0
 offset_right = -640.0
 offset_bottom = -360.0
 
+[node name="Timer" type="Timer" parent="Ui"]
+one_shot = true
+autostart = true
+
+[node name="Label" type="Label" parent="Ui"]
+layout_mode = 0
+offset_left = -502.0
+offset_top = -346.0
+offset_right = -462.0
+offset_bottom = -323.0
+text = "60"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Claw" parent="." instance=ExtResource("10_1b6od")]
 
 [node name="PlacementArea" type="Area2D" parent="."]
+z_index = 1
 position = Vector2(0, 114)
 script = ExtResource("11_ne26j")
 
@@ -273,14 +286,25 @@ polygon = PackedVector2Array(-309, -213, 291, -213, 291, 86, -309, 86)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlacementArea"]
 polygon = PackedVector2Array(-309, -213, 291, -213, 291, 86, -309, 86)
 
+[node name="ContainerRed2" parent="." instance=ExtResource("2_6y1dh")]
+position = Vector2(200, -150)
+rotation = 1.5708
+scale = Vector2(2, 2)
+
 [node name="WinLose" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -488.0
+offset_top = -353.0
+offset_right = -448.0
+offset_bottom = -313.0
+
+[node name="Lose" parent="WinLose" instance=ExtResource("15_ypye6")]
+visible = false
 
 [node name="Win" parent="WinLose" instance=ExtResource("13_l7llk")]
 visible = false
+script = null
 
 [node name="Win2" parent="WinLose" instance=ExtResource("14_lt0e4")]
 visible = false
@@ -303,7 +327,8 @@ offset_bottom = 224.0
 texture = ExtResource("17_dellb")
 expand_mode = 1
 
-[connection signal="pressed" from="ConveyorBelt/ConveyorBelt3/FinishButton" to="." method="_on_finish_button_pressed"]
+
+[connection signal="pressed" from="ConveyorBelt/ConveyorBelt3/FinishButton" to="ConveyorBelt/ConveyorBelt3/FinishButton" method="_on_pressed"]
 [connection signal="pressed" from="ConveyorBelt/BlockButtons/Block" to="." method="_on_block_pressed"]
 [connection signal="pressed" from="ConveyorBelt/BlockButtons/Block2" to="." method="_on_block_2_pressed"]
 [connection signal="pressed" from="ConveyorBelt/BlockButtons/ContainerYellowL" to="." method="_on_container_yellow_l_pressed"]

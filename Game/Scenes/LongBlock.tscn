@@ -9,6 +9,8 @@
 size = Vector2(42, 168)
 
 [node name="LongBlock" type="RigidBody2D"]
+z_index = 2
+continuous_cd = 1
 script = ExtResource("1_6rhtg")
 healthy = ExtResource("2_o8yqi")
 damaged = ExtResource("3_uuhr1")
