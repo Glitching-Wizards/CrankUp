@@ -1,12 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bof30jnhkvxrl"]
+[gd_scene load_steps=6 format=3 uid="uid://cpnja7ibf6k85"]
 
-[ext_resource type="Texture2D" uid="uid://cc2i7swbkcq22" path="res://Assets/Backgrounds/JarkkoNormal.png" id="1_kp5hy"]
-[ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="1_tlvwg"]
-[ext_resource type="Texture2D" uid="uid://bfh6bwpmgp0fb" path="res://Assets/Victory/SpeechBubble.png" id="2_e07oo"]
-[ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="3_4vvfn"]
+[ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="1_0iqir"]
+[ext_resource type="Texture2D" uid="uid://cc2i7swbkcq22" path="res://Assets/Backgrounds/JarkkoNormal.png" id="2_0tsti"]
+[ext_resource type="Texture2D" uid="uid://bfh6bwpmgp0fb" path="res://Assets/Victory/SpeechBubble.png" id="3_tmbin"]
+[ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="4_j63ac"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_12tch"]
-atlas = ExtResource("1_kp5hy")
+atlas = ExtResource("2_0tsti")
 region = Rect2(0, 0, 278, 0)
 
 [node name="Tutorial" type="Control"]
@@ -26,7 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_tlvwg")
+texture = ExtResource("1_0iqir")
 
 [node name="Jarkko" type="TextureRect" parent="."]
 layout_mode = 0
@@ -39,19 +39,19 @@ flip_h = true
 
 [node name="SpeechBubble" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 124.0
+offset_left = 153.0
 offset_top = 32.0
-offset_right = 859.0
+offset_right = 888.0
 offset_bottom = 376.0
-texture = ExtResource("2_e07oo")
+texture = ExtResource("3_tmbin")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="SpeechBubble"]
 layout_mode = 0
 offset_left = 77.0
-offset_top = 65.0
-offset_right = 667.0
+offset_top = 104.0
+offset_right = 674.0
 offset_bottom = 253.0
-theme = ExtResource("3_4vvfn")
+theme = ExtResource("4_j63ac")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 41
-text = "TUTORIAL1"
+theme_override_font_sizes/normal_font_size = 60
+text = "TUTORIAL9"

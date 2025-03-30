@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://pbhrkwx4h2r"]
+
+[ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="1_1to8f"]
+[ext_resource type="Texture2D" uid="uid://cc2i7swbkcq22" path="res://Assets/Backgrounds/JarkkoNormal.png" id="2_enc40"]
+[ext_resource type="Texture2D" uid="uid://bfh6bwpmgp0fb" path="res://Assets/Victory/SpeechBubble.png" id="3_qbtq5"]
+[ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="4_v4bui"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12tch"]
+atlas = ExtResource("2_enc40")
+region = Rect2(0, 0, 278, 0)
+
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GrayBackground" type="TextureRect" parent="."]
+modulate = Color(0.462745, 0.427451, 0.4, 0.286275)
+z_index = -10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1to8f")
+
+[node name="Jarkko" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -158.0
+offset_top = 121.0
+offset_right = 378.0
+offset_bottom = 1086.0
+texture = SubResource("AtlasTexture_12tch")
+
+[node name="SpeechBubble" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 278.0
+offset_top = 116.0
+offset_right = 955.0
+offset_bottom = 338.0
+texture = ExtResource("3_qbtq5")
+flip_h = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SpeechBubble"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 34.0
+offset_right = 612.0
+offset_bottom = 164.0
+theme = ExtResource("4_v4bui")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = "TUTORIAL5"

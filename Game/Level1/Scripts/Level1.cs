@@ -66,6 +66,8 @@ public partial class Level1 : Node2D
 			return;
 		}
 
+		// tutorial
+
 		conveyorBelt = GetNodeOrNull<TextureRect>("ConveyorBelt");
 
 		PackedScene settingsScene = (PackedScene)GD.Load(_settingsScenePath);

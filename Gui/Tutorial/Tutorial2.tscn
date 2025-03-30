@@ -1,12 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bof30jnhkvxrl"]
+[gd_scene load_steps=6 format=3 uid="uid://cucumwcu224yf"]
 
-[ext_resource type="Texture2D" uid="uid://cc2i7swbkcq22" path="res://Assets/Backgrounds/JarkkoNormal.png" id="1_kp5hy"]
-[ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="1_tlvwg"]
-[ext_resource type="Texture2D" uid="uid://bfh6bwpmgp0fb" path="res://Assets/Victory/SpeechBubble.png" id="2_e07oo"]
-[ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="3_4vvfn"]
+[ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="1_2mcp7"]
+[ext_resource type="Texture2D" uid="uid://cc2i7swbkcq22" path="res://Assets/Backgrounds/JarkkoNormal.png" id="1_ld31e"]
+[ext_resource type="Texture2D" uid="uid://bfh6bwpmgp0fb" path="res://Assets/Victory/SpeechBubble.png" id="2_at042"]
+[ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="3_wgpkg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_12tch"]
-atlas = ExtResource("1_kp5hy")
+atlas = ExtResource("1_ld31e")
 region = Rect2(0, 0, 278, 0)
 
 [node name="Tutorial" type="Control"]
@@ -26,7 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_tlvwg")
+texture = ExtResource("1_2mcp7")
 
 [node name="Jarkko" type="TextureRect" parent="."]
 layout_mode = 0
@@ -43,15 +43,14 @@ offset_left = 124.0
 offset_top = 32.0
 offset_right = 859.0
 offset_bottom = 376.0
-texture = ExtResource("2_e07oo")
+texture = ExtResource("2_at042")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="SpeechBubble"]
-layout_mode = 0
 offset_left = 77.0
 offset_top = 65.0
 offset_right = 667.0
 offset_bottom = 253.0
-theme = ExtResource("3_4vvfn")
+theme = ExtResource("3_wgpkg")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 41
-text = "TUTORIAL1"
+text = "TUTORIAL2"
