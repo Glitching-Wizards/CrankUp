@@ -15,8 +15,9 @@ public partial class Level2 : Node2D
 	[Export] private string _clawScenePath = "res://Game/Scenes/Claw.tscn";
 	[Export] private string _settingsScenePath = "res://Menus/Settings/Scenes/Settings.tscn";
 
-	[Export] private string _blockScenePath = "res://Game/Scenes/Block.tscn";
-	[Export] private string _longBlockScenePath = "res://Game/Scenes/LongBlock.tscn";
+	[Export] private string _containerZScenePath = "res://Game/Scenes/ContainerBoxZ.tscn";
+	[Export] private string _containerBoxScenePath = "res://Game/Scenes/ContainerBox.tscn";
+	[Export] private string _cardboardTScenePath = "res://Game/Scenes/ContainerCardboardT.tscn";
 
 	private Window settingsWindow;
 	private PackedScene _clawScene = null;
@@ -25,17 +26,36 @@ public partial class Level2 : Node2D
 	private ClawHead clawHead;
 
 	private TextureRect conveyorBelt;
-	private PackedScene _blockScene;
-	private PackedScene _longBlockScene;
-	private TextureButton blockButton;
-	private TextureButton longBlockButton;
-	private bool longBlockButtonPressed = false;
-	private bool blockButtonPressed = false;
+	private PackedScene _containerZScene;
+	private PackedScene _containerBoxScene;
+	private PackedScene _cardboardTScene;
+
+	private TextureButton containerZButton;
+	private TextureButton containerZ2Button;
+	private TextureButton containerZ3Button;
+	private TextureButton containerBoxButton;
+	private TextureButton containerBox2Button;
+	private TextureButton containerBox3Button;
+	private TextureButton containerBox4Button;
+	private TextureButton cardboardTButton;
+	private TextureButton cardboardT2Button;
+
+	private bool containerZButtonPressed = false;
+	private bool containerZ2ButtonPressed = false;
+	private bool containerZ3ButtonPressed = false;
+	private bool containerBoxButtonPressed = false;
+	private bool containerBox2ButtonPressed = false;
+	private bool containerBox3ButtonPressed = false;
+	private bool containerBox4ButtonPressed = false;
+	private bool cardboardTButtonPressed = false;
+	private bool cardboardT2ButtonPressed = false;
 
 	private bool startLevel = true;
 	private bool endLevel = false;
+	private bool interim = false;
 	private float beltTargetPositionStart = -540;
-	private float beltTargetPositionEnd = 460; // conveyorBelt target position when all blocks are in play
+	private float beltTargetPositionInterim = 460;
+	private float beltTargetPositionEnd = 1440; // conveyorBelt target position when all blocks are in play
 	private float beltMoveSpeed = 200f; // conveyorBelts speed of movement per frame
 
 
@@ -52,22 +72,72 @@ public partial class Level2 : Node2D
 		AddChild(settingsWindow);
 		settingsWindow.Hide();
 
-		_blockScene = ResourceLoader.Load<PackedScene>(_blockScenePath);
-		_longBlockScene = ResourceLoader.Load<PackedScene>(_longBlockScenePath);
+		_containerZScene = ResourceLoader.Load<PackedScene>(_containerZScenePath);
+		_containerBoxScene = ResourceLoader.Load<PackedScene>(_containerBoxScenePath);
+		_cardboardTScene = ResourceLoader.Load<PackedScene>(_cardboardTScenePath);
 
-		blockButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/Block");
-		longBlockButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/LongBlock");
+		containerZButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerZ");
+		containerZ2Button = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerZ2");
+		containerZ3Button = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerZ3");
+		containerBoxButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerBox");
+		containerBox2Button = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerBox2");
+		containerBox3Button = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerBox3");
+		containerBox4Button = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerBox4");
+		cardboardTButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/CardboardT");
+		cardboardT2Button = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/CardboardT2");
 
-		blockButton.Pressed += () =>
+		containerZButton.Pressed += () =>
 		{
-			blockButtonPressed = true;
-			SpawnBlockButtonPressed(_blockScene, blockButton);
+			containerZButtonPressed = true;
+			SpawnBlockButtonPressed(_containerZScene, containerZButton);
 		};
 
-		longBlockButton.Pressed += () =>
+		containerZ2Button.Pressed += () =>
 		{
-			longBlockButtonPressed = true;
-			SpawnBlockButtonPressed(_longBlockScene, longBlockButton);
+			containerZ2ButtonPressed = true;
+			SpawnBlockButtonPressed(_containerZScene, containerZ2Button);
+		};
+
+		containerZ3Button.Pressed += () =>
+		{
+			containerZ3ButtonPressed = true;
+			SpawnBlockButtonPressed(_containerZScene, containerZ3Button);
+		};
+
+		containerBoxButton.Pressed += () =>
+		{
+			containerBoxButtonPressed = true;
+			SpawnBlockButtonPressed(_containerBoxScene, containerBoxButton);
+		};
+		
+		containerBox2Button.Pressed += () =>
+		{
+			containerBox2ButtonPressed = true;
+			SpawnBlockButtonPressed(_containerBoxScene, containerBox2Button);
+		};
+
+		containerBox3Button.Pressed += () =>
+		{
+			containerBox3ButtonPressed = true;
+			SpawnBlockButtonPressed(_containerBoxScene, containerBox3Button);
+		};
+
+		containerBox4Button.Pressed += () =>
+		{
+			containerBox4ButtonPressed = true;
+			SpawnBlockButtonPressed(_containerBoxScene, containerBox4Button);
+		};
+
+		cardboardTButton.Pressed += () =>
+		{
+			cardboardTButtonPressed = true;
+			SpawnBlockButtonPressed(_cardboardTScene, cardboardTButton);
+		};
+
+		cardboardT2Button.Pressed += () =>
+		{
+			cardboardT2ButtonPressed = true;
+			SpawnBlockButtonPressed(_cardboardTScene, cardboardT2Button);
 		};
 	}
 
@@ -113,7 +183,8 @@ public partial class Level2 : Node2D
 		button.QueueFree();
 
 		// Check if all buttons are removed
-		if (blockButtonPressed && longBlockButtonPressed) endLevel = true;
+		if (containerZButtonPressed && containerZ2ButtonPressed && containerZ3ButtonPressed && cardboardTButtonPressed && cardboardT2ButtonPressed && containerBoxButtonPressed) interim = true;
+		if (interim && containerBox2ButtonPressed && containerBox3ButtonPressed && containerBox4ButtonPressed) endLevel = true;
 	}
 
 	public override void _Process(double delta)
@@ -123,6 +194,16 @@ public partial class Level2 : Node2D
 			float step = beltMoveSpeed * (float) delta;
 
 			if (conveyorBelt.Position.X < beltTargetPositionStart)
+			{
+				conveyorBelt.Position = new Godot.Vector2(conveyorBelt.Position.X + step, conveyorBelt.Position.Y);
+			}
+		}
+
+		if (conveyorBelt != null && interim)
+		{
+			float step = beltMoveSpeed * (float) delta;
+
+			if (conveyorBelt.Position.X < beltTargetPositionInterim)
 			{
 				conveyorBelt.Position = new Godot.Vector2(conveyorBelt.Position.X + step, conveyorBelt.Position.Y);
 			}
