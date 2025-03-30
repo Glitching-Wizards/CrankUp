@@ -34,7 +34,7 @@ public partial class ClawBase : CharacterBody2D
 
 		MoveAndSlide();
 
-		GlobalPosition = new Vector2(Mathf.Clamp(GlobalPosition.X, -430, 200), GlobalPosition.Y); // Restrict X movement
+		GlobalPosition = new Vector2(Mathf.Clamp(GlobalPosition.X, -430, 380), GlobalPosition.Y); // Restrict X movement
 	}
 
 	public override void _Process(double delta)
