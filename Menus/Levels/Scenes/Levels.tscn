@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ctrbxconu8ml"]
+[gd_scene load_steps=11 format=3 uid="uid://ctrbxconu8ml"]
 
 [ext_resource type="Script" path="res://Menus/Levels/Scripts/Levels.cs" id="1_g0cmt"]
 [ext_resource type="Texture2D" uid="uid://b0apwqvjpw3fu" path="res://Assets/Backgrounds/Levels.png" id="2_ph7px"]
@@ -7,7 +7,6 @@
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="5_dkqc7"]
 [ext_resource type="Texture2D" uid="uid://cgsynnhqxp5gt" path="res://Assets/Gui/Buttons/back_arrow1.png" id="5_g2hs5"]
 [ext_resource type="Texture2D" uid="uid://dwpija6ht0ruh" path="res://Assets/Gui/Buttons/back_arrow2.png" id="6_76n8v"]
-[ext_resource type="Texture2D" uid="uid://c0ugn178msboy" path="res://Assets/Backgrounds/LevelButtonGray.png" id="6_ylv2b"]
 [ext_resource type="Texture2D" uid="uid://cd05kchhn8sj4" path="res://Assets/Backgrounds/Lock.png" id="7_c185e"]
 [ext_resource type="Texture2D" uid="uid://b4bjdgq72inu5" path="res://Assets/Gui/Buttons/settings_new1.png" id="7_j0c7f"]
 [ext_resource type="Texture2D" uid="uid://ps2i4dojyd4r" path="res://Assets/Gui/Buttons/settings_new2.png" id="8_mo1ei"]
@@ -36,12 +35,6 @@ offset_right = 371.0
 offset_bottom = 587.0
 texture_normal = ExtResource("3_h5sxm")
 
-[node name="Flag" type="Sprite2D" parent="Buttons/Level1"]
-visible = false
-position = Vector2(99.9999, -12)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("4_2ar3c")
-
 [node name="Label" type="Label" parent="Buttons/Level1"]
 layout_mode = 0
 offset_left = 42.0
@@ -53,24 +46,18 @@ theme_override_font_sizes/font_size = 40
 text = "1
 "
 
+[node name="Flag" type="Sprite2D" parent="Buttons"]
+visible = false
+position = Vector2(342, 497)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_2ar3c")
+
 [node name="Level2" type="TextureButton" parent="Buttons"]
 offset_left = 497.0
 offset_top = 344.0
 offset_right = 609.0
 offset_bottom = 418.0
 texture_normal = ExtResource("3_h5sxm")
-
-[node name="Flag" type="Sprite2D" parent="Buttons/Level2"]
-visible = false
-position = Vector2(99.9999, -12)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("4_2ar3c")
-
-[node name="TextureRect2" type="TextureRect" parent="Buttons/Level2"]
-layout_mode = 0
-offset_right = 110.0
-offset_bottom = 74.0
-texture = ExtResource("6_ylv2b")
 
 [node name="Label" type="Label" parent="Buttons/Level2"]
 layout_mode = 0
@@ -83,13 +70,19 @@ theme_override_font_sizes/font_size = 40
 text = "2
 "
 
-[node name="TextureRect" type="TextureRect" parent="Buttons/Level2"]
+[node name="Flag" type="Sprite2D" parent="Buttons/Level2"]
 visible = false
-offset_left = 10.0
-offset_top = -13.0
-offset_right = 160.0
-offset_bottom = 137.0
-scale = Vector2(0.6, 0.6)
+position = Vector2(99.9999, -12)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_2ar3c")
+
+[node name="Lock" type="TextureRect" parent="Buttons/Level2"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = -2.0
+offset_right = 168.0
+offset_bottom = 148.0
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("7_c185e")
 
 [node name="Level3" type="TextureButton" parent="Buttons"]
@@ -98,17 +91,6 @@ offset_top = 547.0
 offset_right = 609.0
 offset_bottom = 621.0
 texture_normal = ExtResource("3_h5sxm")
-
-[node name="Flag" type="Sprite2D" parent="Buttons/Level3"]
-visible = false
-position = Vector2(99.9999, -12)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("4_2ar3c")
-
-[node name="TextureRect2" type="TextureRect" parent="Buttons/Level3"]
-offset_right = 110.0
-offset_bottom = 74.0
-texture = ExtResource("6_ylv2b")
 
 [node name="Label" type="Label" parent="Buttons/Level3"]
 layout_mode = 0
@@ -121,13 +103,19 @@ theme_override_font_sizes/font_size = 40
 text = "3
 "
 
-[node name="TextureRect" type="TextureRect" parent="Buttons/Level3"]
+[node name="Flag" type="Sprite2D" parent="Buttons/Level3"]
 visible = false
-offset_left = 10.0
-offset_top = -13.0
-offset_right = 160.0
-offset_bottom = 137.0
-scale = Vector2(0.6, 0.6)
+position = Vector2(99.9999, -12)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_2ar3c")
+
+[node name="Lock" type="TextureRect" parent="Buttons/Level3"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = -2.0
+offset_right = 168.0
+offset_bottom = 148.0
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("7_c185e")
 
 [node name="Level4" type="TextureButton" parent="Buttons"]
@@ -136,17 +124,6 @@ offset_top = 271.0
 offset_right = 850.0
 offset_bottom = 345.0
 texture_normal = ExtResource("3_h5sxm")
-
-[node name="Flag" type="Sprite2D" parent="Buttons/Level4"]
-visible = false
-position = Vector2(99.9999, -12)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("4_2ar3c")
-
-[node name="TextureRect2" type="TextureRect" parent="Buttons/Level4"]
-offset_right = 110.0
-offset_bottom = 74.0
-texture = ExtResource("6_ylv2b")
 
 [node name="Label" type="Label" parent="Buttons/Level4"]
 layout_mode = 0
@@ -159,13 +136,19 @@ theme_override_font_sizes/font_size = 40
 text = "4
 "
 
-[node name="TextureRect" type="TextureRect" parent="Buttons/Level4"]
+[node name="Flag2" type="Sprite2D" parent="Buttons/Level4"]
 visible = false
-offset_left = 10.0
-offset_top = -13.0
-offset_right = 160.0
-offset_bottom = 137.0
-scale = Vector2(0.6, 0.6)
+position = Vector2(99.9999, -12)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_2ar3c")
+
+[node name="Lock" type="TextureRect" parent="Buttons/Level4"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = -2.0
+offset_right = 168.0
+offset_bottom = 148.0
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("7_c185e")
 
 [node name="Level5" type="TextureButton" parent="Buttons"]
@@ -174,17 +157,6 @@ offset_top = 403.0
 offset_right = 1013.0
 offset_bottom = 477.0
 texture_normal = ExtResource("3_h5sxm")
-
-[node name="Flag" type="Sprite2D" parent="Buttons/Level5"]
-visible = false
-position = Vector2(99.9999, -12)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("4_2ar3c")
-
-[node name="TextureRect2" type="TextureRect" parent="Buttons/Level5"]
-offset_right = 110.0
-offset_bottom = 74.0
-texture = ExtResource("6_ylv2b")
 
 [node name="Label" type="Label" parent="Buttons/Level5"]
 layout_mode = 0
@@ -197,13 +169,19 @@ theme_override_font_sizes/font_size = 40
 text = "5
 "
 
-[node name="TextureRect" type="TextureRect" parent="Buttons/Level5"]
+[node name="Flag" type="Sprite2D" parent="Buttons/Level5"]
 visible = false
-offset_left = 10.0
-offset_top = -13.0
-offset_right = 160.0
-offset_bottom = 137.0
-scale = Vector2(0.6, 0.6)
+position = Vector2(99.9999, -12)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_2ar3c")
+
+[node name="Lock" type="TextureRect" parent="Buttons/Level5"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = -2.0
+offset_right = 168.0
+offset_bottom = 148.0
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("7_c185e")
 
 [node name="BackButton" type="TextureButton" parent="Buttons"]

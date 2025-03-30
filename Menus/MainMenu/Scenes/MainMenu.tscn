@@ -1,11 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://df6jd6rkwbhv"]
+[gd_scene load_steps=8 format=3 uid="uid://df6jd6rkwbhv"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu/Scripts/MainMenu.cs" id="1_bemtd"]
 [ext_resource type="Texture2D" uid="uid://d0d6rx2ilraop" path="res://Assets/Backgrounds/MainMenu.png" id="2_fukp5"]
 [ext_resource type="Texture2D" uid="uid://ct5bmkj38cf0m" path="res://Assets/Logos/CrankUpLogoPinkOrangeBorderFINAL.png" id="3_msbfr"]
+[ext_resource type="Texture2D" uid="uid://cc2i7swbkcq22" path="res://Assets/Backgrounds/JarkkoNormal.png" id="5_aabv6"]
 [ext_resource type="Texture2D" uid="uid://cft6g2o1608dq" path="res://Assets/Backgrounds/TruckBLUE.png" id="6_q0w1u"]
-[ext_resource type="Texture2D" uid="uid://kc8uiwcrayf8" path="res://Assets/Models/Jarkko.png" id="7_31tnq"]
 [ext_resource type="Theme" uid="uid://6td37p2nd7m3" path="res://Gui/PlayTheme.tres" id="7_fu8vc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ic6r"]
+atlas = ExtResource("5_aabv6")
+region = Rect2(0, 0, 283, 0)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -105,10 +109,14 @@ theme = ExtResource("7_fu8vc")
 theme_override_font_sizes/font_size = 62
 text = "CREDITS"
 
-[node name="Jarkko" type="Sprite2D" parent="."]
-position = Vector2(1080, 547)
-scale = Vector2(2.77108, 2.77108)
-texture = ExtResource("7_31tnq")
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 995.0
+offset_top = 266.0
+offset_right = 1278.0
+offset_bottom = 766.0
+scale = Vector2(0.8, 0.8)
+texture = SubResource("AtlasTexture_4ic6r")
 flip_h = true
 
 [node name="TruckBlue" type="Sprite2D" parent="."]
