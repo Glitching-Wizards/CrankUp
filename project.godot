@@ -13,7 +13,11 @@ config_version=5
 config/name="Crank Up!"
 run/main_scene="res://Menus/MainMenu/Scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "C#", "Mobile")
-config/icon="res://Assets/Misc/Icon.png"
+config/icon="res://Assets/Logos/Icon.png"
+
+[autoload]
+
+MultiTouchVSlider="*res://Gui/Scripts/MultiTouchVSlider.cs"
 
 [display]
 
@@ -60,8 +64,16 @@ Rotate={
 "events": []
 }
 
+<<<<<<< HEAD
+=======
+[navigation]
+
+3d/autoload_on_startup=false
+
+
+>>>>>>> 0c03fe999acebf54c79fee167c105d56f9d7a23d
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="gl_compatibility"
+renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
