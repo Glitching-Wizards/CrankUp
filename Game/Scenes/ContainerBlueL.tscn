@@ -1,67 +1,38 @@
-[gd_scene load_steps=9 format=3 uid="uid://dln6wt6vmcoke"]
+[gd_scene load_steps=4 format=3 uid="uid://dln6wt6vmcoke"]
 
 [ext_resource type="Script" path="res://Game/Scripts/Block.cs" id="1_phlf7"]
-[ext_resource type="Texture2D" uid="uid://dhfsv772pihq1" path="res://Assets/Blocks/container_L_blue.png" id="2_nl5bx"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y4ikk"]
-atlas = ExtResource("2_nl5bx")
-region = Rect2(0, 0, 300, 300)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ijdme"]
-atlas = ExtResource("2_nl5bx")
-region = Rect2(300, 0, 300, 300)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pm25f"]
-atlas = ExtResource("2_nl5bx")
-region = Rect2(600, 0, 300, 300)
+[ext_resource type="Texture2D" uid="uid://ctfqx38xxbod4" path="res://Assets/Blocks/ContainerBlueLTemp.png" id="2_3uhdp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7of12"]
-atlas = ExtResource("2_nl5bx")
-region = Rect2(0, 0, 300, 0)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tplx0"]
-size = Vector2(240, 82)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ex00"]
-size = Vector2(75, 122)
+atlas = ExtResource("2_3uhdp")
 
 [node name="ContainerBlueL" type="RigidBody2D"]
 z_index = 2
 continuous_cd = 1
 script = ExtResource("1_phlf7")
-healthy = SubResource("AtlasTexture_y4ikk")
-damaged = SubResource("AtlasTexture_ijdme")
-broken = SubResource("AtlasTexture_pm25f")
+healthy = ExtResource("2_3uhdp")
+damaged = ExtResource("2_3uhdp")
+broken = ExtResource("2_3uhdp")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
+position = Vector2(-38.6568, -3.61166)
+scale = Vector2(1.00132, 0.98889)
 texture = SubResource("AtlasTexture_7of12")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 30.5)
-scale = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_tplx0")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(41.25, -20.5)
-scale = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_3ex00")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(42, -102, 142, -102, 142, 98, -158, 98, -158, -2, 42, -2)
 
 [node name="Marker2D2" type="Marker2D" parent="."]
-position = Vector2(41.5, -51)
-scale = Vector2(0.5, 0.5)
+position = Vector2(92, -102)
 
 [node name="Marker2D3" type="Marker2D" parent="."]
-position = Vector2(60, 0)
+position = Vector2(142, -1)
 rotation = 1.5708
-scale = Vector2(0.5, 0.5)
 
 [node name="Marker2D4" type="Marker2D" parent="."]
-position = Vector2(4, 51)
+position = Vector2(-8, 98)
 rotation = 3.14159
-scale = Vector2(0.5, 0.5)
 
 [node name="Marker2D5" type="Marker2D" parent="."]
-position = Vector2(-60, 30.5)
+position = Vector2(-158, 48)
 rotation = -1.5708
-scale = Vector2(0.5, 0.5)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1bgreietkn5y"
-path="res://.godot/imported/CrankUpTitle.png-f88e2ee0fc2a6d46355232e00da328ac.ctex"
+uid="uid://b68icohpv4j7x"
+path="res://.godot/imported/AudioSliderBase.png-ea04121867b351e1e9aff6f494934a54.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Misc/CrankUpTitle.png"
-dest_files=["res://.godot/imported/CrankUpTitle.png-f88e2ee0fc2a6d46355232e00da328ac.ctex"]
+source_file="res://Assets/Settings/AudioSliderBase.png"
+dest_files=["res://.godot/imported/AudioSliderBase.png-ea04121867b351e1e9aff6f494934a54.ctex"]
 
 [params]
 

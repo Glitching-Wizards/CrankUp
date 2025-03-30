@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbxq30fl1n3kd"]
+[gd_scene load_steps=7 format=3 uid="uid://cbxq30fl1n3kd"]
 
 [ext_resource type="Script" path="res://Game/Scripts/Block.cs" id="1_ae47d"]
 [ext_resource type="Texture2D" uid="uid://cm5ujjuccie1k" path="res://Assets/Blocks/container_yellow.png" id="2_qr3cl"]
@@ -19,9 +19,6 @@ region = Rect2(520, 0, 260, 150)
 atlas = ExtResource("2_qr3cl")
 region = Rect2(0, 0, 260, 150)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vx0en"]
-size = Vector2(240, 132)
-
 [node name="ContainerYellow" type="RigidBody2D"]
 continuous_cd = 1
 script = ExtResource("1_ae47d")
@@ -30,30 +27,23 @@ damaged = SubResource("AtlasTexture_hvmlo")
 broken = SubResource("AtlasTexture_ewlk0")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(-0.5, 0.306664)
-scale = Vector2(0.142308, 0.306667)
+scale = Vector2(0.831, 0.76)
 texture = SubResource("AtlasTexture_ayqwu")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0.306664)
-scale = Vector2(0.142308, 0.306667)
-shape = SubResource("RectangleShape2D_vx0en")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-100, -50, 100, -50, 100, 50, -100, 50)
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(-0.5, -19.9333)
-scale = Vector2(0.142308, 0.306667)
+position = Vector2(-0.5, -49.9333)
 
 [node name="Marker2D2" type="Marker2D" parent="."]
-position = Vector2(16.5769, 0.306664)
+position = Vector2(99.5769, 0.306664)
 rotation = 1.5708
-scale = Vector2(0.306667, 0.142308)
 
 [node name="Marker2D3" type="Marker2D" parent="."]
-position = Vector2(-0.5, 20.5467)
+position = Vector2(-0.5, 49.5467)
 rotation = -3.14159
-scale = Vector2(0.142308, 0.306667)
 
 [node name="Marker2D4" type="Marker2D" parent="."]
-position = Vector2(-17.5769, 0.306664)
+position = Vector2(-99.5769, 0.306664)
 rotation = -1.5708
-scale = Vector2(0.306667, 0.142308)

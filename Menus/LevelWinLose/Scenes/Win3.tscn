@@ -1,15 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://lyxtd003i5wb"]
+[gd_scene load_steps=13 format=3 uid="uid://lyxtd003i5wb"]
 
 [ext_resource type="Texture2D" uid="uid://0pnu3tgvsyv6" path="res://Assets/Backgrounds/VictoryScreen.png" id="1_dotw6"]
+[ext_resource type="Script" path="res://Menus/LevelWinLose/Scripts/WinLose.cs" id="1_hg8bm"]
 [ext_resource type="Texture2D" uid="uid://d2ne652846407" path="res://Assets/Gui/Buttons/green_button_retry1.png" id="2_k3j8f"]
 [ext_resource type="Texture2D" uid="uid://xo18uc0tpsnf" path="res://Assets/Gui/Buttons/green_button_retry2.png" id="3_og2yu"]
-[ext_resource type="Texture2D" uid="uid://bvgtg0q0k8n42" path="res://Assets/Gui/BlankStar.png" id="4_cn1jd"]
 [ext_resource type="Texture2D" uid="uid://1pedsn4616vk" path="res://Assets/Gui/Buttons/grey_button_home1.png" id="4_wyyxj"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="5_vh80f"]
 [ext_resource type="Texture2D" uid="uid://bqti4reoj73jh" path="res://Assets/Gui/Buttons/grey_button_home2.png" id="5_yohj0"]
 [ext_resource type="Texture2D" uid="uid://ckiwhmwu30y57" path="res://Assets/Gui/Buttons/green_button_next1.png" id="6_3pplw"]
 [ext_resource type="Texture2D" uid="uid://iltf4ckdrglj" path="res://Assets/Victory/StarFinal.png" id="6_ofe72"]
 [ext_resource type="Texture2D" uid="uid://cni08607lgf15" path="res://Assets/Gui/Buttons/green_button_next2.png" id="7_w43b7"]
+[ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="11_v7wdo"]
+[ext_resource type="Texture2D" uid="uid://bfh6bwpmgp0fb" path="res://Assets/Victory/SpeechBubble.png" id="12_all84"]
 
 [node name="Win" type="Window"]
 transparent_bg = true
@@ -18,13 +20,39 @@ unresizable = true
 borderless = true
 always_on_top = true
 transparent = true
+script = ExtResource("1_hg8bm")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1280.0
 offset_bottom = 720.0
 texture = ExtResource("1_dotw6")
 
-[node name="RetryButton" type="TextureButton" parent="."]
+[node name="LevelPassed" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -248.5
+offset_top = 65.0
+offset_right = 248.5
+offset_bottom = 153.0
+grow_horizontal = 2
+theme = ExtResource("5_vh80f")
+theme_override_font_sizes/font_size = 65
+text = "PASSED"
+
+[node name="GrayBackground" type="TextureRect" parent="."]
+modulate = Color(0.462745, 0.427451, 0.4, 0.286275)
+z_index = -10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_v7wdo")
+
+[node name="Buttons" type="Node" parent="."]
+
+[node name="RetryButton" type="TextureButton" parent="Buttons"]
 offset_left = 270.0
 offset_top = 375.0
 offset_right = 539.0
@@ -34,7 +62,7 @@ texture_normal = ExtResource("2_k3j8f")
 texture_pressed = ExtResource("3_og2yu")
 texture_hover = ExtResource("2_k3j8f")
 
-[node name="MenuButton" type="TextureButton" parent="."]
+[node name="MenuButton" type="TextureButton" parent="Buttons"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -51,7 +79,7 @@ texture_normal = ExtResource("4_wyyxj")
 texture_pressed = ExtResource("5_yohj0")
 texture_hover = ExtResource("4_wyyxj")
 
-[node name="NextButton" type="TextureButton" parent="."]
+[node name="NextButton" type="TextureButton" parent="Buttons"]
 offset_left = 766.0
 offset_top = 375.0
 offset_right = 1035.0
@@ -61,55 +89,9 @@ texture_normal = ExtResource("6_3pplw")
 texture_pressed = ExtResource("7_w43b7")
 texture_hover = ExtResource("6_3pplw")
 
-[node name="Star1" type="TextureRect" parent="."]
-offset_left = 343.0
-offset_top = 210.0
-offset_right = 493.0
-offset_bottom = 360.0
-texture = ExtResource("4_cn1jd")
+[node name="ShinyStar" type="Node" parent="."]
 
-[node name="Star2" type="TextureRect" parent="."]
-offset_left = 565.0
-offset_top = 262.0
-offset_right = 715.0
-offset_bottom = 412.0
-texture = ExtResource("4_cn1jd")
-
-[node name="Star3" type="TextureRect" parent="."]
-offset_left = 780.0
-offset_top = 210.0
-offset_right = 930.0
-offset_bottom = 360.0
-texture = ExtResource("4_cn1jd")
-
-[node name="LevelPassed" type="Label" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -292.0
-offset_top = 62.0
-offset_right = 320.0
-offset_bottom = 164.0
-grow_horizontal = 2
-theme = ExtResource("5_vh80f")
-theme_override_font_sizes/font_size = 75
-text = "Level Passed!"
-
-[node name="Commect" type="Label" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 181.0
-offset_top = 596.0
-offset_right = 793.0
-offset_bottom = 729.0
-grow_horizontal = 2
-theme = ExtResource("5_vh80f")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 75
-text = "You rock!"
-
-[node name="ShinyStar" type="TextureRect" parent="."]
+[node name="ShinyStar" type="TextureRect" parent="ShinyStar"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -122,7 +104,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_ofe72")
 
-[node name="ShinyStar2" type="TextureRect" parent="."]
+[node name="ShinyStar2" type="TextureRect" parent="ShinyStar"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -136,7 +118,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_ofe72")
 
-[node name="ShinyStar3" type="TextureRect" parent="."]
+[node name="ShinyStar3" type="TextureRect" parent="ShinyStar"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -149,3 +131,29 @@ offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_ofe72")
+
+[node name="SpeechBubble" type="TextureRect" parent="."]
+offset_left = 783.0
+offset_top = 558.0
+offset_right = 1233.0
+offset_bottom = 728.0
+texture = ExtResource("12_all84")
+flip_v = true
+
+[node name="Comment" type="Label" parent="SpeechBubble"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -32.5
+offset_right = 126.0
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_vh80f")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 53
+text = "YOUROCK"
