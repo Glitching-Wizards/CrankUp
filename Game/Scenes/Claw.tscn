@@ -14,7 +14,6 @@ size = Vector2(38, 30)
 size = Vector2(34, 26)
 
 [node name="Claw" type="Node2D"]
-z_index = 2
 script = ExtResource("5_3fj1l")
 
 [node name="ClawBase" type="CharacterBody2D" parent="."]

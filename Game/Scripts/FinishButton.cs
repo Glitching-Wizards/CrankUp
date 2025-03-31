@@ -10,7 +10,7 @@ namespace CrankUp
 		private float score;
 		private Node currentLevel;
 
-		public override void _Ready() {	
+		public override void _Ready() {
 			currentLevel = GetTree().CurrentScene;
 			if (currentLevel == null) return;
 
