@@ -64,6 +64,10 @@ Rotate={
 "events": []
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://Gui/Translations/translations.en.translation", "res://Gui/Translations/translations.fi.translation")
+
 [navigation]
 
 3d/autoload_on_startup=false

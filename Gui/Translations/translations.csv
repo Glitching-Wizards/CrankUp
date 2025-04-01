@@ -1,7 +1,7 @@
 keys;en;fi
-PLAY; Play; Pelaa
-OPTIONS; Options; Asetukset
-CREDITS; Credits; Tekijät
+PLAY; Play ; Pelaa
+OPTIONS; Options ; Asetukset
+CREDITS; Credits ; Tekijät
 TUTORIAL; Tutorial; Tutoriaali
 PAUSED; Paused; Keskeytetty
 FAILED; Level failed!; Taso epäonnistui!
@@ -17,11 +17,17 @@ MUSIC; Music; Musiikki
 LEVEL; Level; Taso
 TUTORIAL1; Welcome to the game! The goal is to fill up the marked red area.; Tervetuloa peliin! Tavoitteenasi on täyttää punaisella merkitty alue.
 TUTORIAL2; Remember to be careful with the blocks so they don't break!; Muista olla varovainen palikoiden kanssa etteivät ne mene rikki!
-TUTORIAL3; Touch the block on the conveyerbelt and it will appear to the claw.; Hihnalta palikkaa koskettamalla palikka ilmestyy kouraan.
-TUTORIAL4; The claw is move up and down with the left controller.; Kouraa liikutetaan ylös ja alas vasemmalla ohjaimella.
-TUTORIAL5; The claw is move left and rigth with the right controller.; Kouraa liikutetaan oikealle ja vasemmalle oikean puolen ohjaimella.
+TUTORIAL3; Press the block on the conveyor belt and it will appear to the claw.; Hihnalta palikkaa koskettamalla palikka ilmestyy kouraan.
+TUTORIAL4; The claw is moved up and down with the left controller.; Kouraa liikutetaan ylös ja alas vasemmalla ohjaimella.
+TUTORIAL5; The claw is moved left and right with the right controller.; Kouraa liikutetaan oikealle ja vasemmalle oikean puolen ohjaimella.
 TUTORIAL6; If needed you may rotate the blocks by using the rotate button.; Voit tarvittaessa kääntää palikkan painamalla kääntö nappia.
-TUTORIAL7; With the claw button the claw releases the block.; Koura napilla koura päästää irti palikasta.
-TUTORIAL8; To move a block that has already been put down, take the claw to the block and press the claw button.; Jos haluat siirtää laskettua palikkaa, vie koura palikan luokse ja paina koura nappia.
+TUTORIAL7; Pressing the claw button again, the claw releases the block.; Koura napilla koura päästää irti palikasta.
+TUTORIAL8; To move a block that has already been placed, take the claw to the block and press the claw button.; Jos haluat siirtää laskettua palikkaa, vie koura palikan luokse ja paina koura nappia.
 TUTORIAL9; Good Luck!; Onnea Matkaan!
-
+SKIP; Skip; Ohita
+SCORE; Score; Pisteet
+ART:; Art:; Grafiikat:
+CODE:; Code:; Ohjelmointi:
+SOUND:; Sounds:; Äänet:
+UI:; UI:; Käyttöliittymä:
+MUSIC:; Music:; Musiikki:

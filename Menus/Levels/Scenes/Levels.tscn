@@ -46,9 +46,9 @@ theme_override_font_sizes/font_size = 40
 text = "1
 "
 
-[node name="Flag" type="Sprite2D" parent="Buttons"]
+[node name="Flag" type="Sprite2D" parent="Buttons/Level1"]
 visible = false
-position = Vector2(342, 497)
+position = Vector2(100, -12)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("4_2ar3c")
 
@@ -57,6 +57,7 @@ offset_left = 497.0
 offset_top = 344.0
 offset_right = 609.0
 offset_bottom = 418.0
+disabled = true
 texture_normal = ExtResource("3_h5sxm")
 
 [node name="Label" type="Label" parent="Buttons/Level2"]
@@ -90,6 +91,7 @@ offset_left = 499.0
 offset_top = 547.0
 offset_right = 609.0
 offset_bottom = 621.0
+disabled = true
 texture_normal = ExtResource("3_h5sxm")
 
 [node name="Label" type="Label" parent="Buttons/Level3"]
@@ -123,6 +125,7 @@ offset_left = 711.0
 offset_top = 271.0
 offset_right = 850.0
 offset_bottom = 345.0
+disabled = true
 texture_normal = ExtResource("3_h5sxm")
 
 [node name="Label" type="Label" parent="Buttons/Level4"]
@@ -156,6 +159,7 @@ offset_left = 903.0
 offset_top = 403.0
 offset_right = 1013.0
 offset_bottom = 477.0
+disabled = true
 texture_normal = ExtResource("3_h5sxm")
 
 [node name="Label" type="Label" parent="Buttons/Level5"]

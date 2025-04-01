@@ -3,7 +3,7 @@ using System;
 
 namespace CrankUp
 {
-    public partial class PauseCredits : Window
+    public partial class Pause : Window
     {
         [Export] private string _settingsScenePath = "res://Menus/Settings/Scenes/Settings.tscn";
         [Export] private string _levelsScenePath = "res://Menus/Levels/Scenes/Levels.tscn";
@@ -18,14 +18,7 @@ namespace CrankUp
             MenuButton.Pressed += MenuButtonPressed;
 
             TextureButton exitButton = GetNode<TextureButton>("Buttons/ExitButton");
-            if (exitButton == null)
-            {
-                GD.PrintErr("[ERROR] ExitButton not found in PauseCredits.tscn");
-            }
-            else
-            {
-                exitButton.Pressed += ExitButtonPressed;
-            }
+            exitButton.Pressed += ExitButtonPressed;
 
             TextureButton settingsButton = GetNode<TextureButton>("Buttons/SettingsButton");
             settingsButton.Pressed += SettingsButtonPressed;
@@ -34,6 +27,9 @@ namespace CrankUp
             settingsWindow = (Window)settingsScene.Instantiate();
             AddChild(settingsWindow);
             settingsWindow.Hide();
+
+            TextureButton tutorialButton = GetNode<TextureButton>("Buttons/TutorialButton");
+            tutorialButton.Pressed += TutorialButtonPressed;
         }
 
 
@@ -62,6 +58,23 @@ namespace CrankUp
         {
             GD.Print("Settings Pressed");
             settingsWindow.Popup();
+        }
+
+        public void TutorialButtonPressed()
+        {
+            GD.Print("Tutorial Pressed");
+
+            // open tutorial
+            Node tutorial = GetTree().Root.FindChild("Tutorial", true, false);
+            if (tutorial == null)
+            {
+                GD.Print("[INFO] Tutorial is not found. Instantiating it...");
+                PackedScene tutorialScene = (PackedScene)GD.Load("res:/");
+                tutorial = tutorialScene.Instantiate();
+                GetTree().Root.AddChild(tutorial);
+            }
+
+            tutorial.Call("StartTutorial");
         }
     }
 }

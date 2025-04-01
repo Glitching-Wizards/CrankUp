@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bjtdr8h5lywre"]
+[gd_scene load_steps=29 format=3 uid="uid://bjtdr8h5lywre"]
 
 [ext_resource type="Script" path="res://Menus/Settings/Scripts/Pause.cs" id="1_8gtmu"]
 [ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="2_laa4w"]
@@ -16,6 +16,16 @@
 [ext_resource type="Texture2D" uid="uid://dphekt5ujm5kl" path="res://Assets/Gui/Buttons/red_button1.png" id="15_ifpje"]
 [ext_resource type="Texture2D" uid="uid://djyancc4p132i" path="res://Assets/Gui/Buttons/red_button2.png" id="16_hmwoe"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="17_mqebv"]
+[ext_resource type="Script" path="res://Game/Scripts/Tutorial.cs" id="17_qo8tg"]
+[ext_resource type="PackedScene" uid="uid://bof30jnhkvxrl" path="res://Gui/Tutorial/Tutorial1.tscn" id="18_54oxf"]
+[ext_resource type="PackedScene" uid="uid://cucumwcu224yf" path="res://Gui/Tutorial/Tutorial2.tscn" id="19_57syc"]
+[ext_resource type="PackedScene" uid="uid://cejnj6x0fry0m" path="res://Gui/Tutorial/Tutorial3.tscn" id="20_64l3d"]
+[ext_resource type="PackedScene" uid="uid://brjgb4ke34ftt" path="res://Gui/Tutorial/Tutorial4.tscn" id="21_xgr3r"]
+[ext_resource type="PackedScene" uid="uid://pbhrkwx4h2r" path="res://Gui/Tutorial/Tutorial5.tscn" id="22_o2x40"]
+[ext_resource type="PackedScene" uid="uid://baur4gsdjok38" path="res://Gui/Tutorial/Tutorial6.tscn" id="23_qfjhj"]
+[ext_resource type="PackedScene" uid="uid://cj0550n71gkad" path="res://Gui/Tutorial/Tutorial7.tscn" id="24_ggeht"]
+[ext_resource type="PackedScene" uid="uid://eok2slj87g2u" path="res://Gui/Tutorial/Tutorial8.tscn" id="25_rchwt"]
+[ext_resource type="PackedScene" uid="uid://cpnja7ibf6k85" path="res://Gui/Tutorial/Tutorial9.tscn" id="26_gouh7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bdj2x"]
 atlas = ExtResource("9_4coxt")
@@ -104,6 +114,25 @@ texture_normal = ExtResource("2_od4x0")
 texture_pressed = ExtResource("3_7bs12")
 texture_hover = ExtResource("2_od4x0")
 
+[node name="TutorialButton" type="TextureButton" parent="Buttons"]
+offset_left = 180.0
+offset_top = 335.0
+offset_right = 449.0
+offset_bottom = 497.0
+texture_normal = ExtResource("15_ifpje")
+texture_pressed = ExtResource("16_hmwoe")
+texture_hover = ExtResource("15_ifpje")
+
+[node name="Label" type="Label" parent="Buttons/TutorialButton"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 44.0
+offset_right = 263.0
+offset_bottom = 100.0
+theme = ExtResource("17_mqebv")
+theme_override_font_sizes/font_size = 34
+text = "TUTORIAL"
+
 [node name="Pause2" type="TextureRect" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
@@ -118,25 +147,6 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("14_7rrjm")
-
-[node name="Tutorial" type="TextureButton" parent="."]
-offset_left = 180.0
-offset_top = 335.0
-offset_right = 449.0
-offset_bottom = 497.0
-texture_normal = ExtResource("15_ifpje")
-texture_pressed = ExtResource("16_hmwoe")
-texture_hover = ExtResource("15_ifpje")
-
-[node name="Label" type="Label" parent="Tutorial"]
-layout_mode = 0
-offset_left = 44.0
-offset_top = 44.0
-offset_right = 263.0
-offset_bottom = 100.0
-theme = ExtResource("17_mqebv")
-theme_override_font_sizes/font_size = 34
-text = "TUTORIAL"
 
 [node name="Header" type="TextureRect" parent="."]
 anchors_preset = 5
@@ -154,9 +164,9 @@ stretch_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -227.5
+offset_left = -244.5
 offset_top = 4.0
-offset_right = 227.5
+offset_right = 210.5
 offset_bottom = 134.0
 grow_horizontal = 2
 theme = ExtResource("9_oxc3b")
@@ -164,3 +174,71 @@ theme_override_font_sizes/font_size = 90
 text = "PAUSED"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Tutorial" type="Node" parent="."]
+script = ExtResource("17_qo8tg")
+
+[node name="Tutorial1" parent="Tutorial" instance=ExtResource("18_54oxf")]
+visible = false
+z_index = 3
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -640.0
+offset_bottom = -360.0
+
+[node name="Tutorial2" parent="Tutorial" instance=ExtResource("19_57syc")]
+visible = false
+z_index = 3
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -640.0
+offset_bottom = -360.0
+
+[node name="Tutorial3" parent="Tutorial" instance=ExtResource("20_64l3d")]
+visible = false
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -640.0
+offset_bottom = -360.0
+
+[node name="Tutorial4" parent="Tutorial" instance=ExtResource("21_xgr3r")]
+visible = false
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -640.0
+offset_bottom = -360.0
+
+[node name="Tutorial5" parent="Tutorial" instance=ExtResource("22_o2x40")]
+visible = false
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -640.0
+offset_bottom = -360.0
+
+[node name="Tutorial6" parent="Tutorial" instance=ExtResource("23_qfjhj")]
+visible = false
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -640.0
+offset_bottom = -360.0
+
+[node name="Tutorial7" parent="Tutorial" instance=ExtResource("24_ggeht")]
+visible = false
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -640.0
+offset_bottom = -360.0
+
+[node name="Tutorial8" parent="Tutorial" instance=ExtResource("25_rchwt")]
+visible = false
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -640.0
+offset_bottom = -360.0
+
+[node name="Tutorial9" parent="Tutorial" instance=ExtResource("26_gouh7")]
+visible = false
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -640.0
+offset_bottom = -360.0

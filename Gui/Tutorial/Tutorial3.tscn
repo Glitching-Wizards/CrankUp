@@ -1,13 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://cejnj6x0fry0m"]
+[gd_scene load_steps=9 format=3 uid="uid://cejnj6x0fry0m"]
 
 [ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="1_epelr"]
 [ext_resource type="Texture2D" uid="uid://cc2i7swbkcq22" path="res://Assets/Backgrounds/JarkkoNormal.png" id="2_owo0o"]
 [ext_resource type="Texture2D" uid="uid://bfh6bwpmgp0fb" path="res://Assets/Victory/SpeechBubble.png" id="3_m2vaa"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="4_o8xhf"]
+[ext_resource type="Texture2D" uid="uid://dutfm1xl7kjf0" path="res://Assets/Gui/Buttons/forward_arrow.png" id="5_h0kp0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_12tch"]
 atlas = ExtResource("2_owo0o")
 region = Rect2(0, 0, 278, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6qrb"]
+atlas = ExtResource("5_h0kp0")
+region = Rect2(31, 12, 111, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4n40p"]
+atlas = ExtResource("5_h0kp0")
+region = Rect2(191, 12, 111, 68)
 
 [node name="Tutorial" type="Control"]
 layout_mode = 3
@@ -46,6 +55,7 @@ offset_bottom = 574.0
 texture = ExtResource("3_m2vaa")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="SpeechBubble"]
+layout_mode = 0
 offset_left = 62.0
 offset_top = 36.0
 offset_right = 616.0
@@ -55,3 +65,23 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 27
 text = "TUTORIAL3
 "
+
+[node name="SkipButton" type="TextureButton" parent="."]
+offset_left = 931.0
+offset_top = 42.0
+offset_right = 1042.0
+offset_bottom = 110.0
+scale = Vector2(1.48628, 1.5)
+texture_normal = SubResource("AtlasTexture_o6qrb")
+texture_pressed = SubResource("AtlasTexture_4n40p")
+
+[node name="Label" type="Label" parent="SkipButton"]
+layout_mode = 0
+offset_left = 15.3333
+offset_top = 16.0
+offset_right = 84.3333
+offset_bottom = 51.0
+theme = ExtResource("4_o8xhf")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+text = "SKIP"
