@@ -17,6 +17,7 @@ public partial class Level1 : Node2D
 
 	[Export] private string _blockScenePath = "res://Game/Scenes/Block.tscn";
 	[Export] private string _containerYellowLScenePath = "res://Game/Scenes/ContainerYellowL.tscn";
+	[Export] private string _containerRedLScenePath = "res://Game/Scenes/ContainerYellowL.tscn";
 	[Export] private string _containerBlueLScenePath = "res://Game/Scenes/ContainerBlueL.tscn";
 	[Export] private string _containerRedScenePath = "res://Game/Scenes/ContainerRed.tscn";
 	[Export] private string _containerYellowScenePath = "res://Game/Scenes/ContainerYellow.tscn";
@@ -30,19 +31,20 @@ public partial class Level1 : Node2D
 	private TextureRect conveyorBelt;
 	private PackedScene _blockScene;
 	private PackedScene _containerYellowLScene;
+	private PackedScene _containerRedLScene;
 	private PackedScene _containerBlueLScene;
 	private PackedScene _containerRedScene;
 	private PackedScene _containerYellowScene;
 
 	private TextureButton blockButton;
-	private TextureButton block2Button;
+	private TextureButton containerRedLButton;
 	private TextureButton containerYellowLButton;
 	private TextureButton containerBlueLButton;
 	private TextureButton containerRedButton;
 	private TextureButton containerYellowButton;
 
 	private bool blockButtonPressed = false;
-	private bool block2ButtonPressed = false;
+	private bool containerRedLButtonPressed = false;
 	private bool containerYellowLButtonPressed = false;
 	private bool containerBlueLButtonPressed = false;
 	private bool containerRedButtonPressed = false;
@@ -75,12 +77,13 @@ public partial class Level1 : Node2D
 
 		_blockScene = ResourceLoader.Load<PackedScene>(_blockScenePath);
 		_containerYellowLScene = ResourceLoader.Load<PackedScene>(_containerYellowLScenePath);
+		_containerRedLScene = ResourceLoader.Load<PackedScene>(_containerRedLScenePath);
 		_containerBlueLScene = ResourceLoader.Load<PackedScene>(_containerBlueLScenePath);
 		_containerRedScene = ResourceLoader.Load<PackedScene>(_containerRedScenePath);
 		_containerYellowScene = ResourceLoader.Load<PackedScene>(_containerYellowScenePath);
 
 		blockButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/Block");
-		block2Button = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/Block2");
+		containerRedLButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerRedL");
 		containerYellowLButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerYellowL");
 		containerBlueLButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerBlueL");
 		containerRedButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerRed");
@@ -93,10 +96,10 @@ public partial class Level1 : Node2D
 			SpawnBlockButtonPressed(_blockScene, blockButton);
 		};
 
-		block2Button.Pressed += () =>
+		containerRedLButton.Pressed += () =>
 		{
-			block2ButtonPressed = true;
-			SpawnBlockButtonPressed(_blockScene, block2Button);
+			containerRedLButtonPressed = true;
+			SpawnBlockButtonPressed(_containerYellowLScene, containerRedLButton);
 		};
 
 		containerYellowLButton.Pressed += () =>
@@ -166,7 +169,7 @@ public partial class Level1 : Node2D
 		button.QueueFree();
 
 		// Check if all buttons are pressed
-		if (blockButtonPressed && block2ButtonPressed && containerYellowLButtonPressed && containerBlueLButtonPressed && containerRedButtonPressed && containerYellowButtonPressed) endLevel = true;
+		if (blockButtonPressed && containerRedLButtonPressed && containerYellowLButtonPressed && containerBlueLButtonPressed && containerRedButtonPressed && containerYellowButtonPressed) endLevel = true;
 	}
 
 	public override void _Process(double delta)

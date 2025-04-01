@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhyo0whdq80vg"]
+
+[ext_resource type="Script" path="res://Game/Scripts/Block.cs" id="1_prvan"]
+[ext_resource type="Texture2D" uid="uid://bhsbtyvx1hwir" path="res://Assets/Blocks/container_red.png" id="2_o3ggg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2clc"]
+atlas = ExtResource("2_o3ggg")
+region = Rect2(0, 0, 260, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tof3i"]
+atlas = ExtResource("2_o3ggg")
+region = Rect2(260, 0, 260, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dqfv"]
+atlas = ExtResource("2_o3ggg")
+region = Rect2(520, 0, 260, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqlkd"]
+atlas = ExtResource("2_o3ggg")
+region = Rect2(0, 0, 260, 150)
+
+[node name="Block" type="RigidBody2D"]
+z_index = 2
+continuous_cd = 1
+script = ExtResource("1_prvan")
+healthy = SubResource("AtlasTexture_g2clc")
+damaged = SubResource("AtlasTexture_tof3i")
+broken = SubResource("AtlasTexture_1dqfv")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, 1.46031e-06)
+scale = Vector2(0.4155, 0.373333)
+texture = SubResource("AtlasTexture_dqlkd")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-50, -25, 50, -25, 50, 25, -50, 25)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -25)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(50, 0)
+rotation = 1.5708
+
+[node name="Marker2D3" type="Marker2D" parent="."]
+position = Vector2(0, 25)
+rotation = 3.14159
+
+[node name="Marker2D4" type="Marker2D" parent="."]
+position = Vector2(-50, 0)
+rotation = 4.71239

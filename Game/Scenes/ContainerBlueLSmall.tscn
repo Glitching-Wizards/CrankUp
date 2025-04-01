@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqho0jpcnwqa5"]
+
+[ext_resource type="Script" path="res://Game/Scripts/Block.cs" id="1_3b4pl"]
+[ext_resource type="Texture2D" uid="uid://ctfqx38xxbod4" path="res://Assets/Blocks/ContainerBlueLTemp.png" id="2_hc3et"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7of12"]
+atlas = ExtResource("2_hc3et")
+
+[node name="ContainerBlueL" type="RigidBody2D"]
+z_index = 2
+rotation = 3.14159
+continuous_cd = 1
+script = ExtResource("1_3b4pl")
+healthy = ExtResource("2_hc3et")
+damaged = ExtResource("2_hc3et")
+broken = ExtResource("2_hc3et")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-38.6568, -3.61166)
+scale = Vector2(0.5, 0.494)
+texture = SubResource("AtlasTexture_7of12")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(50.9999, 47.0001, -99.0001, 46.9997, -99, -3.00025, 1.00001, -3, 1.00013, -53, 51.0001, -52.9999)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(25.9999, -53.0002)
+
+[node name="Marker2D3" type="Marker2D" parent="."]
+position = Vector2(51, -3.00021)
+rotation = 1.5708
+
+[node name="Marker2D4" type="Marker2D" parent="."]
+position = Vector2(-23.9999, 46.9999)
+rotation = 3.14159
+
+[node name="Marker2D5" type="Marker2D" parent="."]
+position = Vector2(-99, 22.0002)
+rotation = -1.5708

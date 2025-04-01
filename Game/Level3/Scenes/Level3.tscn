@@ -112,7 +112,7 @@ position = Vector2(0, 114)
 script = ExtResource("11_w4wx5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlacementArea"]
-position = Vector2(-0.5, 11)
+position = Vector2(-50, -80)
 shape = SubResource("RectangleShape2D_aeeyk")
 
 [node name="ScoreLabel" type="Label" parent="PlacementArea"]

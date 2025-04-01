@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://nylmsyv6tsrc"]
+
+[ext_resource type="Script" path="res://Game/Scripts/Block.cs" id="1_uyjh7"]
+[ext_resource type="Texture2D" uid="uid://4fnl4lgyb4th" path="res://Assets/Blocks/container_green_healthy.png" id="2_vdvn8"]
+[ext_resource type="Texture2D" uid="uid://4bdi2ey82rpd" path="res://Assets/Blocks/container_green_damaged.png" id="3_ynigq"]
+[ext_resource type="Texture2D" uid="uid://qcjcu35ojsmh" path="res://Assets/Blocks/container_green_broken.png" id="4_xd08n"]
+
+[node name="Block" type="RigidBody2D"]
+z_index = 2
+continuous_cd = 1
+script = ExtResource("1_uyjh7")
+healthy = ExtResource("2_vdvn8")
+damaged = ExtResource("3_ynigq")
+broken = ExtResource("4_xd08n")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, 1.46031e-06)
+scale = Vector2(0.4155, 0.373333)
+texture = ExtResource("2_vdvn8")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-50, -25, 50, -25, 50, 25, -50, 25)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -25)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(50, 0)
+rotation = 1.5708
+
+[node name="Marker2D3" type="Marker2D" parent="."]
+position = Vector2(0, 25)
+rotation = 3.14159
+
+[node name="Marker2D4" type="Marker2D" parent="."]
+position = Vector2(-50, 0)
+rotation = 4.71239
