@@ -100,9 +100,9 @@ offset_bottom = -183.0
 
 [node name="Block" type="TextureButton" parent="ConveyorBelt/BlockButtons"]
 layout_mode = 0
-offset_left = 539.0
+offset_left = 540.0
 offset_top = 244.0
-offset_right = 689.0
+offset_right = 690.0
 offset_bottom = 344.0
 texture_normal = SubResource("AtlasTexture_idrmk")
 ignore_texture_size = true
@@ -110,9 +110,9 @@ stretch_mode = 0
 
 [node name="ContainerRedL" type="TextureButton" parent="ConveyorBelt/BlockButtons"]
 layout_mode = 0
-offset_left = 1370.0
+offset_left = 1360.0
 offset_top = 210.0
-offset_right = 1520.0
+offset_right = 1510.0
 offset_bottom = 360.0
 texture_normal = SubResource("AtlasTexture_rnuwt")
 ignore_texture_size = true
@@ -130,9 +130,9 @@ stretch_mode = 0
 
 [node name="ContainerBlueL" type="TextureButton" parent="ConveyorBelt/BlockButtons"]
 layout_mode = 0
-offset_left = 850.0
+offset_left = 840.0
 offset_top = 210.0
-offset_right = 1000.0
+offset_right = 990.0
 offset_bottom = 360.0
 texture_normal = SubResource("AtlasTexture_nc3h7")
 ignore_texture_size = true
@@ -140,9 +140,9 @@ stretch_mode = 0
 
 [node name="ContainerRed" type="TextureButton" parent="ConveyorBelt/BlockButtons"]
 layout_mode = 0
-offset_left = 1020.0
+offset_left = 1010.0
 offset_top = 244.0
-offset_right = 1170.0
+offset_right = 1160.0
 offset_bottom = 344.0
 texture_normal = SubResource("AtlasTexture_ng1ui")
 ignore_texture_size = true
@@ -150,9 +150,9 @@ stretch_mode = 0
 
 [node name="ContainerYellow" type="TextureButton" parent="ConveyorBelt/BlockButtons"]
 layout_mode = 0
-offset_left = 1200.0
+offset_left = 1190.0
 offset_top = 244.0
-offset_right = 1350.0
+offset_right = 1340.0
 offset_bottom = 344.0
 texture_normal = SubResource("AtlasTexture_jjs76")
 ignore_texture_size = true

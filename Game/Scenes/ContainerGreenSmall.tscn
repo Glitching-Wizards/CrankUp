@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://nylmsyv6tsrc"]
+[gd_scene load_steps=5 format=3 uid="uid://c5ybpv0hc1e1v"]
 
 [ext_resource type="Script" path="res://Game/Scripts/Block.cs" id="1_uyjh7"]
 [ext_resource type="Texture2D" uid="uid://4fnl4lgyb4th" path="res://Assets/Blocks/container_green_healthy.png" id="2_vdvn8"]
 [ext_resource type="Texture2D" uid="uid://4bdi2ey82rpd" path="res://Assets/Blocks/container_green_damaged.png" id="3_ynigq"]
 [ext_resource type="Texture2D" uid="uid://qcjcu35ojsmh" path="res://Assets/Blocks/container_green_broken.png" id="4_xd08n"]
 
-[node name="Block" type="RigidBody2D"]
+[node name="ContainerGreenSmall" type="RigidBody2D"]
 z_index = 2
 continuous_cd = 1
 script = ExtResource("1_uyjh7")

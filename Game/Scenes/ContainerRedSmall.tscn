@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhyo0whdq80vg"]
+[gd_scene load_steps=7 format=3 uid="uid://8ikqxfeq58in"]
 
 [ext_resource type="Script" path="res://Game/Scripts/Block.cs" id="1_prvan"]
 [ext_resource type="Texture2D" uid="uid://bhsbtyvx1hwir" path="res://Assets/Blocks/container_red.png" id="2_o3ggg"]
@@ -19,7 +19,7 @@ region = Rect2(520, 0, 260, 150)
 atlas = ExtResource("2_o3ggg")
 region = Rect2(0, 0, 260, 150)
 
-[node name="Block" type="RigidBody2D"]
+[node name="ContainerRedSmallIverted" type="RigidBody2D"]
 z_index = 2
 continuous_cd = 1
 script = ExtResource("1_prvan")

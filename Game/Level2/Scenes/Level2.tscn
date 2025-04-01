@@ -109,9 +109,9 @@ stretch_mode = 4
 
 [node name="ContainerBox" type="TextureButton" parent="ConveyorBelt/BlockButtons"]
 layout_mode = 0
-offset_left = 1342.0
+offset_left = 1340.0
 offset_top = 229.0
-offset_right = 1461.0
+offset_right = 1459.0
 offset_bottom = 344.0
 texture_normal = ExtResource("7_efqjc")
 ignore_texture_size = true
@@ -159,9 +159,9 @@ stretch_mode = 4
 
 [node name="CardboardT2" type="TextureButton" parent="ConveyorBelt/BlockButtons"]
 layout_mode = 0
-offset_left = 1151.0
+offset_left = 1150.0
 offset_top = 227.0
-offset_right = 1358.0
+offset_right = 1357.0
 offset_bottom = 360.0
 texture_normal = ExtResource("8_1fmme")
 ignore_texture_size = true

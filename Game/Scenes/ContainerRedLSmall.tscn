@@ -1,21 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7rnn7blbglbr"]
+[gd_scene load_steps=3 format=3 uid="uid://b2s4buopyu8rj"]
 
-[ext_resource type="Script" path="res://Game/Scripts/Block.cs" id="1_ru5pm"]
-[ext_resource type="Texture2D" uid="uid://ctfqx38xxbod4" path="res://Assets/Blocks/ContainerBlueLTemp.png" id="2_43mvl"]
+[ext_resource type="Script" path="res://Game/Scripts/Block.cs" id="1_tlyac"]
+[ext_resource type="Texture2D" uid="uid://ctfqx38xxbod4" path="res://Assets/Blocks/ContainerBlueLTemp.png" id="2_8dnfc"]
 
-[node name="ContainerYellowL" type="RigidBody2D"]
+[node name="ContainerRedL" type="RigidBody2D"]
 z_index = 2
 rotation = 3.14159
 continuous_cd = 1
-script = ExtResource("1_ru5pm")
-healthy = ExtResource("2_43mvl")
-damaged = ExtResource("2_43mvl")
-broken = ExtResource("2_43mvl")
+script = ExtResource("1_tlyac")
+healthy = ExtResource("2_8dnfc")
+damaged = ExtResource("2_8dnfc")
+broken = ExtResource("2_8dnfc")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(-38.6568, -3.61166)
 scale = Vector2(0.5, 0.494)
-texture = ExtResource("2_43mvl")
+texture = ExtResource("2_8dnfc")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(50.9999, 47.0001, -99.0001, 46.9997, -99, -3.00025, 1.00001, -3, 1.00013, -53, 51.0001, -52.9999)
