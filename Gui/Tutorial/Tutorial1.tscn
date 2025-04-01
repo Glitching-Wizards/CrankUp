@@ -66,6 +66,7 @@ theme_override_font_sizes/normal_font_size = 41
 text = "TUTORIAL1"
 
 [node name="SkipButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 931.0
 offset_top = 42.0
 offset_right = 1042.0

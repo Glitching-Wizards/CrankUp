@@ -67,7 +67,7 @@ public partial class Level1 : Node2D
 		}
 
 		// tutorial
-		
+
 
 		conveyorBelt = GetNodeOrNull<TextureRect>("ConveyorBelt");
 
@@ -75,6 +75,14 @@ public partial class Level1 : Node2D
 		settingsWindow = (Window)settingsScene.Instantiate();
 		AddChild(settingsWindow);
 		settingsWindow.Hide();
+
+		//työn alla
+		Pause pause = GetTree().Root.GetNode<Pause>("res://Menus/Settings/Scripts/Pause");
+		if (pause != null)
+		{
+			pause.TogglePause();
+		}
+
 
 		_blockScene = ResourceLoader.Load<PackedScene>(_blockScenePath);
 		_containerYellowLScene = ResourceLoader.Load<PackedScene>(_containerYellowLScenePath);

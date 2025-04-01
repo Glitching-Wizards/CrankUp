@@ -12,7 +12,14 @@ namespace CrankUp
         public override void _Ready()
         {
             TextureButton RetryButton = GetNode<TextureButton>("Buttons/RetryButton");
-            RetryButton.Pressed += RetryButtonPressed;
+            if (RetryButton != null)
+            {
+                RetryButton.Pressed += RetryButtonPressed;
+            }
+            else
+            {
+                GD.PrintErr("[ERROR] RetryButton not found! Check the node path.");
+            }
 
             TextureButton MenuButton = GetNode<TextureButton>("Buttons/MenuButton");
             MenuButton.Pressed += MenuButtonPressed;
@@ -52,6 +59,8 @@ namespace CrankUp
             Node currentScene = GetTree().CurrentScene;
 
             this.Hide();
+            TogglePause();  // työn alla
+
         }
 
         public void SettingsButtonPressed()
@@ -75,6 +84,14 @@ namespace CrankUp
             }
 
             tutorial.Call("StartTutorial");
+        }
+
+        public bool IsPaused { get; private set; } = false;
+
+        public void TogglePause()
+        {
+            IsPaused = !IsPaused;
+            GetTree().Paused = IsPaused;
         }
     }
 }

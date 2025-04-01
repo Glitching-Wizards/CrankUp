@@ -10,7 +10,8 @@ namespace CrankUp
 		private float score;
 		private Node currentLevel;
 
-		public override void _Ready() {
+		public override void _Ready()
+		{
 			currentLevel = GetTree().CurrentScene;
 			if (currentLevel == null) return;
 
@@ -32,31 +33,61 @@ namespace CrankUp
 			CallDeferred(nameof(FindPlacementArea));
 		}
 
-		private void FindPlacementArea() {
+		private void FindPlacementArea()
+		{
 			placementArea = currentLevel.GetNodeOrNull<PlacementArea>("PlacementArea");
 		}
 
-		private void OnButtonPressed() {
+		// tarttee tallennuksen
+		private void OnButtonPressed()
+		{
 			if (placementArea == null) return;
 
 			score = placementArea.GetScore();
 
 			if (score >= 70 && score < 80 && victoryScreen1 != null)
+			{
 				victoryScreen1.Visible = true;
+				LevelDone(currentLevel.Name);
+			}
 			else if (score >= 80 && score < 90 && victoryScreen2 != null)
+			{
 				victoryScreen2.Visible = true;
+				LevelDone(currentLevel.Name);
+			}
 			else if (score >= 90 && victoryScreen3 != null)
+			{
 				victoryScreen3.Visible = true;
+				LevelDone(currentLevel.Name);
+			}
 			else if (score < 70 && loseScreen != null)
+			{
 				loseScreen.Visible = true;
+			}
 		}
 
-		public void RetryButtonPressed() {
-			GetTree().ReloadCurrentScene();
-		}
+		private void LevelDone(string levelName)
+		{
+			Node levelButtonPath = GetTree().Root.GetNode<Node>("res://Menus/Levels/Scenes/Levels.tscn/Levels/Buttons");
 
-		public void MenuButtonPressed() {
-			GetTree().ChangeSceneToFile("res://Menus/Levels/Scenes/Levels.tscn");
+			if (levelButtonPath == null)
+			{
+				GD.PrintErr($"Virhe: Node 'Levels/Buttons' ei löydy.");
+				return;
+			}
+
+			if (levelButtonPath != null && levelButtonPath.HasNode(levelName))
+			{
+				TextureButton levelButton = levelButtonPath.GetNode<TextureButton>(levelName);
+
+				levelButton.Disabled = false;
+
+				TextureRect lockIcon = levelButton.GetNodeOrNull<TextureRect>("Lock");
+				lockIcon.Visible = false;
+
+				TextureRect flagIcon = levelButton.GetNodeOrNull<TextureRect>("Flag");
+				flagIcon.Visible = true;
+			}
 		}
 	}
 }

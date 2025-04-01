@@ -125,13 +125,13 @@ texture_hover = ExtResource("15_ifpje")
 
 [node name="Label" type="Label" parent="Buttons/TutorialButton"]
 layout_mode = 0
-offset_left = 44.0
-offset_top = 44.0
-offset_right = 263.0
-offset_bottom = 100.0
+offset_right = 262.0
+offset_bottom = 140.0
 theme = ExtResource("17_mqebv")
 theme_override_font_sizes/font_size = 34
 text = "TUTORIAL"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Pause2" type="TextureRect" parent="."]
 anchors_preset = 8

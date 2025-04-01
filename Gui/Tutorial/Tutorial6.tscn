@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://baur4gsdjok38"]
+[gd_scene load_steps=10 format=3 uid="uid://baur4gsdjok38"]
 
 [ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="1_piihw"]
 [ext_resource type="Texture2D" uid="uid://cc2i7swbkcq22" path="res://Assets/Backgrounds/JarkkoNormal.png" id="2_jykjm"]
 [ext_resource type="Texture2D" uid="uid://bfh6bwpmgp0fb" path="res://Assets/Victory/SpeechBubble.png" id="3_u7n7b"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="4_a1iq5"]
 [ext_resource type="Texture2D" uid="uid://dutfm1xl7kjf0" path="res://Assets/Gui/Buttons/forward_arrow.png" id="5_laadp"]
+[ext_resource type="Texture2D" uid="uid://ca30paq1c5g1s" path="res://Assets/Gui/Buttons/TutorialArrow.png" id="6_okx3y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_12tch"]
 atlas = ExtResource("2_jykjm")
@@ -66,6 +67,7 @@ theme_override_font_sizes/normal_font_size = 27
 text = "TUTORIAL6"
 
 [node name="SkipButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 931.0
 offset_top = 42.0
 offset_right = 1042.0
@@ -84,3 +86,12 @@ theme = ExtResource("4_a1iq5")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 26
 text = "SKIP"
+
+[node name="Arrow" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 639.0
+offset_right = 274.0
+offset_bottom = 799.0
+rotation = -1.4744
+texture = ExtResource("6_okx3y")

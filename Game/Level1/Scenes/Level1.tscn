@@ -118,7 +118,7 @@ stretch_mode = 0
 layout_mode = 0
 offset_left = 1364.0
 offset_top = 246.0
-offset_right = 1514.0
+offset_right = 1507.0
 offset_bottom = 346.0
 texture_normal = ExtResource("7_g7hka")
 ignore_texture_size = true
@@ -200,7 +200,7 @@ offset_right = 416.0
 offset_bottom = -58.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlacementArea"]
-position = Vector2(0, -25)
+position = Vector2(8, -25)
 polygon = PackedVector2Array(-309, -213, 291, -213, 291, 86, -309, 86)
 
 [node name="WinLose" type="Control" parent="."]
@@ -219,9 +219,9 @@ visible = false
 visible = false
 
 [node name="BoxShadow" type="TextureRect" parent="."]
-offset_left = -316.0
+offset_left = -307.0
 offset_top = -162.0
-offset_right = 298.0
+offset_right = 307.0
 offset_bottom = 200.0
 texture = ExtResource("17_dellb")
 expand_mode = 1
