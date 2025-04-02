@@ -77,11 +77,11 @@ public partial class Level1 : Node2D
 		settingsWindow.Hide();
 
 		//työn alla
-		Pause pause = GetTree().Root.GetNode<Pause>("res://Menus/Settings/Scripts/Pause");
+		/*Pause pause = GetTree().Root.GetNode<Pause>("res://Menus/Settings/Scripts/Pause");
 		if (pause != null)
 		{
 			pause.TogglePause();
-		}
+		}*/
 
 
 		_blockScene = ResourceLoader.Load<PackedScene>(_blockScenePath);

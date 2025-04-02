@@ -53,10 +53,11 @@ public partial class Tutorial : Node
         // Load the tutorial scenes
         for (int i = 1; i <= 9; i++)
         {
+
             var tutorialWindow = tutorial.GetNodeOrNull<Window>($"Tutorial{i}");
             if (tutorialWindow != null)
             {
-                tutorialWindow.Visible = false;
+                tutorialWindow.Visible = true;
                 tutorials.Add(tutorialWindow);
             }
             else
@@ -71,7 +72,7 @@ public partial class Tutorial : Node
     /// Handles input events.
     /// </summary>
     /// <param name="event"></param>
-    public override void _Input(InputEvent @event)
+    public void _input(InputEvent @event)
     {
         if (@event is InputEventMouseButton mouseButtonEvent && mouseButtonEvent.IsPressed())
         {
@@ -100,7 +101,6 @@ public partial class Tutorial : Node
         }
         else
         {
-            GD.Print("Tutorial finished");
             tutorialOn = false;
             foreach (var tutorial in tutorials)
             {
@@ -109,24 +109,25 @@ public partial class Tutorial : Node
                     tutorial.Visible = false;
                 }
             }
+            GD.Print("Tutorial finished");
         }
     }
 
     public void SkipTutorial()
     {
-        GD.Print("Tutorial skipped");
         tutorialOn = false;
 
         // Hide all tutorials
         if (tutorials.Count > 0)
         {
-            foreach (var tut in tutorials)
+            foreach (var tutorial in tutorials)
             {
-                if (tut != null)
+                if (tutorial != null)
                 {
-                    tut.Visible = false;
+                    tutorial.Visible = false;
                 }
             }
         }
+        GD.Print("Tutorial skipped");
     }
 }

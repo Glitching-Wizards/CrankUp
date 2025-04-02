@@ -74,16 +74,23 @@ namespace CrankUp
             GD.Print("Tutorial Pressed");
 
             // open tutorial
-            Node tutorial = GetTree().Root.FindChild("Tutorial", true, false);
-            if (tutorial == null)
+            Node tutorialNode = GetTree().Root.FindChild("Tutorial", true, false);
+            if (tutorialNode == null)
             {
                 GD.Print("[INFO] Tutorial is not found. Instantiating it...");
                 PackedScene tutorialScene = (PackedScene)GD.Load("res:/");
-                tutorial = tutorialScene.Instantiate();
-                GetTree().Root.AddChild(tutorial);
+                tutorialNode = tutorialScene.Instantiate();
+                GetTree().Root.AddChild(tutorialNode);
             }
 
-            tutorial.Call("StartTutorial");
+            if (tutorialNode is Tutorial tutorial)
+            {
+                tutorial.StartTutorial();
+            }
+            else
+            {
+                GD.PrintErr("[ERROR] Failed to cast Tutorial node.");
+            }
         }
 
         public bool IsPaused { get; private set; } = false;

@@ -5,6 +5,8 @@ namespace CrankUp
 {
 	public partial class FinishButton : Button
 	{
+		[Export] private string _levelsScenePath = "res://Menus/Levels/Scenes/Levels.tscn";
+		private Node _levelsInstance;
 		private Window victoryScreen1, victoryScreen2, victoryScreen3, loseScreen;
 		private PlacementArea placementArea;
 		private float score;
@@ -68,7 +70,7 @@ namespace CrankUp
 
 		private void LevelDone(string levelName)
 		{
-			Node levelButtonPath = GetTree().Root.GetNode<Node>("res://Menus/Levels/Scenes/Levels.tscn/Levels/Buttons");
+			Node levelButtonPath = GetTree().Root.GetNode<Node>("/root/Menus/Levels/Scenes/Levels.tscn/Levels/Buttons");
 
 			if (levelButtonPath == null)
 			{
@@ -82,11 +84,17 @@ namespace CrankUp
 
 				levelButton.Disabled = false;
 
-				TextureRect lockIcon = levelButton.GetNodeOrNull<TextureRect>("Lock");
-				lockIcon.Visible = false;
+				TextureRect flagIcon = levelButton.GetNode<TextureRect>("Flag");
+				if (flagIcon != null)
+				{
+					flagIcon.Visible = true;
+				}
 
-				TextureRect flagIcon = levelButton.GetNodeOrNull<TextureRect>("Flag");
-				flagIcon.Visible = true;
+				TextureRect number = levelButton.GetNode<TextureRect>("Number");
+				if (number != null)
+				{
+					number.Visible = true;
+				}
 			}
 		}
 	}
