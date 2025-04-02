@@ -120,6 +120,6 @@ texture = SubResource("AtlasTexture_4ic6r")
 flip_h = true
 
 [node name="TruckBlue" type="Sprite2D" parent="."]
-position = Vector2(252, 380)
+position = Vector2(304, 385)
 scale = Vector2(1.1059, 1.1059)
 texture = ExtResource("6_q0w1u")

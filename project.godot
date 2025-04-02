@@ -18,6 +18,7 @@ config/icon="res://Assets/Logos/Icon.png"
 [autoload]
 
 MultiTouchVSlider="*res://Gui/Scripts/MultiTouchVSlider.cs"
+AudioManager="*res://Game/Scripts/AudioManager.cs"
 
 [display]
 
@@ -64,14 +65,10 @@ Rotate={
 "events": []
 }
 
-<<<<<<< HEAD
-=======
 [navigation]
 
 3d/autoload_on_startup=false
 
-
->>>>>>> 0c03fe999acebf54c79fee167c105d56f9d7a23d
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
