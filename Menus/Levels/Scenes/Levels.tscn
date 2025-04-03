@@ -127,7 +127,7 @@ theme_override_font_sizes/font_size = 40
 text = "4
 "
 
-[node name="Flag2" type="Sprite2D" parent="Buttons/Level4"]
+[node name="Flag" type="Sprite2D" parent="Buttons/Level4"]
 visible = false
 position = Vector2(99.9999, -12)
 scale = Vector2(0.4, 0.4)

@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvt1f0qeqldcn"]
+
+[ext_resource type="Texture2D" uid="uid://dvo5gsqmussji" path="res://Assets/Animations/logo.png" id="1_hrowh"]
+
+[sub_resource type="Animation" id="Animation_o7kg5"]
+resource_name = "GlitchAnimation"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0.266667, 0.5, 0.6, 0.633333, 0.766667, 1.06667, 1.46667, 1.66667, 1.73333, 1.9, 2.03333, 2.43333, 2.73333, 2.86667, 2.93333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 2, 3, 0, 0, 0, 1, 2, 3, 0, 0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_8ei8a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x8o1p"]
+_data = {
+"GlitchAnimation": SubResource("Animation_o7kg5"),
+"RESET": SubResource("Animation_8ei8a")
+}
+
+[node name="GameStart" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(655, 361)
+scale = Vector2(10.4286, 10.4286)
+texture = ExtResource("1_hrowh")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_x8o1p")
+}
+autoplay = "GlitchAnimation"

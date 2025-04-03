@@ -87,6 +87,7 @@ theme_override_font_sizes/font_size = 26
 text = "SKIP"
 
 [node name="SkipButton2" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 929.0
 offset_top = 155.0
 offset_right = 1040.0

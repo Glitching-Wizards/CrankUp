@@ -59,7 +59,7 @@ namespace CrankUp
             Node currentScene = GetTree().CurrentScene;
 
             this.Hide();
-            TogglePause();  // työn alla
+            GetTree().Paused = false;
 
         }
 
