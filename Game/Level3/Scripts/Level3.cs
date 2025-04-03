@@ -19,6 +19,7 @@ public partial class Level3 : Node2D
 	[Export] private string _containerRedScenePath = "res://Game/Scenes/ContainerRedSmall.tscn";
 	[Export] private string _containerBlueLScenePath = "res://Game/Scenes/ContainerBlueLSmall.tscn";
 	[Export] private string _containerBlueLInvertedScenePath = "res://Game/Scenes/ContainerBlueLSmallInverted.tscn";
+	[Export] private string _containerGreenLScenePath = "res://Game/Scenes/ContainerGreenLSmall.tscn";
 	[Export] private string _containerYellowLScenePath = "res://Game/Scenes/ContainerYellowLSmall.tscn";
 	[Export] private string _containerYellowLInvertedScenePath = "res://Game/Scenes/ContainerYellowLSmallInverted.tscn";
 	[Export] private string _containerYellowScenePath = "res://Game/Scenes/ContainerYellowSmall.tscn";
@@ -36,16 +37,19 @@ public partial class Level3 : Node2D
 	private PackedScene _containerRedScene;
 	private PackedScene _containerYellowScene;
 	private PackedScene _containerGreenScene;
-	private PackedScene _containerBlueLScene;
+	private PackedScene _containerGreenLScene;
 	private PackedScene _containerYellowLScene;
 	private PackedScene _containerRedLScene;
+	private PackedScene _containerBlueLScene;
 	private PackedScene _containerBlueLInvertedScene;
 	private PackedScene _containerYellowLInvertedScene;
 
 	private TextureButton blockButton;
 	private TextureButton containerRedButton;
+	private TextureButton containerRed2Button;
 	private TextureButton containerYellowButton;
 	private TextureButton containerGreenButton;
+	private TextureButton containerGreenLButton;
 	private TextureButton containerBlueLButton;
 	private TextureButton containerBlueLInvertedButton;
 	private TextureButton containerYellowLButton;
@@ -54,8 +58,10 @@ public partial class Level3 : Node2D
 
 	private bool blockButtonPressed = false;
 	private bool containerRedButtonPressed = false;
+	private bool containerRed2ButtonPressed = false;
 	private bool containerYellowButtonPressed = false;
 	private bool containerGreenButtonPressed = false;
+	private bool containerGreenLButtonPressed = false;
 	private bool containerBlueLButtonPressed = false;
 	private bool containerBlueLInvertedButtonPressed = false;
 	private bool containerYellowLButtonPressed = false;
@@ -88,6 +94,7 @@ public partial class Level3 : Node2D
 		_containerRedScene = ResourceLoader.Load<PackedScene>(_containerRedScenePath);
 		_containerYellowScene = ResourceLoader.Load<PackedScene>(_containerYellowScenePath);
 		_containerGreenScene = ResourceLoader.Load<PackedScene>(_containerGreenScenePath);
+		_containerGreenLScene = ResourceLoader.Load<PackedScene>(_containerGreenLScenePath);
 		_containerBlueLScene = ResourceLoader.Load<PackedScene>(_containerBlueLScenePath);
 		_containerBlueLInvertedScene = ResourceLoader.Load<PackedScene>(_containerBlueLInvertedScenePath);
 		_containerYellowLScene = ResourceLoader.Load<PackedScene>(_containerYellowLScenePath);
@@ -96,10 +103,12 @@ public partial class Level3 : Node2D
 
 		blockButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/Block");
 		containerRedButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerRed");
+		containerRed2Button = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerRed2");
 		containerGreenButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerGreen");
 		containerYellowButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerYellow");
-		containerBlueLButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerBlueL");
+		containerGreenLButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerGreenL");
 		containerYellowLButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerYellowL");
+		containerBlueLButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerBlueL");
 		containerBlueLInvertedButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerBlueLInverted");
 		containerYellowLInvertedButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerYellowLInverted");
 		containerRedLButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerRedL");
@@ -116,6 +125,12 @@ public partial class Level3 : Node2D
 			SpawnBlockButtonPressed(_containerRedScene, containerRedButton);
 		};
 
+		containerRed2Button.Pressed += () =>
+		{
+			containerRed2ButtonPressed = true;
+			SpawnBlockButtonPressed(_containerRedScene, containerRed2Button);
+		};
+
 		containerGreenButton.Pressed += () =>
 		{
 			containerGreenButtonPressed = true;
@@ -128,16 +143,22 @@ public partial class Level3 : Node2D
 			SpawnBlockButtonPressed(_containerYellowScene, containerYellowButton);
 		};
 		
-		containerBlueLButton.Pressed += () =>
+		containerGreenLButton.Pressed += () =>
 		{
-			containerBlueLButtonPressed = true;
-			SpawnBlockButtonPressed(_containerBlueLScene, containerBlueLButton);
+			containerGreenLButtonPressed = true;
+			SpawnBlockButtonPressed(_containerGreenLScene, containerGreenLButton);
 		};
 
 		containerYellowLButton.Pressed += () =>
 		{
 			containerYellowLButtonPressed = true;
 			SpawnBlockButtonPressed(_containerYellowLScene, containerYellowLButton);
+		};
+
+		containerBlueLButton.Pressed += () =>
+		{
+			containerBlueLButtonPressed = true;
+			SpawnBlockButtonPressed(_containerBlueLScene, containerBlueLButton);
 		};
 
 		containerBlueLInvertedButton.Pressed += () =>
@@ -196,8 +217,8 @@ public partial class Level3 : Node2D
 		button.QueueFree();
 
 		// Check if all buttons are removed
-		if (blockButtonPressed && containerRedButtonPressed && containerBlueLButtonPressed && containerBlueLInvertedButtonPressed && containerYellowLButtonPressed && containerYellowLInvertedButtonPressed) interim = true;
-		if (interim && containerGreenButtonPressed && containerYellowButtonPressed && containerRedLButtonPressed) endLevel = true;
+		if (blockButtonPressed && containerRedButtonPressed && containerGreenLButtonPressed && containerBlueLInvertedButtonPressed && containerYellowLButtonPressed && containerYellowLInvertedButtonPressed) interim = true;
+		if (interim && containerGreenButtonPressed && containerYellowButtonPressed && containerRedLButtonPressed && containerRed2ButtonPressed && containerBlueLButtonPressed) endLevel = true;
 	}
 
 	public override void _Process(double delta)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://252rm6ype62b"]
+[gd_scene load_steps=21 format=3 uid="uid://252rm6ype62b"]
 
 [ext_resource type="Script" path="res://Game/Level5/Scripts/Level5.cs" id="1_bhd71"]
 [ext_resource type="PackedScene" uid="uid://dnr4wgld8simd" path="res://Gui/Background.tscn" id="2_xlix4"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://ck4oieai5v8t6" path="res://Game/Scenes/Claw.tscn" id="10_mel3e"]
 [ext_resource type="Texture2D" uid="uid://e6m3vbk1t4am" path="res://Assets/Blocks/container_cardboard_T1.png" id="10_yh3m7"]
 [ext_resource type="Script" path="res://Game/Scripts/PlacementArea.cs" id="11_ax0fi"]
+[ext_resource type="Texture2D" uid="uid://dktk418ydlm2w" path="res://Assets/Blocks/container_L_yellow.png" id="11_xkiqp"]
 [ext_resource type="PackedScene" uid="uid://d3h8yejbsuxbm" path="res://Menus/LevelWinLose/Scenes/Win.tscn" id="13_83gl8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lbwca"]
@@ -29,7 +30,7 @@ atlas = ExtResource("7_wuwh5")
 region = Rect2(0, 0, 300, 300)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mm6i7"]
-atlas = ExtResource("7_wuwh5")
+atlas = ExtResource("11_xkiqp")
 region = Rect2(0, 0, 300, 300)
 
 [node name="Level5" type="Node2D"]
@@ -118,9 +119,9 @@ flip_h = true
 [node name="ContainerBlueL" type="TextureButton" parent="ConveyorBelt/BlockButtons"]
 layout_mode = 0
 offset_left = 736.0
-offset_top = 213.0
+offset_top = 223.0
 offset_right = 886.0
-offset_bottom = 363.0
+offset_bottom = 373.0
 texture_normal = SubResource("AtlasTexture_lbwca")
 ignore_texture_size = true
 stretch_mode = 0
@@ -158,20 +159,20 @@ stretch_mode = 0
 [node name="ContainerBlueLInverted" type="TextureButton" parent="ConveyorBelt/BlockButtons"]
 layout_mode = 0
 offset_left = 193.0
-offset_top = 220.0
+offset_top = 230.0
 offset_right = 343.0
-offset_bottom = 370.0
+offset_bottom = 380.0
 texture_normal = SubResource("AtlasTexture_r3jwb")
 ignore_texture_size = true
 stretch_mode = 0
 flip_h = true
 
-[node name="ContainerBlueLInverted2" type="TextureButton" parent="ConveyorBelt/BlockButtons"]
+[node name="ContainerYellowLInverted" type="TextureButton" parent="ConveyorBelt/BlockButtons"]
 layout_mode = 0
 offset_left = 343.0
-offset_top = 219.0
+offset_top = 229.0
 offset_right = 493.0
-offset_bottom = 369.0
+offset_bottom = 379.0
 texture_normal = SubResource("AtlasTexture_mm6i7")
 ignore_texture_size = true
 stretch_mode = 0
@@ -198,23 +199,24 @@ stretch_mode = 0
 
 [node name="ContainerBox2" type="TextureButton" parent="ConveyorBelt/BlockButtons"]
 layout_mode = 0
-offset_left = -282.0
-offset_top = 247.0
-offset_right = -163.0
-offset_bottom = 362.0
+offset_left = -412.0
+offset_top = 241.0
+offset_right = -293.0
+offset_bottom = 356.0
 texture_normal = ExtResource("8_mxma0")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="ContainerBox3" type="TextureButton" parent="ConveyorBelt/BlockButtons"]
+[node name="ContainerZInverted2" type="TextureButton" parent="ConveyorBelt/BlockButtons"]
 layout_mode = 0
-offset_left = -420.0
-offset_top = 246.0
-offset_right = -301.0
-offset_bottom = 361.0
-texture_normal = ExtResource("8_mxma0")
+offset_left = -313.0
+offset_top = 242.0
+offset_right = -123.0
+offset_bottom = 368.0
+texture_normal = ExtResource("6_i4leq")
 ignore_texture_size = true
 stretch_mode = 0
+flip_h = true
 
 [node name="Ui" type="Control" parent="."]
 layout_mode = 3
@@ -271,9 +273,9 @@ visible = false
 [connection signal="pressed" from="ConveyorBelt/BlockButtons/ContainerYellow" to="." method="_on_container_yellow_pressed"]
 [connection signal="pressed" from="ConveyorBelt/BlockButtons/CardboardT" to="." method="_on_cardboard_t_pressed"]
 [connection signal="pressed" from="ConveyorBelt/BlockButtons/ContainerBlueLInverted" to="." method="_on_container_blue_l_inverted_pressed"]
-[connection signal="pressed" from="ConveyorBelt/BlockButtons/ContainerBlueLInverted2" to="." method="_on_container_blue_l_inverted_2_pressed"]
+[connection signal="pressed" from="ConveyorBelt/BlockButtons/ContainerYellowLInverted" to="." method="_on_container_blue_l_inverted_2_pressed"]
 [connection signal="pressed" from="ConveyorBelt/BlockButtons/CardboardT2" to="." method="_on_cardboard_t_2_pressed"]
 [connection signal="pressed" from="ConveyorBelt/BlockButtons/ContainerZ2" to="." method="_on_container_z_2_pressed"]
 [connection signal="pressed" from="ConveyorBelt/BlockButtons/ContainerBox2" to="." method="_on_container_box_2_pressed"]
-[connection signal="pressed" from="ConveyorBelt/BlockButtons/ContainerBox3" to="." method="_on_container_box_3_pressed"]
+[connection signal="pressed" from="ConveyorBelt/BlockButtons/ContainerZInverted2" to="." method="_on_container_box_3_pressed"]
 [connection signal="body_entered" from="PlacementArea" to="PlacementArea" method="_on_body_entered"]

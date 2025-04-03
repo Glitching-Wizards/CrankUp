@@ -22,6 +22,7 @@ public partial class Level5 : Node2D
 	[Export] private string _containerYellowScenePath = "res://Game/Scenes/ContainerYellowSmall.tscn";
 	[Export] private string _containerBlueLScenePath = "res://Game/Scenes/ContainerBlueLSmall.tscn";
 	[Export] private string _containerBlueLInvertedScenePath = "res://Game/Scenes/ContainerBlueLSmallInverted.tscn";
+	[Export] private string _containerYellowLInvertedScenePath = "res://Game/Scenes/ContainerYellowLSmallInverted.tscn";
 
 	private Window settingsWindow;
 	private PackedScene _clawScene = null;
@@ -37,32 +38,33 @@ public partial class Level5 : Node2D
 	private PackedScene _containerYellowScene;
 	private PackedScene _containerBlueLScene;
 	private PackedScene _containerBlueLInvertedScene;
+	private PackedScene _containerYellowLInvertedScene;
 
 	private TextureButton containerZButton;
 	private TextureButton containerZ2Button;
 	private TextureButton containerZInvertedButton;
+	private TextureButton containerZInverted2Button;
 	private TextureButton cardboardTButton;
 	private TextureButton cardboardT2Button;
 	private TextureButton containerYellowButton;
 	private TextureButton containerBlueLButton;
 	private TextureButton containerBlueLInvertedButton;
-	private TextureButton containerBlueLInverted2Button;
+	private TextureButton containerYellowLInvertedButton;
 	private TextureButton containerBoxButton;
 	private TextureButton containerBox2Button;
-	private TextureButton containerBox3Button;
 
 	private bool containerZButtonPressed = false;
 	private bool containerZ2ButtonPressed = false;
 	private bool containerZInvertedButtonPressed = false;
+	private bool containerZInverted2ButtonPressed = false;
 	private bool cardboardTButtonPressed = false;
 	private bool cardboardT2ButtonPressed = false;
 	private bool containerYellowButtonPressed = false;
 	private bool containerBlueLButtonPressed = false;
 	private bool containerBlueLInvertedButtonPressed = false;
-	private bool containerBlueLInverted2ButtonPressed = false;
+	private bool containerYellowLInvertedButtonPressed = false;
 	private bool containerBoxButtonPressed = false;
 	private bool containerBox2ButtonPressed = false;
-	private bool containerBox3ButtonPressed = false;
 
 	private bool startLevel = true;
 	private bool endLevel = false;
@@ -92,6 +94,7 @@ public partial class Level5 : Node2D
 		_containerBoxScene = ResourceLoader.Load<PackedScene>(_containerBoxScenePath);
 		_containerBlueLScene = ResourceLoader.Load<PackedScene>(_containerBlueLScenePath);
 		_containerBlueLInvertedScene = ResourceLoader.Load<PackedScene>(_containerBlueLInvertedScenePath);
+		_containerYellowLInvertedScene = ResourceLoader.Load<PackedScene>(_containerYellowLInvertedScenePath);
 		_cardboardTScene = ResourceLoader.Load<PackedScene>(_cardboardTScenePath);
 
 		containerZButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerZ");
@@ -100,12 +103,12 @@ public partial class Level5 : Node2D
 		containerYellowButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerYellow");
 		containerBlueLButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerBlueL");
 		containerBlueLInvertedButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerBlueLInverted");
-		containerBlueLInverted2Button = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerBlueLInverted2");
+		containerYellowLInvertedButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerYellowLInverted");
 		cardboardTButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/CardboardT");
 		cardboardT2Button = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/CardboardT2");
 		containerBoxButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerBox");
 		containerBox2Button = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerBox2");
-		containerBox3Button = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerBox3");
+		containerZInverted2Button = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerZInverted2");
 
 		containerZButton.Pressed += () =>
 		{
@@ -143,10 +146,10 @@ public partial class Level5 : Node2D
 			SpawnBlockButtonPressed(_containerBlueLInvertedScene, containerBlueLInvertedButton);
 		};
 
-		containerBlueLInverted2Button.Pressed += () =>
+		containerYellowLInvertedButton.Pressed += () =>
 		{
-			containerBlueLInverted2ButtonPressed = true;
-			SpawnBlockButtonPressed(_containerBlueLInvertedScene, containerBlueLInverted2Button);
+			containerYellowLInvertedButtonPressed = true;
+			SpawnBlockButtonPressed(_containerYellowLInvertedScene, containerYellowLInvertedButton);
 		};
 
 		cardboardTButton.Pressed += () =>
@@ -173,10 +176,10 @@ public partial class Level5 : Node2D
 			SpawnBlockButtonPressed(_containerBoxScene, containerBox2Button);
 		};
 
-		containerBox3Button.Pressed += () =>
+		containerZInverted2Button.Pressed += () =>
 		{
-			containerBox3ButtonPressed = true;
-			SpawnBlockButtonPressed(_containerBoxScene, containerBox3Button);
+			containerZInverted2ButtonPressed = true;
+			SpawnBlockButtonPressed(_containerZInvertedScene, containerZInverted2Button);
 		};
 	}
 
@@ -218,7 +221,7 @@ public partial class Level5 : Node2D
 
 		// Check if all buttons are removed
 		if (containerYellowButtonPressed && containerBlueLButtonPressed && containerZButtonPressed && containerZInvertedButtonPressed && containerBoxButtonPressed && cardboardTButtonPressed) interim = true;
-		if (interim && containerBlueLInvertedButtonPressed && containerBlueLInverted2ButtonPressed && cardboardT2ButtonPressed && containerBox2ButtonPressed && containerBox3ButtonPressed) endLevel = true;
+		if (interim && containerBlueLInvertedButtonPressed && containerYellowLInvertedButtonPressed && cardboardT2ButtonPressed && containerBox2ButtonPressed && containerZInverted2ButtonPressed) endLevel = true;
 	}
 
 	public override void _Process(double delta)

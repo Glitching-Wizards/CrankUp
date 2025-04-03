@@ -11,16 +11,6 @@ public partial class ClawBase : CharacterBody2D
 		clawHead = GetNode<ClawHead>("ClawHead");
 	}
 
-	private Vector2 ReadInput()
-	{
-		Vector2 moveDirection = Vector2.Zero;
-
-		if (Input.IsActionPressed(Config.MoveRightAction)) moveDirection += Vector2.Right;
-		if (Input.IsActionPressed(Config.MoveLeftAction)) moveDirection += Vector2.Left;
-
-		return moveDirection.Normalized();
-	}
-
 	public void Move(Vector2 direction, float speedFactor, double delta)
 	{
 		if (direction != Vector2.Zero)

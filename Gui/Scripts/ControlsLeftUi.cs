@@ -20,7 +20,7 @@ public partial class ControlsLeftUi : Control
             GD.PrintErr("[ERROR] TextureButton 'Rotate' not found in ControlsLeftUi!");
         }
 
-        // Find the moveSlider safely
+        // Find the moveSlider
         moveSlider = GetNodeOrNull<VSlider>("Panel/MoveSlider");
         if (moveSlider == null)
         {
@@ -28,7 +28,7 @@ public partial class ControlsLeftUi : Control
             return;
         }
 
-        // Find ClawHead dynamically
+        // Find ClawHead
         clawHead = GetTree().Root.FindChild("ClawHead", true, false) as ClawHead;
         if (clawHead == null)
         {
@@ -78,6 +78,31 @@ public partial class ControlsLeftUi : Control
             GD.PrintErr("[ERROR] ClawHead reference is missing!");
             return;
         }
+
+        if (Input.IsActionPressed(Config.MoveUpAction))
+        {
+            moveSliderValue = 35;
+            moveSlider.Value = moveSliderValue;
+            movementDirection = Vector2.Up;
+        }
+        else if (Input.IsActionPressed(Config.MoveDownAction))
+        {
+            moveSliderValue = -35;
+            moveSlider.Value = moveSliderValue;
+            movementDirection = Vector2.Down;
+        }
+        else
+        {
+            moveSliderValue = 0;
+            moveSlider.Value = moveSliderValue;
+            movementDirection = Vector2.Zero;
+        }
+
+        if (Input.IsActionJustPressed(Config.RotateAction))
+        {
+            OnRotatePressed();
+        }
+
         clawHead.Move(movementDirection, moveSliderValue, delta);
     }
 }
