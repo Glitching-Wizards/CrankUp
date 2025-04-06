@@ -73,9 +73,9 @@ stretch_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -227.5
+offset_left = -244.5
 offset_top = 4.0
-offset_right = 227.5
+offset_right = 210.5
 offset_bottom = 134.0
 grow_horizontal = 2
 theme = ExtResource("3_c0bsf")
@@ -99,9 +99,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -96.0
+offset_left = -101.0
 offset_top = -18.0
-offset_right = 96.0
+offset_right = 91.0
 offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -110,6 +110,7 @@ size_flags_vertical = 0
 theme = ExtResource("3_c0bsf")
 theme_override_font_sizes/font_size = 40
 text = "LANGUAGE"
+horizontal_alignment = 1
 
 [node name="Master" type="TextureRect" parent="Boxes"]
 offset_left = 60.0
@@ -126,9 +127,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -96.0
+offset_left = -101.0
 offset_top = -18.0
-offset_right = 96.0
+offset_right = 91.0
 offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -137,6 +138,7 @@ size_flags_vertical = 0
 theme = ExtResource("3_c0bsf")
 theme_override_font_sizes/font_size = 40
 text = "MASTER"
+horizontal_alignment = 1
 
 [node name="SFX" type="TextureRect" parent="Boxes"]
 offset_left = 60.0
@@ -153,9 +155,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -96.0
+offset_left = -101.0
 offset_top = -18.0
-offset_right = 96.0
+offset_right = 91.0
 offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -164,6 +166,7 @@ size_flags_vertical = 0
 theme = ExtResource("3_c0bsf")
 theme_override_font_sizes/font_size = 40
 text = "SFX"
+horizontal_alignment = 1
 
 [node name="Music" type="TextureRect" parent="Boxes"]
 offset_left = 60.0
@@ -180,9 +183,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -96.0
+offset_left = -101.0
 offset_top = -18.0
-offset_right = 96.0
+offset_right = 91.0
 offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -191,6 +194,7 @@ size_flags_vertical = 0
 theme = ExtResource("3_c0bsf")
 theme_override_font_sizes/font_size = 40
 text = "MUSIC"
+horizontal_alignment = 1
 
 [node name="Buttons" type="Node" parent="."]
 
