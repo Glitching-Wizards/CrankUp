@@ -1,9 +1,167 @@
-[gd_scene load_steps=9 format=3 uid="uid://dnr4wgld8simd"]
+[gd_scene load_steps=17 format=3 uid="uid://dnr4wgld8simd"]
 
 [ext_resource type="Texture2D" uid="uid://k2ji4rswhfbd" path="res://Assets/Backgrounds/Level1Background.png" id="1_4yqy1"]
+[ext_resource type="Texture2D" uid="uid://bgdnq58ms063j" path="res://Assets/Animations/LargeClouds.png" id="2_g4tm8"]
 [ext_resource type="Texture2D" uid="uid://dhqs8welv03pn" path="res://Assets/Backgrounds/AsphaltBlocks.png" id="3_p5dii"]
+[ext_resource type="Texture2D" uid="uid://baajqx10nrlby" path="res://Assets/Animations/SmallClouds.png" id="3_wwbyc"]
 [ext_resource type="Texture2D" uid="uid://ig6u8vw34kal" path="res://Assets/Backgrounds/platform.png" id="4_utd2n"]
 [ext_resource type="Texture2D" uid="uid://d4axb8wy7ry3s" path="res://Assets/Backgrounds/TruckModel2.png" id="5_s8oss"]
+
+[sub_resource type="Animation" id="Animation_8ulh6"]
+resource_name = "LargeClouds"
+length = 64.0
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 13, 18, 23, 28, 33, 38, 43, 48, 53, 58, 63, 64),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(640, 162), Vector2(660, 162), Vector2(680, 162), Vector2(700, 162), Vector2(720, 162), Vector2(740, 162), Vector2(760, 162), Vector2(780, 162), Vector2(800, 162), Vector2(820, 162), Vector2(840, 162), Vector2(900, 162), Vector2(1000, 162), Vector2(1100, 162), Vector2(1200, 162), Vector2(1300, 162), Vector2(1400, 162), Vector2(1500, 162), Vector2(1600, 162), Vector2(1700, 162), Vector2(1800, 162), Vector2(1900, 162), Vector2(1920, 162)]
+}
+
+[sub_resource type="Animation" id="Animation_pogyg"]
+resource_name = "LargeClouds2"
+length = 64.0
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 64),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-640, 162), Vector2(640, 164)]
+}
+
+[sub_resource type="Animation" id="Animation_r06gj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(640, 162)]
+}
+
+[sub_resource type="Animation" id="Animation_2o74m"]
+resource_name = "SmallClouds"
+length = 100.0
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 100),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(640, 162), Vector2(1920, 162)]
+}
+
+[sub_resource type="Animation" id="Animation_ltmmf"]
+resource_name = "SmallClouds2"
+length = 100.0
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 100),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-641, 163), Vector2(640, 167)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5t5hp"]
+_data = {
+"LargeClouds": SubResource("Animation_8ulh6"),
+"LargeClouds2": SubResource("Animation_pogyg"),
+"RESET": SubResource("Animation_r06gj"),
+"SmallClouds": SubResource("Animation_2o74m"),
+"SmallClouds2": SubResource("Animation_ltmmf")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6rl4w"]
 size = Vector2(1055, 58)
@@ -36,6 +194,50 @@ offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 texture = ExtResource("1_4yqy1")
+
+[node name="LargeClouds" type="Sprite2D" parent="Background"]
+position = Vector2(640, 162)
+scale = Vector2(1.04791, 1)
+texture = ExtResource("2_g4tm8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/LargeClouds"]
+libraries = {
+"": SubResource("AnimationLibrary_5t5hp")
+}
+autoplay = "LargeClouds"
+
+[node name="SmallClouds" type="Sprite2D" parent="Background"]
+position = Vector2(640, 162)
+scale = Vector2(1.04934, 1)
+texture = ExtResource("3_wwbyc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/SmallClouds"]
+libraries = {
+"": SubResource("AnimationLibrary_5t5hp")
+}
+autoplay = "SmallClouds"
+
+[node name="LargeClouds2" type="Sprite2D" parent="Background"]
+position = Vector2(640, 162)
+scale = Vector2(1.04791, 1)
+texture = ExtResource("2_g4tm8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/LargeClouds2"]
+libraries = {
+"": SubResource("AnimationLibrary_5t5hp")
+}
+autoplay = "LargeClouds2"
+
+[node name="SmallClouds2" type="Sprite2D" parent="Background"]
+position = Vector2(640, 162)
+scale = Vector2(1.0475, 1)
+texture = ExtResource("3_wwbyc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/SmallClouds2"]
+libraries = {
+"": SubResource("AnimationLibrary_5t5hp")
+}
+autoplay = "SmallClouds2"
 
 [node name="Asfalt" type="StaticBody2D" parent="Background"]
 position = Vector2(67, 516)

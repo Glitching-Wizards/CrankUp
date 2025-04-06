@@ -1,15 +1,48 @@
-[gd_scene load_steps=10 format=3 uid="uid://brjgb4ke34ftt"]
+[gd_scene load_steps=12 format=3 uid="uid://brjgb4ke34ftt"]
 
 [ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="1_aawvh"]
-[ext_resource type="Texture2D" uid="uid://cc2i7swbkcq22" path="res://Assets/Backgrounds/JarkkoNormal.png" id="2_b7hay"]
+[ext_resource type="Texture2D" uid="uid://bjl34nmf2fffy" path="res://Assets/Animations/JarkkoNormalAnimated.png" id="2_evmaa"]
 [ext_resource type="Texture2D" uid="uid://b5g664pjgk0gc" path="res://Assets/Victory/SpeechBubbleCorner.png" id="3_j8stv"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="4_rptnn"]
 [ext_resource type="Texture2D" uid="uid://dutfm1xl7kjf0" path="res://Assets/Gui/Buttons/forward_arrow.png" id="5_cng66"]
 [ext_resource type="Texture2D" uid="uid://ca30paq1c5g1s" path="res://Assets/Gui/Buttons/TutorialArrow.png" id="6_33og3"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_12tch"]
-atlas = ExtResource("2_b7hay")
-region = Rect2(0, 0, 278, 0)
+[sub_resource type="Animation" id="Animation_l75ec"]
+resource_name = "JarkkoNormal"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.533333, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 3, 2]
+}
+
+[sub_resource type="Animation" id="Animation_e04tv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tg0mq"]
+_data = {
+"JarkkoNormal": SubResource("Animation_l75ec"),
+"RESET": SubResource("Animation_e04tv")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lwo64"]
 atlas = ExtResource("5_cng66")
@@ -38,43 +71,18 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_aawvh")
 
-[node name="Jarkko" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 902.0
-offset_top = 121.0
-offset_right = 1438.0
-offset_bottom = 1086.0
-texture = SubResource("AtlasTexture_12tch")
+[node name="Jarkko" type="Sprite2D" parent="."]
+position = Vector2(1150, 599)
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("2_evmaa")
 flip_h = true
+hframes = 5
 
-[node name="Jarkko2" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 902.0
-offset_top = 121.0
-offset_right = 1438.0
-offset_bottom = 1086.0
-texture = SubResource("AtlasTexture_12tch")
-flip_h = true
-
-[node name="SpeechBubble" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 333.0
-offset_top = 351.0
-offset_right = 1015.0
-offset_bottom = 606.0
-texture = ExtResource("3_j8stv")
-flip_v = true
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="SpeechBubble"]
-layout_mode = 0
-offset_left = 55.0
-offset_top = 115.0
-offset_right = 609.0
-offset_bottom = 231.0
-theme = ExtResource("4_rptnn")
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 27
-text = "TUTORIAL4"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Jarkko"]
+libraries = {
+"": SubResource("AnimationLibrary_tg0mq")
+}
+autoplay = "JarkkoNormal"
 
 [node name="SkipButton" type="TextureButton" parent="."]
 layout_mode = 0
@@ -105,3 +113,23 @@ offset_right = 322.0
 offset_bottom = 496.0
 rotation = -1.29447
 texture = ExtResource("6_33og3")
+
+[node name="SpeechBubble" type="TextureRect" parent="."]
+offset_left = 274.0
+offset_top = 315.0
+offset_right = 1038.0
+offset_bottom = 620.0
+texture = ExtResource("3_j8stv")
+flip_v = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SpeechBubble"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 130.0
+offset_right = 617.0
+offset_bottom = 246.0
+theme = ExtResource("4_rptnn")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 27
+text = "TUTORIAL4
+"

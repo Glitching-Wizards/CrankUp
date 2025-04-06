@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-
+/*
 namespace CrankUp;
 public partial class Tutorial : Node
 {
@@ -130,4 +130,4 @@ public partial class Tutorial : Node
         }
         GD.Print("Tutorial skipped");
     }
-}
+} */

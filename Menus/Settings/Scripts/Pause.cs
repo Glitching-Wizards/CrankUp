@@ -34,9 +34,9 @@ namespace CrankUp
             settingsWindow = (Window)settingsScene.Instantiate();
             AddChild(settingsWindow);
             settingsWindow.Hide();
-
+            /*
             TextureButton tutorialButton = GetNode<TextureButton>("Buttons/TutorialButton");
-            tutorialButton.Pressed += TutorialButtonPressed;
+            tutorialButton.Pressed += TutorialButtonPressed; */
         }
 
 
@@ -59,7 +59,8 @@ namespace CrankUp
             Node currentScene = GetTree().CurrentScene;
 
             this.Hide();
-            GetTree().Paused = false;
+            /*
+            GetTree().Paused = false; */
 
         }
 
@@ -68,7 +69,7 @@ namespace CrankUp
             GD.Print("Settings Pressed");
             settingsWindow.Popup();
         }
-
+        /*
         public void TutorialButtonPressed()
         {
             GD.Print("Tutorial Pressed");
@@ -99,7 +100,7 @@ namespace CrankUp
         {
             IsPaused = !IsPaused;
             GetTree().Paused = IsPaused;
-        }
-    }
+        } */
+    } 
 }
 
