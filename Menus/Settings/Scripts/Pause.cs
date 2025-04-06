@@ -28,13 +28,14 @@ namespace CrankUp
             TextureButton exitButton = GetNode<TextureButton>("Buttons/ExitButton");
             exitButton.Pressed += ExitButtonPressed;
 
-            TextureButton settingsButton = GetNode<TextureButton>("Buttons/SettingsButton");
+            TextureButton  settingsButton = GetNode<TextureButton>("Buttons/SettingsButton");
             settingsButton.Pressed += SettingsButtonPressed;
 
             PackedScene settingsScene = (PackedScene)GD.Load(_settingsScenePath);
             settingsWindow = (Window)settingsScene.Instantiate();
             AddChild(settingsWindow);
             settingsWindow.Hide();
+
             /*
             TextureButton tutorialButton = GetNode<TextureButton>("Buttons/TutorialButton");
             tutorialButton.Pressed += TutorialButtonPressed; */
@@ -64,6 +65,7 @@ namespace CrankUp
 
             /*
             GetTree().Paused = false; */
+
         }
 
         public void SettingsButtonPressed()
@@ -106,4 +108,3 @@ namespace CrankUp
         } */
     } 
 }
-
