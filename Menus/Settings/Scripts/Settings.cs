@@ -10,6 +10,8 @@ namespace CrankUp
 		[Export] private TextureButton _fiButton = null;
 		[Export] private TextureButton _enButton = null;
 		private SettingsData _data = null;
+		private string _originalLanguage = null;
+		private string langCode;
 
 
 		public override void _Ready()
@@ -21,43 +23,27 @@ namespace CrankUp
 			ApplyData(_data);
 
 			_fiButton = GetNodeOrNull<TextureButton>("Buttons/FI");
-            _fiButton.Pressed += FiButtonPressed;
+			_fiButton.Pressed += FiButtonPressed;
 
 			_enButton = GetNodeOrNull<TextureButton>("Buttons/EN");
-            _enButton.Pressed += EnButtonPressed;
+			_enButton.Pressed += EnButtonPressed;
 
 			TextureButton exitButton = GetNode<TextureButton>("ExitButton");
-			if (exitButton == null)
-			{
-				GD.PrintErr("[ERROR] ExitButton not found in Settings.tscn");
-			}
-			else
-			{
-				exitButton.Pressed += ExitButtonPressed;
-			}
+			exitButton.Pressed += ExitButtonPressed;
+		}
 
-			if (_fiButton != null)
-			{
-				_fiButton.Connect("pressed",
-				new Callable(this, nameof(FiButtonPressed)));
-			}
-
-			if (_enButton != null)
-			{
-				_enButton.Connect("pressed",
-				new Callable(this, nameof(EnButtonPressed)));
-			}
+		public void Initialized()
+		{
+			_originalLanguage = GetLanguage();
 		}
 
 		private void FiButtonPressed()
 		{
-			GD.Print("FI Button Pressed");
 			ChangeLanguage("fi");
 		}
 
 		private void EnButtonPressed()
 		{
-			GD.Print("EN Button Pressed");
 			ChangeLanguage("en");
 		}
 
@@ -65,12 +51,14 @@ namespace CrankUp
 		{
 			if (_data == null)
 			{
+				GD.PrintErr("Error: Settings data is null.");
 				return false;
 			}
 			_data.LangCode = LangCode;
+
 			TranslationServer.SetLocale(LangCode);
-			GD.Print($"Language changed to: {LangCode}");
-			// tallennus
+
+			SaveSettings();
 
 			return true;
 		}
@@ -81,11 +69,11 @@ namespace CrankUp
 			{
 				return;
 			}
-/*
-			// Aseta äänenvoimakkuudet.
-			SetVolume("Master", data.MasterVolume);
-			SetVolume("Music", data.MusicVolume);
-			SetVolume("SFX", data.SfxVolume); */
+			/*
+						// Aseta äänenvoimakkuudet.
+						SetVolume("Master", data.MasterVolume);
+						SetVolume("Music", data.MusicVolume);
+						SetVolume("SFX", data.SfxVolume); */
 
 			// Aseta kieli.
 			SetLanguage(data.LangCode);
@@ -116,22 +104,23 @@ namespace CrankUp
 		private SettingsData LoadSettings()
 		{
 			SettingsData data = null;
+
 			ConfigFile settingsConfig = new ConfigFile();
 			if (settingsConfig.Load(Config.SettingsFile) == Error.Ok)
 			{
-				// Settings-tiedosto ladattiin onnistuneesti.
 				data = new SettingsData
 				{
 					LangCode = (string)settingsConfig.GetValue("Localization", "LangCode", "en"),
 					MasterVolume = (float)settingsConfig.GetValue("Audio", "MasterVolume", -6.0f),
 					MusicVolume = (float)settingsConfig.GetValue("Audio", "MusicVolume", -6.0f),
-					SfxVolume = (float)settingsConfig.GetValue("Audio", "SfxVolume", -6.0f)
+					SfxVolume = (float)settingsConfig.GetValue("Audio", "SfxVolume", -6.0f),
 				};
 			}
 			else
 			{
 				// Asetustiedostoa ei löydetty, luodaan oletusasetukset.
-				/*data = SettingsData.CreateDefaults();*/
+				data = SettingsData.CreateDefaults();
+				SaveSettings();
 			}
 
 			return data;
@@ -184,12 +173,12 @@ namespace CrankUp
 
 			volumeDB = AudioServer.GetBusVolumeDb(busIndex);
 			return true;
-		}
+		}*/
 
 		public string GetLanguage()
 		{
 			return TranslationServer.GetLocale();
-		}*/
+		}
 
 		public bool SetLanguage(string langCode)
 		{
@@ -201,6 +190,8 @@ namespace CrankUp
 			_data.LangCode = langCode;
 			TranslationServer.SetLocale(langCode);
 
+			// Käyttöliittymän päivitys
+			UpdateUIForNewLanguage();
 			// Välitä tieto kielen vaihtumisesta.
 			EmitSignal(SignalName.LanguageChanged, langCode);
 
@@ -224,8 +215,24 @@ namespace CrankUp
 			}
 			else
 			{
-            	GetTree().ChangeSceneToFile(_levelsScenePath);
+				GetTree().ChangeSceneToFile(_levelsScenePath);
+			}
+		}
+
+		private void UpdateUIForNewLanguage()
+		{
+			// Tässä voit päivittää UI:n tekstit, jos ne eivät ole automaattisesti päivittyneet.
+			// Esimerkiksi:
+			var labels = GetTree().GetNodesInGroup("ui_labels");
+			foreach (var label in labels)
+			{
+				if (label is Label)
+				{
+					(label as Label).Text = (label as Label).Text;  // Päivitä teksti
+				}
 			}
 		}
 	}
 }
+
+

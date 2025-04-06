@@ -1,12 +1,13 @@
 using Godot;
 using System;
 
+namespace CrankUp;
 public partial class Block : RigidBody2D
 {
 	[Export] private int maxHealth = 5;
 	private int currentHealth;
 	private Sprite2D sprite;
-	private PinJoint2D joint; 
+	private PinJoint2D joint;
 
 	[Export] private Texture2D healthy;
 	[Export] private Texture2D damaged;
