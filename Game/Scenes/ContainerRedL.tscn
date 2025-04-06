@@ -1,38 +1,37 @@
-[gd_scene load_steps=7 format=3 uid="uid://dln6wt6vmcoke"]
+[gd_scene load_steps=7 format=3 uid="uid://dnosdlk5ga1o7"]
 
-[ext_resource type="Script" path="res://Game/Scripts/Block.cs" id="1_phlf7"]
-[ext_resource type="Texture2D" uid="uid://dhfsv772pihq1" path="res://Assets/Blocks/container_L_blue.png" id="3_y8n0n"]
+[ext_resource type="Script" path="res://Game/Scripts/Block.cs" id="1_q58q7"]
+[ext_resource type="Texture2D" uid="uid://de7udhwmd0tm3" path="res://Assets/Blocks/container_L_red.png" id="2_hetop"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_je632"]
-atlas = ExtResource("3_y8n0n")
+atlas = ExtResource("2_hetop")
 region = Rect2(1, 0, 274, 260)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i8btl"]
-atlas = ExtResource("3_y8n0n")
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbem0"]
+atlas = ExtResource("2_hetop")
 region = Rect2(262, 0, 274, 260)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xs4d2"]
-atlas = ExtResource("3_y8n0n")
+atlas = ExtResource("2_hetop")
 region = Rect2(524, 0, 274, 260)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7of12"]
-atlas = ExtResource("3_y8n0n")
+atlas = ExtResource("2_hetop")
 region = Rect2(1, 0, 274, 260)
 
-[node name="ContainerBlueL" type="RigidBody2D"]
+[node name="ContainerRedL" type="RigidBody2D"]
 z_index = 2
 rotation = 3.14159
 continuous_cd = 1
-script = ExtResource("1_phlf7")
+script = ExtResource("1_q58q7")
 healthy = SubResource("AtlasTexture_je632")
-damaged = SubResource("AtlasTexture_i8btl")
+damaged = SubResource("AtlasTexture_kbem0")
 broken = SubResource("AtlasTexture_xs4d2")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(-0.312726, -1.58204)
 scale = Vector2(1.00611, 1.01428)
 texture = SubResource("AtlasTexture_7of12")
-flip_v = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-0.999744, -101, 99.0003, -101, 98.9997, 99.0003, -101, 98.9997, -101, -1.00026, -0.999997, -1)
