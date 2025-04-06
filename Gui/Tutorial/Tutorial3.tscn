@@ -1,0 +1,136 @@
+[gd_scene load_steps=12 format=3 uid="uid://cejnj6x0fry0m"]
+
+[ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="1_epelr"]
+[ext_resource type="Texture2D" uid="uid://bjl34nmf2fffy" path="res://Assets/Animations/JarkkoNormalAnimated.png" id="2_yuf5m"]
+[ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="4_o8xhf"]
+[ext_resource type="Texture2D" uid="uid://dutfm1xl7kjf0" path="res://Assets/Gui/Buttons/forward_arrow.png" id="5_h0kp0"]
+[ext_resource type="Texture2D" uid="uid://b5g664pjgk0gc" path="res://Assets/Victory/SpeechBubbleCorner.png" id="6_qwu38"]
+[ext_resource type="Texture2D" uid="uid://ca30paq1c5g1s" path="res://Assets/Gui/Buttons/TutorialArrow.png" id="6_vshle"]
+
+[sub_resource type="Animation" id="Animation_l75ec"]
+resource_name = "JarkkoNormal"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.533333, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 3, 2]
+}
+
+[sub_resource type="Animation" id="Animation_e04tv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tg0mq"]
+_data = {
+"JarkkoNormal": SubResource("Animation_l75ec"),
+"RESET": SubResource("Animation_e04tv")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6qrb"]
+atlas = ExtResource("5_h0kp0")
+region = Rect2(31, 12, 111, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4n40p"]
+atlas = ExtResource("5_h0kp0")
+region = Rect2(191, 12, 111, 68)
+
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GrayBackground" type="TextureRect" parent="."]
+modulate = Color(0.462745, 0.427451, 0.4, 0.286275)
+z_index = -10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_epelr")
+
+[node name="Jarkko" type="Sprite2D" parent="."]
+position = Vector2(1150, 599)
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("2_yuf5m")
+flip_h = true
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Jarkko"]
+libraries = {
+"": SubResource("AnimationLibrary_tg0mq")
+}
+autoplay = "JarkkoNormal"
+
+[node name="SkipButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 931.0
+offset_top = 42.0
+offset_right = 1042.0
+offset_bottom = 110.0
+scale = Vector2(1.48628, 1.5)
+texture_normal = SubResource("AtlasTexture_o6qrb")
+texture_pressed = SubResource("AtlasTexture_4n40p")
+
+[node name="Label" type="Label" parent="SkipButton"]
+layout_mode = 0
+offset_left = 15.3333
+offset_top = 16.0
+offset_right = 84.3333
+offset_bottom = 51.0
+theme = ExtResource("4_o8xhf")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+text = "SKIP"
+
+[node name="Arrow" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 287.0
+offset_top = 560.0
+offset_right = 447.0
+offset_bottom = 720.0
+rotation = -3.1377
+texture = ExtResource("6_vshle")
+
+[node name="SpeechBubble" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 274.0
+offset_top = 315.0
+offset_right = 1038.0
+offset_bottom = 620.0
+texture = ExtResource("6_qwu38")
+flip_v = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SpeechBubble"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 130.0
+offset_right = 617.0
+offset_bottom = 246.0
+theme = ExtResource("4_o8xhf")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 27
+text = "TUTORIAL3
+"

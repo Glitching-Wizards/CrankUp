@@ -18,9 +18,10 @@ broken = ExtResource("2_3uhdp")
 position = Vector2(-38.6568, -3.61166)
 scale = Vector2(1.00132, 0.98889)
 texture = SubResource("AtlasTexture_7of12")
+flip_v = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(42, -102, 142, -102, 142, 98, -158, 98, -158, -2, 42, -2)
+polygon = PackedVector2Array(143, 95, 41, 95, 41, -4, -159, -4, -160, -106, 142, -105)
 
 [node name="Marker2D2" type="Marker2D" parent="."]
 position = Vector2(92, -102)

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Crank Up!"
-run/main_scene="res://Menus/MainMenu/Scenes/MainMenu.tscn"
+run/main_scene="res://GameStart/Scenes/GameStart.tscn"
 config/features=PackedStringArray("4.3", "C#", "Mobile")
 config/icon="res://Assets/Logos/Icon.png"
 
@@ -64,13 +64,17 @@ Rotate={
 "events": []
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://Gui/Translations/translations.en.translation", "res://Gui/Translations/translations.fi.translation")
+
 [navigation]
 
 3d/autoload_on_startup=false
-
 
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0.121023, 0.192857, 0.319785, 1)

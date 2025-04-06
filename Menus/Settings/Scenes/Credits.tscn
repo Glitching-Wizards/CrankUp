@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cyw88w4jpav4t"]
 
-[ext_resource type="Script" path="res://Menus/Settings/Scripts/PauseCredits.cs" id="1_th065"]
+[ext_resource type="Script" path="res://Menus/Settings/Scripts/Pause.cs" id="1_th065"]
 [ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="2_b5dso"]
 [ext_resource type="Texture2D" uid="uid://biwqqyd2e0hyd" path="res://Assets/Settings/BlueBlankScreen.png" id="3_0e2ea"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="4_hikx2"]
@@ -36,6 +36,45 @@ offset_right = 1280.0
 offset_bottom = 720.0
 texture = ExtResource("3_0e2ea")
 
+[node name="Label3" type="Label" parent="."]
+offset_left = 650.0
+offset_top = 400.0
+offset_right = 942.0
+offset_bottom = 597.0
+theme = ExtResource("4_hikx2")
+theme_override_font_sizes/font_size = 35
+text = "
+    - Jonne Rihu
+    - Juho Ström"
+
+[node name="Label" type="Label" parent="Label3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 22.0
+theme = ExtResource("4_hikx2")
+theme_override_font_sizes/font_size = 35
+text = "SOUND:"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 650.0
+offset_top = 160.0
+offset_right = 1062.0
+offset_bottom = 357.0
+theme = ExtResource("4_hikx2")
+theme_override_font_sizes/font_size = 35
+text = "
+    - Jonne Rihu
+    - Juho Ström
+    - Jasmin Wärnhjelm"
+
+[node name="Label" type="Label" parent="Label2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 22.0
+theme = ExtResource("4_hikx2")
+theme_override_font_sizes/font_size = 35
+text = "CODE:"
+
 [node name="Label" type="Label" parent="."]
 offset_left = 200.0
 offset_top = 160.0
@@ -43,15 +82,41 @@ offset_right = 1183.0
 offset_bottom = 607.0
 theme = ExtResource("4_hikx2")
 theme_override_font_sizes/font_size = 35
-text = "Art: Julia Kurkela and Kai Lindgren
+text = "
+    - Julia Kurkela 
+    - Kai Lindgren
 
-Code: Jonne Rihu, Juho Ström and Jasmin Wärnhjelm
 
-UI: Jasmin Wärnhjelm
+    - Jasmin Wärnhjelm
 
-Music: Kai Lindgren
 
-Sound effects: Jonne Rihu and Juho Ström"
+    - Kai Lindgren"
+
+[node name="Label" type="Label" parent="Label"]
+layout_mode = 0
+offset_right = 78.0
+offset_bottom = 47.0
+theme = ExtResource("4_hikx2")
+theme_override_font_sizes/font_size = 35
+text = "ART:"
+
+[node name="Label2" type="Label" parent="Label"]
+layout_mode = 0
+offset_top = 200.0
+offset_right = 54.0
+offset_bottom = 247.0
+theme = ExtResource("4_hikx2")
+theme_override_font_sizes/font_size = 35
+text = "UI:"
+
+[node name="Label3" type="Label" parent="Label"]
+layout_mode = 0
+offset_top = 350.0
+offset_right = 124.0
+offset_bottom = 397.0
+theme = ExtResource("4_hikx2")
+theme_override_font_sizes/font_size = 35
+text = "MUSIC:"
 
 [node name="Buttons" type="Node" parent="."]
 
