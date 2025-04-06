@@ -54,7 +54,7 @@ min_value = -50.0
 max_value = 50.0
 scrollable = false
 
-[node name="PauseButton" type="TextureButton" parent="Panel"]
+[node name="SettingsButton" type="TextureButton" parent="Panel"]
 layout_mode = 0
 offset_left = -1.0
 offset_top = 11.0
@@ -74,4 +74,4 @@ texture = ExtResource("6_23lj1")
 
 [connection signal="pressed" from="Panel/Grab" to="." method="_on_release_pressed"]
 [connection signal="drag_ended" from="Panel/MoveSlider" to="." method="_on_move_slider_drag_ended"]
-[connection signal="pressed" from="Panel/PauseButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Panel/SettingsButton" to="." method="_on_settings_button_pressed"]

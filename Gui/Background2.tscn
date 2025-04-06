@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c8gfkxwcmtg22" path="res://Assets/Backgrounds/Level2Background.png" id="1_jrswi"]
 [ext_resource type="Texture2D" uid="uid://dhqs8welv03pn" path="res://Assets/Backgrounds/AsphaltBlocks.png" id="2_rsxpv"]
-[ext_resource type="Texture2D" uid="uid://ciqc0e7o4i4w5" path="res://Assets/Backgrounds/TruckModel.png" id="3_p61sy"]
+[ext_resource type="Texture2D" uid="uid://d4axb8wy7ry3s" path="res://Assets/Backgrounds/TruckModel2.png" id="3_qaka2"]
 [ext_resource type="Texture2D" uid="uid://ig6u8vw34kal" path="res://Assets/Backgrounds/platform.png" id="4_p54vo"]
 [ext_resource type="Texture2D" uid="uid://daile572kg6n5" path="res://Assets/Victory/VictoryScreen.png" id="4_tpi8t"]
 
@@ -78,15 +78,17 @@ offset_left = 180.0
 offset_right = 1494.0
 offset_bottom = 738.0
 scale = Vector2(0.9, 0.9)
-texture = ExtResource("3_p61sy")
+texture = ExtResource("3_qaka2")
 
 [node name="Area2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 shape = SubResource("SegmentShape2D_5n6r5")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-60, 0)
+visible = false
+position = Vector2(-159, 0)
 shape = SubResource("SegmentShape2D_liobq")
 
 [node name="Control" type="Control" parent="."]

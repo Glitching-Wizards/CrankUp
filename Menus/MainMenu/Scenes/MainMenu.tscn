@@ -1,206 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://df6jd6rkwbhv"]
+[gd_scene load_steps=8 format=3 uid="uid://df6jd6rkwbhv"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu/Scripts/MainMenu.cs" id="1_bemtd"]
-[ext_resource type="Texture2D" uid="uid://c7osdlwfnis5i" path="res://Assets/Backgrounds/MainMenuCloudless.png" id="2_7rtng"]
-[ext_resource type="Texture2D" uid="uid://bgdnq58ms063j" path="res://Assets/Animations/LargeClouds.png" id="3_l34b4"]
-[ext_resource type="Texture2D" uid="uid://csrdy0j6oanwm" path="res://Assets/Logos/CrankUpLogoPinkOrangeBorderFINALFINAL.png" id="3_x4ae0"]
-[ext_resource type="Texture2D" uid="uid://baajqx10nrlby" path="res://Assets/Animations/SmallClouds.png" id="4_r14pt"]
-[ext_resource type="Texture2D" uid="uid://bjl34nmf2fffy" path="res://Assets/Animations/JarkkoNormalAnimated.png" id="5_kqgoh"]
+[ext_resource type="Texture2D" uid="uid://d0d6rx2ilraop" path="res://Assets/Backgrounds/MainMenu.png" id="2_fukp5"]
+[ext_resource type="Texture2D" uid="uid://ct5bmkj38cf0m" path="res://Assets/Logos/CrankUpLogoPinkOrangeBorderFINAL.png" id="3_msbfr"]
+[ext_resource type="Texture2D" uid="uid://cc2i7swbkcq22" path="res://Assets/Backgrounds/JarkkoNormal.png" id="5_aabv6"]
 [ext_resource type="Texture2D" uid="uid://cft6g2o1608dq" path="res://Assets/Backgrounds/TruckBLUE.png" id="6_q0w1u"]
 [ext_resource type="Theme" uid="uid://6td37p2nd7m3" path="res://Gui/PlayTheme.tres" id="7_fu8vc"]
 
-[sub_resource type="Animation" id="Animation_8ulh6"]
-resource_name = "LargeClouds"
-length = 64.0
-loop_mode = 1
-step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 13, 18, 23, 28, 33, 38, 43, 48, 53, 58, 63, 64),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(640, 162), Vector2(660, 162), Vector2(680, 162), Vector2(700, 162), Vector2(720, 162), Vector2(740, 162), Vector2(760, 162), Vector2(780, 162), Vector2(800, 162), Vector2(820, 162), Vector2(840, 162), Vector2(900, 162), Vector2(1000, 162), Vector2(1100, 162), Vector2(1200, 162), Vector2(1300, 162), Vector2(1400, 162), Vector2(1500, 162), Vector2(1600, 162), Vector2(1700, 162), Vector2(1800, 162), Vector2(1900, 162), Vector2(1920, 162)]
-}
-
-[sub_resource type="Animation" id="Animation_pogyg"]
-resource_name = "LargeClouds2"
-length = 64.0
-loop_mode = 1
-step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 64),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-640, 162), Vector2(640, 164)]
-}
-
-[sub_resource type="Animation" id="Animation_r06gj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(640, 162)]
-}
-
-[sub_resource type="Animation" id="Animation_2o74m"]
-resource_name = "SmallClouds"
-length = 100.0
-loop_mode = 1
-step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 100),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(640, 162), Vector2(1920, 162)]
-}
-
-[sub_resource type="Animation" id="Animation_ltmmf"]
-resource_name = "SmallClouds2"
-length = 100.0
-loop_mode = 1
-step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 100),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-641, 163), Vector2(640, 167)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5t5hp"]
-_data = {
-"LargeClouds": SubResource("Animation_8ulh6"),
-"LargeClouds2": SubResource("Animation_pogyg"),
-"RESET": SubResource("Animation_r06gj"),
-"SmallClouds": SubResource("Animation_2o74m"),
-"SmallClouds2": SubResource("Animation_ltmmf")
-}
-
-[sub_resource type="Animation" id="Animation_l75ec"]
-resource_name = "JarkkoNormal"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.266667, 0.533333, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 3, 2]
-}
-
-[sub_resource type="Animation" id="Animation_e04tv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_tg0mq"]
-_data = {
-"JarkkoNormal": SubResource("Animation_l75ec"),
-"RESET": SubResource("Animation_e04tv")
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ic6r"]
+atlas = ExtResource("5_aabv6")
+region = Rect2(0, 0, 283, 0)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -218,64 +27,20 @@ position = Vector2(640, 360)
 layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
-texture = ExtResource("2_7rtng")
-
-[node name="LargeClouds" type="Sprite2D" parent="Background"]
-position = Vector2(640, 162)
-scale = Vector2(1.04791, 1)
-texture = ExtResource("3_l34b4")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/LargeClouds"]
-libraries = {
-"": SubResource("AnimationLibrary_5t5hp")
-}
-autoplay = "LargeClouds"
-
-[node name="SmallClouds" type="Sprite2D" parent="Background"]
-position = Vector2(640, 162)
-scale = Vector2(1.04934, 1)
-texture = ExtResource("4_r14pt")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/SmallClouds"]
-libraries = {
-"": SubResource("AnimationLibrary_5t5hp")
-}
-autoplay = "SmallClouds"
-
-[node name="LargeClouds2" type="Sprite2D" parent="Background"]
-position = Vector2(640, 162)
-scale = Vector2(1.04791, 1)
-texture = ExtResource("3_l34b4")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/LargeClouds2"]
-libraries = {
-"": SubResource("AnimationLibrary_5t5hp")
-}
-autoplay = "LargeClouds2"
-
-[node name="SmallClouds2" type="Sprite2D" parent="Background"]
-position = Vector2(640, 162)
-scale = Vector2(1.0475, 1)
-texture = ExtResource("4_r14pt")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/SmallClouds2"]
-libraries = {
-"": SubResource("AnimationLibrary_5t5hp")
-}
-autoplay = "SmallClouds2"
+texture = ExtResource("2_fukp5")
 
 [node name="Title" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -260.0
-offset_top = -15.0
-offset_right = 341.0
-offset_bottom = 269.0
+offset_left = -300.0
+offset_top = -21.0
+offset_right = 400.0
+offset_bottom = 329.0
 grow_horizontal = 2
 scale = Vector2(0.9, 0.9)
-texture = ExtResource("3_x4ae0")
+texture = ExtResource("3_msbfr")
 
 [node name="Buttons" type="Control" parent="."]
 layout_mode = 1
@@ -285,8 +50,8 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -640.0
-offset_top = -358.0
-offset_right = 639.0
+offset_top = -360.0
+offset_right = 644.0
 offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -298,19 +63,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -232.0
+offset_left = -223.0
 offset_top = -106.0
-offset_right = 37.0
+offset_right = 46.0
 offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.7, 1.7)
 theme = ExtResource("7_fu8vc")
-theme_override_constants/align_to_largest_stylebox = 30
 theme_override_font_sizes/font_size = 75
 text = "PLAY"
 icon_alignment = 1
-text_direction = 1
 
 [node name="SettingsButton" type="Button" parent="Buttons"]
 layout_mode = 1
@@ -346,18 +109,15 @@ theme = ExtResource("7_fu8vc")
 theme_override_font_sizes/font_size = 62
 text = "CREDITS"
 
-[node name="Jarkko" type="Sprite2D" parent="."]
-position = Vector2(1120, 449)
-scale = Vector2(0.758333, 0.758333)
-texture = ExtResource("5_kqgoh")
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 995.0
+offset_top = 266.0
+offset_right = 1278.0
+offset_bottom = 766.0
+scale = Vector2(0.8, 0.8)
+texture = SubResource("AtlasTexture_4ic6r")
 flip_h = true
-hframes = 5
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Jarkko"]
-libraries = {
-"": SubResource("AnimationLibrary_tg0mq")
-}
-autoplay = "JarkkoNormal"
 
 [node name="TruckBlue" type="Sprite2D" parent="."]
 position = Vector2(304, 385)

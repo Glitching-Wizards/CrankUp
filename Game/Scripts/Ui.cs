@@ -1,7 +1,6 @@
 using Godot;
 using System;
 
-namespace CrankUp;
 public partial class Ui : Control
 {
 	private int timeLeft = 60;

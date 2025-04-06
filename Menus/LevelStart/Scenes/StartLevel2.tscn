@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dwjipci1bcx2c"]
 
 [ext_resource type="Script" path="res://Menus/Levels/Scripts/LevelStart.cs" id="1_8e0o0"]
-[ext_resource type="Texture2D" uid="uid://daile572kg6n5" path="res://Assets/Victory/VictoryScreen.png" id="3_3vot1"]
+[ext_resource type="Texture2D" uid="uid://0pnu3tgvsyv6" path="res://Assets/Backgrounds/VictoryScreen.png" id="2_bpdbd"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="3_ll443"]
 [ext_resource type="Texture2D" uid="uid://bvgtg0q0k8n42" path="res://Assets/Gui/BlankStar.png" id="4_wbj8s"]
 [ext_resource type="Texture2D" uid="uid://ckiwhmwu30y57" path="res://Assets/Gui/Buttons/green_button_next1.png" id="5_wfdvi"]
@@ -30,7 +30,7 @@ grow_vertical = 2
 texture = ExtResource("9_x1jip")
 
 [node name="Start" type="TextureRect" parent="."]
-texture = ExtResource("3_3vot1")
+texture = ExtResource("2_bpdbd")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 5
@@ -43,7 +43,7 @@ offset_bottom = 156.0
 grow_horizontal = 2
 theme = ExtResource("3_ll443")
 theme_override_font_sizes/font_size = 70
-text = "LEVEL2"
+text = "LEVEL 2"
 
 [node name="Star1" type="TextureRect" parent="."]
 offset_left = 343.0

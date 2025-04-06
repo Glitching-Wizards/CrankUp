@@ -12,34 +12,28 @@ namespace CrankUp
         public override void _Ready()
         {
             TextureButton RetryButton = GetNode<TextureButton>("Buttons/RetryButton");
-
-            if (RetryButton != null)
-            {
-                RetryButton.Pressed += RetryButtonPressed;
-            }
-            else
-            {
-                GD.PrintErr("[ERROR] RetryButton not found! Check the node path.");
-            }
+            RetryButton.Pressed += RetryButtonPressed;
 
             TextureButton MenuButton = GetNode<TextureButton>("Buttons/MenuButton");
             MenuButton.Pressed += MenuButtonPressed;
 
             TextureButton exitButton = GetNode<TextureButton>("Buttons/ExitButton");
-            exitButton.Pressed += ExitButtonPressed;
+            if (exitButton == null)
+            {
+                GD.PrintErr("[ERROR] ExitButton not found in PauseCredits.tscn");
+            }
+            else
+            {
+                exitButton.Pressed += ExitButtonPressed;
+            }
 
-            TextureButton  settingsButton = GetNode<TextureButton>("Buttons/SettingsButton");
+            TextureButton settingsButton = GetNode<TextureButton>("Buttons/SettingsButton");
             settingsButton.Pressed += SettingsButtonPressed;
 
             PackedScene settingsScene = (PackedScene)GD.Load(_settingsScenePath);
             settingsWindow = (Window)settingsScene.Instantiate();
             AddChild(settingsWindow);
             settingsWindow.Hide();
-
-            /*
-            TextureButton tutorialButton = GetNode<TextureButton>("Buttons/TutorialButton");
-            tutorialButton.Pressed += TutorialButtonPressed; */
-
         }
 
 
@@ -62,10 +56,6 @@ namespace CrankUp
             Node currentScene = GetTree().CurrentScene;
 
             this.Hide();
-
-            /*
-            GetTree().Paused = false; */
-
         }
 
         public void SettingsButtonPressed()
@@ -73,38 +63,5 @@ namespace CrankUp
             GD.Print("Settings Pressed");
             settingsWindow.Popup();
         }
-
-        /*
-        public void TutorialButtonPressed()
-        {
-            GD.Print("Tutorial Pressed");
-
-            // open tutorial
-            Node tutorialNode = GetTree().Root.FindChild("Tutorial", true, false);
-            if (tutorialNode == null)
-            {
-                GD.Print("[INFO] Tutorial is not found. Instantiating it...");
-                PackedScene tutorialScene = (PackedScene)GD.Load("res:/");
-                tutorialNode = tutorialScene.Instantiate();
-                GetTree().Root.AddChild(tutorialNode);
-            }
-
-            if (tutorialNode is Tutorial tutorial)
-            {
-                tutorial.StartTutorial();
-            }
-            else
-            {
-                GD.PrintErr("[ERROR] Failed to cast Tutorial node.");
-            }
-        }
-
-        public bool IsPaused { get; private set; } = false;
-
-        public void TogglePause()
-        {
-            IsPaused = !IsPaused;
-            GetTree().Paused = IsPaused;
-        } */
-    } 
+    }
 }

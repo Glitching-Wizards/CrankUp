@@ -1,20 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://t8di6gto22h3"]
+[gd_scene load_steps=11 format=3 uid="uid://t8di6gto22h3"]
 
+[ext_resource type="Texture2D" uid="uid://cka1nt588tjap" path="res://Assets/Backgrounds/DefeatScreen.png" id="1_nb1yv"]
 [ext_resource type="Script" path="res://Menus/LevelWinLose/Scripts/WinLose.cs" id="1_ts8kd"]
 [ext_resource type="Texture2D" uid="uid://d2ne652846407" path="res://Assets/Gui/Buttons/green_button_retry1.png" id="2_03ryq"]
 [ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="2_l54t8"]
-[ext_resource type="Texture2D" uid="uid://byi7gwxidoxcf" path="res://Assets/Victory/DefeatScreen.png" id="2_ta1fw"]
 [ext_resource type="Texture2D" uid="uid://xo18uc0tpsnf" path="res://Assets/Gui/Buttons/green_button_retry2.png" id="3_0o6ys"]
-[ext_resource type="Texture2D" uid="uid://bykbqhedpanaq" path="res://Assets/Backgrounds/JarkkoRageFinal.png" id="3_vahs4"]
 [ext_resource type="Texture2D" uid="uid://1pedsn4616vk" path="res://Assets/Gui/Buttons/grey_button_home1.png" id="4_01gye"]
 [ext_resource type="Texture2D" uid="uid://bvgtg0q0k8n42" path="res://Assets/Gui/BlankStar.png" id="4_sbl07"]
 [ext_resource type="Texture2D" uid="uid://bqti4reoj73jh" path="res://Assets/Gui/Buttons/grey_button_home2.png" id="5_82b2m"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="5_ljc6y"]
 [ext_resource type="Texture2D" uid="uid://bfh6bwpmgp0fb" path="res://Assets/Victory/SpeechBubble.png" id="10_rd1hc"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hr5jq"]
-atlas = ExtResource("3_vahs4")
-region = Rect2(0, 0, 303, 500)
 
 [node name="Lose" type="Window"]
 transparent_bg = true
@@ -28,15 +23,7 @@ script = ExtResource("1_ts8kd")
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("2_ta1fw")
-
-[node name="TextureRect" type="TextureRect" parent="Background"]
-offset_left = 1018.0
-offset_top = 278.0
-offset_right = 1310.0
-offset_bottom = 778.0
-texture = SubResource("AtlasTexture_hr5jq")
-flip_h = true
+texture = ExtResource("1_nb1yv")
 
 [node name="GrayBackground" type="TextureRect" parent="."]
 modulate = Color(0.462745, 0.427451, 0.4, 0.286275)

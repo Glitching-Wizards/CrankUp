@@ -4,12 +4,12 @@ using System;
 namespace CrankUp;
 public partial class ControlsRightUi : Control
 {
-    [Export] private string _pauseScenePath = "res://Menus/Settings/Scenes/Pause.tscn";
+    [Export] private string _settingsScenePath = "res://Menus/Settings/Scenes/Pause.tscn";
     private ClawHead clawHead;
     private ClawBase clawBase;
-    private Window pauseWindow;
+    private Window settingsWindow;
     private TextureButton grabButton;
-    private TextureButton pauseButton;
+    private TextureButton settingsButton;
     private VSlider moveSlider;
     private float moveSliderValue;
     private Vector2 movementDirection = Vector2.Zero;
@@ -26,6 +26,12 @@ public partial class ControlsRightUi : Control
             return;
         }
 
+        settingsButton = GetNodeOrNull<TextureButton>("Panel/SettingsButton");
+        if (settingsButton == null)
+        {
+            GD.PrintErr("[ERROR] TextureButton 'Settings' not found in ControlsRightUi!");
+        }
+
         moveSlider = GetNodeOrNull<VSlider>("Panel/MoveSlider");
         if (moveSlider == null)
         {
@@ -33,16 +39,10 @@ public partial class ControlsRightUi : Control
             return;
         }
 
-        pauseButton = GetNodeOrNull<TextureButton>("Panel/PauseButton");
-        if (pauseButton == null)
-        {
-            GD.PrintErr("[ERROR] TextureButton 'Settings' not found in ControlsRightUi!");
-        }
-
-        PackedScene pauseScene = (PackedScene)GD.Load(_pauseScenePath);
-    	pauseWindow = (Window)pauseScene.Instantiate();
-    	AddChild(pauseWindow);
-    	pauseWindow.Hide();
+        PackedScene settingsScene = (PackedScene)GD.Load(_settingsScenePath);
+    	settingsWindow = (Window)settingsScene.Instantiate();
+    	AddChild(settingsWindow);
+    	settingsWindow.Hide();
 
         // Find ClawHead dynamically
         clawHead = GetTree().Root.FindChild("ClawHead", true, false) as ClawHead;
@@ -61,7 +61,7 @@ public partial class ControlsRightUi : Control
 
         // Connect button signals
         grabButton.Pressed += OnGrabPressed;
-        pauseButton.Pressed += OnPausePressed;
+        settingsButton.Pressed += OnSettingsPressed;
         moveSlider.ValueChanged += OnSliderValueChanged;
         moveSlider.DragEnded += OnSliderReleased;
     }
@@ -93,32 +93,9 @@ public partial class ControlsRightUi : Control
         }
     }
 
-    // työn alla
-    private void OnPausePressed()
+    private void OnSettingsPressed()
     {
-        Node currentScene = GetTree().CurrentScene;
-
-        if (currentScene == null)
-        {
-            GD.PrintErr("[ERROR] No active scene found!");
-            return;
-        }
-
-        switch (currentScene.Name)
-        {
-            case "Level1":
-            case "Level2":
-            case "Level3":
-            case "Level4":
-            case "Level5":
-                GD.Print($"Pausing {currentScene.Name}...");
-                GetTree().Paused = true;
-                pauseWindow.Popup();
-                break;
-            default:
-                GD.PrintErr("[ERROR] No active level found to pause!");
-                break;
-        }
+        settingsWindow.Popup();
     }
 
     public override void _Process(double delta)
@@ -128,31 +105,6 @@ public partial class ControlsRightUi : Control
             GD.PrintErr("[ERROR] ClawBase reference is missing!");
             return;
         }
-
-        if (Input.IsActionPressed(Config.MoveRightAction))
-        {
-            moveSliderValue = 35;
-            moveSlider.Value = moveSliderValue;
-            movementDirection = Vector2.Right;
-        }
-        else if (Input.IsActionPressed(Config.MoveLeftAction))
-        {
-            moveSliderValue = -35;
-            moveSlider.Value = moveSliderValue;
-            movementDirection = Vector2.Left;
-        }
-        else
-        {
-            moveSliderValue = 0;
-            moveSlider.Value = moveSliderValue;
-            movementDirection = Vector2.Zero;
-        }
-
-        if (Input.IsActionJustPressed(Config.GrabAction))
-        {
-            OnGrabPressed();
-        }
-
         clawBase.Move(movementDirection, moveSliderValue, delta);
     }
 }

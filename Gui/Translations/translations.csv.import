@@ -3,15 +3,13 @@
 importer="csv_translation"
 type="Translation"
 uid="uid://0gcecdnyt72b"
+valid=false
 
 [deps]
 
-files=["res://Gui/Translations/translations.en.translation", "res://Gui/Translations/translations.fi.translation"]
-
 source_file="res://Gui/Translations/translations.csv"
-dest_files=["res://Gui/Translations/translations.en.translation", "res://Gui/Translations/translations.fi.translation"]
 
 [params]
 
 compress=true
-delimiter=1
+delimiter=0

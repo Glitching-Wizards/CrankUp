@@ -5,15 +5,12 @@ namespace CrankUp
 {
 	public partial class FinishButton : Button
 	{
-		[Export] private string _levelsScenePath = "res://Menus/Levels/Scenes/Levels.tscn";
-		private Node _levelsInstance;
 		private Window victoryScreen1, victoryScreen2, victoryScreen3, loseScreen;
 		private PlacementArea placementArea;
 		private float score;
 		private Node currentLevel;
 
-		public override void _Ready()
-		{
+		public override void _Ready() {
 			currentLevel = GetTree().CurrentScene;
 			if (currentLevel == null) return;
 
@@ -35,67 +32,31 @@ namespace CrankUp
 			CallDeferred(nameof(FindPlacementArea));
 		}
 
-		private void FindPlacementArea()
-		{
+		private void FindPlacementArea() {
 			placementArea = currentLevel.GetNodeOrNull<PlacementArea>("PlacementArea");
 		}
 
-		// tarttee tallennuksen
-		private void OnButtonPressed()
-		{
+		private void OnButtonPressed() {
 			if (placementArea == null) return;
 
 			score = placementArea.GetScore();
 
 			if (score >= 70 && score < 80 && victoryScreen1 != null)
-			{
 				victoryScreen1.Visible = true;
-				LevelDone(currentLevel.Name);
-			}
 			else if (score >= 80 && score < 90 && victoryScreen2 != null)
-			{
 				victoryScreen2.Visible = true;
-				LevelDone(currentLevel.Name);
-			}
 			else if (score >= 90 && victoryScreen3 != null)
-			{
 				victoryScreen3.Visible = true;
-				LevelDone(currentLevel.Name);
-			}
 			else if (score < 70 && loseScreen != null)
-			{
 				loseScreen.Visible = true;
-			}
 		}
 
-		private void LevelDone(string levelName)
-		{
-			Node levelButtonPath = GetTree().Root.GetNode<Node>("/root/Menus/Levels/Scenes/Levels.tscn/Levels/Buttons");
+		public void RetryButtonPressed() {
+			GetTree().ReloadCurrentScene();
+		}
 
-			if (levelButtonPath == null)
-			{
-				GD.PrintErr($"Virhe: Node 'Levels/Buttons' ei löydy.");
-				return;
-			}
-
-			if (levelButtonPath != null && levelButtonPath.HasNode(levelName))
-			{
-				TextureButton levelButton = levelButtonPath.GetNode<TextureButton>(levelName);
-
-				levelButton.Disabled = false;
-
-				TextureRect flagIcon = levelButton.GetNode<TextureRect>("Flag");
-				if (flagIcon != null)
-				{
-					flagIcon.Visible = true;
-				}
-
-				TextureRect number = levelButton.GetNode<TextureRect>("Number");
-				if (number != null)
-				{
-					number.Visible = true;
-				}
-			}
+		public void MenuButtonPressed() {
+			GetTree().ChangeSceneToFile("res://Menus/Levels/Scenes/Levels.tscn");
 		}
 	}
 }
