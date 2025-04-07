@@ -29,8 +29,9 @@ damaged = SubResource("AtlasTexture_i8btl")
 broken = SubResource("AtlasTexture_xs4d2")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(-0.312726, -1.58204)
-scale = Vector2(1.00611, 1.01428)
+position = Vector2(-1.7852, 0.38669)
+rotation = 1.5708
+scale = Vector2(1.0091, 1.01791)
 texture = SubResource("AtlasTexture_7of12")
 flip_v = true
 
