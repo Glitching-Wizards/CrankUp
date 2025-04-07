@@ -11,6 +11,7 @@ namespace CrankUp
 		private PlacementArea placementArea;
 		private float score;
 		private Node currentLevel;
+		[Export] private AudioStream clickSound;
 
 		public override void _Ready()
 		{
@@ -43,6 +44,7 @@ namespace CrankUp
 		// tarttee tallennuksen
 		private void OnButtonPressed()
 		{
+			AudioManager.PlaySound(clickSound);
 			if (placementArea == null) return;
 
 			score = placementArea.GetScore();

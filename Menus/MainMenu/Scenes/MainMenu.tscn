@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://df6jd6rkwbhv"]
+[gd_scene load_steps=19 format=3 uid="uid://df6jd6rkwbhv"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu/Scripts/MainMenu.cs" id="1_bemtd"]
+[ext_resource type="AudioStream" uid="uid://cty2a4x8lqdp6" path="res://Audio/ButtonPress1.mp3" id="2_er4t6"]
 [ext_resource type="Texture2D" uid="uid://c7osdlwfnis5i" path="res://Assets/Backgrounds/MainMenuCloudless.png" id="2_7rtng"]
 [ext_resource type="Texture2D" uid="uid://bgdnq58ms063j" path="res://Assets/Animations/LargeClouds.png" id="3_l34b4"]
 [ext_resource type="Texture2D" uid="uid://csrdy0j6oanwm" path="res://Assets/Logos/CrankUpLogoPinkOrangeBorderFINALFINAL.png" id="3_x4ae0"]
@@ -210,6 +211,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bemtd")
+clickSound = ExtResource("2_er4t6")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(640, 360)

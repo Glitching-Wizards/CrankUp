@@ -1,11 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://cusyv8gojbcca"]
-
+[gd_scene load_steps=25 format=3 uid="uid://cusyv8gojbcca"]
 
 [ext_resource type="Script" path="res://Game/Level1/Scripts/Level1.cs" id="1_e65w2"]
 [ext_resource type="PackedScene" uid="uid://dnr4wgld8simd" path="res://Gui/Background.tscn" id="2_bkcuh"]
 [ext_resource type="Texture2D" uid="uid://bw7uqlawbr5or" path="res://Assets/Misc/Conveyor.png" id="3_4mjje"]
 [ext_resource type="Theme" uid="uid://6td37p2nd7m3" path="res://Gui/PlayTheme.tres" id="4_a4x3l"]
 [ext_resource type="Script" path="res://Game/Scripts/FinishButton.cs" id="5_gdxod"]
+[ext_resource type="AudioStream" uid="uid://cty2a4x8lqdp6" path="res://Audio/ButtonPress1.mp3" id="6_4wxk3"]
 [ext_resource type="Texture2D" uid="uid://15t504ih4j83" path="res://Assets/Blocks/container_blue.png" id="6_xirey"]
 [ext_resource type="Texture2D" uid="uid://dktk418ydlm2w" path="res://Assets/Blocks/container_L_yellow.png" id="7_xqmo7"]
 [ext_resource type="PackedScene" uid="uid://bu16bdidc32ex" path="res://Gui/ControlsLeftUi.tscn" id="8_fytdm"]
@@ -95,6 +95,7 @@ offset_bottom = 139.0
 theme = ExtResource("4_a4x3l")
 text = "Finish"
 script = ExtResource("5_gdxod")
+clickSound = ExtResource("6_4wxk3")
 
 [node name="BlockButtons" type="Control" parent="ConveyorBelt"]
 layout_mode = 3
@@ -221,11 +222,10 @@ visible = false
 visible = false
 
 [node name="BoxShadow" type="TextureRect" parent="."]
-offset_left = -311.0
-offset_top = -51.0
-offset_right = 301.0
-offset_bottom = 193.0
-
+offset_left = -316.0
+offset_top = -162.0
+offset_right = 298.0
+offset_bottom = 200.0
 texture = ExtResource("17_dellb")
 expand_mode = 1
 
