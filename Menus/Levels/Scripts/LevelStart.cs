@@ -10,6 +10,7 @@ namespace CrankUp
         [Export] private string _level3ScenePath = "res://Game/Level3/Scenes/Level3.tscn";
         [Export] private string _level4ScenePath = "res://Game/Level4/Scenes/Level4.tscn";
         [Export] private string _level5ScenePath = "res://Game/Level5/Scenes/Level5.tscn";
+        [Export] private AudioStream clickSound;
         private string _selectedLevelScenePath = "";
 
 		public override void _Ready()
@@ -24,11 +25,13 @@ namespace CrankUp
         public void MenuButtonPressed()
         {
             this.Hide();
+            AudioManager.PlaySound(clickSound);
         }
 
         public void PlayButtonPressed()
         {
             GD.Print("Play Pressed");
+            AudioManager.PlaySound(clickSound);
 
             CallDeferred(nameof(ChangeScene));
 		}

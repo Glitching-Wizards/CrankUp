@@ -9,6 +9,7 @@ namespace CrankUp
 		private PlacementArea placementArea;
 		private float score;
 		private Node currentLevel;
+		[Export] private AudioStream clickSound;
 
 		public override void _Ready() {
 			currentLevel = GetTree().CurrentScene;
@@ -37,6 +38,7 @@ namespace CrankUp
 		}
 
 		private void OnButtonPressed() {
+			AudioManager.PlaySound(clickSound);
 			if (placementArea == null) return;
 
 			score = placementArea.GetScore();
@@ -53,10 +55,12 @@ namespace CrankUp
 
 		public void RetryButtonPressed() {
 			GetTree().ReloadCurrentScene();
+			AudioManager.PlaySound(clickSound);
 		}
 
 		public void MenuButtonPressed() {
 			GetTree().ChangeSceneToFile("res://Menus/Levels/Scenes/Levels.tscn");
+			AudioManager.PlaySound(clickSound);
 		}
 	}
 }

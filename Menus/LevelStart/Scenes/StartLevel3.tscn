@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://drevvbj4ujjhp"]
+[gd_scene load_steps=11 format=3 uid="uid://drevvbj4ujjhp"]
 
 [ext_resource type="Script" path="res://Menus/Levels/Scripts/LevelStart.cs" id="1_hgdqm"]
 [ext_resource type="Texture2D" uid="uid://0pnu3tgvsyv6" path="res://Assets/Backgrounds/VictoryScreen.png" id="2_dcn2y"]
+[ext_resource type="AudioStream" uid="uid://cty2a4x8lqdp6" path="res://Audio/ButtonPress1.mp3" id="2_uwivr"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="3_mbdu7"]
 [ext_resource type="Texture2D" uid="uid://bvgtg0q0k8n42" path="res://Assets/Gui/BlankStar.png" id="4_8nk7b"]
 [ext_resource type="Texture2D" uid="uid://ckiwhmwu30y57" path="res://Assets/Gui/Buttons/green_button_next1.png" id="5_pic1x"]
@@ -18,6 +19,7 @@ borderless = true
 always_on_top = true
 transparent = true
 script = ExtResource("1_hgdqm")
+clickSound = ExtResource("2_uwivr")
 
 [node name="GrayBackground" type="TextureRect" parent="."]
 modulate = Color(0.462745, 0.427451, 0.4, 0.286275)
