@@ -51,15 +51,15 @@ Right={
 "deadzone": 0.5,
 "events": []
 }
-Drop={
-"deadzone": 0.5,
-"events": []
-}
 Grab={
 "deadzone": 0.5,
 "events": []
 }
 Rotate={
+"deadzone": 0.5,
+"events": []
+}
+Drop={
 "deadzone": 0.5,
 "events": []
 }

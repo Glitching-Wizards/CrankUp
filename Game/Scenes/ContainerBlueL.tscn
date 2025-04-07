@@ -15,8 +15,9 @@ damaged = ExtResource("2_3uhdp")
 broken = ExtResource("2_3uhdp")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(-38.6568, -3.61166)
-scale = Vector2(1.00132, 0.98889)
+position = Vector2(-1.7852, 0.38669)
+rotation = 1.5708
+scale = Vector2(1.0091, 1.01791)
 texture = SubResource("AtlasTexture_7of12")
 flip_v = true
 
