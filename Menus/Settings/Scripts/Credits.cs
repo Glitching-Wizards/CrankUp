@@ -20,7 +20,6 @@ namespace CrankUp
             {
                 exitButton.Pressed += ExitButtonPressed;
             }
-
             PackedScene settingsScene = (PackedScene)GD.Load(_settingsScenePath);
             settingsWindow = (Window)settingsScene.Instantiate();
             AddChild(settingsWindow);

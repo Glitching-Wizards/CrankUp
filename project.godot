@@ -15,10 +15,6 @@ run/main_scene="res://GameStart/Scenes/GameStart.tscn"
 config/features=PackedStringArray("4.3", "C#", "Mobile")
 config/icon="res://Assets/Logos/Icon.png"
 
-[autoload]
-
-MultiTouchVSlider="*res://Gui/Scripts/MultiTouchVSlider.cs"
-
 [display]
 
 window/size/viewport_width=1280
@@ -51,15 +47,15 @@ Right={
 "deadzone": 0.5,
 "events": []
 }
-Drop={
-"deadzone": 0.5,
-"events": []
-}
 Grab={
 "deadzone": 0.5,
 "events": []
 }
 Rotate={
+"deadzone": 0.5,
+"events": []
+}
+Drop={
 "deadzone": 0.5,
 "events": []
 }

@@ -12,6 +12,7 @@ namespace CrankUp
         public override void _Ready()
         {
             TextureButton RetryButton = GetNode<TextureButton>("Buttons/RetryButton");
+
             if (RetryButton != null)
             {
                 RetryButton.Pressed += RetryButtonPressed;
@@ -37,6 +38,7 @@ namespace CrankUp
             /*
             TextureButton tutorialButton = GetNode<TextureButton>("Buttons/TutorialButton");
             tutorialButton.Pressed += TutorialButtonPressed; */
+
         }
 
 
@@ -49,6 +51,7 @@ namespace CrankUp
         public void MenuButtonPressed()
         {
             GD.Print("Menu Pressed");
+            GetTree().Paused = false;
             GetTree().ChangeSceneToFile(_levelsScenePath);
         }
 
@@ -59,9 +62,9 @@ namespace CrankUp
             Node currentScene = GetTree().CurrentScene;
 
             this.Hide();
+
             /*
             GetTree().Paused = false; */
-
         }
 
         public void SettingsButtonPressed()
@@ -69,6 +72,7 @@ namespace CrankUp
             GD.Print("Settings Pressed");
             settingsWindow.Popup();
         }
+
         /*
         public void TutorialButtonPressed()
         {

@@ -31,19 +31,18 @@ public partial class Level1 : Node2D
 	private TextureRect conveyorBelt;
 	private PackedScene _blockScene;
 	private PackedScene _containerYellowLScene;
+	private PackedScene _containerRedLScene;
 	private PackedScene _containerBlueLScene;
 	private PackedScene _containerRedScene;
 	private PackedScene _containerYellowScene;
 
 	private TextureButton blockButton;
-	private TextureButton block2Button;
 	private TextureButton containerYellowLButton;
 	private TextureButton containerBlueLButton;
 	private TextureButton containerRedButton;
 	private TextureButton containerYellowButton;
 
 	private bool blockButtonPressed = false;
-	private bool block2ButtonPressed = false;
 	private bool containerYellowLButtonPressed = false;
 	private bool containerBlueLButtonPressed = false;
 	private bool containerRedButtonPressed = false;
@@ -77,7 +76,6 @@ public partial class Level1 : Node2D
 		_containerYellowScene = ResourceLoader.Load<PackedScene>(_containerYellowScenePath);
 
 		blockButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/Block");
-		block2Button = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/Block2");
 		containerYellowLButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerYellowL");
 		containerBlueLButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerBlueL");
 		containerRedButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerRed");
@@ -88,12 +86,6 @@ public partial class Level1 : Node2D
 		{
 			blockButtonPressed = true;
 			SpawnBlockButtonPressed(_blockScene, blockButton);
-		};
-
-		block2Button.Pressed += () =>
-		{
-			block2ButtonPressed = true;
-			SpawnBlockButtonPressed(_blockScene, block2Button);
 		};
 
 		containerYellowLButton.Pressed += () =>
@@ -163,7 +155,7 @@ public partial class Level1 : Node2D
 		button.QueueFree();
 
 		// Check if all buttons are pressed
-		if (blockButtonPressed && block2ButtonPressed && containerYellowLButtonPressed && containerBlueLButtonPressed && containerRedButtonPressed && containerYellowButtonPressed) endLevel = true;
+		if (blockButtonPressed && containerYellowLButtonPressed && containerBlueLButtonPressed && containerRedButtonPressed && containerYellowButtonPressed) endLevel = true;
 	}
 
 	public override void _Process(double delta)
