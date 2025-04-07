@@ -1,53 +1,39 @@
-[gd_scene load_steps=7 format=3 uid="uid://dln6wt6vmcoke"]
+[gd_scene load_steps=4 format=3 uid="uid://dln6wt6vmcoke"]
 
 [ext_resource type="Script" path="res://Game/Scripts/Block.cs" id="1_phlf7"]
-[ext_resource type="Texture2D" uid="uid://dhfsv772pihq1" path="res://Assets/Blocks/container_L_blue.png" id="3_y8n0n"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_je632"]
-atlas = ExtResource("3_y8n0n")
-region = Rect2(1, 0, 274, 260)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i8btl"]
-atlas = ExtResource("3_y8n0n")
-region = Rect2(262, 0, 274, 260)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xs4d2"]
-atlas = ExtResource("3_y8n0n")
-region = Rect2(524, 0, 274, 260)
+[ext_resource type="Texture2D" uid="uid://ctfqx38xxbod4" path="res://Assets/Blocks/ContainerBlueLTemp.png" id="2_3uhdp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7of12"]
-atlas = ExtResource("3_y8n0n")
-region = Rect2(1, 0, 274, 260)
+atlas = ExtResource("2_3uhdp")
 
 [node name="ContainerBlueL" type="RigidBody2D"]
 z_index = 2
-rotation = 3.14159
 continuous_cd = 1
 script = ExtResource("1_phlf7")
-healthy = SubResource("AtlasTexture_je632")
-damaged = SubResource("AtlasTexture_i8btl")
-broken = SubResource("AtlasTexture_xs4d2")
+healthy = ExtResource("2_3uhdp")
+damaged = ExtResource("2_3uhdp")
+broken = ExtResource("2_3uhdp")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(-0.312726, -1.58204)
-scale = Vector2(1.00611, 1.01428)
+position = Vector2(-38.6568, -3.61166)
+scale = Vector2(1.00132, 0.98889)
 texture = SubResource("AtlasTexture_7of12")
 flip_v = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-0.999744, -101, 99.0003, -101, 98.9997, 99.0003, -101, 98.9997, -101, -1.00026, -0.999997, -1)
+polygon = PackedVector2Array(143, 95, 41, 95, 41, -4, -159, -4, -160, -106, 142, -105)
 
 [node name="Marker2D2" type="Marker2D" parent="."]
-position = Vector2(49, -101)
+position = Vector2(92, -102)
 
 [node name="Marker2D3" type="Marker2D" parent="."]
-position = Vector2(99, -0.999756)
+position = Vector2(142, -1)
 rotation = 1.5708
 
 [node name="Marker2D4" type="Marker2D" parent="."]
-position = Vector2(-1.00025, 99)
+position = Vector2(-8, 98)
 rotation = 3.14159
 
 [node name="Marker2D5" type="Marker2D" parent="."]
-position = Vector2(-101, 48.9997)
+position = Vector2(-158, 48)
 rotation = -1.5708

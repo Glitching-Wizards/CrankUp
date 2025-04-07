@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dhqs8welv03pn" path="res://Assets/Backgrounds/AsphaltBlocks.png" id="3_p5dii"]
 [ext_resource type="Texture2D" uid="uid://baajqx10nrlby" path="res://Assets/Animations/SmallClouds.png" id="3_wwbyc"]
 [ext_resource type="Texture2D" uid="uid://ig6u8vw34kal" path="res://Assets/Backgrounds/platform.png" id="4_utd2n"]
+[ext_resource type="Texture2D" uid="uid://d4axb8wy7ry3s" path="res://Assets/Backgrounds/TruckModel2.png" id="5_s8oss"]
 
 [sub_resource type="Animation" id="Animation_8ulh6"]
 resource_name = "LargeClouds"
@@ -280,16 +281,17 @@ offset_left = 180.0
 offset_right = 1494.0
 offset_bottom = 738.0
 scale = Vector2(0.9, 0.9)
-texture = ExtResource("3_iulij")
+texture = ExtResource("5_s8oss")
 
 [node name="Area2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-94, 0)
+visible = false
 shape = SubResource("SegmentShape2D_5n6r5")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(31, 0)
+visible = false
+position = Vector2(-159, 0)
 shape = SubResource("SegmentShape2D_liobq")
 
 [node name="Wood" type="TextureRect" parent="."]

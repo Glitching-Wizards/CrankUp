@@ -12,7 +12,6 @@ namespace CrankUp
         public override void _Ready()
         {
             TextureButton RetryButton = GetNode<TextureButton>("Buttons/RetryButton");
-
             if (RetryButton != null)
             {
                 RetryButton.Pressed += RetryButtonPressed;
@@ -28,7 +27,7 @@ namespace CrankUp
             TextureButton exitButton = GetNode<TextureButton>("Buttons/ExitButton");
             exitButton.Pressed += ExitButtonPressed;
 
-            TextureButton  settingsButton = GetNode<TextureButton>("Buttons/SettingsButton");
+            TextureButton settingsButton = GetNode<TextureButton>("Buttons/SettingsButton");
             settingsButton.Pressed += SettingsButtonPressed;
 
             PackedScene settingsScene = (PackedScene)GD.Load(_settingsScenePath);
@@ -36,22 +35,22 @@ namespace CrankUp
             AddChild(settingsWindow);
             settingsWindow.Hide();
 
-            /*
             TextureButton tutorialButton = GetNode<TextureButton>("Buttons/TutorialButton");
-            tutorialButton.Pressed += TutorialButtonPressed; */
-
+            tutorialButton.Pressed += TutorialButtonPressed;
         }
 
 
         public void RetryButtonPressed()
         {
             GD.Print("Retry Pressed");
+            GetTree().Paused = false;
             GetTree().ReloadCurrentScene();
         }
 
         public void MenuButtonPressed()
         {
             GD.Print("Menu Pressed");
+            GetTree().Paused = false;
             GetTree().ChangeSceneToFile(_levelsScenePath);
         }
 
@@ -61,10 +60,9 @@ namespace CrankUp
 
             Node currentScene = GetTree().CurrentScene;
 
-            this.Hide();
+            GetTree().Paused = false;
 
-            /*
-            GetTree().Paused = false; */
+            this.Hide();
 
         }
 
@@ -74,7 +72,6 @@ namespace CrankUp
             settingsWindow.Popup();
         }
 
-        /*
         public void TutorialButtonPressed()
         {
             GD.Print("Tutorial Pressed");
@@ -98,13 +95,6 @@ namespace CrankUp
                 GD.PrintErr("[ERROR] Failed to cast Tutorial node.");
             }
         }
-
-        public bool IsPaused { get; private set; } = false;
-
-        public void TogglePause()
-        {
-            IsPaused = !IsPaused;
-            GetTree().Paused = IsPaused;
-        } */
-    } 
+    }
 }
+
