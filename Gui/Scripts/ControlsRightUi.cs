@@ -45,6 +45,8 @@ public partial class ControlsRightUi : Control
     	AddChild(pauseWindow);
     	pauseWindow.Hide();
 
+        pauseButton.Pressed += OnPausePressed;
+
         // Find ClawHead dynamically
         clawHead = GetTree().Root.FindChild("ClawHead", true, false) as ClawHead;
         if (clawHead == null)

@@ -14,7 +14,6 @@ namespace CrankUp
         public override void _Ready()
         {
             TextureButton RetryButton = GetNode<TextureButton>("Buttons/RetryButton");
-
             if (RetryButton != null)
             {
                 RetryButton.Pressed += RetryButtonPressed;
@@ -30,7 +29,7 @@ namespace CrankUp
             TextureButton exitButton = GetNode<TextureButton>("Buttons/ExitButton");
             exitButton.Pressed += ExitButtonPressed;
 
-            TextureButton  settingsButton = GetNode<TextureButton>("Buttons/SettingsButton");
+            TextureButton settingsButton = GetNode<TextureButton>("Buttons/SettingsButton");
             settingsButton.Pressed += SettingsButtonPressed;
 
             PackedScene settingsScene = (PackedScene)GD.Load(_settingsScenePath);
@@ -38,16 +37,15 @@ namespace CrankUp
             AddChild(settingsWindow);
             settingsWindow.Hide();
 
-            /*
             TextureButton tutorialButton = GetNode<TextureButton>("Buttons/TutorialButton");
-            tutorialButton.Pressed += TutorialButtonPressed; */
-
+            tutorialButton.Pressed += TutorialButtonPressed;
         }
 
 
         public void RetryButtonPressed()
         {
             GD.Print("Retry Pressed");
+            GetTree().Paused = false;
             GetTree().ReloadCurrentScene();
             AudioManager.PlaySound(clickSound);
         }
@@ -69,9 +67,6 @@ namespace CrankUp
 
             this.Hide();
 
-            /*
-            GetTree().Paused = false; */
-
         }
 
         public void SettingsButtonPressed()
@@ -81,7 +76,6 @@ namespace CrankUp
             AudioManager.PlaySound(clickSound);
         }
 
-        /*
         public void TutorialButtonPressed()
         {
             GD.Print("Tutorial Pressed");
@@ -116,3 +110,4 @@ namespace CrankUp
         } */
     }
 }
+

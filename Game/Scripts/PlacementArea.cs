@@ -18,7 +18,7 @@ public partial class PlacementArea : Area2D
 			return;
 		
 		if (scoreLabel != null)
-			scoreLabel.Visible = true;
+    		scoreLabel.Visible = true;
 
 		totalAreaSize = CalculatePolygonArea(collisionPolygon.Polygon);
 	}

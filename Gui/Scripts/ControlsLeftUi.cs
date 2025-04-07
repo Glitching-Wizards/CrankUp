@@ -21,7 +21,7 @@ public partial class ControlsLeftUi : Control
             GD.PrintErr("[ERROR] TextureButton 'Rotate' not found in ControlsLeftUi!");
         }
 
-        // Find the moveSlider
+        // Find the moveSlider safely
         moveSlider = GetNodeOrNull<VSlider>("Panel/MoveSlider");
         if (moveSlider == null)
         {
@@ -29,7 +29,7 @@ public partial class ControlsLeftUi : Control
             return;
         }
 
-        // Find ClawHead
+        // Find ClawHead dynamically
         clawHead = GetTree().Root.FindChild("ClawHead", true, false) as ClawHead;
         if (clawHead == null)
         {
