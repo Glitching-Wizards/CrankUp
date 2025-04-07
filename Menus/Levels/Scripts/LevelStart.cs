@@ -5,6 +5,7 @@ namespace CrankUp
 {
     public partial class LevelStart : Window
     {
+        [Export] private string _levelsScenePath = "res://Menus/Levels/Scenes/Levels.tscn";
         [Export] private string _level1ScenePath = "res://Game/Level1/Scenes/Level1.tscn";
         [Export] private string _level2ScenePath = "res://Game/Level2/Scenes/Level2.tscn";
         [Export] private string _level3ScenePath = "res://Game/Level3/Scenes/Level3.tscn";
@@ -24,7 +25,7 @@ namespace CrankUp
 
         public void MenuButtonPressed()
         {
-            this.Hide();
+            GetTree().ChangeSceneToFile(_levelsScenePath);
             AudioManager.PlaySound(clickSound);
         }
 

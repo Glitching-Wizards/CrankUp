@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://bkan3ef2hj1or"]
 
 [ext_resource type="Script" path="res://Menus/Levels/Scripts/LevelStart.cs" id="1_6h471"]
-[ext_resource type="Texture2D" uid="uid://0pnu3tgvsyv6" path="res://Assets/Backgrounds/VictoryScreen.png" id="1_082be"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="2_jhlmk"]
 [ext_resource type="AudioStream" uid="uid://cty2a4x8lqdp6" path="res://Audio/ButtonPress1.mp3" id="2_nudqf"]
 [ext_resource type="Texture2D" uid="uid://bvgtg0q0k8n42" path="res://Assets/Gui/BlankStar.png" id="3_m8dqu"]
+[ext_resource type="Texture2D" uid="uid://daile572kg6n5" path="res://Assets/Victory/VictoryScreen.png" id="3_ostio"]
 [ext_resource type="Texture2D" uid="uid://ckiwhmwu30y57" path="res://Assets/Gui/Buttons/green_button_next1.png" id="5_knp4w"]
 [ext_resource type="Texture2D" uid="uid://cni08607lgf15" path="res://Assets/Gui/Buttons/green_button_next2.png" id="6_7p8ak"]
 [ext_resource type="Texture2D" uid="uid://1pedsn4616vk" path="res://Assets/Gui/Buttons/grey_button_home1.png" id="7_5gprm"]
@@ -32,7 +32,7 @@ grow_vertical = 2
 texture = ExtResource("9_kedlp")
 
 [node name="Start" type="TextureRect" parent="."]
-texture = ExtResource("1_082be")
+texture = ExtResource("3_ostio")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 5
@@ -45,7 +45,7 @@ offset_bottom = 156.0
 grow_horizontal = 2
 theme = ExtResource("2_jhlmk")
 theme_override_font_sizes/font_size = 70
-text = "LEVEL 1"
+text = "LEVEL1"
 
 [node name="Star1" type="TextureRect" parent="."]
 offset_left = 343.0
