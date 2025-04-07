@@ -4,12 +4,12 @@ using System;
 namespace CrankUp;
 public partial class ControlsRightUi : Control
 {
-    [Export] private string _settingsScenePath = "res://Menus/Settings/Scenes/Pause.tscn";
+    [Export] private string _pauseScenePath = "res://Menus/Settings/Scenes/Pause.tscn";
     private ClawHead clawHead;
     private ClawBase clawBase;
-    private Window settingsWindow;
+    private Window pauseWindow;
     private TextureButton grabButton;
-    private TextureButton settingsButton;
+    private TextureButton pauseButton;
     private VSlider moveSlider;
     private float moveSliderValue;
     private Vector2 movementDirection = Vector2.Zero;
@@ -26,12 +26,6 @@ public partial class ControlsRightUi : Control
             return;
         }
 
-        settingsButton = GetNodeOrNull<TextureButton>("Panel/SettingsButton");
-        if (settingsButton == null)
-        {
-            GD.PrintErr("[ERROR] TextureButton 'Settings' not found in ControlsRightUi!");
-        }
-
         moveSlider = GetNodeOrNull<VSlider>("Panel/MoveSlider");
         if (moveSlider == null)
         {
@@ -39,10 +33,16 @@ public partial class ControlsRightUi : Control
             return;
         }
 
-        PackedScene settingsScene = (PackedScene)GD.Load(_settingsScenePath);
-    	settingsWindow = (Window)settingsScene.Instantiate();
-    	AddChild(settingsWindow);
-    	settingsWindow.Hide();
+        pauseButton = GetNodeOrNull<TextureButton>("Panel/PauseButton");
+        if (pauseButton == null)
+        {
+            GD.PrintErr("[ERROR] TextureButton 'Settings' not found in ControlsRightUi!");
+        }
+
+        PackedScene pauseScene = (PackedScene)GD.Load(_pauseScenePath);
+    	pauseWindow = (Window)pauseScene.Instantiate();
+    	AddChild(pauseWindow);
+    	pauseWindow.Hide();
 
         // Find ClawHead dynamically
         clawHead = GetTree().Root.FindChild("ClawHead", true, false) as ClawHead;
@@ -61,7 +61,7 @@ public partial class ControlsRightUi : Control
 
         // Connect button signals
         grabButton.Pressed += OnGrabPressed;
-        settingsButton.Pressed += OnSettingsPressed;
+        pauseButton.Pressed += OnPausePressed;
         moveSlider.ValueChanged += OnSliderValueChanged;
         moveSlider.DragEnded += OnSliderReleased;
     }
@@ -93,9 +93,32 @@ public partial class ControlsRightUi : Control
         }
     }
 
-    private void OnSettingsPressed()
+    // työn alla
+    private void OnPausePressed()
     {
-        settingsWindow.Popup();
+        Node currentScene = GetTree().CurrentScene;
+
+        if (currentScene == null)
+        {
+            GD.PrintErr("[ERROR] No active scene found!");
+            return;
+        }
+
+        switch (currentScene.Name)
+        {
+            case "Level1":
+            case "Level2":
+            case "Level3":
+            case "Level4":
+            case "Level5":
+                GD.Print($"Pausing {currentScene.Name}...");
+                GetTree().Paused = true;
+                pauseWindow.Popup();
+                break;
+            default:
+                GD.PrintErr("[ERROR] No active level found to pause!");
+                break;
+        }
     }
 
     public override void _Process(double delta)
