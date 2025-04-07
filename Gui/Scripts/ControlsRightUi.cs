@@ -105,31 +105,6 @@ public partial class ControlsRightUi : Control
             GD.PrintErr("[ERROR] ClawBase reference is missing!");
             return;
         }
-
-        if (Input.IsActionPressed(Config.MoveRightAction))
-        {
-            moveSliderValue = 35;
-            moveSlider.Value = moveSliderValue;
-            movementDirection = Vector2.Right;
-        }
-        else if (Input.IsActionPressed(Config.MoveLeftAction))
-        {
-            moveSliderValue = -35;
-            moveSlider.Value = moveSliderValue;
-            movementDirection = Vector2.Left;
-        }
-        else
-        {
-            moveSliderValue = 0;
-            moveSlider.Value = moveSliderValue;
-            movementDirection = Vector2.Zero;
-        }
-
-        if (Input.IsActionJustPressed(Config.GrabAction))
-        {
-            OnGrabPressed();
-        }
-
         clawBase.Move(movementDirection, moveSliderValue, delta);
     }
 }
