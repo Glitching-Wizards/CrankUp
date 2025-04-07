@@ -11,7 +11,6 @@ namespace CrankUp
         [Export] private string _startLevel4ScenePath = "res://Menus/LevelStart/Scenes/StartLevel4.tscn";
         [Export] private string _startLevel5ScenePath = "res://Menus/LevelStart/Scenes/StartLevel5.tscn";
         [Export] private string _settingsScenePath = "res://Menus/Settings/Scenes/Settings.tscn";
-        [Export] private AudioStream clickSound;
         private string _startLevelScenePath = "";
         private Window startLevelWindow;
         private Window settingsWindow;
@@ -49,21 +48,18 @@ namespace CrankUp
         public void BackButtonPressed()
         {
             GD.Print("Back Pressed");
-            AudioManager.PlaySound(clickSound);
             GetTree().ChangeSceneToFile("res://Menus/MainMenu/Scenes/MainMenu.tscn");
         }
 
         public void SettingsButtonPressed()
         {
             GD.Print("Settings Pressed");
-            AudioManager.PlaySound(clickSound);
             settingsWindow.Popup();
         }
 
         public void LevelButtonPressed(int level)
         {
             GD.Print($"Level {level} button pressed");
-			AudioManager.PlaySound(clickSound);
 
             _startLevelScenePath = GetLevelScenePath(level);
 

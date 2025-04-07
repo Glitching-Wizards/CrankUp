@@ -52,15 +52,15 @@ Right={
 "deadzone": 0.5,
 "events": []
 }
+Drop={
+"deadzone": 0.5,
+"events": []
+}
 Grab={
 "deadzone": 0.5,
 "events": []
 }
 Rotate={
-"deadzone": 0.5,
-"events": []
-}
-Drop={
 "deadzone": 0.5,
 "events": []
 }
@@ -78,4 +78,4 @@ locale/translations=PackedStringArray("res://Gui/Translations/translations.en.tr
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
-environment/defaults/default_clear_color=Color(0.121023, 0.192857, 0.319785, 1)
+environment/defaults/default_clear_color=Color(0.240766, 0.241971, 0.236472, 1)

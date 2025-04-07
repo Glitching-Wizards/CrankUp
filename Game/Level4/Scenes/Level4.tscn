@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bqlfady1qw4tw" path="res://Assets/Blocks/container_box_Z1.png" id="7_j8xku"]
 [ext_resource type="Texture2D" uid="uid://b1rjsgvxgngwf" path="res://Assets/Blocks/container_box1.png" id="8_u2m6t"]
 [ext_resource type="PackedScene" uid="uid://bu16bdidc32ex" path="res://Gui/ControlsLeftUi.tscn" id="13_jumkn"]
-[ext_resource type="PackedScene" uid="uid://ccehnxtd5o7ir" path="res://Gui/Background4.tscn" id="14_dyjy7"]
+[ext_resource type="PackedScene" path="res://Gui/Background4.tscn" id="14_dyjy7"]
 [ext_resource type="PackedScene" uid="uid://cbrwler8lk051" path="res://Gui/ControlsRightUi.tscn" id="14_jmq6i"]
 [ext_resource type="Texture2D" uid="uid://bktm88vlfrd46" path="res://Assets/Misc/BoxShadow4.png" id="14_q7oo8"]
 [ext_resource type="PackedScene" uid="uid://ck4oieai5v8t6" path="res://Game/Scenes/Claw.tscn" id="15_k4by1"]

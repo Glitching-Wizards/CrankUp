@@ -15,7 +15,7 @@ namespace CrankUp
 		private bool isSceneChanging = false;
 		public override void _Ready()
 		{
-			AudioManager.PlayMusic(menuMusic);
+			/*AudioManager.PlayMusic(menuMusic); */
 			Button playButton = GetNode<Button>("Buttons/PlayButton");
 			playButton.Pressed += PlayButtonPressed;
 

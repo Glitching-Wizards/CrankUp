@@ -5,6 +5,7 @@ namespace CrankUp;
 public partial class ControlsRightUi : Control
 {
     [Export] private string _pauseScenePath = "res://Menus/Settings/Scenes/Pause.tscn";
+    [Export] private AudioStream clickSound;
     private ClawHead clawHead;
     private ClawBase clawBase;
     private Window pauseWindow;
@@ -69,6 +70,7 @@ public partial class ControlsRightUi : Control
     private void OnGrabPressed()
     {
         if (clawHead != null) clawHead.GrabBlock();
+        AudioManager.PlaySound(clickSound);
     }
 
     private void OnSliderValueChanged(double value)
@@ -81,6 +83,8 @@ public partial class ControlsRightUi : Control
             movementDirection = Vector2.Left;
         else
             movementDirection = Vector2.Zero;
+
+        AudioManager.PlaySound(clickSound);
     }
 
     private void OnSliderReleased(bool ended)
@@ -97,6 +101,7 @@ public partial class ControlsRightUi : Control
     private void OnPausePressed()
     {
         Node currentScene = GetTree().CurrentScene;
+        AudioManager.PlaySound(clickSound);
 
         if (currentScene == null)
         {
