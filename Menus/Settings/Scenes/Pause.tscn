@@ -36,6 +36,7 @@ atlas = ExtResource("9_4coxt")
 region = Rect2(286, 0, 236, 0)
 
 [node name="Pause" type="Window"]
+process_mode = 2
 transparent_bg = true
 size = Vector2i(1280, 720)
 exclusive = true

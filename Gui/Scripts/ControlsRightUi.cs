@@ -41,7 +41,6 @@ public partial class ControlsRightUi : Control
 
         PackedScene pauseScene = (PackedScene)GD.Load(_pauseScenePath);
     	pauseWindow = (Window)pauseScene.Instantiate();
-        pauseWindow.PauseMode = PauseModeEnum.Process;
     	AddChild(pauseWindow);
     	pauseWindow.Hide();
 

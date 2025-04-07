@@ -6,7 +6,6 @@
 [ext_resource type="Theme" uid="uid://6td37p2nd7m3" path="res://Gui/PlayTheme.tres" id="4_a4x3l"]
 [ext_resource type="Script" path="res://Game/Scripts/FinishButton.cs" id="5_gdxod"]
 [ext_resource type="Texture2D" uid="uid://15t504ih4j83" path="res://Assets/Blocks/container_blue.png" id="6_xirey"]
-[ext_resource type="Texture2D" uid="uid://dewv11matrj6d" path="res://Assets/Blocks/container_blue_healthy.png" id="7_g7hka"]
 [ext_resource type="Texture2D" uid="uid://dktk418ydlm2w" path="res://Assets/Blocks/container_L_yellow.png" id="7_xqmo7"]
 [ext_resource type="PackedScene" uid="uid://bu16bdidc32ex" path="res://Gui/ControlsLeftUi.tscn" id="8_fytdm"]
 [ext_resource type="Texture2D" uid="uid://dhfsv772pihq1" path="res://Assets/Blocks/container_L_blue.png" id="8_yh5n8"]
@@ -21,14 +20,14 @@
 [ext_resource type="Texture2D" uid="uid://qlwyq2i23e47" path="res://Assets/Misc/BoxShadow.png" id="17_dellb"]
 [ext_resource type="Script" path="res://Game/Scripts/Tutorial.cs" id="20_8sm3w"]
 [ext_resource type="PackedScene" uid="uid://bof30jnhkvxrl" path="res://Gui/Tutorial/Tutorial1.tscn" id="20_juq6c"]
-[ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial2.tscn" id="21_mmwtp"]
-[ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial3.tscn" id="22_kfl2k"]
-[ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial4.tscn" id="23_0vlog"]
-[ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial5.tscn" id="24_4m2qt"]
-[ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial6.tscn" id="25_1na0m"]
-[ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial7.tscn" id="26_f87lh"]
-[ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial8.tscn" id="27_6yd6c"]
-[ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial9.tscn" id="28_3or7n"]
+[ext_resource type="PackedScene" uid="uid://cucumwcu224yf" path="res://Gui/Tutorial/Tutorial2.tscn" id="21_mmwtp"]
+[ext_resource type="PackedScene" uid="uid://cejnj6x0fry0m" path="res://Gui/Tutorial/Tutorial3.tscn" id="22_kfl2k"]
+[ext_resource type="PackedScene" uid="uid://brjgb4ke34ftt" path="res://Gui/Tutorial/Tutorial4.tscn" id="23_0vlog"]
+[ext_resource type="PackedScene" uid="uid://pbhrkwx4h2r" path="res://Gui/Tutorial/Tutorial5.tscn" id="24_4m2qt"]
+[ext_resource type="PackedScene" uid="uid://baur4gsdjok38" path="res://Gui/Tutorial/Tutorial6.tscn" id="25_1na0m"]
+[ext_resource type="PackedScene" uid="uid://cj0550n71gkad" path="res://Gui/Tutorial/Tutorial7.tscn" id="26_f87lh"]
+[ext_resource type="PackedScene" uid="uid://eok2slj87g2u" path="res://Gui/Tutorial/Tutorial8.tscn" id="27_6yd6c"]
+[ext_resource type="PackedScene" uid="uid://cpnja7ibf6k85" path="res://Gui/Tutorial/Tutorial9.tscn" id="28_3or7n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_idrmk"]
 atlas = ExtResource("6_xirey")
@@ -106,9 +105,9 @@ offset_bottom = -183.0
 
 [node name="Block" type="TextureButton" parent="ConveyorBelt/BlockButtons"]
 layout_mode = 0
-offset_left = 539.0
+offset_left = 540.0
 offset_top = 244.0
-offset_right = 689.0
+offset_right = 690.0
 offset_bottom = 344.0
 texture_normal = SubResource("AtlasTexture_idrmk")
 ignore_texture_size = true
@@ -117,28 +116,28 @@ stretch_mode = 0
 [node name="ContainerYellowL" type="TextureButton" parent="ConveyorBelt/BlockButtons"]
 layout_mode = 0
 offset_left = 690.0
-offset_top = 211.0
+offset_top = 224.0
 offset_right = 840.0
-offset_bottom = 361.0
+offset_bottom = 374.0
 texture_normal = SubResource("AtlasTexture_al5hc")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="ContainerBlueL" type="TextureButton" parent="ConveyorBelt/BlockButtons"]
 layout_mode = 0
-offset_left = 850.0
-offset_top = 210.0
-offset_right = 1000.0
-offset_bottom = 360.0
+offset_left = 840.0
+offset_top = 223.0
+offset_right = 990.0
+offset_bottom = 373.0
 texture_normal = SubResource("AtlasTexture_nc3h7")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="ContainerRed" type="TextureButton" parent="ConveyorBelt/BlockButtons"]
 layout_mode = 0
-offset_left = 1020.0
+offset_left = 1010.0
 offset_top = 244.0
-offset_right = 1170.0
+offset_right = 1160.0
 offset_bottom = 344.0
 texture_normal = SubResource("AtlasTexture_ng1ui")
 ignore_texture_size = true
@@ -146,15 +145,16 @@ stretch_mode = 0
 
 [node name="ContainerYellow" type="TextureButton" parent="ConveyorBelt/BlockButtons"]
 layout_mode = 0
-offset_left = 1200.0
+offset_left = 1190.0
 offset_top = 244.0
-offset_right = 1350.0
+offset_right = 1340.0
 offset_bottom = 344.0
 texture_normal = SubResource("AtlasTexture_jjs76")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Ui" type="Control" parent="."]
+z_index = 2
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -286,7 +286,6 @@ offset_bottom = -360.0
 
 [connection signal="pressed" from="ConveyorBelt/ConveyorBelt3/FinishButton" to="." method="_on_finish_button_pressed"]
 [connection signal="pressed" from="ConveyorBelt/BlockButtons/Block" to="." method="_on_block_pressed"]
-[connection signal="pressed" from="ConveyorBelt/BlockButtons/Block2" to="." method="_on_block_2_pressed"]
 [connection signal="pressed" from="ConveyorBelt/BlockButtons/ContainerYellowL" to="." method="_on_container_yellow_l_pressed"]
 [connection signal="pressed" from="ConveyorBelt/BlockButtons/ContainerBlueL" to="." method="_on_container_blue_l_pressed"]
 [connection signal="pressed" from="ConveyorBelt/BlockButtons/ContainerRed" to="." method="_on_container_red_pressed"]
