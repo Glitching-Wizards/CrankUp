@@ -1,0 +1,119 @@
+[gd_scene load_steps=9 format=3 uid="uid://ccehnxtd5o7ir"]
+
+[ext_resource type="Texture2D" uid="uid://bgjgyyfqjcx31" path="res://Assets/Backgrounds/Level4Background.png" id="1_nwhc1"]
+[ext_resource type="Texture2D" uid="uid://dhqs8welv03pn" path="res://Assets/Backgrounds/AsphaltBlocks.png" id="2_eu0e6"]
+[ext_resource type="Texture2D" uid="uid://ciqc0e7o4i4w5" path="res://Assets/Backgrounds/TruckModel.png" id="3_g0w4p"]
+[ext_resource type="Texture2D" uid="uid://ig6u8vw34kal" path="res://Assets/Backgrounds/platform.png" id="4_mb37s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6rl4w"]
+size = Vector2(1055, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ttwxt"]
+size = Vector2(660.5, 58)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_5n6r5"]
+a = Vector2(127, 0)
+b = Vector2(127, 720)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_liobq"]
+a = Vector2(1154, 720)
+b = Vector2(1153, 0)
+
+[node name="Background" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_vertical_guides_ = [640.0]
+metadata/_edit_horizontal_guides_ = [10.0]
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("1_nwhc1")
+
+[node name="Asfalt" type="StaticBody2D" parent="Background"]
+position = Vector2(67, 516)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Background/Asfalt"]
+position = Vector2(571.5, 73)
+shape = SubResource("RectangleShape2D_6rl4w")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Background/Asfalt"]
+position = Vector2(572.75, 49)
+shape = SubResource("RectangleShape2D_ttwxt")
+
+[node name="TextureRect14" type="TextureRect" parent="Background/Asfalt"]
+offset_left = -34.0
+offset_top = 44.0
+offset_right = 1246.0
+offset_bottom = 269.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_eu0e6")
+
+[node name="TextureRect15" type="TextureRect" parent="Background/Asfalt"]
+offset_left = 350.0
+offset_top = 44.0
+offset_right = 1630.0
+offset_bottom = 269.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_eu0e6")
+flip_h = true
+
+[node name="TextureRect16" type="TextureRect" parent="Background/Asfalt"]
+offset_left = 734.0
+offset_top = 44.0
+offset_right = 2014.0
+offset_bottom = 269.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_eu0e6")
+
+[node name="Truck" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 180.0
+offset_right = 1494.0
+offset_bottom = 738.0
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("3_g0w4p")
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(15, 0)
+shape = SubResource("SegmentShape2D_5n6r5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-16, 0)
+shape = SubResource("SegmentShape2D_liobq")
+
+[node name="Wood" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 740.0
+offset_top = 378.0
+offset_right = 1140.0
+offset_bottom = 778.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_mb37s")
+
+[node name="Wood2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 378.0
+offset_right = 920.0
+offset_bottom = 778.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_mb37s")
+
+[node name="Wood3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 378.0
+offset_right = 700.0
+offset_bottom = 778.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_mb37s")

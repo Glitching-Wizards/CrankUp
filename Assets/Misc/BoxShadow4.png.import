@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c05ftje3khlk7"
-path="res://.godot/imported/PlacementArea.png-d6f0b08091cfd1f29680264c15d1ef8b.ctex"
+uid="uid://bktm88vlfrd46"
+path="res://.godot/imported/BoxShadow4.png-af6be8d5003d71ea2b35421efb150092.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/PlacementArea.png"
-dest_files=["res://.godot/imported/PlacementArea.png-d6f0b08091cfd1f29680264c15d1ef8b.ctex"]
+source_file="res://Assets/Misc/BoxShadow4.png"
+dest_files=["res://.godot/imported/BoxShadow4.png-af6be8d5003d71ea2b35421efb150092.ctex"]
 
 [params]
 

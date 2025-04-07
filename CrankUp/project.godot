@@ -1,0 +1,77 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Crank Up!"
+run/main_scene="res://GameStart/Scenes/GameStart.tscn"
+config/features=PackedStringArray("4.3", "C#", "Mobile")
+config/icon="res://Assets/Logos/Icon.png"
+
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="viewport"
+
+[dotnet]
+
+project/assembly_name="Crank Up!"
+
+[editor]
+
+naming/scene_name_casing=1
+
+[input]
+
+Up={
+"deadzone": 0.5,
+"events": []
+}
+Down={
+"deadzone": 0.5,
+"events": []
+}
+Left={
+"deadzone": 0.5,
+"events": []
+}
+Right={
+"deadzone": 0.5,
+"events": []
+}
+Drop={
+"deadzone": 0.5,
+"events": []
+}
+Grab={
+"deadzone": 0.5,
+"events": []
+}
+Rotate={
+"deadzone": 0.5,
+"events": []
+}
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://Gui/Translations/translations.en.translation", "res://Gui/Translations/translations.fi.translation")
+
+[navigation]
+
+3d/autoload_on_startup=false
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0.121023, 0.192857, 0.319785, 1)

@@ -34,21 +34,23 @@ namespace CrankUp
             settingsWindow = (Window)settingsScene.Instantiate();
             AddChild(settingsWindow);
             settingsWindow.Hide();
-            /*
+
             TextureButton tutorialButton = GetNode<TextureButton>("Buttons/TutorialButton");
-            tutorialButton.Pressed += TutorialButtonPressed; */
+            tutorialButton.Pressed += TutorialButtonPressed;
         }
 
 
         public void RetryButtonPressed()
         {
             GD.Print("Retry Pressed");
+            GetTree().Paused = false;
             GetTree().ReloadCurrentScene();
         }
 
         public void MenuButtonPressed()
         {
             GD.Print("Menu Pressed");
+            GetTree().Paused = false;
             GetTree().ChangeSceneToFile(_levelsScenePath);
         }
 
@@ -58,9 +60,9 @@ namespace CrankUp
 
             Node currentScene = GetTree().CurrentScene;
 
+            GetTree().Paused = false;
+
             this.Hide();
-            /*
-            GetTree().Paused = false; */
 
         }
 
@@ -69,7 +71,7 @@ namespace CrankUp
             GD.Print("Settings Pressed");
             settingsWindow.Popup();
         }
-        /*
+
         public void TutorialButtonPressed()
         {
             GD.Print("Tutorial Pressed");
@@ -93,14 +95,6 @@ namespace CrankUp
                 GD.PrintErr("[ERROR] Failed to cast Tutorial node.");
             }
         }
-
-        public bool IsPaused { get; private set; } = false;
-
-        public void TogglePause()
-        {
-            IsPaused = !IsPaused;
-            GetTree().Paused = IsPaused;
-        } */
-    } 
+    }
 }
 

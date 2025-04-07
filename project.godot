@@ -15,9 +15,6 @@ run/main_scene="res://GameStart/Scenes/GameStart.tscn"
 config/features=PackedStringArray("4.3", "C#", "Mobile")
 config/icon="res://Assets/Logos/Icon.png"
 
-[autoload]
-
-MultiTouchVSlider="*res://Gui/Scripts/MultiTouchVSlider.cs"
 
 [display]
 
@@ -77,4 +74,4 @@ locale/translations=PackedStringArray("res://Gui/Translations/translations.en.tr
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
-environment/defaults/default_clear_color=Color(0.121023, 0.192857, 0.319785, 1)
+environment/defaults/default_clear_color=Color(0.254902, 0.254902, 0.254902, 1)
