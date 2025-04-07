@@ -2,7 +2,6 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-/*
 namespace CrankUp;
 public partial class Tutorial : Node
 {
@@ -53,7 +52,6 @@ public partial class Tutorial : Node
         // Load the tutorial scenes
         for (int i = 1; i <= 9; i++)
         {
-
             var tutorialWindow = tutorial.GetNodeOrNull<Window>($"Tutorial{i}");
             if (tutorialWindow != null)
             {
@@ -130,4 +128,4 @@ public partial class Tutorial : Node
         }
         GD.Print("Tutorial skipped");
     }
-} */
+}

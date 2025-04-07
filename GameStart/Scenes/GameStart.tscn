@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvt1f0qeqldcn"]
+[gd_scene load_steps=10 format=3 uid="uid://cvt1f0qeqldcn"]
 
 [ext_resource type="Script" path="res://GameStart/Scripts/GameStart.cs" id="1_4yioq"]
 [ext_resource type="Texture2D" uid="uid://dvo5gsqmussji" path="res://Assets/Animations/logo.png" id="1_hrowh"]
+[ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="3_cyguj"]
 
 [sub_resource type="Animation" id="Animation_o7kg5"]
 resource_name = "GlitchAnimation"
@@ -13,10 +14,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(-0.0333333, 0.266667, 0.5, 0.6, 0.633333, 0.766667, 1.06667, 1.46667, 1.66667, 1.73333, 1.9, 2.03333, 2.43333, 2.73333, 2.86667, 2.93333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.7, 0.766667, 0.833333, 0.9, 1.6, 1.7, 1.76667, 1.83333, 2.13333, 2.16667, 2.83333, 2.9, 2.93333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 0, 1, 2, 3, 0, 0, 0, 1, 2, 3, 0, 0, 1, 2, 3]
+"values": [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 0, 1, 2, 3]
 }
 
 [sub_resource type="Animation" id="Animation_8ei8a"]
@@ -40,12 +41,49 @@ _data = {
 "RESET": SubResource("Animation_8ei8a")
 }
 
+[sub_resource type="Animation" id="Animation_uofyq"]
+resource_name = "Black"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.46667, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.593134, 0.593134, 0.593134, 1), Color(0.592157, 0.592157, 0.592157, 0.482353), Color(0.592157, 0.592157, 0.592157, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_567sh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.788235)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qkrcu"]
+_data = {
+"Black": SubResource("Animation_uofyq"),
+"RESET": SubResource("Animation_567sh")
+}
+
 [node name="GameStart" type="Node2D"]
 script = ExtResource("1_4yioq")
 
 [node name="Wizard" type="Sprite2D" parent="."]
-position = Vector2(655, 361)
-scale = Vector2(10.4286, 10.4286)
+position = Vector2(650, 362)
+scale = Vector2(8.94049, 8.94049)
 texture = ExtResource("1_hrowh")
 hframes = 4
 
@@ -55,3 +93,15 @@ libraries = {
 "": SubResource("AnimationLibrary_x8o1p")
 }
 autoplay = "GlitchAnimation"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 0.788235)
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("3_cyguj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect"]
+libraries = {
+"": SubResource("AnimationLibrary_qkrcu")
+}
+autoplay = "Black"
