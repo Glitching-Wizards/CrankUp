@@ -1,5 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cusyv8gojbcca"]
-
+[gd_scene load_steps=34 format=3 uid="uid://cusyv8gojbcca"]
 
 [ext_resource type="Script" path="res://Game/Level1/Scripts/Level1.cs" id="1_e65w2"]
 [ext_resource type="PackedScene" uid="uid://dnr4wgld8simd" path="res://Gui/Background.tscn" id="2_bkcuh"]
@@ -21,14 +20,14 @@
 [ext_resource type="Texture2D" uid="uid://qlwyq2i23e47" path="res://Assets/Misc/BoxShadow.png" id="17_dellb"]
 [ext_resource type="Script" path="res://Game/Scripts/Tutorial.cs" id="20_8sm3w"]
 [ext_resource type="PackedScene" uid="uid://bof30jnhkvxrl" path="res://Gui/Tutorial/Tutorial1.tscn" id="20_juq6c"]
-[ext_resource type="PackedScene" uid="uid://cucumwcu224yf" path="res://Gui/Tutorial/Tutorial2.tscn" id="21_mmwtp"]
-[ext_resource type="PackedScene" uid="uid://cejnj6x0fry0m" path="res://Gui/Tutorial/Tutorial3.tscn" id="22_kfl2k"]
-[ext_resource type="PackedScene" uid="uid://brjgb4ke34ftt" path="res://Gui/Tutorial/Tutorial4.tscn" id="23_0vlog"]
-[ext_resource type="PackedScene" uid="uid://pbhrkwx4h2r" path="res://Gui/Tutorial/Tutorial5.tscn" id="24_4m2qt"]
-[ext_resource type="PackedScene" uid="uid://baur4gsdjok38" path="res://Gui/Tutorial/Tutorial6.tscn" id="25_1na0m"]
-[ext_resource type="PackedScene" uid="uid://cj0550n71gkad" path="res://Gui/Tutorial/Tutorial7.tscn" id="26_f87lh"]
-[ext_resource type="PackedScene" uid="uid://eok2slj87g2u" path="res://Gui/Tutorial/Tutorial8.tscn" id="27_6yd6c"]
-[ext_resource type="PackedScene" uid="uid://cpnja7ibf6k85" path="res://Gui/Tutorial/Tutorial9.tscn" id="28_3or7n"]
+[ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial2.tscn" id="21_mmwtp"]
+[ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial3.tscn" id="22_kfl2k"]
+[ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial4.tscn" id="23_0vlog"]
+[ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial5.tscn" id="24_4m2qt"]
+[ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial6.tscn" id="25_1na0m"]
+[ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial7.tscn" id="26_f87lh"]
+[ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial8.tscn" id="27_6yd6c"]
+[ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial9.tscn" id="28_3or7n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_idrmk"]
 atlas = ExtResource("6_xirey")
@@ -114,16 +113,6 @@ texture_normal = SubResource("AtlasTexture_idrmk")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Block2" type="TextureButton" parent="ConveyorBelt/BlockButtons"]
-layout_mode = 0
-offset_left = 1364.0
-offset_top = 246.0
-offset_right = 1507.0
-offset_bottom = 346.0
-texture_normal = ExtResource("7_g7hka")
-ignore_texture_size = true
-stretch_mode = 0
-
 [node name="ContainerYellowL" type="TextureButton" parent="ConveyorBelt/BlockButtons"]
 layout_mode = 0
 offset_left = 690.0
@@ -201,9 +190,16 @@ offset_right = 416.0
 offset_bottom = -58.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlacementArea"]
+position = Vector2(8, -23)
+polygon = PackedVector2Array(-311, -115, 289, -115, 289, 85, -311, 85)
 
-position = Vector2(8, -25)
-polygon = PackedVector2Array(-309, -213, 291, -213, 291, 86, -309, 86)
+[node name="BoxShadow" type="TextureRect" parent="."]
+offset_left = -309.0
+offset_top = -50.0
+offset_right = 303.0
+offset_bottom = 192.0
+texture = ExtResource("17_dellb")
+expand_mode = 1
 
 [node name="WinLose" type="Control" parent="."]
 layout_mode = 3
@@ -219,15 +215,6 @@ visible = false
 
 [node name="Win3" parent="WinLose" instance=ExtResource("15_4n7qn")]
 visible = false
-
-[node name="BoxShadow" type="TextureRect" parent="."]
-offset_left = -311.0
-offset_top = -51.0
-offset_right = 301.0
-offset_bottom = 193.0
-
-texture = ExtResource("17_dellb")
-expand_mode = 1
 
 [node name="Tutorial" type="Node" parent="."]
 script = ExtResource("20_8sm3w")

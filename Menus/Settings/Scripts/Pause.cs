@@ -51,6 +51,7 @@ namespace CrankUp
         public void MenuButtonPressed()
         {
             GD.Print("Menu Pressed");
+            GetTree().Paused = false;
             GetTree().ChangeSceneToFile(_levelsScenePath);
         }
 
