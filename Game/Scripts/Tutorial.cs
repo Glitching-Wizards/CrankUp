@@ -7,11 +7,13 @@ public partial class Tutorial : Node
 {
     private Node tutorial;
     private List<Window> tutorials = new List<Window>();
-    private int currentTutorialIndex = 0;
-    private bool tutorialOn = true;
+    private int currentTutorialIndex;
+    private bool tutorialOn = false;
 
     public override void _Ready()
     {
+        // signaalin haku
+        Pause pause = GetNode<Pause>("res://Menus/Settings/Scenes/Pause.tscn");
         tutorial = GetNode<Node>("Tutorial");
 
         if (tutorial == null)
@@ -19,8 +21,16 @@ public partial class Tutorial : Node
             GD.PrintErr("[ERROR] Tutorial node not found! Check the node path.");
             return;
         }
+        foreach (Node child in tutorial.GetChildren())
+        {
+            if (child is Window tutorialWindow)
+            {
+                tutorials.Add(tutorialWindow);
+                tutorialWindow.Visible = false; // Piilotetaan aluksi kaikki
+            }
+        }
 
-        // Skip
+        // Skip pitäis olla ok
         TextureButton skipButton = GetNodeOrNull<TextureButton>("SkipButton");
         if (skipButton != null)
         {
@@ -31,58 +41,57 @@ public partial class Tutorial : Node
             GD.PrintErr("[ERROR] SkipButton not found! Make sure it exists in the scene.");
         }
 
-        if (tutorialOn)
+        if (pause != null) // Tarkistetaan, että pause-node löytyi
         {
-            StartTutorial();
+            pause.TutorialStarted += StartTutorial;
+            GD.Print("Tutorial: TutorialStarted signaali yhdistetty."); // Lisätään tämä tuloste
         }
         else
         {
-            GD.PrintErr("[ERROR] Tutorial node not found! Check the node path.");
+            GD.PrintErr("Tutorial: Pause nodea ei löytynyt, TutorialStarted signaalia ei yhdistetty!");
         }
+
+        pause.TutorialStarted += StartTutorial;
     }
 
     public void StartTutorial()
     {
-        if (tutorial == null)
-        {
-            GD.PrintErr("[ERROR] Tutorial node is null. Cannot load tutorial scenes.");
-            return;
-        }
-
-        // Load the tutorial scenes
-        for (int i = 1; i <= 9; i++)
-        {
-            var tutorialWindow = tutorial.GetNodeOrNull<Window>($"Tutorial{i}");
-            if (tutorialWindow != null)
-            {
-                tutorialWindow.Visible = true;
-                tutorials.Add(tutorialWindow);
-            }
-            else
-            {
-                GD.PrintErr($"[ERROR] Tutorial{i} not found!");
-            }
-        }
         GD.Print("Tutorial started");
+        tutorialOn = true;
+        currentTutorialIndex = 0;
+
+        if (tutorials.Count > 0 && tutorials[currentTutorialIndex] != null)
+        {
+            tutorials[currentTutorialIndex].Visible = true;
+            currentTutorialIndex++; // Asetetaan seuraavaksi näytettävän indeksiksi 1
+        }
+        else
+        {
+            GD.PrintErr("[ERROR] No tutorial windows found in the list.");
+            tutorialOn = false; // Estetään lisäyritykset
+        }
     }
 
+    // input pitäs olla ok
     /// <summary>
     /// Handles input events.
     /// </summary>
     /// <param name="event"></param>
     public void _input(InputEvent @event)
     {
-        if (@event is InputEventMouseButton mouseButtonEvent && mouseButtonEvent.IsPressed())
+        if (tutorialOn && @event is InputEventMouseButton mouseButtonEvent && mouseButtonEvent.IsPressed())
         {
             NextTutorial();
         }
     }
 
+    // pitäis olla ok
     /// <summary>
     /// Moves to the next tutorial step.
     /// </summary>
     private void NextTutorial()
     {
+        GD.Print("Next tutorial");
         if (currentTutorialIndex < tutorials.Count && tutorials[currentTutorialIndex] != null)
         {
             // Current tutorial
@@ -93,6 +102,9 @@ public partial class Tutorial : Node
             {
                 tutorials[currentTutorialIndex - 1].Visible = false;
             }
+
+            // Show the current tutorial
+            tutorials[currentTutorialIndex].Visible = true;
 
             // Move to the next tutorial step
             currentTutorialIndex++;
@@ -111,10 +123,9 @@ public partial class Tutorial : Node
         }
     }
 
+    // pitäis olla ok
     public void SkipTutorial()
     {
-        tutorialOn = false;
-
         // Hide all tutorials
         if (tutorials.Count > 0)
         {
@@ -126,6 +137,7 @@ public partial class Tutorial : Node
                 }
             }
         }
+        tutorialOn = false;
         GD.Print("Tutorial skipped");
     }
 }

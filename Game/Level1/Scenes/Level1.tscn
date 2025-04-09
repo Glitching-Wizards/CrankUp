@@ -216,12 +216,16 @@ visible = false
 [node name="Win3" parent="WinLose" instance=ExtResource("15_4n7qn")]
 visible = false
 
-[node name="Tutorial" type="Node" parent="."]
+[node name="Tutorial" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("20_8sm3w")
 
 [node name="Tutorial1" parent="Tutorial" instance=ExtResource("20_juq6c")]
 visible = false
-z_index = 3
+top_level = true
+z_index = 10
+layout_mode = 1
 offset_left = -640.0
 offset_top = -360.0
 offset_right = -640.0
@@ -229,7 +233,8 @@ offset_bottom = -360.0
 
 [node name="Tutorial2" parent="Tutorial" instance=ExtResource("21_mmwtp")]
 visible = false
-z_index = 3
+z_index = 10
+layout_mode = 1
 offset_left = -640.0
 offset_top = -360.0
 offset_right = -640.0
@@ -237,6 +242,8 @@ offset_bottom = -360.0
 
 [node name="Tutorial3" parent="Tutorial" instance=ExtResource("22_kfl2k")]
 visible = false
+z_index = 10
+layout_mode = 1
 offset_left = -640.0
 offset_top = -360.0
 offset_right = -640.0
@@ -244,6 +251,8 @@ offset_bottom = -360.0
 
 [node name="Tutorial4" parent="Tutorial" instance=ExtResource("23_0vlog")]
 visible = false
+z_index = 10
+layout_mode = 1
 offset_left = -640.0
 offset_top = -360.0
 offset_right = -640.0
@@ -251,6 +260,8 @@ offset_bottom = -360.0
 
 [node name="Tutorial5" parent="Tutorial" instance=ExtResource("24_4m2qt")]
 visible = false
+z_index = 10
+layout_mode = 1
 offset_left = -640.0
 offset_top = -360.0
 offset_right = -640.0
@@ -258,6 +269,8 @@ offset_bottom = -360.0
 
 [node name="Tutorial6" parent="Tutorial" instance=ExtResource("25_1na0m")]
 visible = false
+z_index = 10
+layout_mode = 1
 offset_left = -640.0
 offset_top = -360.0
 offset_right = -640.0
@@ -265,6 +278,8 @@ offset_bottom = -360.0
 
 [node name="Tutorial7" parent="Tutorial" instance=ExtResource("26_f87lh")]
 visible = false
+z_index = 10
+layout_mode = 1
 offset_left = -640.0
 offset_top = -360.0
 offset_right = -640.0
@@ -272,6 +287,8 @@ offset_bottom = -360.0
 
 [node name="Tutorial8" parent="Tutorial" instance=ExtResource("27_6yd6c")]
 visible = false
+z_index = 10
+layout_mode = 1
 offset_left = -640.0
 offset_top = -360.0
 offset_right = -640.0
@@ -279,6 +296,8 @@ offset_bottom = -360.0
 
 [node name="Tutorial9" parent="Tutorial" instance=ExtResource("28_3or7n")]
 visible = false
+z_index = 10
+layout_mode = 1
 offset_left = -640.0
 offset_top = -360.0
 offset_right = -640.0

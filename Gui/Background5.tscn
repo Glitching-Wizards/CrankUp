@@ -1,13 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://df6jd6rkwbhv"]
+[gd_scene load_steps=17 format=3 uid="uid://jb1qnfl3l0yf"]
 
-[ext_resource type="Script" path="res://Menus/MainMenu/Scripts/MainMenu.cs" id="1_bemtd"]
-[ext_resource type="Texture2D" uid="uid://c7osdlwfnis5i" path="res://Assets/Backgrounds/MainMenuCloudless.png" id="2_7rtng"]
-[ext_resource type="Texture2D" uid="uid://bgdnq58ms063j" path="res://Assets/Animations/Clouds/LargeClouds.png" id="3_l34b4"]
-[ext_resource type="Texture2D" uid="uid://csrdy0j6oanwm" path="res://Assets/Logos/CrankUpLogoPinkOrangeBorderFINALFINAL.png" id="3_x4ae0"]
-[ext_resource type="Texture2D" uid="uid://baajqx10nrlby" path="res://Assets/Animations/SmallClouds.png" id="4_r14pt"]
-[ext_resource type="Texture2D" uid="uid://bjl34nmf2fffy" path="res://Assets/Animations/JarkkoNormalAnimated.png" id="5_kqgoh"]
-[ext_resource type="Texture2D" uid="uid://cft6g2o1608dq" path="res://Assets/Backgrounds/TruckBLUE.png" id="6_q0w1u"]
-[ext_resource type="Theme" uid="uid://6td37p2nd7m3" path="res://Gui/PlayTheme.tres" id="7_fu8vc"]
+[ext_resource type="Texture2D" uid="uid://dghgblxjisoae" path="res://Assets/Backgrounds/Level5Background.png" id="1_0u7pg"]
+[ext_resource type="Texture2D" uid="uid://dhqs8welv03pn" path="res://Assets/Backgrounds/AsphaltBlocks.png" id="4_6s0l2"]
+[ext_resource type="Texture2D" uid="uid://x6cs8n2vs2yu" path="res://Assets/Animations/Clouds/LargeClouds2.png" id="4_31161"]
+[ext_resource type="Texture2D" uid="uid://ciqc0e7o4i4w5" path="res://Assets/Backgrounds/TruckModel.png" id="5_q234x"]
+[ext_resource type="Texture2D" uid="uid://baajqx10nrlby" path="res://Assets/Animations/SmallClouds.png" id="5_rglpn"]
+[ext_resource type="Texture2D" uid="uid://ig6u8vw34kal" path="res://Assets/Backgrounds/platform.png" id="6_bhk30"]
 
 [sub_resource type="Animation" id="Animation_8ulh6"]
 resource_name = "LargeClouds"
@@ -165,65 +163,40 @@ _data = {
 "SmallClouds2": SubResource("Animation_ltmmf")
 }
 
-[sub_resource type="Animation" id="Animation_l75ec"]
-resource_name = "JarkkoNormal"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.266667, 0.533333, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 3, 2]
-}
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6rl4w"]
+size = Vector2(1055, 58)
 
-[sub_resource type="Animation" id="Animation_e04tv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ttwxt"]
+size = Vector2(660.5, 58)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_tg0mq"]
-_data = {
-"JarkkoNormal": SubResource("Animation_l75ec"),
-"RESET": SubResource("Animation_e04tv")
-}
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_5n6r5"]
+a = Vector2(127, 0)
+b = Vector2(127, 720)
 
-[node name="MainMenu" type="Control"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_liobq"]
+a = Vector2(1154, 720)
+b = Vector2(1153, 0)
+
+[node name="Background" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_bemtd")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(640, 360)
+mouse_filter = 2
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 720.0
-texture = ExtResource("2_7rtng")
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("1_0u7pg")
 
 [node name="LargeClouds" type="Sprite2D" parent="Background"]
 position = Vector2(640, 162)
 scale = Vector2(1.04791, 1)
-texture = ExtResource("3_l34b4")
+texture = ExtResource("4_31161")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background/LargeClouds"]
 libraries = {
@@ -234,7 +207,7 @@ autoplay = "LargeClouds"
 [node name="SmallClouds" type="Sprite2D" parent="Background"]
 position = Vector2(640, 162)
 scale = Vector2(1.04934, 1)
-texture = ExtResource("4_r14pt")
+texture = ExtResource("5_rglpn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background/SmallClouds"]
 libraries = {
@@ -245,7 +218,7 @@ autoplay = "SmallClouds"
 [node name="LargeClouds2" type="Sprite2D" parent="Background"]
 position = Vector2(640, 162)
 scale = Vector2(1.04791, 1)
-texture = ExtResource("3_l34b4")
+texture = ExtResource("4_31161")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background/LargeClouds2"]
 libraries = {
@@ -256,7 +229,7 @@ autoplay = "LargeClouds2"
 [node name="SmallClouds2" type="Sprite2D" parent="Background"]
 position = Vector2(640, 162)
 scale = Vector2(1.0475, 1)
-texture = ExtResource("4_r14pt")
+texture = ExtResource("5_rglpn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background/SmallClouds2"]
 libraries = {
@@ -264,102 +237,85 @@ libraries = {
 }
 autoplay = "SmallClouds2"
 
-[node name="Title" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -260.0
-offset_top = -15.0
-offset_right = 341.0
+[node name="Asfalt" type="StaticBody2D" parent="Background"]
+position = Vector2(67, 516)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Background/Asfalt"]
+position = Vector2(571.5, 73)
+shape = SubResource("RectangleShape2D_6rl4w")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Background/Asfalt"]
+position = Vector2(572.75, 49)
+shape = SubResource("RectangleShape2D_ttwxt")
+
+[node name="TextureRect14" type="TextureRect" parent="Background/Asfalt"]
+offset_left = -34.0
+offset_top = 44.0
+offset_right = 1246.0
 offset_bottom = 269.0
-grow_horizontal = 2
-scale = Vector2(0.9, 0.9)
-texture = ExtResource("3_x4ae0")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_6s0l2")
 
-[node name="Buttons" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -640.0
-offset_top = -358.0
-offset_right = 639.0
-offset_bottom = 360.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="PlayButton" type="Button" parent="Buttons"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -232.0
-offset_top = -106.0
-offset_right = 37.0
-offset_bottom = 17.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.7, 1.7)
-theme = ExtResource("7_fu8vc")
-theme_override_constants/align_to_largest_stylebox = 30
-theme_override_font_sizes/font_size = 75
-text = "PLAY"
-icon_alignment = 1
-text_direction = 1
-
-[node name="SettingsButton" type="Button" parent="Buttons"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -150.0
-offset_top = -247.0
-offset_right = 160.0
-offset_bottom = -132.0
-grow_horizontal = 2
-grow_vertical = 0
-theme = ExtResource("7_fu8vc")
-theme_override_font_sizes/font_size = 63
-text = "OPTIONS"
-
-[node name="CreditsButton" type="Button" parent="Buttons"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -150.0
-offset_top = -128.0
-offset_right = 160.0
-offset_bottom = -13.0
-grow_horizontal = 2
-grow_vertical = 0
-theme = ExtResource("7_fu8vc")
-theme_override_font_sizes/font_size = 62
-text = "CREDITS"
-
-[node name="Jarkko" type="Sprite2D" parent="."]
-position = Vector2(1120, 449)
-scale = Vector2(0.758333, 0.758333)
-texture = ExtResource("5_kqgoh")
+[node name="TextureRect15" type="TextureRect" parent="Background/Asfalt"]
+offset_left = 350.0
+offset_top = 44.0
+offset_right = 1630.0
+offset_bottom = 269.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_6s0l2")
 flip_h = true
-hframes = 5
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Jarkko"]
-libraries = {
-"": SubResource("AnimationLibrary_tg0mq")
-}
-autoplay = "JarkkoNormal"
+[node name="TextureRect16" type="TextureRect" parent="Background/Asfalt"]
+offset_left = 734.0
+offset_top = 44.0
+offset_right = 2014.0
+offset_bottom = 269.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_6s0l2")
 
-[node name="TruckBlue" type="Sprite2D" parent="."]
-position = Vector2(227, 378)
-scale = Vector2(1.1059, 1.1059)
-texture = ExtResource("6_q0w1u")
+[node name="Truck" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 180.0
+offset_right = 1494.0
+offset_bottom = 738.0
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("5_q234x")
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(15, 0)
+shape = SubResource("SegmentShape2D_5n6r5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(-16, 0)
+shape = SubResource("SegmentShape2D_liobq")
+
+[node name="Wood" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 740.0
+offset_top = 378.0
+offset_right = 1140.0
+offset_bottom = 778.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_bhk30")
+
+[node name="Wood2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 378.0
+offset_right = 920.0
+offset_bottom = 778.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_bhk30")
+
+[node name="Wood3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 378.0
+offset_right = 700.0
+offset_bottom = 778.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_bhk30")

@@ -11,6 +11,9 @@ namespace CrankUp
         private Window settingsWindow;
         private Window victoryScreen;
 
+        /* Signal for tutorial start */
+        [Signal] public delegate void TutorialStartedEventHandler();
+
         public override void _Ready()
         {
             TextureButton RetryButton = GetNode<TextureButton>("Buttons/RetryButton");
@@ -61,10 +64,8 @@ namespace CrankUp
         public void ExitButtonPressed()
         {
             GD.Print("Exit Pressed");
-
-            Node currentScene = GetTree().CurrentScene;
             AudioManager.PlaySound(clickSound);
-
+            GetTree().Paused = false;
             this.Hide();
 
         }
@@ -80,25 +81,9 @@ namespace CrankUp
         {
             GD.Print("Tutorial Pressed");
             AudioManager.PlaySound(clickSound);
-
-            // open tutorial
-            Node tutorialNode = GetTree().Root.FindChild("Tutorial", true, false);
-            if (tutorialNode == null)
-            {
-                GD.Print("[INFO] Tutorial is not found. Instantiating it...");
-                PackedScene tutorialScene = (PackedScene)GD.Load("res:/");
-                tutorialNode = tutorialScene.Instantiate();
-                GetTree().Root.AddChild(tutorialNode);
-            }
-
-            if (tutorialNode is Tutorial tutorial)
-            {
-                tutorial.StartTutorial();
-            }
-            else
-            {
-                GD.PrintErr("[ERROR] Failed to cast Tutorial node.");
-            }
+            GetTree().Paused = false;
+            EmitSignal(nameof(TutorialStartedEventHandler));
+            this.Hide();
         }
 
         public bool IsPaused { get; private set; } = false;
@@ -107,7 +92,7 @@ namespace CrankUp
         {
             IsPaused = !IsPaused;
             GetTree().Paused = IsPaused;
-        } */
+        }
     }
 }
 

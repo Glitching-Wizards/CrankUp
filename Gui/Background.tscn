@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://dnr4wgld8simd"]
 
 [ext_resource type="Texture2D" uid="uid://k2ji4rswhfbd" path="res://Assets/Backgrounds/Level1Background.png" id="1_4yqy1"]
-[ext_resource type="Texture2D" uid="uid://bgdnq58ms063j" path="res://Assets/Animations/LargeClouds.png" id="2_g4tm8"]
+[ext_resource type="Texture2D" uid="uid://x6cs8n2vs2yu" path="res://Assets/Animations/Clouds/LargeClouds2.png" id="2_rggrg"]
 [ext_resource type="Texture2D" uid="uid://dhqs8welv03pn" path="res://Assets/Backgrounds/AsphaltBlocks.png" id="3_p5dii"]
 [ext_resource type="Texture2D" uid="uid://baajqx10nrlby" path="res://Assets/Animations/SmallClouds.png" id="3_wwbyc"]
 [ext_resource type="Texture2D" uid="uid://ig6u8vw34kal" path="res://Assets/Backgrounds/platform.png" id="4_utd2n"]
@@ -198,7 +198,7 @@ texture = ExtResource("1_4yqy1")
 [node name="LargeClouds" type="Sprite2D" parent="Background"]
 position = Vector2(640, 162)
 scale = Vector2(1.04791, 1)
-texture = ExtResource("2_g4tm8")
+texture = ExtResource("2_rggrg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background/LargeClouds"]
 libraries = {
@@ -220,7 +220,7 @@ autoplay = "SmallClouds"
 [node name="LargeClouds2" type="Sprite2D" parent="Background"]
 position = Vector2(640, 162)
 scale = Vector2(1.04791, 1)
-texture = ExtResource("2_g4tm8")
+texture = ExtResource("2_rggrg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background/LargeClouds2"]
 libraries = {
