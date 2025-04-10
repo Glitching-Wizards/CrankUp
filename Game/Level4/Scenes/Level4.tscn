@@ -258,8 +258,11 @@ offset_top = -360.0
 offset_right = -640.0
 offset_bottom = -360.0
 
-[node name="BoxShadow4" type="Sprite2D" parent="."]
-position = Vector2(0, 1)
+[node name="BoxShadow4" type="TextureRect" parent="."]
+offset_left = -275.0
+offset_top = -174.0
+offset_right = 275.0
+offset_bottom = 176.0
 texture = ExtResource("14_q7oo8")
 
 [connection signal="pressed" from="ConveyorBelt/ConveyorBelt2/FinishButton" to="." method="_on_finish_button_pressed"]

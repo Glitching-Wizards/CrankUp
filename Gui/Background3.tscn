@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://clmhsym2e3req"]
 
-[ext_resource type="Texture2D" uid="uid://dr2nogkyov3s6" path="res://Assets/Backgrounds/Level3Background.png" id="1_lv7ps"]
+[ext_resource type="Texture2D" uid="uid://dg0wewvao2cs3" path="res://Assets/Backgrounds/Level3Background.png" id="1_lv7ps"]
 [ext_resource type="Texture2D" uid="uid://dhqs8welv03pn" path="res://Assets/Backgrounds/AsphaltBlocks.png" id="2_cuiys"]
 [ext_resource type="Texture2D" uid="uid://ciqc0e7o4i4w5" path="res://Assets/Backgrounds/TruckModel.png" id="3_kn8kn"]
 [ext_resource type="Texture2D" uid="uid://ig6u8vw34kal" path="res://Assets/Backgrounds/platform.png" id="4_16mpi"]
