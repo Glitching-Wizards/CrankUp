@@ -14,7 +14,7 @@ namespace CrankUp
                 LangCode = "en",
                 MasterVolume = -6.0f,
                 MusicVolume = -6.0f,
-                SfxVolume = -6.0f 
+                SfxVolume = -6.0f
             };
         }
     }

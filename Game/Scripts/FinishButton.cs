@@ -5,8 +5,6 @@ namespace CrankUp
 {
 	public partial class FinishButton : Button
 	{
-		[Export] private string _levelsScenePath = "res://Menus/Levels/Scenes/Levels.tscn";
-		private Node _levelsInstance;
 		private Window victoryScreen1, victoryScreen2, victoryScreen3, loseScreen;
 		private PlacementArea placementArea;
 		private float score;

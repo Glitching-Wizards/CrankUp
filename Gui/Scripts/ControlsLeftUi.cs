@@ -4,6 +4,7 @@ using System;
 namespace CrankUp;
 public partial class ControlsLeftUi : Control
 {
+    [Export] private AudioStream clickSound;
     private ClawHead clawHead;
     private TextureButton rotateButton;
     private VSlider moveSlider;
@@ -20,7 +21,7 @@ public partial class ControlsLeftUi : Control
             GD.PrintErr("[ERROR] TextureButton 'Rotate' not found in ControlsLeftUi!");
         }
 
-        // Find the moveSlider
+        // Find the moveSlider safely
         moveSlider = GetNodeOrNull<VSlider>("Panel/MoveSlider");
         if (moveSlider == null)
         {
@@ -28,7 +29,7 @@ public partial class ControlsLeftUi : Control
             return;
         }
 
-        // Find ClawHead
+        // Find ClawHead dynamically
         clawHead = GetTree().Root.FindChild("ClawHead", true, false) as ClawHead;
         if (clawHead == null)
         {
@@ -47,6 +48,7 @@ public partial class ControlsLeftUi : Control
     private void OnRotatePressed()
     {
         if (clawHead != null) clawHead.RotateBlock();
+        AudioManager.PlaySound(clickSound);
     }
 
     private void OnSliderValueChanged(double value)
@@ -59,6 +61,8 @@ public partial class ControlsLeftUi : Control
             movementDirection = Vector2.Down;
         else
             movementDirection = Vector2.Zero;
+
+        AudioManager.PlaySound(clickSound);
     }
 
     private void OnSliderReleased(bool ended)

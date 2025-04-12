@@ -6,5 +6,5 @@ namespace CrankUp
 		public const string SaveFolder = "Save";
 		public const string QuickSaveFile = "quicksave.json";
 		public const string SettingsFile = "user://settings.cfg";
-    }
+	}
 }

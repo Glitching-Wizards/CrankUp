@@ -67,6 +67,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 640.0
+offset_top = 360.0
+offset_right = 640.0
+offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_1to8f")
@@ -114,6 +118,7 @@ rotation = 1.94366
 texture = ExtResource("6_52vju")
 
 [node name="SpeechBubble" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 228.0
 offset_top = 101.0
 offset_right = 992.0

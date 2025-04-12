@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgdnq58ms063j"
-path="res://.godot/imported/LargeClouds.png-12104f02f4a75d3fe94d8cedc67e9cb8.ctex"
+uid="uid://b5lf4r1kr4tvj"
+path="res://.godot/imported/GrayStartBackground.png-ca416dfbc288ca85bcf0c8fc6402ff19.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Animations/LargeClouds.png"
-dest_files=["res://.godot/imported/LargeClouds.png-12104f02f4a75d3fe94d8cedc67e9cb8.ctex"]
+source_file="res://Assets/Backgrounds/GrayStartBackground.png"
+dest_files=["res://.godot/imported/GrayStartBackground.png-ca416dfbc288ca85bcf0c8fc6402ff19.ctex"]
 
 [params]
 

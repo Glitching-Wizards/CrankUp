@@ -105,6 +105,7 @@ theme_override_font_sizes/font_size = 26
 text = "SKIP"
 
 [node name="SpeechBubble" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 47.0
 offset_top = 62.0
 offset_right = 874.0
@@ -123,6 +124,7 @@ theme_override_font_sizes/normal_font_size = 41
 text = "TUTORIAL1"
 
 [node name="SkipButton2" type="TextureButton" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 929.0
 offset_top = 155.0

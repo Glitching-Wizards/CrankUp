@@ -66,6 +66,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 640.0
+offset_top = 360.0
+offset_right = 640.0
+offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_2mcp7")
@@ -84,6 +88,7 @@ libraries = {
 autoplay = "JarkkoNormal"
 
 [node name="SpeechBubble" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 47.0
 offset_top = 62.0
 offset_right = 874.0

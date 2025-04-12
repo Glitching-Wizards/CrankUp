@@ -40,11 +40,15 @@ namespace CrankUp
 		private void FiButtonPressed()
 		{
 			ChangeLanguage("fi");
+			_fiButton.Disabled = true;
+			_enButton.Disabled = false;
 		}
 
 		private void EnButtonPressed()
 		{
 			ChangeLanguage("en");
+			_enButton.Disabled = true;
+			_fiButton.Disabled = false;
 		}
 
 		private bool ChangeLanguage(string LangCode)
