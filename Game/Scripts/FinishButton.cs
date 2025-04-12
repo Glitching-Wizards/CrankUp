@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Linq;
 
 namespace CrankUp
 {
@@ -38,32 +39,41 @@ namespace CrankUp
 			placementArea = currentLevel.GetNodeOrNull<PlacementArea>("PlacementArea");
 		}
 
-		// tarttee tallennuksen
 		private void OnButtonPressed()
 		{
 			if (placementArea == null) return;
 
 			score = placementArea.GetScore();
+			int stars = 0;
 
 			if (score >= 70 && score < 80 && victoryScreen1 != null)
 			{
+				stars = 1;
 				victoryScreen1.Visible = true;
-				LevelDone(currentLevel.Name);
 			}
 			else if (score >= 80 && score < 90 && victoryScreen2 != null)
 			{
+				stars = 2;
 				victoryScreen2.Visible = true;
-				LevelDone(currentLevel.Name);
 			}
 			else if (score >= 90 && victoryScreen3 != null)
 			{
+				stars = 3;
 				victoryScreen3.Visible = true;
-				LevelDone(currentLevel.Name);
 			}
 			else if (score < 70 && loseScreen != null)
 			{
 				loseScreen.Visible = true;
+				return;
 			}
+
+			if (stars > 0)
+			{
+				int levelNumber = GetLevelNumberFromName(currentLevel.Name);
+				SaveSystem.OnLevelCompleted(levelNumber, stars);
+			}
+
+			LevelDone(currentLevel.Name);
 		}
 
 		private void LevelDone(string levelName)
@@ -94,6 +104,16 @@ namespace CrankUp
 					number.Visible = true;
 				}
 			}
+		}
+
+		private int GetLevelNumberFromName(string levelName)
+		{
+			var digits = new string(levelName.Where(char.IsDigit).ToArray());
+			if (int.TryParse(digits, out int number))
+				return number;
+			
+			GD.PrintErr($"Could not parse level number from level name: {levelName}");
+			return 0;
 		}
 	}
 }

@@ -236,6 +236,18 @@ namespace CrankUp
 				}
 			}
 		}
+
+		public void OnVolumeChanged(float volume)
+		{
+			SaveSystem.GetGameData().Volume = volume;
+			SaveSystem.SaveGame();
+		}
+
+		public void OnLanguageChanged(string lang)
+		{
+			SaveSystem.GetGameData().Language = lang;
+			SaveSystem.SaveGame();
+		}
 	}
 }
 
