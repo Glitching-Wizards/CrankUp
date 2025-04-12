@@ -9,22 +9,19 @@ namespace CrankUp
 		[Export] private string _settingsScenePath = "res://Menus/Settings/Scenes/Settings.tscn";
 		[Export] private string _creditsScenePath = "res://Menus/Settings/Scenes/Credits.tscn";
 		[Export] private AudioStream clickSound;
+		[Export] private AudioStream menuMusic;
 		private Window settingsWindow;
 		private Window creditsWindow;
 
 		private bool isSceneChanging = false;
 		public override void _Ready()
 		{
-<<<<<<< HEAD
-			/*AudioManager.PlayMusic(menuMusic); */
-=======
 			SaveSystem.LoadGame();
 			AudioManager.PlayMusic(menuMusic);
->>>>>>> ce38e9b0702bff23987c14f528e92ac0f06fd8e1
-			Button playButton = GetNode<Button>("Buttons/PlayButton");
+			Button playButton = GetNodeOrNull<Button>("Buttons/PlayButton");
 			playButton.Pressed += PlayButtonPressed;
 
-			Button settingsButton = GetNode<Button>("Buttons/SettingsButton");
+			Button settingsButton = GetNodeOrNull<Button>("Buttons/SettingsButton");
 			settingsButton.Pressed += SettingsButtonPressed;
 
 			PackedScene settingsScene = (PackedScene)GD.Load(_settingsScenePath);
@@ -32,7 +29,7 @@ namespace CrankUp
 			AddChild(settingsWindow);
 			settingsWindow.Hide();
 
-			Button creditsButton = GetNode<Button>("Buttons/CreditsButton");
+			Button creditsButton = GetNodeOrNull<Button>("Buttons/CreditsButton");
 			creditsButton.Pressed += CreditsButtonPressed;
 
 			PackedScene creditsScene = (PackedScene)GD.Load(_creditsScenePath);

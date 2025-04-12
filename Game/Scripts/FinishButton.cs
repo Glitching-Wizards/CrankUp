@@ -11,28 +11,33 @@ namespace CrankUp
 		private float score;
 		private Node currentLevel;
 
-		public override void _Ready()
-		{
-			currentLevel = GetTree().CurrentScene;
-			if (currentLevel == null) return;
+		public override void _Ready() {
+            currentLevel = GetTree().CurrentScene;
+            if (currentLevel == null) return;
 
-			Node winLose = currentLevel.GetNodeOrNull("WinLose");
-			if (winLose != null)
-			{
-				victoryScreen1 = winLose.GetNodeOrNull<Window>("Win");
-				victoryScreen2 = winLose.GetNodeOrNull<Window>("Win2");
-				victoryScreen3 = winLose.GetNodeOrNull<Window>("Win3");
-				loseScreen = winLose.GetNodeOrNull<Window>("Lose");
+            Node winLose = currentLevel.GetNodeOrNull("WinLose");
+            if (winLose != null)
+            {
+                victoryScreen1 = winLose.GetNodeOrNull<Window>("Win");
+                victoryScreen2 = winLose.GetNodeOrNull<Window>("Win2");
+                victoryScreen3 = winLose.GetNodeOrNull<Window>("Win3");
+                loseScreen = winLose.GetNodeOrNull<Window>("Lose");
 
-				if (victoryScreen1 != null) victoryScreen1.Visible = false;
-				if (victoryScreen2 != null) victoryScreen2.Visible = false;
-				if (victoryScreen3 != null) victoryScreen3.Visible = false;
-				if (loseScreen != null) loseScreen.Visible = false;
-			}
+                if (victoryScreen1 != null) victoryScreen1.Visible = false;
+                if (victoryScreen2 != null) victoryScreen2.Visible = false;
+                if (victoryScreen3 != null) victoryScreen3.Visible = false;
+                if (loseScreen != null) loseScreen.Visible = false;
+            }
 
-			Pressed += OnButtonPressed;
-			CallDeferred(nameof(FindPlacementArea));
-		}
+            Ui ui = currentLevel.GetNodeOrNull<Ui>("Ui");
+            if (ui != null)
+            {
+                ui.TimeRanOut += OnTimeRanOut;
+            }
+
+            Pressed += OnButtonPressed;
+            CallDeferred(nameof(FindPlacementArea));
+        }
 
 		private void FindPlacementArea()
 		{
@@ -105,6 +110,13 @@ namespace CrankUp
 				}
 			}
 		}
+
+		private void OnTimeRanOut() {
+            if (loseScreen != null)
+            {
+                loseScreen.Visible = true;
+            }
+        }
 
 		private int GetLevelNumberFromName(string levelName)
 		{

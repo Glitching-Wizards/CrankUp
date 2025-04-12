@@ -13,24 +13,25 @@ public partial class Tutorial : Node
     public override void _Ready()
     {
         // signaalin haku
-        Pause pause = GetNode<Pause>("res://Menus/Settings/Scenes/Pause.tscn");
-        tutorial = GetNode<Node>("Tutorial");
+        Pause pause = GetNode<Pause>("/root/Level1/Ui/ControlsRightUi/Pause");
+        tutorial = pause.GetNode<Node>("Tutorial");
 
         if (tutorial == null)
         {
             GD.PrintErr("[ERROR] Tutorial node not found! Check the node path.");
             return;
         }
+
         foreach (Node child in tutorial.GetChildren())
         {
             if (child is Window tutorialWindow)
             {
                 tutorials.Add(tutorialWindow);
-                tutorialWindow.Visible = false; // Piilotetaan aluksi kaikki
+                tutorialWindow.Visible = false; // Hide all tutorials initially
             }
         }
 
-        // Skip pitäis olla ok
+        // Skip button setup
         TextureButton skipButton = GetNodeOrNull<TextureButton>("SkipButton");
         if (skipButton != null)
         {
@@ -43,15 +44,13 @@ public partial class Tutorial : Node
 
         if (pause != null) // Tarkistetaan, että pause-node löytyi
         {
-            pause.TutorialStarted += StartTutorial;
+            pause.Connect("TutorialStartedEventHandler", new Callable(this, nameof(StartTutorial)));
             GD.Print("Tutorial: TutorialStarted signaali yhdistetty."); // Lisätään tämä tuloste
         }
         else
         {
             GD.PrintErr("Tutorial: Pause nodea ei löytynyt, TutorialStarted signaalia ei yhdistetty!");
         }
-
-        pause.TutorialStarted += StartTutorial;
     }
 
     public void StartTutorial()
@@ -63,7 +62,6 @@ public partial class Tutorial : Node
         if (tutorials.Count > 0 && tutorials[currentTutorialIndex] != null)
         {
             tutorials[currentTutorialIndex].Visible = true;
-            currentTutorialIndex++; // Asetetaan seuraavaksi näytettävän indeksiksi 1
         }
         else
         {

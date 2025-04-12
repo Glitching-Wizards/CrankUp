@@ -5,18 +5,19 @@ namespace CrankUp
 {
     public partial class Pause : Window
     {
+        /* Signal for tutorial start */
+        [Signal]
+        public delegate void TutorialStartedEventHandler();
+
         [Export] private string _settingsScenePath = "res://Menus/Settings/Scenes/Settings.tscn";
         [Export] private string _levelsScenePath = "res://Menus/Levels/Scenes/Levels.tscn";
         [Export] private AudioStream clickSound;
         private Window settingsWindow;
         private Window victoryScreen;
 
-        /* Signal for tutorial start */
-        [Signal] public delegate void TutorialStartedEventHandler();
-
         public override void _Ready()
         {
-            TextureButton RetryButton = GetNode<TextureButton>("Buttons/RetryButton");
+            TextureButton RetryButton = GetNodeOrNull<TextureButton>("Buttons/RetryButton");
             if (RetryButton != null)
             {
                 RetryButton.Pressed += RetryButtonPressed;
@@ -26,22 +27,43 @@ namespace CrankUp
                 GD.PrintErr("[ERROR] RetryButton not found! Check the node path.");
             }
 
-            TextureButton MenuButton = GetNode<TextureButton>("Buttons/MenuButton");
-            MenuButton.Pressed += MenuButtonPressed;
+            TextureButton MenuButton = GetNodeOrNull<TextureButton>("Buttons/MenuButton");
+            if (MenuButton != null)
+            {
+                MenuButton.Pressed += MenuButtonPressed;
+            }
+            else
+            {
+                GD.PrintErr("[ERROR] MenuButton not found! Check the node path.");
+            }
 
-            TextureButton exitButton = GetNode<TextureButton>("Buttons/ExitButton");
+            TextureButton exitButton = GetNodeOrNull<TextureButton>("Buttons/ExitButton");
             exitButton.Pressed += ExitButtonPressed;
 
-            TextureButton settingsButton = GetNode<TextureButton>("Buttons/SettingsButton");
-            settingsButton.Pressed += SettingsButtonPressed;
+            TextureButton settingsButton = GetNodeOrNull<TextureButton>("Buttons/SettingsButton");
+            if (settingsButton != null)
+            {
+                settingsButton.Pressed += SettingsButtonPressed;
+            }
+            else
+            {
+                GD.PrintErr("[ERROR] settingsButton not found!");
+            }
 
-            PackedScene settingsScene = (PackedScene)GD.Load(_settingsScenePath);
+            PackedScene settingsScene = GD.Load<PackedScene>(_settingsScenePath);
             settingsWindow = (Window)settingsScene.Instantiate();
             AddChild(settingsWindow);
             settingsWindow.Hide();
 
-            TextureButton tutorialButton = GetNode<TextureButton>("Buttons/TutorialButton");
-            tutorialButton.Pressed += TutorialButtonPressed;
+            TextureButton tutorialButton = GetNodeOrNull<TextureButton>("Buttons/TutorialButton");
+            if (tutorialButton != null)
+            {
+                tutorialButton.Pressed += TutorialButtonPressed;
+            }
+            else
+            {
+                GD.PrintErr("[ERROR] tutorialButton not found!");
+            }
         }
 
 
@@ -82,7 +104,7 @@ namespace CrankUp
             GD.Print("Tutorial Pressed");
             AudioManager.PlaySound(clickSound);
             GetTree().Paused = false;
-            EmitSignal(nameof(TutorialStartedEventHandler));
+            EmitSignal("TutorialStartedEventHandler");
             this.Hide();
         }
 
