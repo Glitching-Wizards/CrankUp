@@ -13,12 +13,10 @@ public partial class GameStart : Node2D
             StartGame();
         }
 
+        // waits 3 seconds for the game start animation and then changes the scene to the main menu
         private async void StartGame()
         {
-            GD.Print("Waiting for 3 seconds...");
             await ToSignal(GetTree().CreateTimer(3.0f), "timeout");
-
-            GD.Print("Time is up! Changing scene...");
             GetTree().ChangeSceneToFile("res://Menus/MainMenu/Scenes/MainMenu.tscn");
         }
 }

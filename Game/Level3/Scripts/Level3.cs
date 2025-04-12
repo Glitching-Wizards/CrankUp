@@ -142,7 +142,7 @@ public partial class Level3 : Node2D
 			containerYellowButtonPressed = true;
 			SpawnBlockButtonPressed(_containerYellowScene, containerYellowButton);
 		};
-		
+
 		containerGreenLButton.Pressed += () =>
 		{
 			containerGreenLButtonPressed = true;

@@ -101,7 +101,7 @@ public partial class ClawHead : CharacterBody2D
 	}
 
 
-	public async void DropBlock()
+    public async void DropBlock()
 	{
 		if (joint != null)
 		{
@@ -111,7 +111,7 @@ public partial class ClawHead : CharacterBody2D
 		grabbedBlock = null;
 
 		await ToSignal(GetTree().CreateTimer(0.2f), "timeout");
-		collisionShape.SetDeferred("disabled", false);
+        collisionShape.SetDeferred("disabled", false);
 
 	}
 
@@ -152,5 +152,13 @@ public partial class ClawHead : CharacterBody2D
 
 	public override void _Process(double delta)
 	{
+		if (Input.IsActionJustPressed("Grab") && grabbedBlock == null)
+			GrabBlock();
+
+		if (Input.IsActionJustPressed("Drop") && grabbedBlock != null)
+			DropBlock();
+
+		if (Input.IsActionJustPressed("Rotate") && grabbedBlock != null)
+			RotateBlock();
 	}
 }
