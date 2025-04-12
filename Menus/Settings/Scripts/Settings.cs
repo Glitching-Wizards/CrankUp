@@ -5,13 +5,13 @@ namespace CrankUp
 {
 	public partial class Settings : Window
 	{
-		[Signal] public delegate void LanguageChangedEventHandler(string langCode);
+		[Signal] public delegate void LanguageChangedEventHandler(string Language);
 		[Export] private string _levelsScenePath = "res://Menus/Levels/Scenes/Levels.tscn";
 		[Export] private TextureButton _fiButton = null;
 		[Export] private TextureButton _enButton = null;
-		private SettingsData _data = null;
+		private GameData _data = null;
 		private string _originalLanguage = null;
-		private string langCode;
+		private string Language;
 
 
 		public override void _Ready()
@@ -51,23 +51,23 @@ namespace CrankUp
 			_fiButton.Disabled = false;
 		}
 
-		private bool ChangeLanguage(string LangCode)
+		private bool ChangeLanguage(string Language)
 		{
 			if (_data == null)
 			{
 				GD.PrintErr("Error: Settings data is null.");
 				return false;
 			}
-			_data.LangCode = LangCode;
+			_data.Language = Language;
 
-			TranslationServer.SetLocale(LangCode);
+			TranslationServer.SetLocale(Language);
 
 			SaveSettings();
 
 			return true;
 		}
 
-		private void ApplyData(SettingsData data)
+		private void ApplyData(GameData data)
 		{
 			if (data == null)
 			{
@@ -80,7 +80,7 @@ namespace CrankUp
 						SetVolume("SFX", data.SfxVolume); */
 
 			// Aseta kieli.
-			SetLanguage(data.LangCode);
+			SetLanguage(data.Language);
 		}
 
 		public bool SaveSettings()
@@ -91,7 +91,7 @@ namespace CrankUp
 			}
 
 			ConfigFile settingsConfig = new ConfigFile();
-			settingsConfig.SetValue("Localization", "LangCode", _data.LangCode);
+			settingsConfig.SetValue("Localization", "Language", _data.Language);
 			settingsConfig.SetValue("Audio", "MasterVolume", _data.MasterVolume);
 			settingsConfig.SetValue("Audio", "MusicVolume", _data.MusicVolume);
 			settingsConfig.SetValue("Audio", "SfxVolume", _data.SfxVolume);
@@ -105,16 +105,16 @@ namespace CrankUp
 			return true;
 		}
 
-		private SettingsData LoadSettings()
+		private GameData LoadSettings()
 		{
-			SettingsData data = null;
+			GameData data = null;
 
 			ConfigFile settingsConfig = new ConfigFile();
 			if (settingsConfig.Load(Config.SettingsFile) == Error.Ok)
 			{
-				data = new SettingsData
+				data = new GameData
 				{
-					LangCode = (string)settingsConfig.GetValue("Localization", "LangCode", "en"),
+					Language = (string)settingsConfig.GetValue("Localization", "Language", "en"),
 					MasterVolume = (float)settingsConfig.GetValue("Audio", "MasterVolume", -6.0f),
 					MusicVolume = (float)settingsConfig.GetValue("Audio", "MusicVolume", -6.0f),
 					SfxVolume = (float)settingsConfig.GetValue("Audio", "SfxVolume", -6.0f),
@@ -123,7 +123,7 @@ namespace CrankUp
 			else
 			{
 				// Asetustiedostoa ei löydetty, luodaan oletusasetukset.
-				data = SettingsData.CreateDefaults();
+				data = GameData.CreateDefaults();
 				SaveSettings();
 			}
 
@@ -184,22 +184,22 @@ namespace CrankUp
 			return TranslationServer.GetLocale();
 		}
 
-		public bool SetLanguage(string langCode)
+		public bool SetLanguage(string Language)
 		{
 			if (_data == null)
 			{
 				return false;
 			}
 
-			_data.LangCode = langCode;
-			TranslationServer.SetLocale(langCode);
+			_data.Language = Language;
+			TranslationServer.SetLocale(Language);
 
 			// Käyttöliittymän päivitys
 			UpdateUIForNewLanguage();
 			// Välitä tieto kielen vaihtumisesta.
-			EmitSignal(SignalName.LanguageChanged, langCode);
+			EmitSignal(SignalName.LanguageChanged, Language);
 
-			_data.LangCode = langCode;
+			_data.Language = Language;
 
 			return true;
 		}
@@ -239,7 +239,7 @@ namespace CrankUp
 
 		public void OnVolumeChanged(float volume)
 		{
-			SaveSystem.GetGameData().Volume = volume;
+			SaveSystem.GetGameData().MasterVolume = volume;
 			SaveSystem.SaveGame();
 		}
 

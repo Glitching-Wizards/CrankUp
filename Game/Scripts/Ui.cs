@@ -2,34 +2,45 @@ using Godot;
 using System;
 
 namespace CrankUp;
-public partial class Ui : Control
-{
-	private int timeLeft = 60;
-	private Label timerLabel;
-	private Timer countDownTimer;
-	public override void _Ready() {
-		timerLabel = GetNode<Label>("Label");
-		countDownTimer = GetNode<Timer>("Timer");
 
-		countDownTimer.WaitTime = 1.0f;
-		countDownTimer.Autostart = true;
-		countDownTimer.OneShot = false;
-		countDownTimer.Start();
+	public partial class Ui : Control
+	{
+		private int timeLeft = 15;
+		private Label timerLabel;
+		private Timer countDownTimer;
 
-		countDownTimer.Timeout += OnTimerTimeout;
-		UpdateTimerLabel();
-	}
+		[Signal] public delegate void TimeRanOutEventHandler();
 
-	private void OnTimerTimeout() {
-		if (timeLeft > 0)
+		public override void _Ready()
 		{
-			timeLeft -= 1;
+			timerLabel = GetNode<Label>("Label");
+			countDownTimer = GetNode<Timer>("Timer");
+
+			countDownTimer.WaitTime = 1.0f;
+			countDownTimer.Autostart = true;
+			countDownTimer.OneShot = false;
+			countDownTimer.Start();
+
+			countDownTimer.Timeout += OnTimerTimeout;
 			UpdateTimerLabel();
 		}
-	}
 
-	private void UpdateTimerLabel() {
-		if (timerLabel != null)
-			timerLabel.Text = timeLeft.ToString();
+		private void OnTimerTimeout()
+		{
+			if (timeLeft > 0)
+			{
+				timeLeft -= 1;
+				UpdateTimerLabel();
+				if (timeLeft == 0)
+				{
+					EmitSignal(SignalName.TimeRanOut);
+				}
+			}
+		}
+
+		private void UpdateTimerLabel()
+		{
+			if (timerLabel != null)
+				timerLabel.Text = timeLeft.ToString();
+		}
 	}
-}

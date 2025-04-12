@@ -107,7 +107,7 @@ namespace CrankUp
         {
             IsPaused = !IsPaused;
             GetTree().Paused = IsPaused;
-        } */
+        } 
     }
 }
 
