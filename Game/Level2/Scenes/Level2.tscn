@@ -246,7 +246,7 @@ script = ExtResource("17_bp01c")
 [node name="Tutorial1" parent="Tutorial" instance=ExtResource("17_gjn61")]
 visible = false
 top_level = true
-z_index = 10
+z_index = 8
 layout_mode = 1
 offset_left = -640.0
 offset_top = -360.0
@@ -255,7 +255,7 @@ offset_bottom = -360.0
 
 [node name="Tutorial2" parent="Tutorial" instance=ExtResource("18_yjm07")]
 visible = false
-z_index = 10
+z_index = 8
 layout_mode = 1
 offset_left = -640.0
 offset_top = -360.0
@@ -264,7 +264,7 @@ offset_bottom = -360.0
 
 [node name="Tutorial3" parent="Tutorial" instance=ExtResource("19_qg28v")]
 visible = false
-z_index = 10
+z_index = 8
 layout_mode = 1
 offset_left = -640.0
 offset_top = -360.0
@@ -272,8 +272,7 @@ offset_right = -640.0
 offset_bottom = -360.0
 
 [node name="Tutorial4" parent="Tutorial" instance=ExtResource("20_gwu33")]
-visible = false
-z_index = 10
+z_index = 8
 layout_mode = 1
 offset_left = -640.0
 offset_top = -360.0
@@ -282,7 +281,7 @@ offset_bottom = -360.0
 
 [node name="Tutorial5" parent="Tutorial" instance=ExtResource("21_0qifa")]
 visible = false
-z_index = 10
+z_index = 8
 layout_mode = 1
 offset_left = -640.0
 offset_top = -360.0
@@ -291,7 +290,7 @@ offset_bottom = -360.0
 
 [node name="Tutorial6" parent="Tutorial" instance=ExtResource("22_047tx")]
 visible = false
-z_index = 10
+z_index = 8
 layout_mode = 1
 offset_left = -640.0
 offset_top = -360.0
@@ -300,7 +299,7 @@ offset_bottom = -360.0
 
 [node name="Tutorial7" parent="Tutorial" instance=ExtResource("23_4pkel")]
 visible = false
-z_index = 10
+z_index = 8
 layout_mode = 1
 offset_left = -640.0
 offset_top = -360.0
@@ -309,7 +308,7 @@ offset_bottom = -360.0
 
 [node name="Tutorial8" parent="Tutorial" instance=ExtResource("24_uqkd5")]
 visible = false
-z_index = 10
+z_index = 8
 layout_mode = 1
 offset_left = -640.0
 offset_top = -360.0
@@ -318,7 +317,7 @@ offset_bottom = -360.0
 
 [node name="Tutorial9" parent="Tutorial" instance=ExtResource("25_e2wpn")]
 visible = false
-z_index = 10
+z_index = 8
 layout_mode = 1
 offset_left = -640.0
 offset_top = -360.0
