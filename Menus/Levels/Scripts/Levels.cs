@@ -16,6 +16,8 @@ namespace CrankUp
         private Window startLevelWindow;
         private Window settingsWindow;
         private TextureButton settingsButton;
+        private const int TotalLevels = 5;
+
 
         public override void _Ready()
         {
@@ -95,5 +97,32 @@ namespace CrankUp
                 _ => string.Empty
             };
         }
+
+        public void SetupLevelButtons()
+        {
+            int unlocked = SaveSystem.GetGameData().LevelProgress;
+
+            for (int i = 1; i <= TotalLevels; i++)
+            {
+                var button = GetNode<Button>($"LevelButtons/Level{i}");
+
+                if (i <= unlocked)
+                {
+                    button.Disabled = false;
+                    button.Text = $"Level {i} ({GetStars(i)}★)";
+                }
+                else
+                {
+                    button.Disabled = true;
+                    button.Text = "Locked";
+                }
+            }
+        }
+
+        private int GetStars(int level)
+        {
+            return SaveSystem.GetGameData().LevelStars.TryGetValue(level, out int stars) ? stars : 0;
+        }
+
     }
 }
