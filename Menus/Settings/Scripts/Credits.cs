@@ -11,7 +11,7 @@ namespace CrankUp
         private Window victoryScreen;
         public override void _Ready()
         {
-            TextureButton exitButton = GetNode<TextureButton>("Buttons/ExitButton");
+            TextureButton exitButton = GetNodeOrNull<TextureButton>("Buttons/ExitButton");
             if (exitButton == null)
             {
                 GD.PrintErr("[ERROR] ExitButton not found in PauseCredits.tscn");
@@ -30,8 +30,6 @@ namespace CrankUp
         public void ExitButtonPressed()
         {
             GD.Print("Exit Pressed");
-
-            Node currentScene = GetTree().CurrentScene;
 
             this.Hide();
         }

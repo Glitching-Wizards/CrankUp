@@ -2,15 +2,14 @@ using Godot;
 using System;
 using System.Linq;
 
-namespace CrankUp {
-	public partial class FinishButton : Button {
-		[Export] private string _levelsScenePath = "res://Menus/Levels/Scenes/Levels.tscn";
-		private Node _levelsInstance;
+namespace CrankUp
+{
+	public partial class FinishButton : Button
+	{
 		private Window victoryScreen1, victoryScreen2, victoryScreen3, loseScreen;
 		private PlacementArea placementArea;
 		private float score;
 		private Node currentLevel;
-		[Export] private AudioStream clickSound;
 
 		public override void _Ready() {
 			currentLevel = GetTree().CurrentScene;
@@ -30,23 +29,23 @@ namespace CrankUp {
 				if (loseScreen != null) loseScreen.Visible = false;
 			}
 
-			Ui ui = currentLevel.GetNodeOrNull<Ui>("Ui");
-			if (ui != null)
+			ControlsLeftUi leftUi = currentLevel.FindChild("ControlsLeftUi", true, false) as ControlsLeftUi;
+			if (leftUi != null)
 			{
-				ui.TimeRanOut += OnTimeRanOut;
+				leftUi.TimeRanOut += OnTimeRanOut;
 			}
 
 			Pressed += OnButtonPressed;
-			CallDeferred(nameof(FindPlacementArea));
+			CallDeferred(nameof(ConnectTimerSignal));
 		}
 
-
-		private void FindPlacementArea() {
+		private void FindPlacementArea()
+		{
 			placementArea = currentLevel.GetNodeOrNull<PlacementArea>("PlacementArea");
 		}
 
-		private void OnButtonPressed() {
-			AudioManager.PlaySound(clickSound);
+		private void OnButtonPressed()
+		{
 			if (placementArea == null) return;
 
 			score = placementArea.GetScore();
@@ -82,7 +81,8 @@ namespace CrankUp {
 			LevelDone(currentLevel.Name);
 		}
 
-		private void LevelDone(string levelName) {
+		private void LevelDone(string levelName)
+		{
 			Node levelButtonPath = GetTree().Root.GetNode<Node>("/root/Menus/Levels/Scenes/Levels.tscn/Levels/Buttons");
 
 			if (levelButtonPath == null)
@@ -111,7 +111,15 @@ namespace CrankUp {
 			}
 		}
 
-		private int GetLevelNumberFromName(string levelName) {
+		private void OnTimeRanOut() {
+			if (loseScreen != null)
+			{
+				loseScreen.Visible = true;
+			}
+		}
+
+		private int GetLevelNumberFromName(string levelName)
+		{
 			var digits = new string(levelName.Where(char.IsDigit).ToArray());
 			if (int.TryParse(digits, out int number))
 				return number;
@@ -120,10 +128,17 @@ namespace CrankUp {
 			return 0;
 		}
 
-		private void OnTimeRanOut() {
-			if (loseScreen != null)
+		private void ConnectTimerSignal()
+		{
+			ControlsLeftUi leftUi = currentLevel.FindChild("ControlsLeftUi", true, false) as ControlsLeftUi;
+			if (leftUi != null)
 			{
-				loseScreen.Visible = true;
+				leftUi.TimeRanOut += OnTimeRanOut;
+				GD.Print("✅ Connected to TimeRanOut");
+			}
+			else
+			{
+				GD.PrintErr("❌ Could not find ControlsLeftUi to connect signal.");
 			}
 		}
 

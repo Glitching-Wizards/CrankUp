@@ -1,11 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://dnr4wgld8simd"]
+[gd_scene load_steps=17 format=3 uid="uid://jb1qnfl3l0yf"]
 
-[ext_resource type="Texture2D" uid="uid://k2ji4rswhfbd" path="res://Assets/Backgrounds/Level1Background.png" id="1_4yqy1"]
-[ext_resource type="Texture2D" uid="uid://x6cs8n2vs2yu" path="res://Assets/Animations/Clouds/LargeClouds2.png" id="2_rggrg"]
-[ext_resource type="Texture2D" uid="uid://dhqs8welv03pn" path="res://Assets/Backgrounds/AsphaltBlocks.png" id="3_p5dii"]
-[ext_resource type="Texture2D" uid="uid://baajqx10nrlby" path="res://Assets/Animations/SmallClouds.png" id="3_wwbyc"]
-[ext_resource type="Texture2D" uid="uid://ig6u8vw34kal" path="res://Assets/Backgrounds/platform.png" id="4_utd2n"]
-[ext_resource type="Texture2D" uid="uid://ciqc0e7o4i4w5" path="res://Assets/Backgrounds/TruckModel.png" id="5_cympf"]
+[ext_resource type="Texture2D" uid="uid://dghgblxjisoae" path="res://Assets/Backgrounds/Level5Background.png" id="1_0u7pg"]
+[ext_resource type="Texture2D" uid="uid://dhqs8welv03pn" path="res://Assets/Backgrounds/AsphaltBlocks.png" id="4_6s0l2"]
+[ext_resource type="Texture2D" uid="uid://x6cs8n2vs2yu" path="res://Assets/Animations/Clouds/LargeClouds2.png" id="4_31161"]
+[ext_resource type="Texture2D" uid="uid://ciqc0e7o4i4w5" path="res://Assets/Backgrounds/TruckModel.png" id="5_q234x"]
+[ext_resource type="Texture2D" uid="uid://baajqx10nrlby" path="res://Assets/Animations/SmallClouds.png" id="5_rglpn"]
+[ext_resource type="Texture2D" uid="uid://ig6u8vw34kal" path="res://Assets/Backgrounds/platform.png" id="6_bhk30"]
 
 [sub_resource type="Animation" id="Animation_8ulh6"]
 resource_name = "LargeClouds"
@@ -185,20 +185,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-metadata/_edit_vertical_guides_ = [640.0]
-metadata/_edit_horizontal_guides_ = [10.0]
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
-texture = ExtResource("1_4yqy1")
+texture = ExtResource("1_0u7pg")
 
 [node name="LargeClouds" type="Sprite2D" parent="Background"]
 position = Vector2(640, 162)
 scale = Vector2(1.04791, 1)
-texture = ExtResource("2_rggrg")
+texture = ExtResource("4_31161")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background/LargeClouds"]
 libraries = {
@@ -209,7 +207,7 @@ autoplay = "LargeClouds"
 [node name="SmallClouds" type="Sprite2D" parent="Background"]
 position = Vector2(640, 162)
 scale = Vector2(1.04934, 1)
-texture = ExtResource("3_wwbyc")
+texture = ExtResource("5_rglpn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background/SmallClouds"]
 libraries = {
@@ -220,7 +218,7 @@ autoplay = "SmallClouds"
 [node name="LargeClouds2" type="Sprite2D" parent="Background"]
 position = Vector2(640, 162)
 scale = Vector2(1.04791, 1)
-texture = ExtResource("2_rggrg")
+texture = ExtResource("4_31161")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background/LargeClouds2"]
 libraries = {
@@ -231,7 +229,7 @@ autoplay = "LargeClouds2"
 [node name="SmallClouds2" type="Sprite2D" parent="Background"]
 position = Vector2(640, 162)
 scale = Vector2(1.0475, 1)
-texture = ExtResource("3_wwbyc")
+texture = ExtResource("5_rglpn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background/SmallClouds2"]
 libraries = {
@@ -256,7 +254,7 @@ offset_top = 44.0
 offset_right = 1246.0
 offset_bottom = 269.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_p5dii")
+texture = ExtResource("4_6s0l2")
 
 [node name="TextureRect15" type="TextureRect" parent="Background/Asfalt"]
 offset_left = 350.0
@@ -264,7 +262,7 @@ offset_top = 44.0
 offset_right = 1630.0
 offset_bottom = 269.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_p5dii")
+texture = ExtResource("4_6s0l2")
 flip_h = true
 
 [node name="TextureRect16" type="TextureRect" parent="Background/Asfalt"]
@@ -273,7 +271,7 @@ offset_top = 44.0
 offset_right = 2014.0
 offset_bottom = 269.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_p5dii")
+texture = ExtResource("4_6s0l2")
 
 [node name="Truck" type="TextureRect" parent="Background"]
 layout_mode = 0
@@ -281,15 +279,17 @@ offset_left = 180.0
 offset_right = 1494.0
 offset_bottom = 738.0
 scale = Vector2(0.9, 0.9)
-texture = ExtResource("5_cympf")
+texture = ExtResource("5_q234x")
 
 [node name="Area2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 position = Vector2(15, 0)
 shape = SubResource("SegmentShape2D_5n6r5")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+visible = false
 position = Vector2(-16, 0)
 shape = SubResource("SegmentShape2D_liobq")
 
@@ -300,7 +300,7 @@ offset_top = 378.0
 offset_right = 1140.0
 offset_bottom = 778.0
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("4_utd2n")
+texture = ExtResource("6_bhk30")
 
 [node name="Wood2" type="TextureRect" parent="."]
 layout_mode = 0
@@ -309,7 +309,7 @@ offset_top = 378.0
 offset_right = 920.0
 offset_bottom = 778.0
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("4_utd2n")
+texture = ExtResource("6_bhk30")
 
 [node name="Wood3" type="TextureRect" parent="."]
 layout_mode = 0
@@ -318,4 +318,4 @@ offset_top = 378.0
 offset_right = 700.0
 offset_bottom = 778.0
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("4_utd2n")
+texture = ExtResource("6_bhk30")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=29 format=3 uid="uid://bjtdr8h5lywre"]
+[gd_scene load_steps=30 format=3 uid="uid://bjtdr8h5lywre"]
 
 [ext_resource type="Script" path="res://Menus/Settings/Scripts/Pause.cs" id="1_8gtmu"]
+[ext_resource type="AudioStream" uid="uid://cauqa2m2fdwnl" path="res://Audio/ButtonPress.mp3" id="2_f2hcu"]
 [ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="2_laa4w"]
 [ext_resource type="Texture2D" uid="uid://dtj7v04qhhxhi" path="res://Assets/Gui/Buttons/cross_button1.png" id="2_od4x0"]
 [ext_resource type="Texture2D" uid="uid://biwqqyd2e0hyd" path="res://Assets/Settings/BlueBlankScreen.png" id="3_1lt55"]
@@ -18,14 +19,14 @@
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="17_mqebv"]
 [ext_resource type="Script" path="res://Game/Scripts/Tutorial.cs" id="17_qo8tg"]
 [ext_resource type="PackedScene" uid="uid://bof30jnhkvxrl" path="res://Gui/Tutorial/Tutorial1.tscn" id="18_54oxf"]
-[ext_resource type="PackedScene" uid="uid://cucumwcu224yf" path="res://Gui/Tutorial/Tutorial2.tscn" id="19_57syc"]
-[ext_resource type="PackedScene" uid="uid://cejnj6x0fry0m" path="res://Gui/Tutorial/Tutorial3.tscn" id="20_64l3d"]
-[ext_resource type="PackedScene" uid="uid://brjgb4ke34ftt" path="res://Gui/Tutorial/Tutorial4.tscn" id="21_xgr3r"]
-[ext_resource type="PackedScene" uid="uid://pbhrkwx4h2r" path="res://Gui/Tutorial/Tutorial5.tscn" id="22_o2x40"]
-[ext_resource type="PackedScene" uid="uid://baur4gsdjok38" path="res://Gui/Tutorial/Tutorial6.tscn" id="23_qfjhj"]
-[ext_resource type="PackedScene" uid="uid://cj0550n71gkad" path="res://Gui/Tutorial/Tutorial7.tscn" id="24_ggeht"]
-[ext_resource type="PackedScene" uid="uid://eok2slj87g2u" path="res://Gui/Tutorial/Tutorial8.tscn" id="25_rchwt"]
-[ext_resource type="PackedScene" uid="uid://cpnja7ibf6k85" path="res://Gui/Tutorial/Tutorial9.tscn" id="26_gouh7"]
+[ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial2.tscn" id="19_57syc"]
+[ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial3.tscn" id="20_64l3d"]
+[ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial4.tscn" id="21_xgr3r"]
+[ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial5.tscn" id="22_o2x40"]
+[ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial6.tscn" id="23_qfjhj"]
+[ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial7.tscn" id="24_ggeht"]
+[ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial8.tscn" id="25_rchwt"]
+[ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial9.tscn" id="26_gouh7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bdj2x"]
 atlas = ExtResource("9_4coxt")
@@ -45,6 +46,7 @@ borderless = true
 always_on_top = true
 transparent = true
 script = ExtResource("1_8gtmu")
+clickSound = ExtResource("2_f2hcu")
 metadata/_edit_vertical_guides_ = [640.0]
 metadata/_edit_horizontal_guides_ = [360.0]
 
@@ -243,3 +245,6 @@ offset_left = -640.0
 offset_top = -360.0
 offset_right = -640.0
 offset_bottom = -360.0
+
+[connection signal="pressed" from="Buttons/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="Buttons/RetryButton" to="." method="_on_retry_button_pressed"]

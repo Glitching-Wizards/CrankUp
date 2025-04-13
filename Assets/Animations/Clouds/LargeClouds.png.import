@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdycp6li5k07o"
-path="res://.godot/imported/Block03.png-6ca42b0bc1b9da0c0015089b9415e4b7.ctex"
+uid="uid://bgdnq58ms063j"
+path="res://.godot/imported/LargeClouds.png-ae78b26364fd0dc4b4a5db46e51d883f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Blocks/Block03.png"
-dest_files=["res://.godot/imported/Block03.png-6ca42b0bc1b9da0c0015089b9415e4b7.ctex"]
+source_file="res://Assets/Animations/Clouds/LargeClouds.png"
+dest_files=["res://.godot/imported/LargeClouds.png-ae78b26364fd0dc4b4a5db46e51d883f.ctex"]
 
 [params]
 

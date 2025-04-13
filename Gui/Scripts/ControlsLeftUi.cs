@@ -5,6 +5,10 @@ namespace CrankUp;
 public partial class ControlsLeftUi : Control
 {
 	[Export] private AudioStream clickSound;
+	private int timeLeft = 15;
+	private Label timerLabel;
+	private Timer countDownTimer;
+	[Signal] public delegate void TimeRanOutEventHandler();
 	private ClawHead clawHead;
 	private TextureButton rotateButton;
 	private VSlider moveSlider;
@@ -13,6 +17,17 @@ public partial class ControlsLeftUi : Control
 
 	public override void _Ready()
 	{
+		timerLabel = GetNode<Label>("Panel/Label");
+		countDownTimer = GetNode<Timer>("Panel/Timer");
+
+		countDownTimer.WaitTime = 1.0f;
+		countDownTimer.Autostart = true;
+		countDownTimer.OneShot = false;
+		countDownTimer.Start();
+
+		countDownTimer.Timeout += OnTimerTimeout;
+		UpdateTimerLabel();
+
 		AddToGroup("multi_sliders");
 
 		rotateButton = GetNodeOrNull<TextureButton>("Panel/Rotate");
@@ -84,4 +99,23 @@ public partial class ControlsLeftUi : Control
 		}
 		clawHead.Move(movementDirection, moveSliderValue, delta);
 	}
+
+	private void OnTimerTimeout()
+		{
+			if (timeLeft > 0)
+			{
+				timeLeft -= 1;
+				UpdateTimerLabel();
+				if (timeLeft == 0)
+				{
+					EmitSignal(SignalName.TimeRanOut);
+				}
+			}
+		}
+
+		private void UpdateTimerLabel()
+		{
+			if (timerLabel != null)
+				timerLabel.Text = timeLeft.ToString();
+		}
 }

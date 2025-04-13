@@ -18,7 +18,7 @@ public partial class PlacementArea : Area2D
 			return;
 		
 		if (scoreLabel != null)
-			scoreLabel.Visible = true;
+    		scoreLabel.Visible = true;
 
 		totalAreaSize = CalculatePolygonArea(collisionPolygon.Polygon);
 	}
@@ -26,20 +26,20 @@ public partial class PlacementArea : Area2D
 	private void RecalculateFilledArea()
 	{
 		filledAreaSize = 0f;
+
 		var placementPolygon = collisionPolygon.Polygon;
+		var placementTransform = collisionPolygon.GlobalTransform;
 
 		foreach (var body in GetOverlappingBodies().OfType<RigidBody2D>())
 		{
 			var blockCollision = body.GetNodeOrNull<CollisionPolygon2D>("CollisionPolygon2D");
-			
 			if (blockCollision == null)
-			{
 				continue;
-			}
 
 			var blockPolygon = blockCollision.Polygon;
-			float overlap = CalculateOverlapArea(placementPolygon, blockPolygon);
+			var blockTransform = blockCollision.GlobalTransform;
 
+			float overlap = CalculateOverlapArea(placementPolygon, placementTransform, blockPolygon, blockTransform);
 			filledAreaSize += overlap;
 		}
 
@@ -51,7 +51,7 @@ public partial class PlacementArea : Area2D
 	{
 		float percentageFilled = (filledAreaSize / totalAreaSize) * 100f;
 		if (scoreLabel != null)
-			scoreLabel.Text = $"Score: {percentageFilled:F2}%";
+			scoreLabel.Text = $"{percentageFilled:F2}%";
 	}
 
 	private float CalculatePolygonArea(Vector2[] polygon)
@@ -68,9 +68,12 @@ public partial class PlacementArea : Area2D
 		return Mathf.Abs(area / 2f);
 	}
 
-	private float CalculateOverlapArea(Vector2[] poly1, Vector2[] poly2)
+	private float CalculateOverlapArea(Vector2[] poly1, Transform2D transform1, Vector2[] poly2, Transform2D transform2)
 	{
-		var intersection = Geometry2D.IntersectPolygons(poly1, poly2);
+		var globalPoly1 = poly1.Select(p => transform1 * p).ToArray();
+		var globalPoly2 = poly2.Select(p => transform2 * p).ToArray();
+
+		var intersection = Geometry2D.IntersectPolygons(globalPoly1, globalPoly2);
 		if (intersection.Any() && intersection[0].Length > 2)
 			return CalculatePolygonArea(intersection[0]);
 

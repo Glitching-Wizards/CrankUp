@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Menus/Levels/Scripts/Levels.cs" id="1_g0cmt"]
 [ext_resource type="Texture2D" uid="uid://b0apwqvjpw3fu" path="res://Assets/Backgrounds/Levels.png" id="2_ph7px"]
-[ext_resource type="Texture2D" uid="uid://x6cs8n2vs2yu" path="res://Assets/Animations/LargeClouds2.png" id="3_5vynj"]
+[ext_resource type="Texture2D" uid="uid://lsvc7tllkbfs" path="res://Assets/Animations/Clouds/LargeClouds3.png" id="3_55tsm"]
 [ext_resource type="Texture2D" uid="uid://cdrkjlfgda1hb" path="res://Assets/Gui/Buttons/LevelButton.png" id="3_h5sxm"]
-[ext_resource type="Texture2D" uid="uid://baajqx10nrlby" path="res://Assets/Animations/SmallClouds.png" id="4_463s3"]
+[ext_resource type="Texture2D" uid="uid://lr3g36u5tj6x" path="res://Assets/Animations/Clouds/SmallClouds2.png" id="4_daa8i"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="5_dkqc7"]
 [ext_resource type="Texture2D" uid="uid://cgsynnhqxp5gt" path="res://Assets/Gui/Buttons/back_arrow1.png" id="5_g2hs5"]
 [ext_resource type="Texture2D" uid="uid://dwpija6ht0ruh" path="res://Assets/Gui/Buttons/back_arrow2.png" id="6_76n8v"]
@@ -226,7 +226,7 @@ texture = ExtResource("2_ph7px")
 [node name="LargeClouds" type="Sprite2D" parent="TextureRect"]
 position = Vector2(640, 162)
 scale = Vector2(1.04791, 1)
-texture = ExtResource("3_5vynj")
+texture = ExtResource("3_55tsm")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect/LargeClouds"]
 libraries = {
@@ -237,7 +237,7 @@ autoplay = "LargeClouds"
 [node name="SmallClouds" type="Sprite2D" parent="TextureRect"]
 position = Vector2(640, 162)
 scale = Vector2(1.04934, 1)
-texture = ExtResource("4_463s3")
+texture = ExtResource("4_daa8i")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect/SmallClouds"]
 libraries = {
@@ -248,7 +248,7 @@ autoplay = "SmallClouds"
 [node name="LargeClouds2" type="Sprite2D" parent="TextureRect"]
 position = Vector2(640, 162)
 scale = Vector2(1.04791, 1)
-texture = ExtResource("3_5vynj")
+texture = ExtResource("3_55tsm")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect/LargeClouds2"]
 libraries = {
@@ -259,7 +259,7 @@ autoplay = "LargeClouds2"
 [node name="SmallClouds2" type="Sprite2D" parent="TextureRect"]
 position = Vector2(640, 162)
 scale = Vector2(1.0475, 1)
-texture = ExtResource("4_463s3")
+texture = ExtResource("4_daa8i")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect/SmallClouds2"]
 libraries = {

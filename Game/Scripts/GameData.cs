@@ -5,7 +5,7 @@ namespace CrankUp;
     public class GameData{
         public int LevelProgress = 1;
         public Dictionary<int, int> LevelStars = new();
-        
+
         public float MasterVolume = -6f;
         public float MusicVolume = -6f;
         public float SfxVolume = -6f;
@@ -23,4 +23,3 @@ namespace CrankUp;
         };
     }
 }
-

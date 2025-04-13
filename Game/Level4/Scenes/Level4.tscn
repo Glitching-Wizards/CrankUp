@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://dmfcwwoq65pqu"]
+[gd_scene load_steps=15 format=3 uid="uid://dmfcwwoq65pqu"]
 
+[ext_resource type="Script" path="res://Game/Level4/Scripts/Level4.cs" id="1_4bqgu"]
 [ext_resource type="Texture2D" uid="uid://bw7uqlawbr5or" path="res://Assets/Misc/Conveyor.png" id="3_p2usu"]
 [ext_resource type="Theme" uid="uid://6td37p2nd7m3" path="res://Gui/PlayTheme.tres" id="4_mv2i5"]
 [ext_resource type="Script" path="res://Game/Scripts/FinishButton.cs" id="5_wksfs"]
@@ -7,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bqlfady1qw4tw" path="res://Assets/Blocks/container_box_Z1.png" id="7_j8xku"]
 [ext_resource type="Texture2D" uid="uid://b1rjsgvxgngwf" path="res://Assets/Blocks/container_box1.png" id="8_u2m6t"]
 [ext_resource type="PackedScene" uid="uid://bu16bdidc32ex" path="res://Gui/ControlsLeftUi.tscn" id="13_jumkn"]
-[ext_resource type="PackedScene" path="res://Gui/Background4.tscn" id="14_dyjy7"]
+[ext_resource type="PackedScene" uid="uid://ccehnxtd5o7ir" path="res://Gui/Background4.tscn" id="14_dyjy7"]
 [ext_resource type="PackedScene" uid="uid://cbrwler8lk051" path="res://Gui/ControlsRightUi.tscn" id="14_jmq6i"]
 [ext_resource type="Texture2D" uid="uid://bktm88vlfrd46" path="res://Assets/Misc/BoxShadow4.png" id="14_q7oo8"]
 [ext_resource type="PackedScene" uid="uid://ck4oieai5v8t6" path="res://Game/Scenes/Claw.tscn" id="15_k4by1"]
@@ -15,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://d3h8yejbsuxbm" path="res://Menus/LevelWinLose/Scenes/Win.tscn" id="17_kovnp"]
 
 [node name="Level4" type="Node2D"]
+script = ExtResource("1_4bqgu")
 
 [node name="ConveyorBelt" type="TextureRect" parent="."]
 z_index = -2
@@ -235,10 +237,10 @@ script = ExtResource("16_xkewl")
 polygon = PackedVector2Array(-275, 12, -225, 12, -225, -288, -175, -288, -175, -238, -125, -238, -125, -88, -75, -88, -75, -38, 75, -38, 75, -88, 125, -88, 125, -238, 175, -238, 175, -288, 225, -288, 225, 12, 275, 12, 275, 62, -275, 62)
 
 [node name="ScoreLabel" type="Label" parent="PlacementArea"]
-offset_left = 249.0
-offset_top = -82.0
-offset_right = 289.0
-offset_bottom = -59.0
+offset_left = -448.0
+offset_top = -426.0
+offset_right = -374.0
+offset_bottom = -392.0
 
 [node name="WinLose" type="Control" parent="."]
 layout_mode = 3
@@ -256,8 +258,11 @@ offset_top = -360.0
 offset_right = -640.0
 offset_bottom = -360.0
 
-[node name="BoxShadow4" type="Sprite2D" parent="."]
-position = Vector2(0, 1)
+[node name="BoxShadow4" type="TextureRect" parent="."]
+offset_left = -275.0
+offset_top = -174.0
+offset_right = 275.0
+offset_bottom = 176.0
 texture = ExtResource("14_q7oo8")
 
 [connection signal="pressed" from="ConveyorBelt/ConveyorBelt2/FinishButton" to="." method="_on_finish_button_pressed"]
