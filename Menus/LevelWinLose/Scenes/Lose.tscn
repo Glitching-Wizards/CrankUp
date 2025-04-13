@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://t8di6gto22h3"]
 
-[ext_resource type="Script" path="res://Menus/LevelWinLose/Scripts/WinLose.cs" id="1_ts8kd"]
+[ext_resource type="Script" path="res://Menus/LevelWinLose/Scripts/Lose.cs" id="1_m602j"]
 [ext_resource type="Texture2D" uid="uid://d2ne652846407" path="res://Assets/Gui/Buttons/green_button_retry1.png" id="2_03ryq"]
 [ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="2_l54t8"]
 [ext_resource type="Texture2D" uid="uid://byi7gwxidoxcf" path="res://Assets/Victory/DefeatScreen.png" id="2_ta1fw"]
@@ -23,7 +23,7 @@ unresizable = true
 borderless = true
 always_on_top = true
 transparent = true
-script = ExtResource("1_ts8kd")
+script = ExtResource("1_m602j")
 
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 40.0
@@ -31,6 +31,7 @@ offset_bottom = 40.0
 texture = ExtResource("2_ta1fw")
 
 [node name="TextureRect" type="TextureRect" parent="Background"]
+layout_mode = 0
 offset_left = 1018.0
 offset_top = 278.0
 offset_right = 1310.0

@@ -12,6 +12,7 @@ public partial class Block : RigidBody2D
 	[Export] private Texture2D healthy;
 	[Export] private Texture2D damaged;
 	[Export] private Texture2D broken;
+	[Export] private AudioStream hitSound = GD.Load<AudioStream>("res://Audio/SoundEffects/ContainerHit2.mp3");
 
 	public override void _Ready()
 	{
@@ -37,6 +38,7 @@ public partial class Block : RigidBody2D
 	private void TakeDamage()
 	{
 		currentHealth--;
+		AudioManager.PlaySound(hitSound);
 		UpdateSprite();
 	}
 

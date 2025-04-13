@@ -18,7 +18,6 @@ public partial class AudioManager : Node
         _musicPlayer = new AudioStreamPlayer
         {
             Name = "MusicPlayer",
-            /*Loop = true // Music loops by default */
         };
         AddChild(_musicPlayer);
     }

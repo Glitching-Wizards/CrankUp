@@ -9,9 +9,10 @@ namespace CrankUp
         [Export] private string _levelsScenePath = "res://Menus/Levels/Scenes/Levels.tscn";
         private Window settingsWindow;
         private Window victoryScreen;
+        [Export] private AudioStream clickSound;
         public override void _Ready()
         {
-            TextureButton exitButton = GetNode<TextureButton>("Buttons/ExitButton");
+            TextureButton exitButton = GetNodeOrNull<TextureButton>("Buttons/ExitButton");
             if (exitButton == null)
             {
                 GD.PrintErr("[ERROR] ExitButton not found in PauseCredits.tscn");
@@ -31,8 +32,7 @@ namespace CrankUp
         {
             GD.Print("Exit Pressed");
 
-            Node currentScene = GetTree().CurrentScene;
-
+            AudioManager.PlaySound(clickSound);
             this.Hide();
         }
     }

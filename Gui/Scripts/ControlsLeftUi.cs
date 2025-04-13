@@ -4,12 +4,12 @@ using System;
 namespace CrankUp;
 public partial class ControlsLeftUi : Control
 {
-    [Export] private AudioStream clickSound;
     private ClawHead clawHead;
     private TextureButton rotateButton;
     private VSlider moveSlider;
     private float moveSliderValue;
     private Vector2 movementDirection = Vector2.Zero;
+    [Export] private AudioStream clickSound;
 
     public override void _Ready()
     {
@@ -62,7 +62,6 @@ public partial class ControlsLeftUi : Control
         else
             movementDirection = Vector2.Zero;
 
-        AudioManager.PlaySound(clickSound);
     }
 
     private void OnSliderReleased(bool ended)

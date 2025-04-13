@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbrwler8lk051"]
+[gd_scene load_steps=9 format=3 uid="uid://cbrwler8lk051"]
 
 [ext_resource type="Script" path="res://Gui/Scripts/ControlsRightUi.cs" id="1_agtus"]
 [ext_resource type="Texture2D" uid="uid://bskd5oath0065" path="res://Assets/Gui/Buttons/Grab.png" id="2_b0xj0"]
+[ext_resource type="AudioStream" uid="uid://cty2a4x8lqdp6" path="res://Audio/SoundEffects/ButtonPress.mp3" id="2_gt0c7"]
 [ext_resource type="Texture2D" uid="uid://bkv6f6qua35ki" path="res://Assets/Gui/Slider.png" id="3_uyu0l"]
 [ext_resource type="Texture2D" uid="uid://62y8frj3jf0x" path="res://Assets/Settings/PauseMenuButtonThing.png" id="4_0bk8u"]
 [ext_resource type="Texture2D" uid="uid://c5sgawhovf3f7" path="res://Assets/Backgrounds/right_console.png" id="6_23lj1"]
@@ -23,6 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_agtus")
+clickSound = ExtResource("2_gt0c7")
 
 [node name="Panel" type="Panel" parent="."]
 self_modulate = Color(1, 1, 1, 0)

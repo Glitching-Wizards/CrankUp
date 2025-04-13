@@ -15,9 +15,15 @@ namespace CrankUp
         private Window startLevelWindow;
         private Window settingsWindow;
         private TextureButton settingsButton;
+        private const int TotalLevels = 5;
+        [Export] private AudioStream clickSound;
+        [Export] private AudioStream menuMusic;
+
 
         public override void _Ready()
         {
+            AudioManager.PlayMusic(menuMusic);
+            
             TextureButton LevelButton1 = GetNodeOrNull<TextureButton>("Buttons/Level1");
             LevelButton1.Pressed += () => LevelButtonPressed(1);
 
@@ -48,18 +54,22 @@ namespace CrankUp
         public void BackButtonPressed()
         {
             GD.Print("Back Pressed");
+            AudioManager.PlaySound(clickSound);
             GetTree().ChangeSceneToFile("res://Menus/MainMenu/Scenes/MainMenu.tscn");
         }
 
         public void SettingsButtonPressed()
         {
             GD.Print("Settings Pressed");
+            AudioManager.PlaySound(clickSound);
             settingsWindow.Popup();
         }
 
         public void LevelButtonPressed(int level)
         {
             GD.Print($"Level {level} button pressed");
+
+            AudioManager.PlaySound(clickSound);
 
             _startLevelScenePath = GetLevelScenePath(level);
 
@@ -91,5 +101,32 @@ namespace CrankUp
                 _ => string.Empty
             };
         }
+
+        public void SetupLevelButtons()
+        {
+            int unlocked = SaveSystem.GetGameData().LevelProgress;
+
+            for (int i = 1; i <= TotalLevels; i++)
+            {
+                var button = GetNode<Button>($"LevelButtons/Level{i}");
+
+                if (i <= unlocked)
+                {
+                    button.Disabled = false;
+                    button.Text = $"Level {i} ({GetStars(i)}★)";
+                }
+                else
+                {
+                    button.Disabled = true;
+                    button.Text = "Locked";
+                }
+            }
+        }
+
+        private int GetStars(int level)
+        {
+            return SaveSystem.GetGameData().LevelStars.TryGetValue(level, out int stars) ? stars : 0;
+        }
+
     }
 }

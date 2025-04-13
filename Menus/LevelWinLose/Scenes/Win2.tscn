@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://b7kwcha2ue58l"]
 
-[ext_resource type="Script" path="res://Menus/LevelWinLose/Scripts/WinLose.cs" id="1_20kg7"]
+[ext_resource type="Script" path="res://Menus/LevelWinLose/Scripts/Win.cs" id="1_kvbf2"]
 [ext_resource type="Texture2D" uid="uid://daile572kg6n5" path="res://Assets/Victory/VictoryScreen.png" id="2_lgfs7"]
 [ext_resource type="Texture2D" uid="uid://d2ne652846407" path="res://Assets/Gui/Buttons/green_button_retry1.png" id="2_oiigu"]
 [ext_resource type="Texture2D" uid="uid://bjl34nmf2fffy" path="res://Assets/Animations/JarkkoNormalAnimated.png" id="3_2831o"]
@@ -59,7 +59,7 @@ unresizable = true
 borderless = true
 always_on_top = true
 transparent = true
-script = ExtResource("1_20kg7")
+script = ExtResource("1_kvbf2")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1280.0

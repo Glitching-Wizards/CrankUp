@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Linq;
 
 namespace CrankUp
 {
@@ -9,65 +10,86 @@ namespace CrankUp
 		private PlacementArea placementArea;
 		private float score;
 		private Node currentLevel;
+		[Export] private AudioStream loseSound = GD.Load<AudioStream>("res://Audio/Lose.mp3");
+		[Export] private AudioStream winSound = GD.Load<AudioStream>("res://Audio/Win.mp3");
 
-		public override void _Ready()
-		{
-			currentLevel = GetTree().CurrentScene;
-			if (currentLevel == null) return;
+		public override void _Ready() {
+            currentLevel = GetTree().CurrentScene;
+            if (currentLevel == null) return;
 
-			Node winLose = currentLevel.GetNodeOrNull("WinLose");
-			if (winLose != null)
-			{
-				victoryScreen1 = winLose.GetNodeOrNull<Window>("Win");
-				victoryScreen2 = winLose.GetNodeOrNull<Window>("Win2");
-				victoryScreen3 = winLose.GetNodeOrNull<Window>("Win3");
-				loseScreen = winLose.GetNodeOrNull<Window>("Lose");
+            Node winLose = currentLevel.GetNodeOrNull("WinLose");
+            if (winLose != null)
+            {
+                victoryScreen1 = winLose.GetNodeOrNull<Window>("Win");
+                victoryScreen2 = winLose.GetNodeOrNull<Window>("Win2");
+                victoryScreen3 = winLose.GetNodeOrNull<Window>("Win3");
+                loseScreen = winLose.GetNodeOrNull<Window>("Lose");
 
-				if (victoryScreen1 != null) victoryScreen1.Visible = false;
-				if (victoryScreen2 != null) victoryScreen2.Visible = false;
-				if (victoryScreen3 != null) victoryScreen3.Visible = false;
-				if (loseScreen != null) loseScreen.Visible = false;
-			}
+                if (victoryScreen1 != null) victoryScreen1.Visible = false;
+                if (victoryScreen2 != null) victoryScreen2.Visible = false;
+                if (victoryScreen3 != null) victoryScreen3.Visible = false;
+                if (loseScreen != null) loseScreen.Visible = false;
+            }
 
-			Pressed += OnButtonPressed;
-			CallDeferred(nameof(FindPlacementArea));
-		}
+            Ui ui = currentLevel.GetNodeOrNull<Ui>("Ui");
+            if (ui != null)
+            {
+                ui.TimeRanOut += OnTimeRanOut;
+            }
+
+            Pressed += OnButtonPressed;
+            CallDeferred(nameof(FindPlacementArea));
+        }
 
 		private void FindPlacementArea()
 		{
 			placementArea = currentLevel.GetNodeOrNull<PlacementArea>("PlacementArea");
 		}
 
-		// tarttee tallennuksen
 		private void OnButtonPressed()
 		{
 			if (placementArea == null) return;
 
 			score = placementArea.GetScore();
+			int stars = 0;
 
 			if (score >= 70 && score < 80 && victoryScreen1 != null)
 			{
+				stars = 1;
 				victoryScreen1.Visible = true;
-				LevelDone(currentLevel.Name);
+				AudioManager.PlaySound(winSound);
 			}
 			else if (score >= 80 && score < 90 && victoryScreen2 != null)
 			{
+				stars = 2;
 				victoryScreen2.Visible = true;
-				LevelDone(currentLevel.Name);
+				AudioManager.PlaySound(winSound);
 			}
 			else if (score >= 90 && victoryScreen3 != null)
 			{
+				stars = 3;
 				victoryScreen3.Visible = true;
-				LevelDone(currentLevel.Name);
+				AudioManager.PlaySound(winSound);
 			}
 			else if (score < 70 && loseScreen != null)
 			{
 				loseScreen.Visible = true;
+				AudioManager.PlaySound(loseSound);
+				return;
 			}
+
+			if (stars > 0)
+			{
+				int levelNumber = GetLevelNumberFromName(currentLevel.Name);
+				SaveSystem.OnLevelCompleted(levelNumber, stars);
+			}
+
+			LevelDone(currentLevel.Name);
 		}
 
 		private void LevelDone(string levelName)
 		{
+			// does it get all the buttons
 			Node levelButtonPath = GetTree().Root.GetNode<Node>("/root/Menus/Levels/Scenes/Levels.tscn/Levels/Buttons");
 
 			if (levelButtonPath == null)
@@ -94,6 +116,23 @@ namespace CrankUp
 					number.Visible = true;
 				}
 			}
+		}
+
+		private void OnTimeRanOut() {
+            if (loseScreen != null)
+            {
+                loseScreen.Visible = true;
+            }
+        }
+
+		private int GetLevelNumberFromName(string levelName)
+		{
+			var digits = new string(levelName.Where(char.IsDigit).ToArray());
+			if (int.TryParse(digits, out int number))
+				return number;
+
+			GD.PrintErr($"Could not parse level number from level name: {levelName}");
+			return 0;
 		}
 	}
 }

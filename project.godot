@@ -15,6 +15,10 @@ run/main_scene="res://GameStart/Scenes/GameStart.tscn"
 config/features=PackedStringArray("4.3", "C#", "Mobile")
 config/icon="res://Assets/Logos/Icon.png"
 
+[autoload]
+
+AudioManager="*res://Game/Scripts/AudioManager.cs"
+
 [display]
 
 window/size/viewport_width=1280
@@ -28,6 +32,29 @@ project/assembly_name="Crank Up!"
 [editor]
 
 naming/scene_name_casing=1
+
+[file_customization]
+
+folder_colors={
+"res://Assets/": "yellow",
+"res://Audio/": "red",
+"res://Game/": "green",
+"res://Game/Level1/Scripts/": "blue",
+"res://Game/Level2/Scripts/": "blue",
+"res://Game/Level3/Scripts/": "blue",
+"res://Game/Level4/Scripts/": "blue",
+"res://Game/Level5/Scripts/": "blue",
+"res://Game/Scripts/": "blue",
+"res://GameStart/": "pink",
+"res://GameStart/Scripts/": "blue",
+"res://Gui/": "orange",
+"res://Gui/Scripts/": "blue",
+"res://Menus/": "purple",
+"res://Menus/LevelWinLose/Scripts/": "blue",
+"res://Menus/Levels/Scripts/": "blue",
+"res://Menus/MainMenu/Scripts/": "blue",
+"res://Menus/Settings/Scripts/": "blue"
+}
 
 [input]
 

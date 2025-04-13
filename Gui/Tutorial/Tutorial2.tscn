@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cucumwcu224yf"]
+[gd_scene load_steps=11 format=3 uid="uid://ctxvgkn6ddu20"]
 
 [ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="1_2mcp7"]
 [ext_resource type="Texture2D" uid="uid://bjl34nmf2fffy" path="res://Assets/Animations/JarkkoNormalAnimated.png" id="2_kxeid"]

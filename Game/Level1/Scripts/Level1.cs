@@ -14,13 +14,13 @@ public partial class Level1 : Node2D
 
 	[Export] private string _clawScenePath = "res://Game/Scenes/Claw.tscn";
 	[Export] private string _pauseScenePath = "res://Menus/Settings/Scenes/Pause.tscn";
-
 	[Export] private string _blockScenePath = "res://Game/Scenes/Block.tscn";
 	[Export] private string _containerYellowLScenePath = "res://Game/Scenes/ContainerYellowL.tscn";
 	[Export] private string _containerBlueLScenePath = "res://Game/Scenes/ContainerBlueL.tscn";
 	[Export] private string _containerRedScenePath = "res://Game/Scenes/ContainerRed.tscn";
 	[Export] private string _containerYellowScenePath = "res://Game/Scenes/ContainerYellow.tscn";
 	[Export] private AudioStream levelMusic;
+	[Export] private AudioStream conveyorBeltSound = ResourceLoader.Load<AudioStream>("res://Audio/SoundEffects/CONVEYOR.mp3");
 
 	private Window pauseWindow;
 
@@ -37,14 +37,12 @@ public partial class Level1 : Node2D
 	private PackedScene _containerYellowScene;
 
 	private TextureButton blockButton;
-	private TextureButton block2Button;
 	private TextureButton containerYellowLButton;
 	private TextureButton containerBlueLButton;
 	private TextureButton containerRedButton;
 	private TextureButton containerYellowButton;
 
 	private bool blockButtonPressed = false;
-	private bool block2ButtonPressed = false;
 	private bool containerYellowLButtonPressed = false;
 	private bool containerBlueLButtonPressed = false;
 	private bool containerRedButtonPressed = false;
@@ -79,7 +77,6 @@ public partial class Level1 : Node2D
 		_containerYellowScene = ResourceLoader.Load<PackedScene>(_containerYellowScenePath);
 
 		blockButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/Block");
-		block2Button = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/Block2");
 		containerYellowLButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerYellowL");
 		containerBlueLButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerBlueL");
 		containerRedButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerRed");
@@ -90,12 +87,6 @@ public partial class Level1 : Node2D
 		{
 			blockButtonPressed = true;
 			SpawnBlockButtonPressed(_blockScene, blockButton);
-		};
-
-		block2Button.Pressed += () =>
-		{
-			block2ButtonPressed = true;
-			SpawnBlockButtonPressed(_blockScene, block2Button);
 		};
 
 		containerYellowLButton.Pressed += () =>
@@ -165,7 +156,7 @@ public partial class Level1 : Node2D
 		button.QueueFree();
 
 		// Check if all buttons are pressed
-		if (blockButtonPressed && block2ButtonPressed && containerYellowLButtonPressed && containerBlueLButtonPressed && containerRedButtonPressed && containerYellowButtonPressed) endLevel = true;
+		if (blockButtonPressed && containerYellowLButtonPressed && containerBlueLButtonPressed && containerRedButtonPressed && containerYellowButtonPressed) endLevel = true;
 	}
 
 	public override void _Process(double delta)
@@ -176,6 +167,7 @@ public partial class Level1 : Node2D
 
 			if (conveyorBelt.Position.X < beltTargetPositionStart)
 			{
+				AudioManager.PlaySound(conveyorBeltSound);
 				conveyorBelt.Position = new Godot.Vector2(conveyorBelt.Position.X + step, conveyorBelt.Position.Y);
 			}
 		}

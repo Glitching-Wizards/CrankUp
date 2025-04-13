@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://ckb1t7ko0dp0p"]
+[gd_scene load_steps=18 format=3 uid="uid://ckb1t7ko0dp0p"]
 
 [ext_resource type="Script" path="res://Menus/Settings/Scripts/Settings.cs" id="1_n5s8t"]
 [ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="2_lqclo"]
+[ext_resource type="AudioStream" uid="uid://cty2a4x8lqdp6" path="res://Audio/SoundEffects/ButtonPress.mp3" id="2_qqais"]
 [ext_resource type="Theme" uid="uid://6td37p2nd7m3" path="res://Gui/PlayTheme.tres" id="3_c0bsf"]
 [ext_resource type="Texture2D" uid="uid://biwqqyd2e0hyd" path="res://Assets/Settings/BlueBlankScreen.png" id="3_oyqlg"]
 [ext_resource type="Texture2D" uid="uid://dtj7v04qhhxhi" path="res://Assets/Gui/Buttons/cross_button1.png" id="4_c3tkn"]
@@ -12,12 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://d1mjxk06ip5rp" path="res://Assets/Settings/FinnishFlagGray.png" id="9_n7i0m"]
 [ext_resource type="Texture2D" uid="uid://b68icohpv4j7x" path="res://Assets/Settings/AudioSliderBase.png" id="10_in284"]
 [ext_resource type="Texture2D" uid="uid://cf7fyoentx14n" path="res://Assets/Settings/UKFlagGray.png" id="11_23pnq"]
-[ext_resource type="Texture2D" uid="uid://8tm6qswgs2h6" path="res://Assets/Settings/AudioSliderButton.png" id="11_rm7lk"]
 [ext_resource type="Texture2D" uid="uid://104qw0r1df7a" path="res://Assets/Settings/AudioFull.png" id="12_tf0j5"]
 [ext_resource type="Texture2D" uid="uid://l4o2w7xwbjb2" path="res://Assets/Settings/AudioMute.png" id="13_00pst"]
+[ext_resource type="Texture2D" uid="uid://bb5sh7b80ksh4" path="res://Assets/Gui/Settings/AudioSliderButton.png" id="16_0el47"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="16_uom7k"]
 
-[node name="Settings" type="Window"]
+[node name="Settings" type="Window" node_paths=PackedStringArray("_fiButton", "_enButton")]
 transparent_bg = true
 initial_position = 1
 size = Vector2i(1280, 720)
@@ -27,6 +28,9 @@ borderless = true
 always_on_top = true
 transparent = true
 script = ExtResource("1_n5s8t")
+_fiButton = NodePath("Buttons/FI")
+_enButton = NodePath("Buttons/EN")
+clickSound = ExtResource("2_qqais")
 metadata/_edit_vertical_guides_ = [641.0]
 metadata/_edit_horizontal_guides_ = [359.0]
 
@@ -226,7 +230,7 @@ offset_bottom = 434.0
 scale = Vector2(0.6, 0.6)
 texture_normal = ExtResource("12_tf0j5")
 
-[node name="Mute2" type="TextureButton" parent="Buttons/Music"]
+[node name="Mute" type="TextureButton" parent="Buttons/Music"]
 visible = false
 offset_left = 503.0
 offset_top = 293.0
@@ -245,7 +249,7 @@ offset_bottom = 565.0
 scale = Vector2(0.6, 0.6)
 texture_normal = ExtResource("12_tf0j5")
 
-[node name="Mute2" type="TextureButton" parent="Buttons/Music2"]
+[node name="Mute" type="TextureButton" parent="Buttons/Music2"]
 visible = false
 offset_left = 503.0
 offset_top = 425.0
@@ -264,7 +268,7 @@ offset_bottom = 694.0
 scale = Vector2(0.6, 0.6)
 texture_normal = ExtResource("12_tf0j5")
 
-[node name="Mute2" type="TextureButton" parent="Buttons/Music3"]
+[node name="Mute" type="TextureButton" parent="Buttons/Music3"]
 offset_left = 503.0
 offset_top = 554.0
 offset_right = 673.0
@@ -294,9 +298,9 @@ offset_left = 647.0
 offset_top = 296.0
 offset_right = 1127.0
 offset_bottom = 376.0
-theme_override_icons/grabber = ExtResource("11_rm7lk")
-theme_override_icons/grabber_highlight = ExtResource("11_rm7lk")
-theme_override_icons/tick = ExtResource("11_rm7lk")
+theme_override_icons/grabber = ExtResource("16_0el47")
+theme_override_icons/grabber_highlight = ExtResource("16_0el47")
+theme_override_icons/tick = ExtResource("16_0el47")
 min_value = -100.0
 scrollable = false
 
@@ -320,9 +324,9 @@ offset_left = 647.0
 offset_top = 426.0
 offset_right = 1127.0
 offset_bottom = 506.0
-theme_override_icons/grabber = ExtResource("11_rm7lk")
-theme_override_icons/grabber_highlight = ExtResource("11_rm7lk")
-theme_override_icons/tick = ExtResource("11_rm7lk")
+theme_override_icons/grabber = ExtResource("16_0el47")
+theme_override_icons/grabber_highlight = ExtResource("16_0el47")
+theme_override_icons/tick = ExtResource("16_0el47")
 min_value = -100.0
 scrollable = false
 
@@ -346,9 +350,9 @@ offset_left = 647.0
 offset_top = 556.0
 offset_right = 1127.0
 offset_bottom = 636.0
-theme_override_icons/grabber = ExtResource("11_rm7lk")
-theme_override_icons/grabber_highlight = ExtResource("11_rm7lk")
-theme_override_icons/tick = ExtResource("11_rm7lk")
+theme_override_icons/grabber = ExtResource("16_0el47")
+theme_override_icons/grabber_highlight = ExtResource("16_0el47")
+theme_override_icons/tick = ExtResource("16_0el47")
 min_value = -100.0
 scrollable = false
 
