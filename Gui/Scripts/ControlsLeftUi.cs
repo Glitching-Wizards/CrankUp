@@ -2,26 +2,50 @@ using Godot;
 using System;
 
 namespace CrankUp;
+
+/// <summary>
+/// UI control script for managing vertical movement and rotation of the claw head using UI elements like a slider and a button.
+/// </summary>
 public partial class ControlsLeftUi : Control
 {
-    [Export] private AudioStream clickSound;
+    /// <summary>
+    /// Reference to the ClawHead node being controlled.
+    /// </summary>
     private ClawHead clawHead;
+
+    /// <summary>
+    /// Button used to rotate the grabbed block.
+    /// </summary>
     private TextureButton rotateButton;
+
+    /// <summary>
+    /// Slider used to control vertical movement of the claw head.
+    /// </summary>
     private VSlider moveSlider;
+
+    /// <summary>
+    /// The current value of the move slider.
+    /// </summary>
     private float moveSliderValue;
+
+    /// <summary>
+    /// The current movement direction of the claw (Up, Down, or None).
+    /// </summary>
     private Vector2 movementDirection = Vector2.Zero;
 
+    /// <summary>
+    /// Called when the node enters the scene tree. Initializes UI elements and connects their signals.
+    /// </summary>
     public override void _Ready()
     {
-        AddToGroup("multi_sliders");
-
+        // Find the rotate button inside the UI hierarchy
         rotateButton = GetNodeOrNull<TextureButton>("Panel/Rotate");
         if (rotateButton == null)
         {
             GD.PrintErr("[ERROR] TextureButton 'Rotate' not found in ControlsLeftUi!");
         }
 
-        // Find the moveSlider safely
+        // Find the vertical movement slider
         moveSlider = GetNodeOrNull<VSlider>("Panel/MoveSlider");
         if (moveSlider == null)
         {
@@ -29,7 +53,7 @@ public partial class ControlsLeftUi : Control
             return;
         }
 
-        // Find ClawHead dynamically
+        // Find the ClawHead node in the scene tree
         clawHead = GetTree().Root.FindChild("ClawHead", true, false) as ClawHead;
         if (clawHead == null)
         {
@@ -39,18 +63,23 @@ public partial class ControlsLeftUi : Control
 
         moveSliderValue = (float)moveSlider.Value;
 
-        // Connect button signals
+        // Connect UI signals to handlers
         rotateButton.Pressed += OnRotatePressed;
         moveSlider.ValueChanged += OnSliderValueChanged;
         moveSlider.DragEnded += OnSliderReleased;
     }
 
+    /// <summary>
+    /// Called when the rotate button is pressed. Tells the claw head to rotate the grabbed block.
+    /// </summary>
     private void OnRotatePressed()
     {
         if (clawHead != null) clawHead.RotateBlock();
-        AudioManager.PlaySound(clickSound);
     }
 
+    /// <summary>
+    /// Called when the slider value changes. Updates the claw movement direction based on slider input.
+    /// </summary>
     private void OnSliderValueChanged(double value)
     {
         moveSliderValue = (float)value;
@@ -61,10 +90,11 @@ public partial class ControlsLeftUi : Control
             movementDirection = Vector2.Down;
         else
             movementDirection = Vector2.Zero;
-
-        AudioManager.PlaySound(clickSound);
     }
 
+    /// <summary>
+    /// Called when the slider is released. Resets slider value and stops movement.
+    /// </summary>
     private void OnSliderReleased(bool ended)
     {
         if (ended)
@@ -75,6 +105,9 @@ public partial class ControlsLeftUi : Control
         }
     }
 
+    /// <summary>
+    /// Frame update loop. Moves the claw head each frame based on UI input.
+    /// </summary>
     public override void _Process(double delta)
     {
         if (clawHead == null)
@@ -82,6 +115,7 @@ public partial class ControlsLeftUi : Control
             GD.PrintErr("[ERROR] ClawHead reference is missing!");
             return;
         }
+
         clawHead.Move(movementDirection, moveSliderValue, delta);
     }
 }

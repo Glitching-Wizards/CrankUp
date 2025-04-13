@@ -2,10 +2,17 @@ using Godot;
 using System;
 
 namespace CrankUp;
+
+/// <summary>
+/// UI control script for handling horizontal movement of the claw base, grabbing blocks, and pausing the game.
+/// </summary>
 public partial class ControlsRightUi : Control
 {
+    /// <summary>
+    /// Path to the pause/settings window scene.
+    /// </summary>
     [Export] private string _pauseScenePath = "res://Menus/Settings/Scenes/Pause.tscn";
-    [Export] private AudioStream clickSound;
+
     private ClawHead clawHead;
     private ClawBase clawBase;
     private Window pauseWindow;
@@ -15,9 +22,12 @@ public partial class ControlsRightUi : Control
     private float moveSliderValue;
     private Vector2 movementDirection = Vector2.Zero;
 
+    /// <summary>
+    /// Called when the node enters the scene tree. Initializes references and connects UI signals.
+    /// </summary>
     public override void _Ready()
     {
-        // Find the Grab button safely
+        // Find the Grab button
         grabButton = GetNodeOrNull<TextureButton>("Panel/Grab");
         if (grabButton == null)
         {
@@ -25,6 +35,7 @@ public partial class ControlsRightUi : Control
             return;
         }
 
+        // Find the move slider
         moveSlider = GetNodeOrNull<VSlider>("Panel/MoveSlider");
         if (moveSlider == null)
         {
@@ -32,20 +43,20 @@ public partial class ControlsRightUi : Control
             return;
         }
 
+        // Find the Pause button
         pauseButton = GetNodeOrNull<TextureButton>("Panel/PauseButton");
         if (pauseButton == null)
         {
             GD.PrintErr("[ERROR] TextureButton 'Settings' not found in ControlsRightUi!");
         }
 
+        // Load and prepare the pause menu window
         PackedScene pauseScene = (PackedScene)GD.Load(_pauseScenePath);
     	pauseWindow = (Window)pauseScene.Instantiate();
     	AddChild(pauseWindow);
     	pauseWindow.Hide();
 
-        pauseButton.Pressed += OnPausePressed;
-
-        // Find ClawHead dynamically
+        // Find ClawHead dynamically in the scene
         clawHead = GetTree().Root.FindChild("ClawHead", true, false) as ClawHead;
         if (clawHead == null)
         {
@@ -53,6 +64,7 @@ public partial class ControlsRightUi : Control
             return;
         }
 
+        // Find ClawBase dynamically in the scene
         clawBase = GetTree().Root.FindChild("ClawBase", true, false) as ClawBase;
         if (clawBase == null)
         {
@@ -60,19 +72,24 @@ public partial class ControlsRightUi : Control
             return;
         }
 
-        // Connect button signals
+        // Connect button and slider signals
         grabButton.Pressed += OnGrabPressed;
         pauseButton.Pressed += OnPausePressed;
         moveSlider.ValueChanged += OnSliderValueChanged;
         moveSlider.DragEnded += OnSliderReleased;
     }
 
+    /// <summary>
+    /// Triggered when the grab button is pressed. Instructs the claw head to grab or drop a block.
+    /// </summary>
     private void OnGrabPressed()
     {
         if (clawHead != null) clawHead.GrabBlock();
-        AudioManager.PlaySound(clickSound);
     }
 
+    /// <summary>
+    /// Called when the slider value changes. Sets the horizontal movement direction and speed.
+    /// </summary>
     private void OnSliderValueChanged(double value)
     {
         moveSliderValue = (float)value;
@@ -83,10 +100,11 @@ public partial class ControlsRightUi : Control
             movementDirection = Vector2.Left;
         else
             movementDirection = Vector2.Zero;
-
-        AudioManager.PlaySound(clickSound);
     }
 
+    /// <summary>
+    /// Called when the slider is released. Resets movement.
+    /// </summary>
     private void OnSliderReleased(bool ended)
     {
         if (ended)
@@ -97,11 +115,12 @@ public partial class ControlsRightUi : Control
         }
     }
 
-    // työn alla
+    /// <summary>
+    /// Triggered when the pause button is pressed. Pauses the current level and displays the pause menu.
+    /// </summary>
     private void OnPausePressed()
     {
         Node currentScene = GetTree().CurrentScene;
-        AudioManager.PlaySound(clickSound);
 
         if (currentScene == null)
         {
@@ -126,6 +145,9 @@ public partial class ControlsRightUi : Control
         }
     }
 
+    /// <summary>
+    /// Frame update loop. Applies movement to the claw base based on slider input.
+    /// </summary>
     public override void _Process(double delta)
     {
         if (clawBase == null)
@@ -133,6 +155,7 @@ public partial class ControlsRightUi : Control
             GD.PrintErr("[ERROR] ClawBase reference is missing!");
             return;
         }
+
         clawBase.Move(movementDirection, moveSliderValue, delta);
     }
 }
