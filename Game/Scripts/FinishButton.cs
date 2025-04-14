@@ -10,36 +10,36 @@ namespace CrankUp
 		private PlacementArea placementArea;
 		private float score;
 		private Node currentLevel;
-		[Export] private AudioStream loseSound = GD.Load<AudioStream>("res://Audio/Lose.mp3");
-		[Export] private AudioStream winSound = GD.Load<AudioStream>("res://Audio/Win.mp3");
 
 		public override void _Ready() {
-            currentLevel = GetTree().CurrentScene;
-            if (currentLevel == null) return;
+			currentLevel = GetTree().CurrentScene;
+			if (currentLevel == null) return;
 
-            Node winLose = currentLevel.GetNodeOrNull("WinLose");
-            if (winLose != null)
-            {
-                victoryScreen1 = winLose.GetNodeOrNull<Window>("Win");
-                victoryScreen2 = winLose.GetNodeOrNull<Window>("Win2");
-                victoryScreen3 = winLose.GetNodeOrNull<Window>("Win3");
-                loseScreen = winLose.GetNodeOrNull<Window>("Lose");
+			Node winLose = currentLevel.GetNodeOrNull("WinLose");
+			if (winLose != null)
+			{
+				victoryScreen1 = winLose.GetNodeOrNull<Window>("Win");
+				victoryScreen2 = winLose.GetNodeOrNull<Window>("Win2");
+				victoryScreen3 = winLose.GetNodeOrNull<Window>("Win3");
+				loseScreen = winLose.GetNodeOrNull<Window>("Lose");
 
-                if (victoryScreen1 != null) victoryScreen1.Visible = false;
-                if (victoryScreen2 != null) victoryScreen2.Visible = false;
-                if (victoryScreen3 != null) victoryScreen3.Visible = false;
-                if (loseScreen != null) loseScreen.Visible = false;
-            }
+				if (victoryScreen1 != null) victoryScreen1.Visible = false;
+				if (victoryScreen2 != null) victoryScreen2.Visible = false;
+				if (victoryScreen3 != null) victoryScreen3.Visible = false;
+				if (loseScreen != null) loseScreen.Visible = false;
+			}
 
-            Ui ui = currentLevel.GetNodeOrNull<Ui>("Ui");
-            if (ui != null)
-            {
-                ui.TimeRanOut += OnTimeRanOut;
-            }
+			ControlsLeftUi leftUi = currentLevel.FindChild("ControlsLeftUi", true, false) as ControlsLeftUi;
+			if (leftUi != null)
+			{
+				leftUi.TimeRanOut += OnTimeRanOut;
+			}
 
-            Pressed += OnButtonPressed;
-            CallDeferred(nameof(FindPlacementArea));
-        }
+			FindPlacementArea();
+
+			Pressed += OnButtonPressed;
+			CallDeferred(nameof(ConnectTimerSignal));
+		}
 
 		private void FindPlacementArea()
 		{
@@ -85,7 +85,6 @@ namespace CrankUp
 
 		private void LevelDone(string levelName)
 		{
-			// does it get all the buttons
 			Node levelButtonPath = GetTree().Root.GetNode<Node>("/root/Menus/Levels/Scenes/Levels.tscn/Levels/Buttons");
 
 			if (levelButtonPath == null)
@@ -115,11 +114,11 @@ namespace CrankUp
 		}
 
 		private void OnTimeRanOut() {
-            if (loseScreen != null)
-            {
-                loseScreen.Visible = true;
-            }
-        }
+			if (loseScreen != null)
+			{
+				loseScreen.Visible = true;
+			}
+		}
 
 		private int GetLevelNumberFromName(string levelName)
 		{

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b54grpygrbq3i"]
+[gd_scene load_steps=30 format=3 uid="uid://b54grpygrbq3i"]
 
 [ext_resource type="Script" path="res://Game/Level2/Scripts/Level2.cs" id="1_gqdgr"]
 [ext_resource type="PackedScene" uid="uid://bh25upnb64myu" path="res://Gui/Background2.tscn" id="1_om3yl"]

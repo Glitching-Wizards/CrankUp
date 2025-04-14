@@ -1,7 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://252rm6ype62b"]
-=======
-[gd_scene load_steps=22 format=3 uid="uid://252rm6ype62b"]
->>>>>>> 8a165564561152121a3ce3d167ff9dc1e441c839
+[gd_scene load_steps=26 format=3 uid="uid://252rm6ype62b"]
 
 [ext_resource type="Script" path="res://Game/Level5/Scripts/Level5.cs" id="1_bhd71"]
 [ext_resource type="AudioStream" uid="uid://unyeni3l3lqk" path="res://Audio/Ambients/Level5.mp3" id="2_tasv5"]
@@ -21,8 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://dktk418ydlm2w" path="res://Assets/Blocks/container_L_yellow.png" id="11_xkiqp"]
 [ext_resource type="PackedScene" uid="uid://d3h8yejbsuxbm" path="res://Menus/LevelWinLose/Scenes/Win.tscn" id="13_83gl8"]
 [ext_resource type="Texture2D" uid="uid://ci0mubcknx81e" path="res://Assets/Misc/BoxShadow5.png" id="17_jt6kj"]
-=======
->>>>>>> 8a165564561152121a3ce3d167ff9dc1e441c839
+[ext_resource type="PackedScene" uid="uid://b7kwcha2ue58l" path="res://Menus/LevelWinLose/Scenes/Win2.tscn" id="18_fd6af"]
+[ext_resource type="PackedScene" uid="uid://lyxtd003i5wb" path="res://Menus/LevelWinLose/Scenes/Win3.tscn" id="19_n4dnc"]
+[ext_resource type="PackedScene" uid="uid://t8di6gto22h3" path="res://Menus/LevelWinLose/Scenes/Lose.tscn" id="20_h2ac4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lbwca"]
 atlas = ExtResource("7_wuwh5")
@@ -259,10 +257,10 @@ script = ExtResource("11_ax0fi")
 polygon = PackedVector2Array(-125, 62, -125, 12, -175, 12, -175, -38, -225, -38, -225, -88, -175, -88, -175, -138, -125, -138, -125, -188, -75, -188, -75, -238, -25, -238, -25, -288, -24, -288, 25, -288, 25, -238, 75, -238, 75, -188, 125, -188, 125, -138, 175, -138, 175, -88, 225, -88, 225, -38, 175, -38, 175, 12, 125, 12, 125, 62)
 
 [node name="ScoreLabel" type="Label" parent="PlacementArea"]
-offset_left = -448.0
-offset_top = -426.0
-offset_right = -374.0
-offset_bottom = -392.0
+offset_left = 249.0
+offset_top = -82.0
+offset_right = 289.0
+offset_bottom = -59.0
 
 [node name="WinLose" type="Control" parent="."]
 layout_mode = 3
@@ -273,8 +271,15 @@ offset_bottom = 40.0
 [node name="Win" parent="WinLose" instance=ExtResource("13_83gl8")]
 visible = false
 
-=======
->>>>>>> 8a165564561152121a3ce3d167ff9dc1e441c839
+[node name="Win2" parent="WinLose" instance=ExtResource("18_fd6af")]
+visible = false
+
+[node name="Win3" parent="WinLose" instance=ExtResource("19_n4dnc")]
+visible = false
+
+[node name="Lose" parent="WinLose" instance=ExtResource("20_h2ac4")]
+visible = false
+
 [node name="BoxShadow5" type="TextureRect" parent="."]
 offset_left = -225.0
 offset_top = -174.0

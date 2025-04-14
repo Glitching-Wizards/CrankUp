@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cusyv8gojbcca"]
+[gd_scene load_steps=37 format=3 uid="uid://cusyv8gojbcca"]
 
 [ext_resource type="Script" path="res://Game/Level1/Scripts/Level1.cs" id="1_e65w2"]
 [ext_resource type="AudioStream" uid="uid://b8ypr1bhu63dt" path="res://Audio/Ambients/Level1.mp3" id="2_68d14"]
@@ -23,6 +23,7 @@
 [ext_resource type="Script" path="res://Game/Scripts/Tutorial.cs" id="20_8sm3w"]
 [ext_resource type="PackedScene" uid="uid://bof30jnhkvxrl" path="res://Gui/Tutorial/Tutorial1.tscn" id="20_juq6c"]
 [ext_resource type="PackedScene" uid="uid://ctxvgkn6ddu20" path="res://Gui/Tutorial/Tutorial2.tscn" id="21_mmwtp"]
+[ext_resource type="PackedScene" uid="uid://t8di6gto22h3" path="res://Menus/LevelWinLose/Scenes/Lose.tscn" id="21_se2au"]
 [ext_resource type="PackedScene" uid="uid://cejnj6x0fry0m" path="res://Gui/Tutorial/Tutorial3.tscn" id="22_kfl2k"]
 [ext_resource type="PackedScene" uid="uid://brjgb4ke34ftt" path="res://Gui/Tutorial/Tutorial4.tscn" id="23_0vlog"]
 [ext_resource type="PackedScene" uid="uid://pbhrkwx4h2r" path="res://Gui/Tutorial/Tutorial5.tscn" id="24_4m2qt"]
@@ -222,6 +223,9 @@ visible = false
 visible = false
 
 [node name="Win3" parent="WinLose" instance=ExtResource("15_4n7qn")]
+visible = false
+
+[node name="Lose" parent="WinLose" instance=ExtResource("21_se2au")]
 visible = false
 
 [node name="Tutorial" type="Node" parent="."]
