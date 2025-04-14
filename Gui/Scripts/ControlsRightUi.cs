@@ -27,7 +27,11 @@ public partial class ControlsRightUi : Control
     /// </summary>
     public override void _Ready()
     {
+<<<<<<< HEAD
         // Find the Grab button
+=======
+        // Find the Grab button safely
+>>>>>>> 407834f9439e6171bd94341ac98b85bd1cbe1b64
         grabButton = GetNodeOrNull<TextureButton>("Panel/Grab");
         if (grabButton == null)
         {

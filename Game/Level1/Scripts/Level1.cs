@@ -14,13 +14,13 @@ public partial class Level1 : Node2D
 
 	[Export] private string _clawScenePath = "res://Game/Scenes/Claw.tscn";
 	[Export] private string _pauseScenePath = "res://Menus/Settings/Scenes/Pause.tscn";
-
 	[Export] private string _blockScenePath = "res://Game/Scenes/Block.tscn";
 	[Export] private string _containerYellowLScenePath = "res://Game/Scenes/ContainerYellowL.tscn";
 	[Export] private string _containerBlueLScenePath = "res://Game/Scenes/ContainerBlueL.tscn";
 	[Export] private string _containerRedScenePath = "res://Game/Scenes/ContainerRed.tscn";
 	[Export] private string _containerYellowScenePath = "res://Game/Scenes/ContainerYellow.tscn";
 	[Export] private AudioStream levelMusic;
+	[Export] private AudioStream conveyorBeltSound = ResourceLoader.Load<AudioStream>("res://Audio/SoundEffects/CONVEYOR.mp3");
 
 	private Window pauseWindow;
 
@@ -167,6 +167,7 @@ public partial class Level1 : Node2D
 
 			if (conveyorBelt.Position.X < beltTargetPositionStart)
 			{
+				AudioManager.PlaySound(conveyorBeltSound);
 				conveyorBelt.Position = new Godot.Vector2(conveyorBelt.Position.X + step, conveyorBelt.Position.Y);
 			}
 		}

@@ -71,23 +71,23 @@ namespace CrankUp
         {
             GD.Print("Retry Pressed");
             GetTree().Paused = false;
-            GetTree().ReloadCurrentScene();
             AudioManager.PlaySound(clickSound);
+            GetTree().ReloadCurrentScene();
         }
 
         public void MenuButtonPressed()
         {
             GD.Print("Menu Pressed");
             GetTree().Paused = false;
-            GetTree().ChangeSceneToFile(_levelsScenePath);
             AudioManager.PlaySound(clickSound);
+            GetTree().ChangeSceneToFile(_levelsScenePath);
         }
 
         public void ExitButtonPressed()
         {
             GD.Print("Exit Pressed");
-            AudioManager.PlaySound(clickSound);
             GetTree().Paused = false;
+            AudioManager.PlaySound(clickSound);
             this.Hide();
 
         }
@@ -95,8 +95,8 @@ namespace CrankUp
         public void SettingsButtonPressed()
         {
             GD.Print("Settings Pressed");
-            settingsWindow.Popup();
             AudioManager.PlaySound(clickSound);
+            settingsWindow.Popup();
         }
 
         public void TutorialButtonPressed()

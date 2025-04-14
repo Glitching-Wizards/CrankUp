@@ -17,7 +17,13 @@ namespace CrankUp
 		public override void _Ready()
 		{
 			SaveSystem.LoadGame();
+<<<<<<< HEAD
 			AudioManager.PlayMusic(menuMusic);
+=======
+
+			AudioManager.PlayMusic(menuMusic);
+
+>>>>>>> 407834f9439e6171bd94341ac98b85bd1cbe1b64
 			Button playButton = GetNodeOrNull<Button>("Buttons/PlayButton");
 			playButton.Pressed += PlayButtonPressed;
 
@@ -65,17 +71,16 @@ namespace CrankUp
 		public void SettingsButtonPressed()
 		{
 			GD.Print("Settings Pressed");
-			settingsWindow.Popup();
-
 			AudioManager.PlaySound(clickSound);
+			settingsWindow.Popup();
 		}
 
 		public void CreditsButtonPressed()
 		{
 			GD.Print("Credits Pressed");
+			AudioManager.PlaySound(clickSound);
 			creditsWindow.Popup();
 
-			AudioManager.PlaySound(clickSound);
 		}
 	}
 }

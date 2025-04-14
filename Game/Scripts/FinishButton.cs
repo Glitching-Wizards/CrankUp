@@ -10,6 +10,8 @@ namespace CrankUp
 		private PlacementArea placementArea;
 		private float score;
 		private Node currentLevel;
+		[Export] private AudioStream loseSound = GD.Load<AudioStream>("res://Audio/Lose.mp3");
+		[Export] private AudioStream winSound = GD.Load<AudioStream>("res://Audio/Win.mp3");
 
 		public override void _Ready() {
             currentLevel = GetTree().CurrentScene;
@@ -55,20 +57,36 @@ namespace CrankUp
 			{
 				stars = 1;
 				victoryScreen1.Visible = true;
+<<<<<<< HEAD
+=======
+				AudioManager.PlaySound(winSound);
+>>>>>>> 407834f9439e6171bd94341ac98b85bd1cbe1b64
 			}
 			else if (score >= 80 && score < 90 && victoryScreen2 != null)
 			{
 				stars = 2;
 				victoryScreen2.Visible = true;
+<<<<<<< HEAD
+=======
+				AudioManager.PlaySound(winSound);
+>>>>>>> 407834f9439e6171bd94341ac98b85bd1cbe1b64
 			}
 			else if (score >= 90 && victoryScreen3 != null)
 			{
 				stars = 3;
 				victoryScreen3.Visible = true;
+<<<<<<< HEAD
+=======
+				AudioManager.PlaySound(winSound);
+>>>>>>> 407834f9439e6171bd94341ac98b85bd1cbe1b64
 			}
 			else if (score < 70 && loseScreen != null)
 			{
 				loseScreen.Visible = true;
+<<<<<<< HEAD
+=======
+				AudioManager.PlaySound(loseSound);
+>>>>>>> 407834f9439e6171bd94341ac98b85bd1cbe1b64
 				return;
 			}
 
@@ -83,6 +101,7 @@ namespace CrankUp
 
 		private void LevelDone(string levelName)
 		{
+			// does it get all the buttons
 			Node levelButtonPath = GetTree().Root.GetNode<Node>("/root/Menus/Levels/Scenes/Levels.tscn/Levels/Buttons");
 
 			if (levelButtonPath == null)
@@ -123,7 +142,11 @@ namespace CrankUp
 			var digits = new string(levelName.Where(char.IsDigit).ToArray());
 			if (int.TryParse(digits, out int number))
 				return number;
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> 407834f9439e6171bd94341ac98b85bd1cbe1b64
 			GD.PrintErr($"Could not parse level number from level name: {levelName}");
 			return 0;
 		}

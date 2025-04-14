@@ -19,6 +19,9 @@ public partial class Level2 : Node2D
 	[Export] private string _containerBoxScenePath = "res://Game/Scenes/ContainerBox.tscn";
 	[Export] private string _cardboardTScenePath = "res://Game/Scenes/ContainerCardboardT.tscn";
 
+	[Export] private AudioStream levelMusic;
+
+
 	private Window settingsWindow;
 	private PackedScene _clawScene = null;
 	private Claw _claw = null;
@@ -62,6 +65,7 @@ public partial class Level2 : Node2D
 	public override void _Ready()
 	{
 		_claw = CreateClaw();
+		AudioManager.PlayMusic(levelMusic);
 
 		clawHead = GetTree().Root.FindChild("ClawHead", true, false) as ClawHead;
 
@@ -109,7 +113,7 @@ public partial class Level2 : Node2D
 			containerBoxButtonPressed = true;
 			SpawnBlockButtonPressed(_containerBoxScene, containerBoxButton);
 		};
-		
+
 		containerBox2Button.Pressed += () =>
 		{
 			containerBox2ButtonPressed = true;

@@ -9,6 +9,7 @@ namespace CrankUp
         [Export] private string _levelsScenePath = "res://Menus/Levels/Scenes/Levels.tscn";
         private Window settingsWindow;
         private Window victoryScreen;
+        [Export] private AudioStream clickSound;
         public override void _Ready()
         {
             TextureButton exitButton = GetNodeOrNull<TextureButton>("Buttons/ExitButton");
@@ -31,6 +32,10 @@ namespace CrankUp
         {
             GD.Print("Exit Pressed");
 
+<<<<<<< HEAD
+=======
+            AudioManager.PlaySound(clickSound);
+>>>>>>> 407834f9439e6171bd94341ac98b85bd1cbe1b64
             this.Hide();
         }
     }

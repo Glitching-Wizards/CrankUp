@@ -8,9 +8,12 @@ namespace CrankUp;
 /// </summary>
 public partial class ControlsLeftUi : Control
 {
+<<<<<<< HEAD
     /// <summary>
     /// Reference to the ClawHead node being controlled.
     /// </summary>
+=======
+>>>>>>> 407834f9439e6171bd94341ac98b85bd1cbe1b64
     private ClawHead clawHead;
 
     /// <summary>
@@ -32,6 +35,7 @@ public partial class ControlsLeftUi : Control
     /// The current movement direction of the claw (Up, Down, or None).
     /// </summary>
     private Vector2 movementDirection = Vector2.Zero;
+    [Export] private AudioStream clickSound;
 
     /// <summary>
     /// Called when the node enters the scene tree. Initializes UI elements and connects their signals.
@@ -90,6 +94,10 @@ public partial class ControlsLeftUi : Control
             movementDirection = Vector2.Down;
         else
             movementDirection = Vector2.Zero;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 407834f9439e6171bd94341ac98b85bd1cbe1b64
     }
 
     /// <summary>

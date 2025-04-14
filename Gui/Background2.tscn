@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://c8gfkxwcmtg22" path="res://Assets/Backgrounds/Level2Background.png" id="1_jrswi"]
 [ext_resource type="Texture2D" uid="uid://dhqs8welv03pn" path="res://Assets/Backgrounds/AsphaltBlocks.png" id="2_rsxpv"]
-[ext_resource type="Texture2D" uid="uid://d4axb8wy7ry3s" path="res://Assets/Backgrounds/TruckModel2.png" id="3_qaka2"]
 [ext_resource type="Texture2D" uid="uid://ig6u8vw34kal" path="res://Assets/Backgrounds/platform.png" id="4_p54vo"]
 [ext_resource type="Texture2D" uid="uid://daile572kg6n5" path="res://Assets/Victory/VictoryScreen.png" id="4_tpi8t"]
+[ext_resource type="Texture2D" uid="uid://ciqc0e7o4i4w5" path="res://Assets/Backgrounds/TruckModel.png" id="5_su6ls"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hsfg2"]
 size = Vector2(1055, 58)
@@ -78,7 +78,6 @@ offset_left = 180.0
 offset_right = 1494.0
 offset_bottom = 738.0
 scale = Vector2(0.9, 0.9)
-texture = ExtResource("3_qaka2")
 
 [node name="Area2D" type="StaticBody2D" parent="."]
 
@@ -130,3 +129,10 @@ offset_right = 700.0
 offset_bottom = 778.0
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("4_p54vo")
+
+[node name="Truck" type="TextureRect" parent="."]
+offset_left = 180.0
+offset_right = 1494.0
+offset_bottom = 738.0
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("5_su6ls")

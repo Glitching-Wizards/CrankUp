@@ -3,13 +3,14 @@ using System;
 
 namespace CrankUp
 {
-	public partial class WinLose : Window
+	public partial class Win : Window
 	{
 		[Export] private string _menuScenePath = "res://Menus/Levels/Scenes/Levels.tscn";
 		[Export] private string _startLevel2ScenePath = "res://Menus/LevelStart/Scenes/StartLevel2.tscn";
 		[Export] private string _startLevel3ScenePath = "res://Menus/LevelStart/Scenes/StartLevel3.tscn";
 		[Export] private string _startLevel4ScenePath = "res://Menus/LevelStart/Scenes/StartLevel4.tscn";
 		[Export] private string _startLevel5ScenePath = "res://Menus/LevelStart/Scenes/StartLevel5.tscn";
+		[Export] private AudioStream clickSound = GD.Load<AudioStream>("res://Audio/SoundEffects/ButtonPress.mp3");
 
 		private string _startLevelScenePath = "";
 		private Window startLevelWindow;
@@ -30,17 +31,21 @@ namespace CrankUp
 		public void RetryButtonPressed()
 		{
 			GD.Print("Retry Pressed");
+			AudioManager.PlaySound(clickSound);
 			GetTree().ReloadCurrentScene();
 		}
 
 		public void MenuButtonPressed()
 		{
+			GD.Print("Menu Pressed");
+			AudioManager.PlaySound(clickSound);
 			GetTree().ChangeSceneToFile(_menuScenePath);
 		}
 
 		public void NextButtonPressed()
 		{
 			GD.Print("Next Pressed");
+			AudioManager.PlaySound(clickSound);
 			Node currentScene = GetTree().CurrentScene;
 
 			if (currentScene == null)
@@ -73,7 +78,7 @@ namespace CrankUp
 					GD.PrintErr("[ERROR] No active level found!");
 					return;
 			}
-			
+
 			_startLevelScenePath = GetLevelScenePath(nextLevel);
 
 			PackedScene startSceneLevel = (PackedScene)GD.Load(_startLevelScenePath);

@@ -24,6 +24,9 @@ public partial class Level5 : Node2D
 	[Export] private string _containerBlueLInvertedScenePath = "res://Game/Scenes/ContainerBlueLSmallInverted.tscn";
 	[Export] private string _containerYellowLInvertedScenePath = "res://Game/Scenes/ContainerYellowLSmallInverted.tscn";
 
+	[Export] private AudioStream levelMusic;
+
+
 	private Window settingsWindow;
 	private PackedScene _clawScene = null;
 	private Claw _claw = null;
@@ -78,6 +81,7 @@ public partial class Level5 : Node2D
 	public override void _Ready()
 	{
 		_claw = CreateClaw();
+		AudioManager.PlayMusic(levelMusic);
 
 		clawHead = GetTree().Root.FindChild("ClawHead", true, false) as ClawHead;
 

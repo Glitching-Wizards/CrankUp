@@ -26,6 +26,9 @@ public partial class Level3 : Node2D
 	[Export] private string _containerGreenScenePath = "res://Game/Scenes/ContainerGreenSmall.tscn";
 	[Export] private string _containerRedLScenePath = "res://Game/Scenes/ContainerRedLSmall.tscn";
 
+	[Export] private AudioStream levelMusic;
+
+
 	private Window settingsWindow;
 	private PackedScene _clawScene = null;
 	private Claw _claw = null;
@@ -80,6 +83,7 @@ public partial class Level3 : Node2D
 	public override void _Ready()
 	{
 		_claw = CreateClaw();
+		AudioManager.PlayMusic(levelMusic);
 
 		clawHead = GetTree().Root.FindChild("ClawHead", true, false) as ClawHead;
 

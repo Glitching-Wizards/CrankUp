@@ -1,6 +1,7 @@
-[gd_scene load_steps=34 format=3 uid="uid://cusyv8gojbcca"]
+[gd_scene load_steps=36 format=3 uid="uid://cusyv8gojbcca"]
 
 [ext_resource type="Script" path="res://Game/Level1/Scripts/Level1.cs" id="1_e65w2"]
+[ext_resource type="AudioStream" uid="uid://b8ypr1bhu63dt" path="res://Audio/Ambients/Level1.mp3" id="2_68d14"]
 [ext_resource type="PackedScene" uid="uid://dnr4wgld8simd" path="res://Gui/Background.tscn" id="2_bkcuh"]
 [ext_resource type="Texture2D" uid="uid://bw7uqlawbr5or" path="res://Assets/Misc/Conveyor.png" id="3_4mjje"]
 [ext_resource type="Theme" uid="uid://6td37p2nd7m3" path="res://Gui/PlayTheme.tres" id="4_a4x3l"]
@@ -20,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://qlwyq2i23e47" path="res://Assets/Misc/BoxShadow.png" id="17_dellb"]
 [ext_resource type="Script" path="res://Game/Scripts/Tutorial.cs" id="20_8sm3w"]
 [ext_resource type="PackedScene" uid="uid://bof30jnhkvxrl" path="res://Gui/Tutorial/Tutorial1.tscn" id="20_juq6c"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial2.tscn" id="21_mmwtp"]
 [ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial3.tscn" id="22_kfl2k"]
 [ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial4.tscn" id="23_0vlog"]
@@ -28,6 +30,17 @@
 [ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial7.tscn" id="26_f87lh"]
 [ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial8.tscn" id="27_6yd6c"]
 [ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial9.tscn" id="28_3or7n"]
+=======
+[ext_resource type="PackedScene" uid="uid://t8di6gto22h3" path="res://Menus/LevelWinLose/Scenes/Lose.tscn" id="20_q1ale"]
+[ext_resource type="PackedScene" uid="uid://ctxvgkn6ddu20" path="res://Gui/Tutorial/Tutorial2.tscn" id="21_mmwtp"]
+[ext_resource type="PackedScene" uid="uid://cejnj6x0fry0m" path="res://Gui/Tutorial/Tutorial3.tscn" id="22_kfl2k"]
+[ext_resource type="PackedScene" uid="uid://brjgb4ke34ftt" path="res://Gui/Tutorial/Tutorial4.tscn" id="23_0vlog"]
+[ext_resource type="PackedScene" uid="uid://pbhrkwx4h2r" path="res://Gui/Tutorial/Tutorial5.tscn" id="24_4m2qt"]
+[ext_resource type="PackedScene" uid="uid://baur4gsdjok38" path="res://Gui/Tutorial/Tutorial6.tscn" id="25_1na0m"]
+[ext_resource type="PackedScene" uid="uid://cj0550n71gkad" path="res://Gui/Tutorial/Tutorial7.tscn" id="26_f87lh"]
+[ext_resource type="PackedScene" uid="uid://eok2slj87g2u" path="res://Gui/Tutorial/Tutorial8.tscn" id="27_6yd6c"]
+[ext_resource type="PackedScene" uid="uid://cpnja7ibf6k85" path="res://Gui/Tutorial/Tutorial9.tscn" id="28_3or7n"]
+>>>>>>> 407834f9439e6171bd94341ac98b85bd1cbe1b64
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_idrmk"]
 atlas = ExtResource("6_xirey")
@@ -52,6 +65,7 @@ region = Rect2(0, 0, 260, 150)
 [node name="Level1" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_e65w2")
+levelMusic = ExtResource("2_68d14")
 
 [node name="Background" parent="." instance=ExtResource("2_bkcuh")]
 z_index = -10
@@ -218,6 +232,12 @@ visible = false
 [node name="Win3" parent="WinLose" instance=ExtResource("15_4n7qn")]
 visible = false
 
+<<<<<<< HEAD
+=======
+[node name="Lose" parent="WinLose" instance=ExtResource("20_q1ale")]
+visible = false
+
+>>>>>>> 407834f9439e6171bd94341ac98b85bd1cbe1b64
 [node name="Tutorial" type="Node" parent="."]
 script = ExtResource("20_8sm3w")
 

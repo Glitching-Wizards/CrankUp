@@ -12,7 +12,11 @@ namespace CrankUp
 		private GameData _data = null;
 		private string _originalLanguage = null;
 		private string Language;
+<<<<<<< HEAD
 
+=======
+		[Export] private AudioStream clickSound;
+>>>>>>> 407834f9439e6171bd94341ac98b85bd1cbe1b64
 
 		public override void _Ready()
 		{
@@ -40,6 +44,7 @@ namespace CrankUp
 		private void FiButtonPressed()
 		{
 			ChangeLanguage("fi");
+			AudioManager.PlaySound(clickSound);
 			_fiButton.Disabled = true;
 			_enButton.Disabled = false;
 		}
@@ -47,6 +52,7 @@ namespace CrankUp
 		private void EnButtonPressed()
 		{
 			ChangeLanguage("en");
+			AudioManager.PlaySound(clickSound);
 			_enButton.Disabled = true;
 			_fiButton.Disabled = false;
 		}
@@ -207,6 +213,7 @@ namespace CrankUp
 		public void ExitButtonPressed()
 		{
 			GD.Print("Exit Pressed");
+			AudioManager.PlaySound(clickSound);
 
 			Node currentScene = GetTree().CurrentScene;
 

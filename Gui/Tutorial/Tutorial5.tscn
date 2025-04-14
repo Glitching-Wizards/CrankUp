@@ -135,5 +135,4 @@ offset_bottom = 172.0
 theme = ExtResource("4_v4bui")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 27
-text = "TUTORIAL5
-"
+text = "TUTORIAL5"

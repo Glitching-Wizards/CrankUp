@@ -16,10 +16,17 @@ namespace CrankUp
         private Window settingsWindow;
         private TextureButton settingsButton;
         private const int TotalLevels = 5;
+<<<<<<< HEAD
+=======
+        [Export] private AudioStream clickSound;
+        [Export] private AudioStream menuMusic;
+>>>>>>> 407834f9439e6171bd94341ac98b85bd1cbe1b64
 
 
         public override void _Ready()
         {
+            AudioManager.PlayMusic(menuMusic);
+            
             TextureButton LevelButton1 = GetNodeOrNull<TextureButton>("Buttons/Level1");
             LevelButton1.Pressed += () => LevelButtonPressed(1);
 
@@ -50,18 +57,22 @@ namespace CrankUp
         public void BackButtonPressed()
         {
             GD.Print("Back Pressed");
+            AudioManager.PlaySound(clickSound);
             GetTree().ChangeSceneToFile("res://Menus/MainMenu/Scenes/MainMenu.tscn");
         }
 
         public void SettingsButtonPressed()
         {
             GD.Print("Settings Pressed");
+            AudioManager.PlaySound(clickSound);
             settingsWindow.Popup();
         }
 
         public void LevelButtonPressed(int level)
         {
             GD.Print($"Level {level} button pressed");
+
+            AudioManager.PlaySound(clickSound);
 
             _startLevelScenePath = GetLevelScenePath(level);
 
