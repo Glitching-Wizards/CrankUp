@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://df6jd6rkwbhv"]
+[gd_scene load_steps=20 format=3 uid="uid://df6jd6rkwbhv"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu/Scripts/MainMenu.cs" id="1_bemtd"]
 [ext_resource type="Texture2D" uid="uid://c7osdlwfnis5i" path="res://Assets/Backgrounds/MainMenuCloudless.png" id="2_7rtng"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://bjl34nmf2fffy" path="res://Assets/Animations/JarkkoNormalAnimated.png" id="5_kqgoh"]
 [ext_resource type="Texture2D" uid="uid://cft6g2o1608dq" path="res://Assets/Backgrounds/TruckBLUE.png" id="6_q0w1u"]
 [ext_resource type="Theme" uid="uid://6td37p2nd7m3" path="res://Gui/PlayTheme.tres" id="7_fu8vc"]
-[ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="10_323ju"]
 
 [sub_resource type="Animation" id="Animation_8ulh6"]
 resource_name = "LargeClouds"
@@ -368,18 +367,3 @@ autoplay = "JarkkoNormal"
 position = Vector2(227, 378)
 scale = Vector2(1.1059, 1.1059)
 texture = ExtResource("6_q0w1u")
-
-[node name="GrayBackground" type="TextureRect" parent="."]
-modulate = Color(0.462745, 0.427451, 0.4, 0.286275)
-z_index = -10
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 640.0
-offset_top = 360.0
-offset_right = 640.0
-offset_bottom = 360.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("10_323ju")
