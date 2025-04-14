@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=36 format=3 uid="uid://cusyv8gojbcca"]
+=======
+[gd_scene load_steps=35 format=3 uid="uid://cusyv8gojbcca"]
+>>>>>>> 8a165564561152121a3ce3d167ff9dc1e441c839
 
 [ext_resource type="Script" path="res://Game/Level1/Scripts/Level1.cs" id="1_e65w2"]
 [ext_resource type="AudioStream" uid="uid://b8ypr1bhu63dt" path="res://Audio/Ambients/Level1.mp3" id="2_68d14"]
@@ -18,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://d3h8yejbsuxbm" path="res://Menus/LevelWinLose/Scenes/Win.tscn" id="13_l7llk"]
 [ext_resource type="PackedScene" uid="uid://b7kwcha2ue58l" path="res://Menus/LevelWinLose/Scenes/Win2.tscn" id="14_lt0e4"]
 [ext_resource type="PackedScene" uid="uid://lyxtd003i5wb" path="res://Menus/LevelWinLose/Scenes/Win3.tscn" id="15_4n7qn"]
+[ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="15_patqw"]
 [ext_resource type="Texture2D" uid="uid://qlwyq2i23e47" path="res://Assets/Misc/BoxShadow.png" id="17_dellb"]
 [ext_resource type="Script" path="res://Game/Scripts/Tutorial.cs" id="20_8sm3w"]
 [ext_resource type="PackedScene" uid="uid://bof30jnhkvxrl" path="res://Gui/Tutorial/Tutorial1.tscn" id="20_juq6c"]
@@ -200,10 +205,13 @@ position = Vector2(0, 114)
 script = ExtResource("11_ne26j")
 
 [node name="ScoreLabel" type="Label" parent="PlacementArea"]
-offset_left = 376.0
-offset_top = -81.0
-offset_right = 416.0
-offset_bottom = -58.0
+z_index = 7
+offset_left = -448.0
+offset_top = -426.0
+offset_right = -374.0
+offset_bottom = -392.0
+theme = ExtResource("15_patqw")
+theme_override_font_sizes/font_size = 22
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlacementArea"]
 position = Vector2(8, -23)

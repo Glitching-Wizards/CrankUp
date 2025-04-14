@@ -2,10 +2,14 @@
 
 [ext_resource type="Script" path="res://Menus/Settings/Scripts/Pause.cs" id="1_8gtmu"]
 <<<<<<< HEAD
+<<<<<<< HEAD
 [ext_resource type="AudioStream" uid="uid://cauqa2m2fdwnl" path="res://Audio/ButtonPress.mp3" id="2_f2hcu"]
 =======
 [ext_resource type="AudioStream" uid="uid://cty2a4x8lqdp6" path="res://Audio/SoundEffects/ButtonPress.mp3" id="2_f2hcu"]
 >>>>>>> 407834f9439e6171bd94341ac98b85bd1cbe1b64
+=======
+[ext_resource type="AudioStream" uid="uid://cauqa2m2fdwnl" path="res://Audio/ButtonPress.mp3" id="2_f2hcu"]
+>>>>>>> 8a165564561152121a3ce3d167ff9dc1e441c839
 [ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="2_laa4w"]
 [ext_resource type="Texture2D" uid="uid://dtj7v04qhhxhi" path="res://Assets/Gui/Buttons/cross_button1.png" id="2_od4x0"]
 [ext_resource type="Texture2D" uid="uid://biwqqyd2e0hyd" path="res://Assets/Settings/BlueBlankScreen.png" id="3_1lt55"]
@@ -24,6 +28,9 @@
 [ext_resource type="Script" path="res://Game/Scripts/Tutorial.cs" id="17_qo8tg"]
 [ext_resource type="PackedScene" uid="uid://bof30jnhkvxrl" path="res://Gui/Tutorial/Tutorial1.tscn" id="18_54oxf"]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 8a165564561152121a3ce3d167ff9dc1e441c839
 [ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial2.tscn" id="19_57syc"]
 [ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial3.tscn" id="20_64l3d"]
 [ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial4.tscn" id="21_xgr3r"]
@@ -32,6 +39,7 @@
 [ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial7.tscn" id="24_ggeht"]
 [ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial8.tscn" id="25_rchwt"]
 [ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial9.tscn" id="26_gouh7"]
+<<<<<<< HEAD
 =======
 [ext_resource type="PackedScene" uid="uid://ctxvgkn6ddu20" path="res://Gui/Tutorial/Tutorial2.tscn" id="19_57syc"]
 [ext_resource type="PackedScene" uid="uid://cejnj6x0fry0m" path="res://Gui/Tutorial/Tutorial3.tscn" id="20_64l3d"]
@@ -42,6 +50,8 @@
 [ext_resource type="PackedScene" uid="uid://eok2slj87g2u" path="res://Gui/Tutorial/Tutorial8.tscn" id="25_rchwt"]
 [ext_resource type="PackedScene" uid="uid://cpnja7ibf6k85" path="res://Gui/Tutorial/Tutorial9.tscn" id="26_gouh7"]
 >>>>>>> 407834f9439e6171bd94341ac98b85bd1cbe1b64
+=======
+>>>>>>> 8a165564561152121a3ce3d167ff9dc1e441c839
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bdj2x"]
 atlas = ExtResource("9_4coxt")

@@ -10,12 +10,19 @@ namespace CrankUp
 		private PlacementArea placementArea;
 		private float score;
 		private Node currentLevel;
+<<<<<<< HEAD
 		[Export] private AudioStream loseSound = GD.Load<AudioStream>("res://Audio/Lose.mp3");
 		[Export] private AudioStream winSound = GD.Load<AudioStream>("res://Audio/Win.mp3");
 
 		public override void _Ready() {
             currentLevel = GetTree().CurrentScene;
             if (currentLevel == null) return;
+=======
+
+		public override void _Ready() {
+			currentLevel = GetTree().CurrentScene;
+			if (currentLevel == null) return;
+>>>>>>> 8a165564561152121a3ce3d167ff9dc1e441c839
 
             Node winLose = currentLevel.GetNodeOrNull("WinLose");
             if (winLose != null)
@@ -31,6 +38,7 @@ namespace CrankUp
                 if (loseScreen != null) loseScreen.Visible = false;
             }
 
+<<<<<<< HEAD
             Ui ui = currentLevel.GetNodeOrNull<Ui>("Ui");
             if (ui != null)
             {
@@ -40,6 +48,17 @@ namespace CrankUp
             Pressed += OnButtonPressed;
             CallDeferred(nameof(FindPlacementArea));
         }
+=======
+			ControlsLeftUi leftUi = currentLevel.FindChild("ControlsLeftUi", true, false) as ControlsLeftUi;
+			if (leftUi != null)
+			{
+				leftUi.TimeRanOut += OnTimeRanOut;
+			}
+
+			Pressed += OnButtonPressed;
+			CallDeferred(nameof(ConnectTimerSignal));
+		}
+>>>>>>> 8a165564561152121a3ce3d167ff9dc1e441c839
 
 		private void FindPlacementArea()
 		{
@@ -131,11 +150,19 @@ namespace CrankUp
 		}
 
 		private void OnTimeRanOut() {
+<<<<<<< HEAD
             if (loseScreen != null)
             {
                 loseScreen.Visible = true;
             }
         }
+=======
+			if (loseScreen != null)
+			{
+				loseScreen.Visible = true;
+			}
+		}
+>>>>>>> 8a165564561152121a3ce3d167ff9dc1e441c839
 
 		private int GetLevelNumberFromName(string levelName)
 		{
@@ -150,5 +177,20 @@ namespace CrankUp
 			GD.PrintErr($"Could not parse level number from level name: {levelName}");
 			return 0;
 		}
+
+		private void ConnectTimerSignal()
+		{
+			ControlsLeftUi leftUi = currentLevel.FindChild("ControlsLeftUi", true, false) as ControlsLeftUi;
+			if (leftUi != null)
+			{
+				leftUi.TimeRanOut += OnTimeRanOut;
+				GD.Print("✅ Connected to TimeRanOut");
+			}
+			else
+			{
+				GD.PrintErr("❌ Could not find ControlsLeftUi to connect signal.");
+			}
+		}
+
 	}
 }

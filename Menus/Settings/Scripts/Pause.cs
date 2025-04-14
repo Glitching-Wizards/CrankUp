@@ -86,8 +86,13 @@ namespace CrankUp
         public void ExitButtonPressed()
         {
             GD.Print("Exit Pressed");
+<<<<<<< HEAD
             GetTree().Paused = false;
             AudioManager.PlaySound(clickSound);
+=======
+            AudioManager.PlaySound(clickSound);
+            GetTree().Paused = false;
+>>>>>>> 8a165564561152121a3ce3d167ff9dc1e441c839
             this.Hide();
 
         }

@@ -33,9 +33,12 @@ namespace CrankUp
             GD.Print("Exit Pressed");
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             AudioManager.PlaySound(clickSound);
 >>>>>>> 407834f9439e6171bd94341ac98b85bd1cbe1b64
+=======
+>>>>>>> 8a165564561152121a3ce3d167ff9dc1e441c839
             this.Hide();
         }
     }

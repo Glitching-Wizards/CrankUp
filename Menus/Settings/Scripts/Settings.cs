@@ -13,6 +13,9 @@ namespace CrankUp
 		private string _originalLanguage = null;
 		private string Language;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 8a165564561152121a3ce3d167ff9dc1e441c839
 
 =======
 		[Export] private AudioStream clickSound;
