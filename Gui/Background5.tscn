@@ -1,17 +1,10 @@
 [gd_scene load_steps=17 format=3 uid="uid://jb1qnfl3l0yf"]
 
 [ext_resource type="Texture2D" uid="uid://dghgblxjisoae" path="res://Assets/Backgrounds/Level5Background.png" id="1_0u7pg"]
-<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://dxirmtycp7q5f" path="res://Assets/Animations/Clouds/SmallClouds3.png" id="3_kbsci"]
 [ext_resource type="Texture2D" uid="uid://dhqs8welv03pn" path="res://Assets/Backgrounds/AsphaltBlocks.png" id="4_6s0l2"]
 [ext_resource type="Texture2D" uid="uid://x6cs8n2vs2yu" path="res://Assets/Animations/Clouds/LargeClouds2.png" id="4_31161"]
 [ext_resource type="Texture2D" uid="uid://ciqc0e7o4i4w5" path="res://Assets/Backgrounds/TruckModel.png" id="5_q234x"]
-=======
-[ext_resource type="Texture2D" uid="uid://dhqs8welv03pn" path="res://Assets/Backgrounds/AsphaltBlocks.png" id="4_6s0l2"]
-[ext_resource type="Texture2D" uid="uid://x6cs8n2vs2yu" path="res://Assets/Animations/Clouds/LargeClouds2.png" id="4_31161"]
-[ext_resource type="Texture2D" uid="uid://ciqc0e7o4i4w5" path="res://Assets/Backgrounds/TruckModel.png" id="5_q234x"]
-[ext_resource type="Texture2D" uid="uid://baajqx10nrlby" path="res://Assets/Animations/SmallClouds.png" id="5_rglpn"]
->>>>>>> 8a165564561152121a3ce3d167ff9dc1e441c839
 [ext_resource type="Texture2D" uid="uid://ig6u8vw34kal" path="res://Assets/Backgrounds/platform.png" id="6_bhk30"]
 
 [sub_resource type="Animation" id="Animation_8ulh6"]
@@ -214,11 +207,7 @@ autoplay = "LargeClouds"
 [node name="SmallClouds" type="Sprite2D" parent="Background"]
 position = Vector2(640, 162)
 scale = Vector2(1.04934, 1)
-<<<<<<< HEAD
 texture = ExtResource("3_kbsci")
-=======
-texture = ExtResource("5_rglpn")
->>>>>>> 8a165564561152121a3ce3d167ff9dc1e441c839
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background/SmallClouds"]
 libraries = {
@@ -240,11 +229,7 @@ autoplay = "LargeClouds2"
 [node name="SmallClouds2" type="Sprite2D" parent="Background"]
 position = Vector2(640, 162)
 scale = Vector2(1.0475, 1)
-<<<<<<< HEAD
 texture = ExtResource("3_kbsci")
-=======
-texture = ExtResource("5_rglpn")
->>>>>>> 8a165564561152121a3ce3d167ff9dc1e441c839
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background/SmallClouds2"]
 libraries = {

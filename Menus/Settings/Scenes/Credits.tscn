@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-[gd_scene load_steps=9 format=3 uid="uid://dw4au03pl8dr2"]
-=======
 [gd_scene load_steps=10 format=3 uid="uid://dw4au03pl8dr2"]
->>>>>>> 407834f9439e6171bd94341ac98b85bd1cbe1b64
-=======
-[gd_scene load_steps=9 format=3 uid="uid://dw4au03pl8dr2"]
->>>>>>> 8a165564561152121a3ce3d167ff9dc1e441c839
 
 [ext_resource type="Script" path="res://Menus/Settings/Scripts/Pause.cs" id="1_th065"]
 [ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="2_b5dso"]
@@ -93,7 +85,7 @@ offset_bottom = 607.0
 theme = ExtResource("4_hikx2")
 theme_override_font_sizes/font_size = 35
 text = "
-    - Julia Kurkela 
+    - Julia Kurkela
     - Kai Lindgren
 
 

@@ -10,19 +10,12 @@ namespace CrankUp
 		private PlacementArea placementArea;
 		private float score;
 		private Node currentLevel;
-<<<<<<< HEAD
 		[Export] private AudioStream loseSound = GD.Load<AudioStream>("res://Audio/Lose.mp3");
 		[Export] private AudioStream winSound = GD.Load<AudioStream>("res://Audio/Win.mp3");
 
 		public override void _Ready() {
             currentLevel = GetTree().CurrentScene;
             if (currentLevel == null) return;
-=======
-
-		public override void _Ready() {
-			currentLevel = GetTree().CurrentScene;
-			if (currentLevel == null) return;
->>>>>>> 8a165564561152121a3ce3d167ff9dc1e441c839
 
             Node winLose = currentLevel.GetNodeOrNull("WinLose");
             if (winLose != null)
@@ -38,7 +31,6 @@ namespace CrankUp
                 if (loseScreen != null) loseScreen.Visible = false;
             }
 
-<<<<<<< HEAD
             Ui ui = currentLevel.GetNodeOrNull<Ui>("Ui");
             if (ui != null)
             {
@@ -48,17 +40,6 @@ namespace CrankUp
             Pressed += OnButtonPressed;
             CallDeferred(nameof(FindPlacementArea));
         }
-=======
-			ControlsLeftUi leftUi = currentLevel.FindChild("ControlsLeftUi", true, false) as ControlsLeftUi;
-			if (leftUi != null)
-			{
-				leftUi.TimeRanOut += OnTimeRanOut;
-			}
-
-			Pressed += OnButtonPressed;
-			CallDeferred(nameof(ConnectTimerSignal));
-		}
->>>>>>> 8a165564561152121a3ce3d167ff9dc1e441c839
 
 		private void FindPlacementArea()
 		{
@@ -76,36 +57,20 @@ namespace CrankUp
 			{
 				stars = 1;
 				victoryScreen1.Visible = true;
-<<<<<<< HEAD
-=======
-				AudioManager.PlaySound(winSound);
->>>>>>> 407834f9439e6171bd94341ac98b85bd1cbe1b64
 			}
 			else if (score >= 80 && score < 90 && victoryScreen2 != null)
 			{
 				stars = 2;
 				victoryScreen2.Visible = true;
-<<<<<<< HEAD
-=======
-				AudioManager.PlaySound(winSound);
->>>>>>> 407834f9439e6171bd94341ac98b85bd1cbe1b64
 			}
 			else if (score >= 90 && victoryScreen3 != null)
 			{
 				stars = 3;
 				victoryScreen3.Visible = true;
-<<<<<<< HEAD
-=======
-				AudioManager.PlaySound(winSound);
->>>>>>> 407834f9439e6171bd94341ac98b85bd1cbe1b64
 			}
 			else if (score < 70 && loseScreen != null)
 			{
 				loseScreen.Visible = true;
-<<<<<<< HEAD
-=======
-				AudioManager.PlaySound(loseSound);
->>>>>>> 407834f9439e6171bd94341ac98b85bd1cbe1b64
 				return;
 			}
 
@@ -150,30 +115,18 @@ namespace CrankUp
 		}
 
 		private void OnTimeRanOut() {
-<<<<<<< HEAD
             if (loseScreen != null)
             {
                 loseScreen.Visible = true;
             }
         }
-=======
-			if (loseScreen != null)
-			{
-				loseScreen.Visible = true;
-			}
-		}
->>>>>>> 8a165564561152121a3ce3d167ff9dc1e441c839
 
 		private int GetLevelNumberFromName(string levelName)
 		{
 			var digits = new string(levelName.Where(char.IsDigit).ToArray());
 			if (int.TryParse(digits, out int number))
 				return number;
-<<<<<<< HEAD
-			
-=======
 
->>>>>>> 407834f9439e6171bd94341ac98b85bd1cbe1b64
 			GD.PrintErr($"Could not parse level number from level name: {levelName}");
 			return 0;
 		}
@@ -184,11 +137,11 @@ namespace CrankUp
 			if (leftUi != null)
 			{
 				leftUi.TimeRanOut += OnTimeRanOut;
-				GD.Print("✅ Connected to TimeRanOut");
+				GD.Print("Connected to TimeRanOut");
 			}
 			else
 			{
-				GD.PrintErr("❌ Could not find ControlsLeftUi to connect signal.");
+				GD.PrintErr("Could not find ControlsLeftUi to connect signal.");
 			}
 		}
 

@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 [gd_scene load_steps=22 format=3 uid="uid://252rm6ype62b"]
-=======
-[gd_scene load_steps=26 format=3 uid="uid://252rm6ype62b"]
->>>>>>> 407834f9439e6171bd94341ac98b85bd1cbe1b64
 =======
 [gd_scene load_steps=22 format=3 uid="uid://252rm6ype62b"]
 >>>>>>> 8a165564561152121a3ce3d167ff9dc1e441c839
@@ -26,13 +21,6 @@
 [ext_resource type="Texture2D" uid="uid://dktk418ydlm2w" path="res://Assets/Blocks/container_L_yellow.png" id="11_xkiqp"]
 [ext_resource type="PackedScene" uid="uid://d3h8yejbsuxbm" path="res://Menus/LevelWinLose/Scenes/Win.tscn" id="13_83gl8"]
 [ext_resource type="Texture2D" uid="uid://ci0mubcknx81e" path="res://Assets/Misc/BoxShadow5.png" id="17_jt6kj"]
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-[ext_resource type="PackedScene" uid="uid://b7kwcha2ue58l" path="res://Menus/LevelWinLose/Scenes/Win2.tscn" id="18_fd6af"]
-[ext_resource type="PackedScene" uid="uid://lyxtd003i5wb" path="res://Menus/LevelWinLose/Scenes/Win3.tscn" id="19_n4dnc"]
-[ext_resource type="PackedScene" uid="uid://t8di6gto22h3" path="res://Menus/LevelWinLose/Scenes/Lose.tscn" id="20_h2ac4"]
->>>>>>> 407834f9439e6171bd94341ac98b85bd1cbe1b64
 =======
 >>>>>>> 8a165564561152121a3ce3d167ff9dc1e441c839
 
@@ -285,19 +273,6 @@ offset_bottom = 40.0
 [node name="Win" parent="WinLose" instance=ExtResource("13_83gl8")]
 visible = false
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-[node name="Win2" parent="WinLose" instance=ExtResource("18_fd6af")]
-visible = false
-
-[node name="Win3" parent="WinLose" instance=ExtResource("19_n4dnc")]
-visible = false
-
-[node name="Lose" parent="WinLose" instance=ExtResource("20_h2ac4")]
-visible = false
-
->>>>>>> 407834f9439e6171bd94341ac98b85bd1cbe1b64
 =======
 >>>>>>> 8a165564561152121a3ce3d167ff9dc1e441c839
 [node name="BoxShadow5" type="TextureRect" parent="."]

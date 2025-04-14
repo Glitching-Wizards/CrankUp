@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 [gd_scene load_steps=29 format=3 uid="uid://b54grpygrbq3i"]
-=======
-[gd_scene load_steps=28 format=3 uid="uid://b54grpygrbq3i"]
->>>>>>> 8a165564561152121a3ce3d167ff9dc1e441c839
 
 [ext_resource type="Script" path="res://Game/Level2/Scripts/Level2.cs" id="1_gqdgr"]
 [ext_resource type="PackedScene" uid="uid://bh25upnb64myu" path="res://Gui/Background2.tscn" id="1_om3yl"]
@@ -284,10 +280,7 @@ offset_right = -640.0
 offset_bottom = -360.0
 
 [node name="Tutorial4" parent="Tutorial" instance=ExtResource("20_gwu33")]
-<<<<<<< HEAD
 visible = false
-=======
->>>>>>> 8a165564561152121a3ce3d167ff9dc1e441c839
 z_index = 8
 layout_mode = 1
 offset_left = -640.0

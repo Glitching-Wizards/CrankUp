@@ -9,17 +9,10 @@ namespace CrankUp
 		[Export] private string _levelsScenePath = "res://Menus/Levels/Scenes/Levels.tscn";
 		[Export] private TextureButton _fiButton = null;
 		[Export] private TextureButton _enButton = null;
+		[Export] private AudioStream clickSound;
 		private GameData _data = null;
 		private string _originalLanguage = null;
 		private string Language;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 8a165564561152121a3ce3d167ff9dc1e441c839
-
-=======
-		[Export] private AudioStream clickSound;
->>>>>>> 407834f9439e6171bd94341ac98b85bd1cbe1b64
 
 		public override void _Ready()
 		{

@@ -1,15 +1,8 @@
-<<<<<<< HEAD
 [gd_scene load_steps=34 format=3 uid="uid://bc378ts4kj761"]
 
 [ext_resource type="Script" path="res://Game/Level3/Scripts/Level3.cs" id="1_y5xwk"]
 [ext_resource type="PackedScene" uid="uid://clmhsym2e3req" path="res://Gui/Background3.tscn" id="2_87x66"]
 [ext_resource type="AudioStream" uid="uid://cmdafd0bjorm3" path="res://Audio/Ambients/Level3.mp3" id="2_duyem"]
-=======
-[gd_scene load_steps=30 format=3 uid="uid://bc378ts4kj761"]
-
-[ext_resource type="Script" path="res://Game/Level3/Scripts/Level3.cs" id="1_y5xwk"]
-[ext_resource type="PackedScene" uid="uid://clmhsym2e3req" path="res://Gui/Background3.tscn" id="2_87x66"]
->>>>>>> 8a165564561152121a3ce3d167ff9dc1e441c839
 [ext_resource type="Texture2D" uid="uid://bw7uqlawbr5or" path="res://Assets/Misc/Conveyor.png" id="3_kenik"]
 [ext_resource type="Theme" uid="uid://6td37p2nd7m3" path="res://Gui/PlayTheme.tres" id="4_m74w4"]
 [ext_resource type="Script" path="res://Game/Scripts/FinishButton.cs" id="5_6mi8f"]
@@ -73,10 +66,7 @@ region = Rect2(0, 0, 300, 300)
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_y5xwk")
-<<<<<<< HEAD
 levelMusic = ExtResource("2_duyem")
-=======
->>>>>>> 8a165564561152121a3ce3d167ff9dc1e441c839
 
 [node name="Background" parent="." instance=ExtResource("2_87x66")]
 z_index = -3

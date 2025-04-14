@@ -9,10 +9,7 @@ public partial class Tutorial : Node
     private List<Window> tutorials = new List<Window>();
     private int currentTutorialIndex;
     private bool tutorialOn = false;
-<<<<<<< HEAD
     [Export] private AudioStream clickSound;
-=======
->>>>>>> 8a165564561152121a3ce3d167ff9dc1e441c839
 
     public override void _Ready()
     {
