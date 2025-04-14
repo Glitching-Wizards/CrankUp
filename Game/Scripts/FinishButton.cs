@@ -134,11 +134,11 @@ namespace CrankUp
 			if (leftUi != null)
 			{
 				leftUi.TimeRanOut += OnTimeRanOut;
-				GD.Print("✅ Connected to TimeRanOut");
+				GD.Print("Connected to TimeRanOut");
 			}
 			else
 			{
-				GD.PrintErr("❌ Could not find ControlsLeftUi to connect signal.");
+				GD.PrintErr("Could not find ControlsLeftUi to connect signal.");
 			}
 		}
 
