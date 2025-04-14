@@ -12,6 +12,7 @@ public partial class ControlsRightUi : Control
     /// Path to the pause/settings window scene.
     /// </summary>
     [Export] private string _pauseScenePath = "res://Menus/Settings/Scenes/Pause.tscn";
+    [Export] private AudioStream chainSound;
 
     private ClawHead clawHead;
     private ClawBase clawBase;
@@ -27,6 +28,8 @@ public partial class ControlsRightUi : Control
     /// </summary>
     public override void _Ready()
     {
+        AddToGroup("multi_sliders");
+
         // Find the Grab button
         grabButton = GetNodeOrNull<TextureButton>("Panel/Grab");
         if (grabButton == null)
@@ -100,6 +103,8 @@ public partial class ControlsRightUi : Control
             movementDirection = Vector2.Left;
         else
             movementDirection = Vector2.Zero;
+
+        AudioManager.PlaySound(chainSound);
     }
 
     /// <summary>

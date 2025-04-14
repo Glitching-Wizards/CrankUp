@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ctrbxconu8ml"]
+[gd_scene load_steps=25 format=3 uid="uid://ctrbxconu8ml"]
 
 [ext_resource type="Script" path="res://Menus/Levels/Scripts/Levels.cs" id="1_g0cmt"]
 [ext_resource type="AudioStream" uid="uid://cty2a4x8lqdp6" path="res://Audio/SoundEffects/ButtonPress.mp3" id="2_o4cgt"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://drt0jcu32dc24" path="res://Assets/Gui/Buttons/LevelButtonDisabled.png" id="6_pkvn1"]
 [ext_resource type="Texture2D" uid="uid://b4bjdgq72inu5" path="res://Assets/Gui/Buttons/settings_new1.png" id="7_j0c7f"]
 [ext_resource type="Texture2D" uid="uid://d2al4y6gq8k45" path="res://Assets/Animations/FlagAnimated.png" id="7_p7dew"]
+[ext_resource type="Script" path="res://Menus/Levels/Scripts/LevelButton.cs" id="8_2nd6a"]
 [ext_resource type="Texture2D" uid="uid://ps2i4dojyd4r" path="res://Assets/Gui/Buttons/settings_new2.png" id="8_mo1ei"]
 
 [sub_resource type="Animation" id="Animation_8ulh6"]
@@ -279,6 +280,7 @@ offset_top = 509.0
 offset_right = 371.0
 offset_bottom = 587.0
 texture_normal = ExtResource("3_h5sxm")
+script = ExtResource("8_2nd6a")
 
 [node name="Number" type="Label" parent="Buttons/Level1"]
 layout_mode = 0

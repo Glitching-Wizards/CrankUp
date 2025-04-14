@@ -131,6 +131,7 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("4_p54vo")
 
 [node name="Truck" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 180.0
 offset_right = 1494.0
 offset_bottom = 738.0

@@ -31,6 +31,7 @@ region_rect = Rect2(16, 24, 236, 125)
 default_font = ExtResource("2_fepcx")
 default_font_size = 16
 Button/colors/font_color = Color(1, 1, 1, 1)
+Button/constants/h_separation = 53
 Button/constants/outline_size = 0
 Button/font_sizes/font_size = 50
 Button/styles/focus = SubResource("StyleBoxEmpty_n4y2u")

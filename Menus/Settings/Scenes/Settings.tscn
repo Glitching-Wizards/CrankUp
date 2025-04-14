@@ -31,8 +31,6 @@ script = ExtResource("1_n5s8t")
 _fiButton = NodePath("Buttons/FI")
 _enButton = NodePath("Buttons/EN")
 clickSound = ExtResource("2_qqais")
-metadata/_edit_vertical_guides_ = [641.0]
-metadata/_edit_horizontal_guides_ = [359.0]
 
 [node name="GrayBackground" type="TextureRect" parent="."]
 modulate = Color(0.462745, 0.427451, 0.4, 0.286275)
@@ -123,7 +121,7 @@ offset_right = 515.0
 offset_bottom = 398.0
 texture = ExtResource("6_l33fb")
 
-[node name="Language" type="Label" parent="Boxes/Master"]
+[node name="Master" type="Label" parent="Boxes/Master"]
 z_index = 1
 layout_mode = 1
 anchors_preset = 8
@@ -151,7 +149,7 @@ offset_right = 515.0
 offset_bottom = 528.0
 texture = ExtResource("6_l33fb")
 
-[node name="Language" type="Label" parent="Boxes/SFX"]
+[node name="SFX" type="Label" parent="Boxes/SFX"]
 z_index = 1
 layout_mode = 1
 anchors_preset = 8
@@ -179,7 +177,7 @@ offset_right = 515.0
 offset_bottom = 653.0
 texture = ExtResource("6_l33fb")
 
-[node name="Language" type="Label" parent="Boxes/Music"]
+[node name="Music" type="Label" parent="Boxes/Music"]
 z_index = 1
 layout_mode = 1
 anchors_preset = 8
@@ -204,9 +202,9 @@ horizontal_alignment = 1
 
 [node name="FI" type="TextureButton" parent="Buttons"]
 offset_left = 695.0
-offset_top = 158.0
+offset_top = 170.0
 offset_right = 945.0
-offset_bottom = 298.0
+offset_bottom = 310.0
 scale = Vector2(0.7, 0.7)
 texture_normal = ExtResource("6_2cjmi")
 texture_disabled = ExtResource("9_n7i0m")
@@ -269,6 +267,7 @@ scale = Vector2(0.6, 0.6)
 texture_normal = ExtResource("12_tf0j5")
 
 [node name="Mute" type="TextureButton" parent="Buttons/Music3"]
+visible = false
 offset_left = 503.0
 offset_top = 554.0
 offset_right = 673.0

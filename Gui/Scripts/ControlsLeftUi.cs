@@ -9,6 +9,7 @@ namespace CrankUp;
 public partial class ControlsLeftUi : Control
 {
 	[Export] private AudioStream clickSound;
+	[Export] private AudioStream chainSound;
 	private int timeLeft = 120;
 	private Label timerLabel;
 	private Timer countDownTimer;
@@ -44,6 +45,8 @@ public partial class ControlsLeftUi : Control
     /// </summary>
 	public override void _Ready()
 	{
+		AddToGroup("multi_sliders");
+
 		timerLabel = GetNode<Label>("Panel/Label");
 		countDownTimer = GetNode<Timer>("Panel/Timer");
 
@@ -111,7 +114,7 @@ public partial class ControlsLeftUi : Control
 		else
 			movementDirection = Vector2.Zero;
 
-		AudioManager.PlaySound(clickSound);
+		AudioManager.PlaySound(chainSound);
 	}
 
 	/// <summary>
