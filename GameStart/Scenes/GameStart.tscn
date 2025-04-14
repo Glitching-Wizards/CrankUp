@@ -131,6 +131,7 @@ _data = {
 
 [node name="GameStart" type="Node2D"]
 script = ExtResource("1_4yioq")
+metadata/_edit_vertical_guides_ = [-389.0]
 
 [node name="Wizard" type="Sprite2D" parent="."]
 position = Vector2(652, 297)

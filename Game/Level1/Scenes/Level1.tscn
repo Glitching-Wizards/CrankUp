@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cusyv8gojbcca"]
+[gd_scene load_steps=37 format=3 uid="uid://cusyv8gojbcca"]
 
 [ext_resource type="Script" path="res://Game/Level1/Scripts/Level1.cs" id="1_e65w2"]
 [ext_resource type="AudioStream" uid="uid://b8ypr1bhu63dt" path="res://Audio/Ambients/Level1.mp3" id="2_68d14"]
@@ -18,11 +18,12 @@
 [ext_resource type="PackedScene" uid="uid://d3h8yejbsuxbm" path="res://Menus/LevelWinLose/Scenes/Win.tscn" id="13_l7llk"]
 [ext_resource type="PackedScene" uid="uid://b7kwcha2ue58l" path="res://Menus/LevelWinLose/Scenes/Win2.tscn" id="14_lt0e4"]
 [ext_resource type="PackedScene" uid="uid://lyxtd003i5wb" path="res://Menus/LevelWinLose/Scenes/Win3.tscn" id="15_4n7qn"]
+[ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="15_patqw"]
 [ext_resource type="Texture2D" uid="uid://qlwyq2i23e47" path="res://Assets/Misc/BoxShadow.png" id="17_dellb"]
 [ext_resource type="Script" path="res://Game/Scripts/Tutorial.cs" id="20_8sm3w"]
 [ext_resource type="PackedScene" uid="uid://bof30jnhkvxrl" path="res://Gui/Tutorial/Tutorial1.tscn" id="20_juq6c"]
-[ext_resource type="PackedScene" uid="uid://t8di6gto22h3" path="res://Menus/LevelWinLose/Scenes/Lose.tscn" id="20_q1ale"]
 [ext_resource type="PackedScene" uid="uid://ctxvgkn6ddu20" path="res://Gui/Tutorial/Tutorial2.tscn" id="21_mmwtp"]
+[ext_resource type="PackedScene" uid="uid://t8di6gto22h3" path="res://Menus/LevelWinLose/Scenes/Lose.tscn" id="21_se2au"]
 [ext_resource type="PackedScene" uid="uid://cejnj6x0fry0m" path="res://Gui/Tutorial/Tutorial3.tscn" id="22_kfl2k"]
 [ext_resource type="PackedScene" uid="uid://brjgb4ke34ftt" path="res://Gui/Tutorial/Tutorial4.tscn" id="23_0vlog"]
 [ext_resource type="PackedScene" uid="uid://pbhrkwx4h2r" path="res://Gui/Tutorial/Tutorial5.tscn" id="24_4m2qt"]
@@ -189,10 +190,13 @@ position = Vector2(0, 114)
 script = ExtResource("11_ne26j")
 
 [node name="ScoreLabel" type="Label" parent="PlacementArea"]
-offset_left = 376.0
-offset_top = -81.0
-offset_right = 416.0
-offset_bottom = -58.0
+z_index = 7
+offset_left = -448.0
+offset_top = -426.0
+offset_right = -374.0
+offset_bottom = -392.0
+theme = ExtResource("15_patqw")
+theme_override_font_sizes/font_size = 22
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlacementArea"]
 position = Vector2(8, -23)
@@ -221,7 +225,7 @@ visible = false
 [node name="Win3" parent="WinLose" instance=ExtResource("15_4n7qn")]
 visible = false
 
-[node name="Lose" parent="WinLose" instance=ExtResource("20_q1ale")]
+[node name="Lose" parent="WinLose" instance=ExtResource("21_se2au")]
 visible = false
 
 [node name="Tutorial" type="Node" parent="."]

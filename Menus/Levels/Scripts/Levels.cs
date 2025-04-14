@@ -11,19 +11,18 @@ namespace CrankUp
         [Export] private string _startLevel4ScenePath = "res://Menus/LevelStart/Scenes/StartLevel4.tscn";
         [Export] private string _startLevel5ScenePath = "res://Menus/LevelStart/Scenes/StartLevel5.tscn";
         [Export] private string _settingsScenePath = "res://Menus/Settings/Scenes/Settings.tscn";
+        [Export] private AudioStream clickSound;
+        [Export] private AudioStream menuMusic;
         private string _startLevelScenePath = "";
         private Window startLevelWindow;
         private Window settingsWindow;
         private TextureButton settingsButton;
         private const int TotalLevels = 5;
-        [Export] private AudioStream clickSound;
-        [Export] private AudioStream menuMusic;
-
 
         public override void _Ready()
         {
             AudioManager.PlayMusic(menuMusic);
-            
+
             TextureButton LevelButton1 = GetNodeOrNull<TextureButton>("Buttons/Level1");
             LevelButton1.Pressed += () => LevelButtonPressed(1);
 

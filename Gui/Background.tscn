@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://dnr4wgld8simd"]
 
 [ext_resource type="Texture2D" uid="uid://k2ji4rswhfbd" path="res://Assets/Backgrounds/Level1Background.png" id="1_lxibr"]
-[ext_resource type="Texture2D" uid="uid://q3emyh1pq7u8" path="res://Assets/Animations/Clouds/LargeClouds4.png" id="2_1ts0s"]
+[ext_resource type="Texture2D" uid="uid://dqcss67531bag" path="res://Assets/Animations/Clouds/LargeClouds4.png" id="2_1ts0s"]
 [ext_resource type="Texture2D" uid="uid://lr3g36u5tj6x" path="res://Assets/Animations/Clouds/SmallClouds2.png" id="3_3tbub"]
 [ext_resource type="Texture2D" uid="uid://dhqs8welv03pn" path="res://Assets/Backgrounds/AsphaltBlocks.png" id="3_p5dii"]
 [ext_resource type="Texture2D" uid="uid://ig6u8vw34kal" path="res://Assets/Backgrounds/platform.png" id="4_utd2n"]

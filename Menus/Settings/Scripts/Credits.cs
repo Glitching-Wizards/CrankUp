@@ -32,7 +32,6 @@ namespace CrankUp
         {
             GD.Print("Exit Pressed");
 
-            AudioManager.PlaySound(clickSound);
             this.Hide();
         }
     }

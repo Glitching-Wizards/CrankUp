@@ -17,9 +17,7 @@ namespace CrankUp
 		public override void _Ready()
 		{
 			SaveSystem.LoadGame();
-
 			AudioManager.PlayMusic(menuMusic);
-
 			Button playButton = GetNodeOrNull<Button>("Buttons/PlayButton");
 			playButton.Pressed += PlayButtonPressed;
 

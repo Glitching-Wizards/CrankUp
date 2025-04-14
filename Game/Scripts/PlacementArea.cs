@@ -51,7 +51,7 @@ public partial class PlacementArea : Area2D
 	{
 		float percentageFilled = (filledAreaSize / totalAreaSize) * 100f;
 		if (scoreLabel != null)
-			scoreLabel.Text = $"Score: {percentageFilled:F2}%";
+			scoreLabel.Text = $"{percentageFilled:F2}%";
 	}
 
 	private float CalculatePolygonArea(Vector2[] polygon)
