@@ -75,7 +75,6 @@ namespace CrankUp
             GetTree().Paused = false;
             AudioManager.PlaySound(clickSound);
             this.Hide();
-
         }
 
         public void SettingsButtonPressed()

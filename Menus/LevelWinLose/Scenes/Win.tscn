@@ -1,17 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://d3h8yejbsuxbm"]
+[gd_scene load_steps=21 format=3 uid="uid://d3h8yejbsuxbm"]
 
 [ext_resource type="Script" path="res://Menus/LevelWinLose/Scripts/Win.cs" id="1_3oif4"]
 [ext_resource type="Texture2D" uid="uid://daile572kg6n5" path="res://Assets/Victory/VictoryScreen.png" id="2_37kro"]
 [ext_resource type="Texture2D" uid="uid://bjl34nmf2fffy" path="res://Assets/Animations/JarkkoNormalAnimated.png" id="3_070lj"]
-[ext_resource type="Texture2D" uid="uid://d2ne652846407" path="res://Assets/Gui/Buttons/green_button_retry1.png" id="3_fa8s8"]
 [ext_resource type="Texture2D" uid="uid://bvgtg0q0k8n42" path="res://Assets/Gui/BlankStar.png" id="4_7m4kl"]
-[ext_resource type="Texture2D" uid="uid://xo18uc0tpsnf" path="res://Assets/Gui/Buttons/green_button_retry2.png" id="4_02060"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="5_1enaj"]
-[ext_resource type="Texture2D" uid="uid://1pedsn4616vk" path="res://Assets/Gui/Buttons/grey_button_home1.png" id="5_yt6ol"]
 [ext_resource type="Texture2D" uid="uid://iltf4ckdrglj" path="res://Assets/Victory/StarFinal.png" id="6_ixclm"]
-[ext_resource type="Texture2D" uid="uid://bqti4reoj73jh" path="res://Assets/Gui/Buttons/grey_button_home2.png" id="6_jqoje"]
-[ext_resource type="Texture2D" uid="uid://ckiwhmwu30y57" path="res://Assets/Gui/Buttons/green_button_next1.png" id="7_fsq0i"]
-[ext_resource type="Texture2D" uid="uid://cni08607lgf15" path="res://Assets/Gui/Buttons/green_button_next2.png" id="8_wx1vr"]
+[ext_resource type="Texture2D" uid="uid://8eo7shi5g0hu" path="res://Assets/Gui/Buttons/green_button_retry.png" id="7_6ub28"]
+[ext_resource type="Texture2D" uid="uid://ca7hekbourtgg" path="res://Assets/Gui/Buttons/grey_button_home.png" id="8_kncwr"]
+[ext_resource type="Texture2D" uid="uid://dl3vido1gf6fx" path="res://Assets/Gui/Buttons/green_button_next.png" id="9_imtdl"]
 [ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="12_bvogu"]
 [ext_resource type="Texture2D" uid="uid://bfh6bwpmgp0fb" path="res://Assets/Victory/SpeechBubble.png" id="13_3272f"]
 
@@ -51,6 +48,30 @@ _data = {
 "JarkkoNormal": SubResource("Animation_l75ec"),
 "RESET": SubResource("Animation_e04tv")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6j204"]
+atlas = ExtResource("7_6ub28")
+region = Rect2(16.8427, 0, 236.67, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cicp"]
+atlas = ExtResource("7_6ub28")
+region = Rect2(285.995, 15.7337, 236.52, 147.883)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jffy2"]
+atlas = ExtResource("8_kncwr")
+region = Rect2(16.9608, 0, 236.379, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xftcu"]
+atlas = ExtResource("8_kncwr")
+region = Rect2(286.298, 0, 236.009, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfutr"]
+atlas = ExtResource("9_imtdl")
+region = Rect2(17.1959, 0, 235.91, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkpvn"]
+atlas = ExtResource("9_imtdl")
+region = Rect2(285.468, 0, 236.537, 162)
 
 [node name="Win" type="Window"]
 transparent_bg = true
@@ -127,41 +148,38 @@ texture = ExtResource("12_bvogu")
 [node name="Buttons" type="Node" parent="."]
 
 [node name="RetryButton" type="TextureButton" parent="Buttons"]
-offset_left = 270.0
+offset_left = 292.0
 offset_top = 375.0
-offset_right = 539.0
+offset_right = 561.0
 offset_bottom = 537.0
 scale = Vector2(0.9, 0.9)
-texture_normal = ExtResource("3_fa8s8")
-texture_pressed = ExtResource("4_02060")
-texture_hover = ExtResource("3_fa8s8")
+texture_normal = SubResource("AtlasTexture_6j204")
+texture_pressed = SubResource("AtlasTexture_7cicp")
 
 [node name="MenuButton" type="TextureButton" parent="Buttons"]
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -120.0
-offset_top = 106.0
-offset_right = 149.0
-offset_bottom = 268.0
+anchor_bottom = 1.0
+offset_left = -106.0
+offset_top = -249.0
+offset_right = 226.0
+offset_bottom = -87.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 scale = Vector2(0.9, 0.9)
-texture_normal = ExtResource("5_yt6ol")
-texture_pressed = ExtResource("6_jqoje")
-texture_hover = ExtResource("5_yt6ol")
+texture_normal = SubResource("AtlasTexture_jffy2")
+texture_pressed = SubResource("AtlasTexture_xftcu")
 
 [node name="NextButton" type="TextureButton" parent="Buttons"]
-offset_left = 766.0
+offset_left = 776.0
 offset_top = 375.0
-offset_right = 1035.0
+offset_right = 1045.0
 offset_bottom = 537.0
 scale = Vector2(0.9, 0.9)
-texture_normal = ExtResource("7_fsq0i")
-texture_pressed = ExtResource("8_wx1vr")
-texture_hover = ExtResource("7_fsq0i")
+texture_normal = SubResource("AtlasTexture_lfutr")
+texture_pressed = SubResource("AtlasTexture_kkpvn")
 
 [node name="ShinyStar2" type="Node" parent="."]
 

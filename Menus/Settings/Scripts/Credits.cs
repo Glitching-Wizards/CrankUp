@@ -5,34 +5,50 @@ namespace CrankUp
 {
     public partial class Credits : Window
     {
-        [Export] private string _settingsScenePath = "res://Menus/Settings/Scenes/Settings.tscn";
-        [Export] private string _levelsScenePath = "res://Menus/Levels/Scenes/Levels.tscn";
-        private Window settingsWindow;
-        private Window victoryScreen;
+        [Export] private string _secondScenePath = "res://Menus/Settings/Scenes/Credits2.tscn";
         [Export] private AudioStream clickSound;
+
+        private Window secondWindow;
+
         public override void _Ready()
         {
-            TextureButton exitButton = GetNodeOrNull<TextureButton>("Buttons/ExitButton");
-            if (exitButton == null)
+            // Loads the second scene
+            PackedScene secondScene = GD.Load<PackedScene>(_secondScenePath);
+            secondWindow = (Window)secondScene.Instantiate();
+            AddChild(secondWindow);
+            secondWindow.Hide();
+
+            // Saves the reference to the first window
+            var instance = secondScene.Instantiate();
+            if (instance is Credits2 secondCredits)
             {
-                GD.PrintErr("[ERROR] ExitButton not found in PauseCredits.tscn");
-            }
-            else
-            {
-                exitButton.Pressed += ExitButtonPressed;
+                secondCredits.PreviousWindow = this;
+                secondWindow = secondCredits;
+                AddChild(secondCredits);
+                secondCredits.Hide();
             }
 
-            PackedScene settingsScene = (PackedScene)GD.Load(_settingsScenePath);
-            settingsWindow = (Window)settingsScene.Instantiate();
-            AddChild(settingsWindow);
-            settingsWindow.Hide();
+            TextureButton nextButton = GetNodeOrNull<TextureButton>("Buttons/NextButton");
+            nextButton.Pressed += NextButtonPressed;
+
+            TextureButton exitButton = GetNodeOrNull<TextureButton>("Buttons/ExitButton");
+            exitButton.Pressed += ExitButtonPressed;
+        }
+
+        public void NextButtonPressed()
+        {
+            GD.Print("Next Pressed");
+            AudioManager.PlaySound(clickSound);
+            secondWindow.Popup();
+            this.Hide();
         }
 
         public void ExitButtonPressed()
         {
             GD.Print("Exit Pressed");
-
+            AudioManager.PlaySound(clickSound);
             this.Hide();
         }
+
     }
 }

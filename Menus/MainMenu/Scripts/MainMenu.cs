@@ -74,7 +74,6 @@ namespace CrankUp
 			GD.Print("Credits Pressed");
 			AudioManager.PlaySound(clickSound);
 			creditsWindow.Popup();
-
 		}
 	}
 }

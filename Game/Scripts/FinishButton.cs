@@ -53,7 +53,7 @@ namespace CrankUp
 			score = placementArea.GetScore();
 			int stars = 0;
 
-			if (score >= 70 && score < 80 && victoryScreen1 != null)
+			if (score >= 50 && score < 80 && victoryScreen1 != null)
 			{
 				stars = 1;
 				victoryScreen1.Visible = true;
@@ -78,38 +78,6 @@ namespace CrankUp
 			{
 				int levelNumber = GetLevelNumberFromName(currentLevel.Name);
 				SaveSystem.OnLevelCompleted(levelNumber, stars);
-			}
-
-			LevelDone(currentLevel.Name);
-		}
-
-		private void LevelDone(string levelName)
-		{
-			Node levelButtonPath = GetTree().Root.GetNode<Node>("/root/Menus/Levels/Scenes/Levels.tscn/Levels/Buttons");
-
-			if (levelButtonPath == null)
-			{
-				GD.PrintErr($"Virhe: Node 'Levels/Buttons' ei löydy.");
-				return;
-			}
-
-			if (levelButtonPath != null && levelButtonPath.HasNode(levelName))
-			{
-				TextureButton levelButton = levelButtonPath.GetNode<TextureButton>(levelName);
-
-				levelButton.Disabled = false;
-
-				TextureRect flagIcon = levelButton.GetNode<TextureRect>("Flag");
-				if (flagIcon != null)
-				{
-					flagIcon.Visible = true;
-				}
-
-				TextureRect number = levelButton.GetNode<TextureRect>("Number");
-				if (number != null)
-				{
-					number.Visible = true;
-				}
 			}
 		}
 

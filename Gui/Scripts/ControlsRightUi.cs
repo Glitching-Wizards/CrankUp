@@ -103,8 +103,6 @@ public partial class ControlsRightUi : Control
             movementDirection = Vector2.Left;
         else
             movementDirection = Vector2.Zero;
-
-        AudioManager.PlaySound(chainSound);
     }
 
     /// <summary>

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bjtdr8h5lywre"]
+[gd_scene load_steps=19 format=3 uid="uid://bjtdr8h5lywre"]
 
 [ext_resource type="Script" path="res://Menus/Settings/Scripts/Pause.cs" id="1_8gtmu"]
 [ext_resource type="AudioStream" uid="uid://cty2a4x8lqdp6" path="res://Audio/SoundEffects/ButtonPress.mp3" id="2_f2hcu"]
@@ -7,13 +7,27 @@
 [ext_resource type="Texture2D" uid="uid://biwqqyd2e0hyd" path="res://Assets/Settings/BlueBlankScreen.png" id="3_1lt55"]
 [ext_resource type="Texture2D" uid="uid://djyg326tkq217" path="res://Assets/Gui/Buttons/cross_button2.png" id="3_7bs12"]
 [ext_resource type="Texture2D" uid="uid://bivg4xjox4tp3" path="res://Assets/Settings/BlockBlueBigger.png" id="4_8aq4g"]
-[ext_resource type="Texture2D" uid="uid://1pedsn4616vk" path="res://Assets/Gui/Buttons/grey_button_home1.png" id="4_k6qjd"]
-[ext_resource type="Texture2D" uid="uid://bqti4reoj73jh" path="res://Assets/Gui/Buttons/grey_button_home2.png" id="5_jms2r"]
-[ext_resource type="Texture2D" uid="uid://d2ne652846407" path="res://Assets/Gui/Buttons/green_button_retry1.png" id="6_pmdx3"]
-[ext_resource type="Texture2D" uid="uid://xo18uc0tpsnf" path="res://Assets/Gui/Buttons/green_button_retry2.png" id="7_6s1im"]
+[ext_resource type="Texture2D" uid="uid://ca7hekbourtgg" path="res://Assets/Gui/Buttons/grey_button_home.png" id="5_w7bn4"]
+[ext_resource type="Texture2D" uid="uid://8eo7shi5g0hu" path="res://Assets/Gui/Buttons/green_button_retry.png" id="6_disac"]
 [ext_resource type="Texture2D" uid="uid://44qamfxtyq2p" path="res://Assets/Gui/Buttons/blue_button.png" id="9_4coxt"]
 [ext_resource type="Theme" uid="uid://6td37p2nd7m3" path="res://Gui/PlayTheme.tres" id="9_oxc3b"]
 [ext_resource type="Texture2D" uid="uid://62y8frj3jf0x" path="res://Assets/Settings/PauseMenuButtonThing.png" id="14_7rrjm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urmpk"]
+atlas = ExtResource("5_w7bn4")
+region = Rect2(17.083, 0, 235.954, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1t1cu"]
+atlas = ExtResource("5_w7bn4")
+region = Rect2(286.113, 22.1292, 235.965, 132.955)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_huvki"]
+atlas = ExtResource("6_disac")
+region = Rect2(16.9808, 0, 235.862, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_la2ip"]
+atlas = ExtResource("6_disac")
+region = Rect2(285.754, 0, 236.313, 162)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bdj2x"]
 atlas = ExtResource("9_4coxt")
@@ -34,8 +48,6 @@ always_on_top = true
 transparent = true
 script = ExtResource("1_8gtmu")
 clickSound = ExtResource("2_f2hcu")
-metadata/_edit_vertical_guides_ = [640.0]
-metadata/_edit_horizontal_guides_ = [360.0]
 
 [node name="GrayBackground" type="TextureRect" parent="."]
 modulate = Color(0.462745, 0.427451, 0.4, 0.286275)
@@ -55,20 +67,19 @@ texture = ExtResource("3_1lt55")
 [node name="Buttons" type="Node" parent="."]
 
 [node name="MenuButton" type="TextureButton" parent="Buttons"]
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 15.0
-offset_top = 140.0
-offset_right = 284.0
-offset_bottom = 302.0
+anchor_bottom = 1.0
+offset_left = -116.0
+offset_top = -210.0
+offset_right = 153.0
+offset_bottom = -48.0
 grow_horizontal = 2
-grow_vertical = 2
-texture_normal = ExtResource("4_k6qjd")
-texture_pressed = ExtResource("5_jms2r")
-texture_hover = ExtResource("4_k6qjd")
+grow_vertical = 0
+texture_normal = SubResource("AtlasTexture_urmpk")
+texture_pressed = SubResource("AtlasTexture_1t1cu")
 
 [node name="RetryButton" type="TextureButton" parent="Buttons"]
 anchors_preset = 8
@@ -76,21 +87,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -280.0
-offset_top = 140.0
-offset_right = -11.0
-offset_bottom = 302.0
+offset_left = -455.0
+offset_top = 25.0
+offset_right = -186.0
+offset_bottom = 187.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("6_pmdx3")
-texture_pressed = ExtResource("7_6s1im")
-texture_hover = ExtResource("6_pmdx3")
+texture_normal = SubResource("AtlasTexture_huvki")
+texture_pressed = SubResource("AtlasTexture_la2ip")
 
 [node name="SettingsButton" type="TextureButton" parent="Buttons"]
-offset_left = 860.0
-offset_top = 335.0
-offset_right = 1096.0
-offset_bottom = 497.0
+offset_left = 846.0
+offset_top = 385.0
+offset_right = 1082.0
+offset_bottom = 547.0
 texture_normal = SubResource("AtlasTexture_bdj2x")
 texture_pressed = SubResource("AtlasTexture_cv40k")
 
