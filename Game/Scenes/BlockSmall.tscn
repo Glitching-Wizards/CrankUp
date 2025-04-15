@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bs2mrif28oihx"]
+[gd_scene load_steps=5 format=3 uid="uid://dlvrvienvce42"]
 
 [ext_resource type="Script" path="res://Game/Scripts/Block.cs" id="1_vq1wx"]
 [ext_resource type="Texture2D" uid="uid://dewv11matrj6d" path="res://Assets/Blocks/container_blue_healthy.png" id="2_7dowd"]

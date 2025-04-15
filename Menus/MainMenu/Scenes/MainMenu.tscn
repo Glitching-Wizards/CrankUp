@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://lmspqfpugm5v"]
+[gd_scene load_steps=21 format=3 uid="uid://df6jd6rkwbhv"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu/Scripts/MainMenu.cs" id="1_bemtd"]
 [ext_resource type="Texture2D" uid="uid://c7osdlwfnis5i" path="res://Assets/Backgrounds/MainMenuCloudless.png" id="2_7rtng"]
