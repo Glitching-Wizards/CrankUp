@@ -145,8 +145,6 @@ namespace CrankUp
 				int levelNumber = GetLevelNumberFromName(currentLevel.Name);
 				SaveSystem.OnLevelCompleted(levelNumber, stars);
 			}
-
-			LevelDone(currentLevel.Name);
 		}
 	}
 }
