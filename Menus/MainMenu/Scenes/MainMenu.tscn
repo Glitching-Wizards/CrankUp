@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://df6jd6rkwbhv"]
+[gd_scene load_steps=21 format=3 uid="uid://df6jd6rkwbhv"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu/Scripts/MainMenu.cs" id="1_bemtd"]
 [ext_resource type="Texture2D" uid="uid://c7osdlwfnis5i" path="res://Assets/Backgrounds/MainMenuCloudless.png" id="2_7rtng"]
@@ -219,12 +219,14 @@ menuMusic = ExtResource("3_dacap")
 position = Vector2(640, 360)
 
 [node name="Background" type="TextureRect" parent="."]
+z_index = -1
 layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
 texture = ExtResource("2_7rtng")
 
 [node name="LargeClouds" type="Sprite2D" parent="Background"]
+z_index = -1
 position = Vector2(640, 162)
 scale = Vector2(1.04791, 1)
 texture = ExtResource("3_l34b4")
@@ -269,6 +271,7 @@ libraries = {
 autoplay = "SmallClouds2"
 
 [node name="Title" type="TextureRect" parent="."]
+z_index = -1
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -281,7 +284,43 @@ grow_horizontal = 2
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("3_x4ae0")
 
+[node name="Jarkko" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1120, 449)
+scale = Vector2(0.758333, 0.758333)
+texture = ExtResource("5_kqgoh")
+flip_h = true
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Jarkko"]
+libraries = {
+"": SubResource("AnimationLibrary_tg0mq")
+}
+autoplay = "JarkkoNormal"
+
+[node name="TruckBlue" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(227, 378)
+scale = Vector2(1.1059, 1.1059)
+texture = ExtResource("6_q0w1u")
+
+[node name="GrayBackground" type="TextureRect" parent="."]
+modulate = Color(0.462745, 0.427451, 0.4, 0.286275)
+z_index = -10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 640.0
+offset_top = 360.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_323ju")
+
 [node name="Buttons" type="Control" parent="."]
+z_index = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -349,21 +388,3 @@ grow_vertical = 0
 theme = ExtResource("7_fu8vc")
 theme_override_font_sizes/font_size = 52
 text = "CREDITS"
-
-[node name="Jarkko" type="Sprite2D" parent="."]
-position = Vector2(1120, 449)
-scale = Vector2(0.758333, 0.758333)
-texture = ExtResource("5_kqgoh")
-flip_h = true
-hframes = 5
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Jarkko"]
-libraries = {
-"": SubResource("AnimationLibrary_tg0mq")
-}
-autoplay = "JarkkoNormal"
-
-[node name="TruckBlue" type="Sprite2D" parent="."]
-position = Vector2(227, 378)
-scale = Vector2(1.1059, 1.1059)
-texture = ExtResource("6_q0w1u")

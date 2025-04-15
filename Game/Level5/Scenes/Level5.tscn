@@ -247,8 +247,6 @@ offset_bottom = -360.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Claw" parent="." instance=ExtResource("10_mel3e")]
-
 [node name="PlacementArea" type="Area2D" parent="."]
 position = Vector2(0, 114)
 script = ExtResource("11_ax0fi")
@@ -261,6 +259,16 @@ offset_left = 249.0
 offset_top = -82.0
 offset_right = 289.0
 offset_bottom = -59.0
+
+[node name="BoxShadow5" type="TextureRect" parent="."]
+offset_left = -225.0
+offset_top = -174.0
+offset_right = 226.0
+offset_bottom = 176.0
+texture = ExtResource("17_jt6kj")
+
+[node name="Claw" parent="." instance=ExtResource("10_mel3e")]
+z_index = 1
 
 [node name="WinLose" type="Control" parent="."]
 layout_mode = 3
@@ -279,13 +287,6 @@ visible = false
 
 [node name="Lose" parent="WinLose" instance=ExtResource("20_h2ac4")]
 visible = false
-
-[node name="BoxShadow5" type="TextureRect" parent="."]
-offset_left = -225.0
-offset_top = -174.0
-offset_right = 226.0
-offset_bottom = 176.0
-texture = ExtResource("17_jt6kj")
 
 [connection signal="pressed" from="ConveyorBelt/ConveyorBelt3/FinishButton" to="." method="_on_finish_button_pressed"]
 [connection signal="pressed" from="ConveyorBelt/BlockButtons/ContainerZ" to="." method="_on_block_pressed"]
