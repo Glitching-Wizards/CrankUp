@@ -204,8 +204,6 @@ offset_bottom = -360.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Claw" parent="." instance=ExtResource("10_wb5s4")]
-
 [node name="PlacementArea" type="Area2D" parent="."]
 position = Vector2(0, 114)
 script = ExtResource("11_36ex4")
@@ -220,6 +218,16 @@ offset_top = -426.0
 offset_right = -374.0
 offset_bottom = -392.0
 theme = ExtResource("13_n3nvt")
+
+[node name="BoxShadow2" type="TextureRect" parent="."]
+offset_left = -156.0
+offset_top = -224.0
+offset_right = 144.0
+offset_bottom = 176.0
+texture = ExtResource("16_vdcpg")
+
+[node name="Claw" parent="." instance=ExtResource("10_wb5s4")]
+z_index = 1
 
 [node name="WinLose" type="Control" parent="."]
 layout_mode = 3
@@ -238,13 +246,6 @@ visible = false
 
 [node name="Lose" parent="WinLose" instance=ExtResource("17_mj0oh")]
 visible = false
-
-[node name="BoxShadow2" type="TextureRect" parent="."]
-offset_left = -156.0
-offset_top = -224.0
-offset_right = 144.0
-offset_bottom = 176.0
-texture = ExtResource("16_vdcpg")
 
 [node name="Tutorial" type="Control" parent="."]
 layout_mode = 3

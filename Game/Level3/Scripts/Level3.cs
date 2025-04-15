@@ -207,6 +207,8 @@ public partial class Level3 : Node2D
 			GD.PrintErr("[ERROR] Cannot spawn block, scene not loaded!");
 		}
 
+		clawHead.GlobalPosition = new Godot.Vector2 (clawHead.GlobalPosition.X, -291);
+
 		clawHead.collisionShape.SetDeferred("disabled", true);
 
 		RigidBody2D blockInstance = BlockScene.Instantiate<RigidBody2D>();

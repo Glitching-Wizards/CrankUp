@@ -183,8 +183,6 @@ offset_bottom = -360.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Claw" parent="." instance=ExtResource("10_1b6od")]
-
 [node name="PlacementArea" type="Area2D" parent="."]
 position = Vector2(0, 114)
 script = ExtResource("11_ne26j")
@@ -209,6 +207,9 @@ offset_right = 303.0
 offset_bottom = 192.0
 texture = ExtResource("17_dellb")
 expand_mode = 1
+
+[node name="Claw" parent="." instance=ExtResource("10_1b6od")]
+z_index = 1
 
 [node name="WinLose" type="Control" parent="."]
 layout_mode = 3
