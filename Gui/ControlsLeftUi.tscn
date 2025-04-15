@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://dr5ia7hmpuu0l" path="res://Assets/Gui/Buttons/Rotate.png" id="1_ty1st"]
 [ext_resource type="AudioStream" uid="uid://cty2a4x8lqdp6" path="res://Audio/SoundEffects/ButtonPress.mp3" id="2_405sj"]
 [ext_resource type="Texture2D" uid="uid://bkv6f6qua35ki" path="res://Assets/Gui/Slider.png" id="3_1glo6"]
-[ext_resource type="AudioStream" uid="uid://5ese3csm5d4k" path="res://Audio/ChainUp.mp3" id="3_n4wsh"]
 [ext_resource type="Texture2D" uid="uid://bdtyxwn384ufd" path="res://Assets/Gui/Buttons/rotate2.png" id="3_wg554"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="5_s51i1"]
 [ext_resource type="Texture2D" uid="uid://b62egchnyk4go" path="res://Assets/Backgrounds/left_console2.png" id="7_vndlr"]
@@ -19,7 +18,6 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_bx7ei")
 clickSound = ExtResource("2_405sj")
-chainSound = ExtResource("3_n4wsh")
 
 [node name="Panel" type="Panel" parent="."]
 self_modulate = Color(1, 1, 1, 0)
@@ -50,41 +48,43 @@ theme_override_icons/tick = ExtResource("3_1glo6")
 min_value = -50.0
 max_value = 50.0
 scrollable = false
-script = ExtResource("6_qtukj")
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 38.0
+offset_left = 9.0
 offset_top = 11.0
-offset_right = 118.0
+offset_right = 150.0
 offset_bottom = 74.0
 theme = ExtResource("5_s51i1")
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 46
 text = "60"
+horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="Panel"]
 autostart = true
 
-[node name="Label2" type="Label" parent="Panel"]
+[node name="Time" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 26.0
+offset_left = 17.0
 offset_top = 87.0
-offset_right = 106.0
+offset_right = 142.0
 offset_bottom = 109.0
 theme = ExtResource("5_s51i1")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "TIME"
+horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="Panel"]
+[node name="Score" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 175.0
+offset_left = 162.0
 offset_top = 87.0
-offset_right = 229.0
+offset_right = 286.0
 offset_bottom = 109.0
 theme = ExtResource("5_s51i1")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "SCORE"
+horizontal_alignment = 1
 
 [node name="LeftConsole" type="TextureRect" parent="."]
 z_index = -1
