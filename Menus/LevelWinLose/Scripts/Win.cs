@@ -10,7 +10,7 @@ namespace CrankUp
 		[Export] private string _startLevel3ScenePath = "res://Menus/LevelStart/Scenes/StartLevel3.tscn";
 		[Export] private string _startLevel4ScenePath = "res://Menus/LevelStart/Scenes/StartLevel4.tscn";
 		[Export] private string _startLevel5ScenePath = "res://Menus/LevelStart/Scenes/StartLevel5.tscn";
-		[Export] private AudioStream clickSound = GD.Load<AudioStream>("res://Audio/SoundEffects/ButtonPress.mp3");
+		[Export] private AudioStream clickSound;
 
 		private string _startLevelScenePath = "";
 		private Window startLevelWindow;

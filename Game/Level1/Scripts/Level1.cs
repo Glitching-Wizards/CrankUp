@@ -20,7 +20,7 @@ public partial class Level1 : Node2D
 	[Export] private string _containerRedScenePath = "res://Game/Scenes/ContainerRed.tscn";
 	[Export] private string _containerYellowScenePath = "res://Game/Scenes/ContainerYellow.tscn";
 	[Export] private AudioStream levelMusic;
-	[Export] private AudioStream conveyorBeltSound = ResourceLoader.Load<AudioStream>("res://Audio/SoundEffects/CONVEYOR.mp3");
+	[Export] private AudioStream conveyorBeltSound;
 
 	private Window pauseWindow;
 
@@ -50,6 +50,7 @@ public partial class Level1 : Node2D
 
 	private bool startLevel = true;
 	private bool endLevel = false;
+	private bool beltSoundPlayed = false;
 	private float beltTargetPositionStart = -540;
 	private float beltTargetPositionEnd = 460; // ConveyorBelt target position when all blocks are in play
 	private float beltMoveSpeed = 200f; // ConveyorBelts speed of movement per frame
@@ -142,7 +143,7 @@ public partial class Level1 : Node2D
 			GD.PrintErr("[ERROR] Cannot spawn block, scene not loaded!");
 		}
 
-		clawHead.GlobalPosition = new Godot.Vector2 (clawHead.GlobalPosition.X, -291);
+		clawHead.GlobalPosition = new Godot.Vector2(clawHead.GlobalPosition.X, -291);
 
 		clawHead.collisionShape.SetDeferred("disabled", true);
 
@@ -158,25 +159,47 @@ public partial class Level1 : Node2D
 		button.QueueFree();
 
 		// Check if all buttons are pressed
-		if (blockButtonPressed && containerYellowLButtonPressed && containerBlueLButtonPressed && containerRedButtonPressed && containerYellowButtonPressed) endLevel = true;
+		if (blockButtonPressed && containerYellowLButtonPressed && containerBlueLButtonPressed && containerRedButtonPressed && containerYellowButtonPressed)
+		{
+			endLevel = true;
+			beltSoundPlayed = false; // Reset the sound of conveyerBelt
+		}
 	}
 
+	/// <summary>
+	/// This fuction moves the conveyer belt to the right when
+	/// the level starts and when all blocks are in play. It also
+	/// contains the sound of the conveyer belt.
+	/// The sound is played once when the level starts and
+	/// when all blocks are in play.
+	/// </summary>
+	/// <param name="delta"></param>
 	public override void _Process(double delta)
 	{
+		float step = beltMoveSpeed * (float)delta;
+
 		if (conveyorBelt != null && startLevel)
 		{
-			float step = beltMoveSpeed * (float)delta;
+			if (!beltSoundPlayed)
+			{
+				AudioManager.PlaySound(conveyorBeltSound);
+				beltSoundPlayed = true;
+			}
 
 			if (conveyorBelt.Position.X < beltTargetPositionStart)
 			{
-				AudioManager.PlaySound(conveyorBeltSound);
 				conveyorBelt.Position = new Godot.Vector2(conveyorBelt.Position.X + step, conveyorBelt.Position.Y);
 			}
 		}
 
 		if (conveyorBelt != null && endLevel)
 		{
-			float step = beltMoveSpeed * (float)delta;
+			if (!beltSoundPlayed)
+			{
+				AudioManager.PlaySound(conveyorBeltSound);
+				beltSoundPlayed = true;
+			}
+
 
 			if (conveyorBelt.Position.X < beltTargetPositionEnd)
 			{

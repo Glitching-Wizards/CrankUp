@@ -25,6 +25,7 @@ public partial class Level5 : Node2D
 	[Export] private string _containerYellowLInvertedScenePath = "res://Game/Scenes/ContainerYellowLSmallInverted.tscn";
 
 	[Export] private AudioStream levelMusic;
+	[Export] private AudioStream conveyorBeltSound;
 
 
 	private Window settingsWindow;
@@ -71,6 +72,7 @@ public partial class Level5 : Node2D
 
 	private bool startLevel = true;
 	private bool endLevel = false;
+	private bool beltSoundPlayed = false;
 	private bool interim = false;
 	private float beltTargetPositionStart = -540;
 	private float beltTargetPositionInterim = 460;

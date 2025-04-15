@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ubywe3ybjf1d"
+path="res://.godot/imported/Crank up Lose&Rage.mp3-1e350563b49925958d16d498f98cb0a4.mp3str"
+
+[deps]
+
+source_file="res://Audio/SoundEffects/Crank up Lose&Rage.mp3"
+dest_files=["res://.godot/imported/Crank up Lose&Rage.mp3-1e350563b49925958d16d498f98cb0a4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

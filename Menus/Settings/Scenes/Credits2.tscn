@@ -56,11 +56,12 @@ text = "SOUNDEFFECTS:"
 
 [node name="Text" type="RichTextLabel" parent="Headline"]
 layout_mode = 0
+offset_left = 40.0
 offset_top = 60.0
-offset_right = 900.0
+offset_right = 940.0
 offset_bottom = 660.0
 theme = ExtResource("5_ekmov")
-theme_override_font_sizes/normal_font_size = 22
+theme_override_font_sizes/normal_font_size = 18
 text = "Car start by enric592 -- https://freesound.org/s/185740/ -- License: Attribution 4.0
 
 Ocean waves Ale stenar 1.wav by Owl -- https://freesound.org/s/195293/ -- License: Attribution 4.0
@@ -69,7 +70,9 @@ Seagulls close-up.wav by juskiddink -- https://freesound.org/s/100724/ -- Licens
 
 forest calm NL MONO 03 200529_0181.mp3 by klankbeeld -- https://freesound.org/s/591744/ -- License: Attribution 4.0
 
-RailroadHorn1_G.wav by Trond_Berntsen -- https://freesound.org/s/621160/ -- License: Attribution 4.0"
+RailroadHorn1_G.wav by Trond_Berntsen -- https://freesound.org/s/621160/ -- License: Attribution 4.0
+
+Conveyor belt by freemaster2 -- https://freesound.org/s/172350/ -- License: Attribution 4.0"
 
 [node name="Buttons" type="Node" parent="."]
 

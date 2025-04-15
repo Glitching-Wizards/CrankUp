@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dgljdi4dancow"
+path="res://.godot/imported/Conveyor2 (mp3cut.net) (1).mp3-e7c07ce638a980ad9cd591f77c93b717.mp3str"
+
+[deps]
+
+source_file="res://Audio/SoundEffects/Conveyor2 (mp3cut.net) (1).mp3"
+dest_files=["res://.godot/imported/Conveyor2 (mp3cut.net) (1).mp3-e7c07ce638a980ad9cd591f77c93b717.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
