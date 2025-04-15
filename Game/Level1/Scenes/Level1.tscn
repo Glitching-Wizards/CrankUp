@@ -184,6 +184,7 @@ offset_bottom = -360.0
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="PlacementArea" type="Area2D" parent="."]
+z_index = -7
 position = Vector2(0, 114)
 script = ExtResource("11_ne26j")
 
