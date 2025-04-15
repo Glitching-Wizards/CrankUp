@@ -10,9 +10,9 @@ namespace CrankUp;
 public partial class Claw : Node2D
 {
 	/// <summary>
-    /// Called when the node enters the scene tree for the first time.
-    /// Initializes the claw's global position.
-    /// </summary>
+	/// Called when the node enters the scene tree for the first time.
+	/// Initializes the claw's global position.
+	/// </summary>
 	public override void _Ready()
 	{
 		GlobalPosition = new Vector2(0, -360); // Sets the claws initial position

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dmfcwwoq65pqu"]
+[gd_scene load_steps=20 format=3 uid="uid://dmfcwwoq65pqu"]
 
 [ext_resource type="Script" path="res://Game/Level4/Scripts/Level4.cs" id="1_4bqgu"]
 [ext_resource type="AudioStream" uid="uid://cqbrdweoncjel" path="res://Audio/Ambients/Level4.mp3" id="2_3wcuv"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://e6m3vbk1t4am" path="res://Assets/Blocks/container_cardboard_T1.png" id="6_ru5q8"]
 [ext_resource type="Texture2D" uid="uid://bqlfady1qw4tw" path="res://Assets/Blocks/container_box_Z1.png" id="7_j8xku"]
 [ext_resource type="Texture2D" uid="uid://b1rjsgvxgngwf" path="res://Assets/Blocks/container_box1.png" id="8_u2m6t"]
+[ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="12_hlyt7"]
 [ext_resource type="PackedScene" uid="uid://bu16bdidc32ex" path="res://Gui/ControlsLeftUi.tscn" id="13_jumkn"]
 [ext_resource type="PackedScene" uid="uid://ccehnxtd5o7ir" path="res://Gui/Background4.tscn" id="14_dyjy7"]
 [ext_resource type="PackedScene" uid="uid://cbrwler8lk051" path="res://Gui/ControlsRightUi.tscn" id="14_jmq6i"]
@@ -247,10 +248,13 @@ script = ExtResource("16_xkewl")
 polygon = PackedVector2Array(-275, 12, -225, 12, -225, -288, -175, -288, -175, -238, -125, -238, -125, -88, -75, -88, -75, -38, 75, -38, 75, -88, 125, -88, 125, -238, 175, -238, 175, -288, 225, -288, 225, 12, 275, 12, 275, 62, -275, 62)
 
 [node name="ScoreLabel" type="Label" parent="PlacementArea"]
-offset_left = -448.0
-offset_top = -426.0
-offset_right = -374.0
-offset_bottom = -392.0
+offset_left = -456.0
+offset_top = -463.0
+offset_right = -387.0
+offset_bottom = -399.0
+theme = ExtResource("12_hlyt7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 46
 
 [node name="BoxShadow4" type="TextureRect" parent="."]
 offset_left = -275.0

@@ -5,10 +5,6 @@ namespace CrankUp
 {
     public partial class Pause : Window
     {
-        /* Signal for tutorial start */
-        [Signal]
-        public delegate void TutorialStartedEventHandler();
-
         [Export] private string _settingsScenePath = "res://Menus/Settings/Scenes/Settings.tscn";
         [Export] private string _levelsScenePath = "res://Menus/Levels/Scenes/Levels.tscn";
         [Export] private AudioStream clickSound;
@@ -54,16 +50,6 @@ namespace CrankUp
             settingsWindow = (Window)settingsScene.Instantiate();
             AddChild(settingsWindow);
             settingsWindow.Hide();
-
-            TextureButton tutorialButton = GetNodeOrNull<TextureButton>("Buttons/TutorialButton");
-            if (tutorialButton != null)
-            {
-                tutorialButton.Pressed += TutorialButtonPressed;
-            }
-            else
-            {
-                GD.PrintErr("[ERROR] tutorialButton not found!");
-            }
         }
 
 
@@ -89,7 +75,6 @@ namespace CrankUp
             GetTree().Paused = false;
             AudioManager.PlaySound(clickSound);
             this.Hide();
-
         }
 
         public void SettingsButtonPressed()
@@ -97,15 +82,6 @@ namespace CrankUp
             GD.Print("Settings Pressed");
             AudioManager.PlaySound(clickSound);
             settingsWindow.Popup();
-        }
-
-        public void TutorialButtonPressed()
-        {
-            GD.Print("Tutorial Pressed");
-            AudioManager.PlaySound(clickSound);
-            GetTree().Paused = false;
-            EmitSignal("TutorialStartedEventHandler");
-            this.Hide();
         }
 
         public bool IsPaused { get; private set; } = false;

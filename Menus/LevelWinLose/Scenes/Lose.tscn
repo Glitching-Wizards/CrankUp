@@ -1,20 +1,72 @@
-[gd_scene load_steps=13 format=3 uid="uid://t8di6gto22h3"]
+[gd_scene load_steps=19 format=3 uid="uid://t8di6gto22h3"]
 
 [ext_resource type="Script" path="res://Menus/LevelWinLose/Scripts/Lose.cs" id="1_m602j"]
-[ext_resource type="Texture2D" uid="uid://d2ne652846407" path="res://Assets/Gui/Buttons/green_button_retry1.png" id="2_03ryq"]
+[ext_resource type="AudioStream" uid="uid://cty2a4x8lqdp6" path="res://Audio/SoundEffects/ButtonPress.mp3" id="2_7l5xn"]
 [ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="2_l54t8"]
 [ext_resource type="Texture2D" uid="uid://byi7gwxidoxcf" path="res://Assets/Victory/DefeatScreen.png" id="2_ta1fw"]
-[ext_resource type="Texture2D" uid="uid://xo18uc0tpsnf" path="res://Assets/Gui/Buttons/green_button_retry2.png" id="3_0o6ys"]
 [ext_resource type="Texture2D" uid="uid://bykbqhedpanaq" path="res://Assets/Backgrounds/JarkkoRageFinal.png" id="3_vahs4"]
-[ext_resource type="Texture2D" uid="uid://1pedsn4616vk" path="res://Assets/Gui/Buttons/grey_button_home1.png" id="4_01gye"]
 [ext_resource type="Texture2D" uid="uid://bvgtg0q0k8n42" path="res://Assets/Gui/BlankStar.png" id="4_sbl07"]
-[ext_resource type="Texture2D" uid="uid://bqti4reoj73jh" path="res://Assets/Gui/Buttons/grey_button_home2.png" id="5_82b2m"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="5_ljc6y"]
+[ext_resource type="Texture2D" uid="uid://8eo7shi5g0hu" path="res://Assets/Gui/Buttons/green_button_retry.png" id="7_nxxyo"]
+[ext_resource type="Texture2D" uid="uid://ca7hekbourtgg" path="res://Assets/Gui/Buttons/grey_button_home.png" id="8_pn62i"]
 [ext_resource type="Texture2D" uid="uid://bfh6bwpmgp0fb" path="res://Assets/Victory/SpeechBubble.png" id="10_rd1hc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hr5jq"]
 atlas = ExtResource("3_vahs4")
 region = Rect2(0, 0, 303, 500)
+
+[sub_resource type="Animation" id="Animation_l75ec"]
+resource_name = "JarkkoNormal"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.533333, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 3, 2]
+}
+
+[sub_resource type="Animation" id="Animation_e04tv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tg0mq"]
+_data = {
+"JarkkoNormal": SubResource("Animation_l75ec"),
+"RESET": SubResource("Animation_e04tv")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ghqb"]
+atlas = ExtResource("7_nxxyo")
+region = Rect2(16.8427, 0, 236.67, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylaq2"]
+atlas = ExtResource("7_nxxyo")
+region = Rect2(285.995, 15.7337, 236.52, 147.883)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0t0tb"]
+atlas = ExtResource("8_pn62i")
+region = Rect2(16.9608, 0, 236.379, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3vil"]
+atlas = ExtResource("8_pn62i")
+region = Rect2(286.298, 0, 236.009, 162)
 
 [node name="Lose" type="Window"]
 transparent_bg = true
@@ -24,6 +76,7 @@ borderless = true
 always_on_top = true
 transparent = true
 script = ExtResource("1_m602j")
+clickSound = ExtResource("2_7l5xn")
 
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 40.0
@@ -31,6 +84,7 @@ offset_bottom = 40.0
 texture = ExtResource("2_ta1fw")
 
 [node name="TextureRect" type="TextureRect" parent="Background"]
+visible = false
 layout_mode = 0
 offset_left = 1018.0
 offset_top = 278.0
@@ -38,6 +92,18 @@ offset_right = 1310.0
 offset_bottom = 778.0
 texture = SubResource("AtlasTexture_hr5jq")
 flip_h = true
+
+[node name="Jarkko" type="Sprite2D" parent="Background"]
+position = Vector2(1160, 525)
+texture = ExtResource("3_vahs4")
+flip_h = true
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Jarkko"]
+libraries = {
+"": SubResource("AnimationLibrary_tg0mq")
+}
+autoplay = "JarkkoNormal"
 
 [node name="GrayBackground" type="TextureRect" parent="."]
 modulate = Color(0.462745, 0.427451, 0.4, 0.286275)
@@ -88,38 +154,29 @@ texture = ExtResource("4_sbl07")
 [node name="Buttons" type="Node" parent="."]
 
 [node name="RetryButton" type="TextureButton" parent="Buttons"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 60.0
-offset_top = 60.0
-offset_right = 329.0
-offset_bottom = 222.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 714.0
+offset_top = 424.0
+offset_right = 983.0
+offset_bottom = 586.0
 scale = Vector2(0.9, 0.9)
-texture_normal = ExtResource("2_03ryq")
-texture_pressed = ExtResource("3_0o6ys")
-texture_hover = ExtResource("2_03ryq")
+texture_normal = SubResource("AtlasTexture_3ghqb")
+texture_pressed = SubResource("AtlasTexture_ylaq2")
 
 [node name="MenuButton" type="TextureButton" parent="Buttons"]
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -300.0
-offset_top = 60.0
-offset_right = -31.0
-offset_bottom = 222.0
+anchor_bottom = 1.0
+offset_left = -284.0
+offset_top = -296.0
+offset_right = 48.0
+offset_bottom = -134.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 scale = Vector2(0.9, 0.9)
-texture_normal = ExtResource("4_01gye")
-texture_pressed = ExtResource("5_82b2m")
-texture_hover = ExtResource("4_01gye")
+texture_normal = SubResource("AtlasTexture_0t0tb")
+texture_pressed = SubResource("AtlasTexture_j3vil")
 
 [node name="SpeechBubble" type="TextureRect" parent="."]
 offset_left = 783.0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1pedsn4616vk"
-path="res://.godot/imported/grey_button_home1.png-cba810d3fca7f2ab3703d02fd849e7f0.ctex"
+uid="uid://b62egchnyk4go"
+path="res://.godot/imported/left_console2.png-d44112fa4f1710dae413de2b09f4fef4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Gui/Buttons/grey_button_home1.png"
-dest_files=["res://.godot/imported/grey_button_home1.png-cba810d3fca7f2ab3703d02fd849e7f0.ctex"]
+source_file="res://Assets/Backgrounds/left_console2.png"
+dest_files=["res://.godot/imported/left_console2.png-d44112fa4f1710dae413de2b09f4fef4.ctex"]
 
 [params]
 

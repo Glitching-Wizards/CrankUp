@@ -6,6 +6,9 @@ namespace CrankUp
 {
 	public partial class FinishButton : Button
 	{
+		[Export] private AudioStream winSound = GD.Load<AudioStream>("res://Audio/SoundEffects/Crank up Victory&Happy.mp3");
+		[Export] private AudioStream loseSound = GD.Load<AudioStream>("res://Audio/SoundEffects/Crank up Lose&Rage.mp3");
+
 		private Window victoryScreen1, victoryScreen2, victoryScreen3, loseScreen;
 		private PlacementArea placementArea;
 		private float score;
@@ -53,23 +56,27 @@ namespace CrankUp
 			score = placementArea.GetScore();
 			int stars = 0;
 
-			if (score >= 70 && score < 80 && victoryScreen1 != null)
+			if (score >= 50 && score < 80 && victoryScreen1 != null)
 			{
 				stars = 1;
+				AudioManager.PlaySound(winSound);
 				victoryScreen1.Visible = true;
 			}
 			else if (score >= 80 && score < 90 && victoryScreen2 != null)
 			{
 				stars = 2;
+				AudioManager.PlaySound(winSound);
 				victoryScreen2.Visible = true;
 			}
 			else if (score >= 90 && victoryScreen3 != null)
 			{
 				stars = 3;
+				AudioManager.PlaySound(winSound);
 				victoryScreen3.Visible = true;
 			}
 			else if (score < 70 && loseScreen != null)
 			{
+				AudioManager.PlaySound(loseSound);
 				loseScreen.Visible = true;
 				return;
 			}
@@ -79,43 +86,12 @@ namespace CrankUp
 				int levelNumber = GetLevelNumberFromName(currentLevel.Name);
 				SaveSystem.OnLevelCompleted(levelNumber, stars);
 			}
-
-			LevelDone(currentLevel.Name);
-		}
-
-		private void LevelDone(string levelName)
-		{
-			Node levelButtonPath = GetTree().Root.GetNode<Node>("/root/Menus/Levels/Scenes/Levels.tscn/Levels/Buttons");
-
-			if (levelButtonPath == null)
-			{
-				GD.PrintErr($"Virhe: Node 'Levels/Buttons' ei löydy.");
-				return;
-			}
-
-			if (levelButtonPath != null && levelButtonPath.HasNode(levelName))
-			{
-				TextureButton levelButton = levelButtonPath.GetNode<TextureButton>(levelName);
-
-				levelButton.Disabled = false;
-
-				TextureRect flagIcon = levelButton.GetNode<TextureRect>("Flag");
-				if (flagIcon != null)
-				{
-					flagIcon.Visible = true;
-				}
-
-				TextureRect number = levelButton.GetNode<TextureRect>("Number");
-				if (number != null)
-				{
-					number.Visible = true;
-				}
-			}
 		}
 
 		private void OnTimeRanOut() {
 			if (loseScreen != null)
 			{
+				AudioManager.PlaySound(loseSound);
 				loseScreen.Visible = true;
 			}
 		}
@@ -144,5 +120,43 @@ namespace CrankUp
 			}
 		}
 
+		public void ScoreAtTimeout()
+		{
+			if (placementArea == null) return;
+
+			score = placementArea.GetScore();
+			int stars = 0;
+
+			if (score >= 70 && score < 80 && victoryScreen1 != null)
+			{
+				stars = 1;
+				AudioManager.PlaySound(winSound);
+				victoryScreen1.Visible = true;
+			}
+			else if (score >= 80 && score < 90 && victoryScreen2 != null)
+			{
+				stars = 2;
+				AudioManager.PlaySound(winSound);
+				victoryScreen2.Visible = true;
+			}
+			else if (score >= 90 && victoryScreen3 != null)
+			{
+				stars = 3;
+				AudioManager.PlaySound(winSound);
+				victoryScreen3.Visible = true;
+			}
+			else if (score < 70 && loseScreen != null)
+			{
+				AudioManager.PlaySound(loseSound);
+				loseScreen.Visible = true;
+				return;
+			}
+
+			if (stars > 0)
+			{
+				int levelNumber = GetLevelNumberFromName(currentLevel.Name);
+				SaveSystem.OnLevelCompleted(levelNumber, stars);
+			}
+		}
 	}
 }

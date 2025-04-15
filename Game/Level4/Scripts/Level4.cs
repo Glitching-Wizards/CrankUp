@@ -21,6 +21,7 @@ public partial class Level4 : Node2D
 	[Export] private string _cardboardTScenePath = "res://Game/Scenes/ContainerCardboardT.tscn";
 
 	[Export] private AudioStream levelMusic;
+	[Export] private AudioStream conveyorBeltSound;
 
 
 	private Window settingsWindow;
@@ -65,6 +66,7 @@ public partial class Level4 : Node2D
 
 	private bool startLevel = true;
 	private bool endLevel = false;
+	private bool beltSoundPlayed = false;
 	private bool interim = false;
 	private bool interim2 = false;
 	private float beltTargetPositionStart = -540;

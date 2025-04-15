@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://brjgb4ke34ftt"]
+[gd_scene load_steps=9 format=3 uid="uid://brjgb4ke34ftt"]
 
 [ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="1_aawvh"]
 [ext_resource type="Texture2D" uid="uid://bjl34nmf2fffy" path="res://Assets/Animations/JarkkoNormalAnimated.png" id="2_evmaa"]
 [ext_resource type="Texture2D" uid="uid://b5g664pjgk0gc" path="res://Assets/Victory/SpeechBubbleCorner.png" id="3_j8stv"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="4_rptnn"]
-[ext_resource type="Texture2D" uid="uid://dutfm1xl7kjf0" path="res://Assets/Gui/Buttons/forward_arrow.png" id="5_cng66"]
 [ext_resource type="Texture2D" uid="uid://ca30paq1c5g1s" path="res://Assets/Gui/Buttons/TutorialArrow.png" id="6_33og3"]
 
 [sub_resource type="Animation" id="Animation_l75ec"]
@@ -44,14 +43,6 @@ _data = {
 "RESET": SubResource("Animation_e04tv")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lwo64"]
-atlas = ExtResource("5_cng66")
-region = Rect2(31, 12, 111, 68)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_csksj"]
-atlas = ExtResource("5_cng66")
-region = Rect2(191, 12, 111, 68)
-
 [node name="Tutorial" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -67,10 +58,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 640.0
-offset_top = 360.0
-offset_right = 640.0
-offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_aawvh")
@@ -88,27 +75,6 @@ libraries = {
 }
 autoplay = "JarkkoNormal"
 
-[node name="SkipButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 931.0
-offset_top = 42.0
-offset_right = 1042.0
-offset_bottom = 110.0
-scale = Vector2(1.48628, 1.5)
-texture_normal = SubResource("AtlasTexture_lwo64")
-texture_pressed = SubResource("AtlasTexture_csksj")
-
-[node name="Label" type="Label" parent="SkipButton"]
-layout_mode = 0
-offset_left = 15.3333
-offset_top = 16.0
-offset_right = 84.3333
-offset_bottom = 51.0
-theme = ExtResource("4_rptnn")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 26
-text = "SKIP"
-
 [node name="Arrow" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 162.0
@@ -120,25 +86,19 @@ texture = ExtResource("6_33og3")
 
 [node name="SpeechBubble" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 274.0
-offset_top = 315.0
-offset_right = 1038.0
-offset_bottom = 620.0
+offset_left = 270.0
+offset_top = 290.0
+offset_right = 1034.0
+offset_bottom = 595.0
 texture = ExtResource("3_j8stv")
 flip_v = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="SpeechBubble"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.082
-anchor_top = 0.353
-anchor_right = 0.808
-anchor_bottom = 0.807
-offset_left = 0.351997
-offset_top = 22.335
-offset_right = -0.312012
-offset_bottom = -0.13501
+offset_left = 65.0
+offset_top = 120.0
+offset_right = 619.0
+offset_bottom = 268.0
 theme = ExtResource("4_rptnn")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 27
+theme_override_font_sizes/normal_font_size = 29
 text = "TUTORIAL4"

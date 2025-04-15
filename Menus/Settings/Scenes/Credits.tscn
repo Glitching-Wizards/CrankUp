@@ -1,14 +1,23 @@
-[gd_scene load_steps=10 format=3 uid="uid://dw4au03pl8dr2"]
+[gd_scene load_steps=13 format=3 uid="uid://dw4au03pl8dr2"]
 
-[ext_resource type="Script" path="res://Menus/Settings/Scripts/Pause.cs" id="1_th065"]
+[ext_resource type="Script" path="res://Menus/Settings/Scripts/Credits.cs" id="1_6yl85"]
 [ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="2_b5dso"]
-[ext_resource type="AudioStream" uid="uid://cty2a4x8lqdp6" path="res://Audio/SoundEffects/ButtonPress.mp3" id="2_v0dwl"]
 [ext_resource type="Texture2D" uid="uid://biwqqyd2e0hyd" path="res://Assets/Settings/BlueBlankScreen.png" id="3_0e2ea"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="4_hikx2"]
 [ext_resource type="Texture2D" uid="uid://bivg4xjox4tp3" path="res://Assets/Settings/BlockBlueBigger.png" id="5_7om3j"]
 [ext_resource type="Theme" uid="uid://6td37p2nd7m3" path="res://Gui/PlayTheme.tres" id="6_src42"]
 [ext_resource type="Texture2D" uid="uid://dtj7v04qhhxhi" path="res://Assets/Gui/Buttons/cross_button1.png" id="7_yu18f"]
 [ext_resource type="Texture2D" uid="uid://djyg326tkq217" path="res://Assets/Gui/Buttons/cross_button2.png" id="8_rof6h"]
+[ext_resource type="Texture2D" uid="uid://dutfm1xl7kjf0" path="res://Assets/Gui/Buttons/forward_arrow.png" id="10_6ynqb"]
+[ext_resource type="PackedScene" uid="uid://dlg44gj7ic5ge" path="res://Menus/Settings/Scenes/Credits2.tscn" id="11_7h1aj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nulk4"]
+atlas = ExtResource("10_6ynqb")
+region = Rect2(31, 0, 111, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bnwd"]
+atlas = ExtResource("10_6ynqb")
+region = Rect2(191, 8, 111, 72)
 
 [node name="Credits" type="Window"]
 transparent_bg = true
@@ -18,8 +27,7 @@ unresizable = true
 borderless = true
 always_on_top = true
 transparent = true
-script = ExtResource("1_th065")
-clickSound = ExtResource("2_v0dwl")
+script = ExtResource("1_6yl85")
 metadata/_edit_vertical_guides_ = [640.0]
 metadata/_edit_horizontal_guides_ = [360.0]
 
@@ -86,7 +94,7 @@ theme = ExtResource("4_hikx2")
 theme_override_font_sizes/font_size = 35
 text = "
     - Julia Kurkela
-    - Kai Lindgren
+    - Kai Lindegren
 
 
     - Jasmin Wärnhjelm
@@ -121,6 +129,14 @@ theme_override_font_sizes/font_size = 35
 text = "MUSIC:"
 
 [node name="Buttons" type="Node" parent="."]
+
+[node name="NextButton" type="TextureButton" parent="Buttons"]
+offset_left = 1085.0
+offset_top = 560.0
+offset_right = 1390.0
+offset_bottom = 722.0
+texture_normal = SubResource("AtlasTexture_nulk4")
+texture_pressed = SubResource("AtlasTexture_1bnwd")
 
 [node name="ExitButton" type="TextureButton" parent="Buttons"]
 offset_left = 1094.0
@@ -159,4 +175,5 @@ text = "CREDITS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="Buttons/ExitButton" to="." method="_on_exit_button_pressed"]
+[node name="Credits2" parent="." instance=ExtResource("11_7h1aj")]
+visible = false

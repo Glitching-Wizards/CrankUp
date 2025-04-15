@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://cj0550n71gkad"]
+[gd_scene load_steps=9 format=3 uid="uid://cj0550n71gkad"]
 
 [ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="1_b2nnr"]
 [ext_resource type="Texture2D" uid="uid://bjl34nmf2fffy" path="res://Assets/Animations/JarkkoNormalAnimated.png" id="2_gj75r"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="4_ox2pc"]
-[ext_resource type="Texture2D" uid="uid://dutfm1xl7kjf0" path="res://Assets/Gui/Buttons/forward_arrow.png" id="5_kemht"]
 [ext_resource type="Texture2D" uid="uid://ca30paq1c5g1s" path="res://Assets/Gui/Buttons/TutorialArrow.png" id="6_0nxw6"]
 [ext_resource type="Texture2D" uid="uid://b5g664pjgk0gc" path="res://Assets/Victory/SpeechBubbleCorner.png" id="6_l55j8"]
 
@@ -44,14 +43,6 @@ _data = {
 "RESET": SubResource("Animation_e04tv")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g8nsi"]
-atlas = ExtResource("5_kemht")
-region = Rect2(31, 12, 111, 68)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fbcpk"]
-atlas = ExtResource("5_kemht")
-region = Rect2(191, 12, 111, 68)
-
 [node name="Tutorial" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -67,10 +58,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 640.0
-offset_top = 360.0
-offset_right = 640.0
-offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_b2nnr")
@@ -86,27 +73,6 @@ libraries = {
 "": SubResource("AnimationLibrary_tg0mq")
 }
 autoplay = "JarkkoNormal"
-
-[node name="SkipButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 931.0
-offset_top = 42.0
-offset_right = 1042.0
-offset_bottom = 110.0
-scale = Vector2(1.48628, 1.5)
-texture_normal = SubResource("AtlasTexture_g8nsi")
-texture_pressed = SubResource("AtlasTexture_fbcpk")
-
-[node name="Label" type="Label" parent="SkipButton"]
-layout_mode = 0
-offset_left = 15.3333
-offset_top = 16.0
-offset_right = 84.3333
-offset_bottom = 51.0
-theme = ExtResource("4_ox2pc")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 26
-text = "SKIP"
 
 [node name="Arrow" type="TextureRect" parent="."]
 layout_mode = 0
@@ -128,11 +94,11 @@ flip_h = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="SpeechBubble"]
 layout_mode = 0
-offset_left = 142.0
-offset_top = 56.0
-offset_right = 696.0
-offset_bottom = 172.0
+offset_left = 145.0
+offset_top = 49.0
+offset_right = 699.0
+offset_bottom = 182.0
 theme = ExtResource("4_ox2pc")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 27
+theme_override_font_sizes/normal_font_size = 29
 text = "TUTORIAL7"

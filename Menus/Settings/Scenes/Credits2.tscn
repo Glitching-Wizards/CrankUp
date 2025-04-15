@@ -1,0 +1,122 @@
+[gd_scene load_steps=12 format=3 uid="uid://dlg44gj7ic5ge"]
+
+[ext_resource type="Script" path="res://Menus/Settings/Scripts/Credits2.cs" id="1_5t2um"]
+[ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="3_54p4u"]
+[ext_resource type="Texture2D" uid="uid://biwqqyd2e0hyd" path="res://Assets/Settings/BlueBlankScreen.png" id="4_0gmx0"]
+[ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="5_ekmov"]
+[ext_resource type="Texture2D" uid="uid://dtj7v04qhhxhi" path="res://Assets/Gui/Buttons/cross_button1.png" id="6_b40ab"]
+[ext_resource type="Texture2D" uid="uid://djyg326tkq217" path="res://Assets/Gui/Buttons/cross_button2.png" id="7_6jtjt"]
+[ext_resource type="Texture2D" uid="uid://bivg4xjox4tp3" path="res://Assets/Settings/BlockBlueBigger.png" id="8_6x5yd"]
+[ext_resource type="Theme" uid="uid://6td37p2nd7m3" path="res://Gui/PlayTheme.tres" id="9_i0dbs"]
+[ext_resource type="Texture2D" uid="uid://cvuuyxkfsqlbw" path="res://Assets/Gui/Buttons/back_arrow.png" id="9_wudfd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ha5f6"]
+atlas = ExtResource("9_wudfd")
+region = Rect2(18, 4, 111, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwun3"]
+atlas = ExtResource("9_wudfd")
+region = Rect2(178, 10, 111, 72)
+
+[node name="Credits" type="Window"]
+transparent_bg = true
+size = Vector2i(1280, 720)
+exclusive = true
+unresizable = true
+borderless = true
+always_on_top = true
+transparent = true
+script = ExtResource("1_5t2um")
+metadata/_edit_vertical_guides_ = [640.0]
+metadata/_edit_horizontal_guides_ = [360.0]
+
+[node name="GrayBackground" type="TextureRect" parent="."]
+modulate = Color(0.462745, 0.427451, 0.4, 0.286275)
+z_index = -10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_54p4u")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("4_0gmx0")
+
+[node name="Headline" type="Label" parent="."]
+offset_left = 200.0
+offset_top = 160.0
+offset_right = 278.0
+offset_bottom = 207.0
+theme = ExtResource("5_ekmov")
+theme_override_font_sizes/font_size = 35
+text = "SOUNDEFFECTS:"
+
+[node name="Text" type="RichTextLabel" parent="Headline"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 60.0
+offset_right = 940.0
+offset_bottom = 660.0
+theme = ExtResource("5_ekmov")
+theme_override_font_sizes/normal_font_size = 18
+text = "Car start by enric592 -- https://freesound.org/s/185740/ -- License: Attribution 4.0
+
+Ocean waves Ale stenar 1.wav by Owl -- https://freesound.org/s/195293/ -- License: Attribution 4.0
+
+Seagulls close-up.wav by juskiddink -- https://freesound.org/s/100724/ -- License: Attribution 4.0
+
+forest calm NL MONO 03 200529_0181.mp3 by klankbeeld -- https://freesound.org/s/591744/ -- License: Attribution 4.0
+
+RailroadHorn1_G.wav by Trond_Berntsen -- https://freesound.org/s/621160/ -- License: Attribution 4.0
+
+Conveyor belt by freemaster2 -- https://freesound.org/s/172350/ -- License: Attribution 4.0"
+
+[node name="Buttons" type="Node" parent="."]
+
+[node name="ExitButton" type="TextureButton" parent="Buttons"]
+offset_left = 1094.0
+offset_top = 22.0
+offset_right = 1344.0
+offset_bottom = 272.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("6_b40ab")
+texture_pressed = ExtResource("7_6jtjt")
+texture_hover = ExtResource("6_b40ab")
+
+[node name="BackButton" type="TextureButton" parent="Buttons"]
+offset_left = 75.0
+offset_top = 560.0
+offset_right = 380.0
+offset_bottom = 722.0
+texture_normal = SubResource("AtlasTexture_ha5f6")
+texture_pressed = SubResource("AtlasTexture_jwun3")
+
+[node name="Header" type="TextureRect" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -390.0
+offset_right = 65.0
+offset_bottom = 130.0
+grow_horizontal = 2
+scale = Vector2(1.7, 1.1)
+texture = ExtResource("8_6x5yd")
+stretch_mode = 1
+
+[node name="Credits" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -227.5
+offset_top = 4.0
+offset_right = 227.5
+offset_bottom = 134.0
+grow_horizontal = 2
+theme = ExtResource("9_i0dbs")
+theme_override_font_sizes/font_size = 90
+text = "CREDITS"
+horizontal_alignment = 1
+vertical_alignment = 1

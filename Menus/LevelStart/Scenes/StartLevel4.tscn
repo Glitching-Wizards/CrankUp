@@ -1,16 +1,29 @@
-[gd_scene load_steps=11 format=3 uid="uid://dwfaocsg328a1"]
+[gd_scene load_steps=13 format=3 uid="uid://dwfaocsg328a1"]
 
 [ext_resource type="Script" path="res://Menus/Levels/Scripts/LevelStart.cs" id="1_t71l2"]
-[ext_resource type="Texture2D" uid="uid://0pnu3tgvsyv6" path="res://Assets/Backgrounds/VictoryScreen.png" id="2_40md8"]
-[ext_resource type="AudioStream" uid="uid://cty2a4x8lqdp6" path="res://Audio/ButtonPress.mp3" id="2_pkily"]
+[ext_resource type="AudioStream" uid="uid://cty2a4x8lqdp6" path="res://Audio/SoundEffects/ButtonPress.mp3" id="2_pkily"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="3_5dgye"]
 [ext_resource type="Texture2D" uid="uid://daile572kg6n5" path="res://Assets/Victory/VictoryScreen.png" id="3_n8xy8"]
 [ext_resource type="Texture2D" uid="uid://bvgtg0q0k8n42" path="res://Assets/Gui/BlankStar.png" id="4_74lst"]
-[ext_resource type="Texture2D" uid="uid://ckiwhmwu30y57" path="res://Assets/Gui/Buttons/green_button_next1.png" id="5_mwt1i"]
-[ext_resource type="Texture2D" uid="uid://cni08607lgf15" path="res://Assets/Gui/Buttons/green_button_next2.png" id="6_f6bsn"]
-[ext_resource type="Texture2D" uid="uid://1pedsn4616vk" path="res://Assets/Gui/Buttons/grey_button_home1.png" id="7_45tqe"]
-[ext_resource type="Texture2D" uid="uid://bqti4reoj73jh" path="res://Assets/Gui/Buttons/grey_button_home2.png" id="8_o5fdu"]
+[ext_resource type="Texture2D" uid="uid://dl3vido1gf6fx" path="res://Assets/Gui/Buttons/green_button_next.png" id="7_3gkg8"]
+[ext_resource type="Texture2D" uid="uid://ca7hekbourtgg" path="res://Assets/Gui/Buttons/grey_button_home.png" id="8_xrril"]
 [ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="9_46tp1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chnwl"]
+atlas = ExtResource("7_3gkg8")
+region = Rect2(17, 0, 236, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_645px"]
+atlas = ExtResource("7_3gkg8")
+region = Rect2(286, 0, 236, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76g75"]
+atlas = ExtResource("8_xrril")
+region = Rect2(17, 0, 236, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqvsn"]
+atlas = ExtResource("8_xrril")
+region = Rect2(286, 0, 236, 162)
 
 [node name="StartLevel" type="Window"]
 transparent_bg = true
@@ -75,16 +88,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 60.0
+offset_left = 75.0
 offset_top = 60.0
-offset_right = 329.0
+offset_right = 344.0
 offset_bottom = 222.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.9, 0.9)
-texture_normal = ExtResource("5_mwt1i")
-texture_pressed = ExtResource("6_f6bsn")
-texture_hover = ExtResource("5_mwt1i")
+texture_normal = SubResource("AtlasTexture_chnwl")
+texture_pressed = SubResource("AtlasTexture_645px")
 
 [node name="MenuButton" type="TextureButton" parent="."]
 anchors_preset = 8
@@ -92,13 +104,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -300.0
+offset_left = -295.0
 offset_top = 60.0
-offset_right = -31.0
+offset_right = -26.0
 offset_bottom = 222.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.9, 0.9)
-texture_normal = ExtResource("7_45tqe")
-texture_pressed = ExtResource("8_o5fdu")
-texture_hover = ExtResource("7_45tqe")
+texture_normal = SubResource("AtlasTexture_76g75")
+texture_pressed = SubResource("AtlasTexture_mqvsn")

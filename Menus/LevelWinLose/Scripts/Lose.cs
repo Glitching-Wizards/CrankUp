@@ -6,7 +6,7 @@ namespace CrankUp
 	public partial class Lose : Window
 	{
 		[Export] private string _menuScenePath = "res://Menus/Levels/Scenes/Levels.tscn";
-		[Export] private AudioStream clickSound = GD.Load<AudioStream>("res://Audio/SoundEffects/ButtonPress.mp3");
+		[Export] private AudioStream clickSound;
 
 		public override void _Ready()
 		{

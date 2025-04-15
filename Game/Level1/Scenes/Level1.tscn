@@ -1,9 +1,10 @@
-[gd_scene load_steps=37 format=3 uid="uid://cusyv8gojbcca"]
+[gd_scene load_steps=41 format=3 uid="uid://cusyv8gojbcca"]
 
 [ext_resource type="Script" path="res://Game/Level1/Scripts/Level1.cs" id="1_e65w2"]
 [ext_resource type="AudioStream" uid="uid://b8ypr1bhu63dt" path="res://Audio/Ambients/Level1.mp3" id="2_68d14"]
 [ext_resource type="PackedScene" uid="uid://dnr4wgld8simd" path="res://Gui/Background.tscn" id="2_bkcuh"]
 [ext_resource type="Texture2D" uid="uid://bw7uqlawbr5or" path="res://Assets/Misc/Conveyor.png" id="3_4mjje"]
+[ext_resource type="AudioStream" uid="uid://xwwru5jihqqb" path="res://Audio/SoundEffects/Conveyor (mp3cut.net).mp3" id="3_kq5eo"]
 [ext_resource type="Theme" uid="uid://6td37p2nd7m3" path="res://Gui/PlayTheme.tres" id="4_a4x3l"]
 [ext_resource type="Script" path="res://Game/Scripts/FinishButton.cs" id="5_gdxod"]
 [ext_resource type="Texture2D" uid="uid://15t504ih4j83" path="res://Assets/Blocks/container_blue.png" id="6_xirey"]
@@ -20,17 +21,18 @@
 [ext_resource type="PackedScene" uid="uid://lyxtd003i5wb" path="res://Menus/LevelWinLose/Scenes/Win3.tscn" id="15_4n7qn"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="15_patqw"]
 [ext_resource type="Texture2D" uid="uid://qlwyq2i23e47" path="res://Assets/Misc/BoxShadow.png" id="17_dellb"]
-[ext_resource type="Script" path="res://Game/Scripts/Tutorial.cs" id="20_8sm3w"]
 [ext_resource type="PackedScene" uid="uid://bof30jnhkvxrl" path="res://Gui/Tutorial/Tutorial1.tscn" id="20_juq6c"]
 [ext_resource type="PackedScene" uid="uid://ctxvgkn6ddu20" path="res://Gui/Tutorial/Tutorial2.tscn" id="21_mmwtp"]
 [ext_resource type="PackedScene" uid="uid://t8di6gto22h3" path="res://Menus/LevelWinLose/Scenes/Lose.tscn" id="21_se2au"]
 [ext_resource type="PackedScene" uid="uid://cejnj6x0fry0m" path="res://Gui/Tutorial/Tutorial3.tscn" id="22_kfl2k"]
 [ext_resource type="PackedScene" uid="uid://brjgb4ke34ftt" path="res://Gui/Tutorial/Tutorial4.tscn" id="23_0vlog"]
+[ext_resource type="AudioStream" uid="uid://c7mk2kx13gos5" path="res://Audio/SoundEffects/JarkkoHappy.mp3" id="23_tuhki"]
 [ext_resource type="PackedScene" uid="uid://pbhrkwx4h2r" path="res://Gui/Tutorial/Tutorial5.tscn" id="24_4m2qt"]
 [ext_resource type="PackedScene" uid="uid://baur4gsdjok38" path="res://Gui/Tutorial/Tutorial6.tscn" id="25_1na0m"]
 [ext_resource type="PackedScene" uid="uid://cj0550n71gkad" path="res://Gui/Tutorial/Tutorial7.tscn" id="26_f87lh"]
 [ext_resource type="PackedScene" uid="uid://eok2slj87g2u" path="res://Gui/Tutorial/Tutorial8.tscn" id="27_6yd6c"]
 [ext_resource type="PackedScene" uid="uid://cpnja7ibf6k85" path="res://Gui/Tutorial/Tutorial9.tscn" id="28_3or7n"]
+[ext_resource type="Texture2D" uid="uid://dutfm1xl7kjf0" path="res://Assets/Gui/Buttons/forward_arrow.png" id="32_bb650"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_idrmk"]
 atlas = ExtResource("6_xirey")
@@ -52,10 +54,18 @@ region = Rect2(0, 0, 260, 150)
 atlas = ExtResource("10_u8uak")
 region = Rect2(0, 0, 260, 150)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kimmm"]
+atlas = ExtResource("32_bb650")
+region = Rect2(31, 12, 111, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8boxw"]
+atlas = ExtResource("32_bb650")
+region = Rect2(191, 12, 111, 68)
+
 [node name="Level1" type="Node2D"]
-process_mode = 3
 script = ExtResource("1_e65w2")
 levelMusic = ExtResource("2_68d14")
+conveyorBeltSound = ExtResource("3_kq5eo")
 
 [node name="Background" parent="." instance=ExtResource("2_bkcuh")]
 z_index = -10
@@ -184,17 +194,20 @@ offset_bottom = -360.0
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="PlacementArea" type="Area2D" parent="."]
+z_index = -7
 position = Vector2(0, 114)
 script = ExtResource("11_ne26j")
 
 [node name="ScoreLabel" type="Label" parent="PlacementArea"]
-z_index = 7
-offset_left = -448.0
-offset_top = -426.0
-offset_right = -374.0
-offset_bottom = -392.0
+z_index = 8
+offset_left = -486.0
+offset_top = -463.0
+offset_right = -345.0
+offset_bottom = -400.0
 theme = ExtResource("15_patqw")
-theme_override_font_sizes/font_size = 22
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 46
+horizontal_alignment = 1
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlacementArea"]
 position = Vector2(8, -23)
@@ -230,15 +243,22 @@ visible = false
 visible = false
 
 [node name="Tutorial" type="Node" parent="."]
-script = ExtResource("20_8sm3w")
 
 [node name="Tutorial1" parent="Tutorial" instance=ExtResource("20_juq6c")]
-visible = false
 z_index = 3
 offset_left = -640.0
 offset_top = -360.0
 offset_right = -640.0
 offset_bottom = -360.0
+
+[node name="Button" type="Button" parent="Tutorial/Tutorial1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 1279.0
+offset_bottom = 719.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Tutorial/Tutorial1"]
+stream = ExtResource("23_tuhki")
 
 [node name="Tutorial2" parent="Tutorial" instance=ExtResource("21_mmwtp")]
 visible = false
@@ -248,54 +268,130 @@ offset_top = -360.0
 offset_right = -640.0
 offset_bottom = -360.0
 
+[node name="Button" type="Button" parent="Tutorial/Tutorial2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 725.0
+
 [node name="Tutorial3" parent="Tutorial" instance=ExtResource("22_kfl2k")]
 visible = false
+z_index = 10
 offset_left = -640.0
 offset_top = -360.0
 offset_right = -640.0
 offset_bottom = -360.0
+
+[node name="Button" type="Button" parent="Tutorial/Tutorial3"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 1288.0
+offset_bottom = 738.0
 
 [node name="Tutorial4" parent="Tutorial" instance=ExtResource("23_0vlog")]
 visible = false
+z_index = 10
 offset_left = -640.0
 offset_top = -360.0
 offset_right = -640.0
 offset_bottom = -360.0
+
+[node name="Button" type="Button" parent="Tutorial/Tutorial4"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 1288.0
+offset_bottom = 727.0
 
 [node name="Tutorial5" parent="Tutorial" instance=ExtResource("24_4m2qt")]
 visible = false
+z_index = 10
 offset_left = -640.0
 offset_top = -360.0
 offset_right = -640.0
 offset_bottom = -360.0
+
+[node name="Button" type="Button" parent="Tutorial/Tutorial5"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 1288.0
+offset_bottom = 738.0
 
 [node name="Tutorial6" parent="Tutorial" instance=ExtResource("25_1na0m")]
 visible = false
+z_index = 10
 offset_left = -640.0
 offset_top = -360.0
 offset_right = -640.0
 offset_bottom = -360.0
+
+[node name="Button" type="Button" parent="Tutorial/Tutorial6"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 1291.0
+offset_bottom = 728.0
 
 [node name="Tutorial7" parent="Tutorial" instance=ExtResource("26_f87lh")]
 visible = false
+z_index = 10
 offset_left = -640.0
 offset_top = -360.0
 offset_right = -640.0
 offset_bottom = -360.0
+
+[node name="Button" type="Button" parent="Tutorial/Tutorial7"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 1288.0
+offset_bottom = 731.0
 
 [node name="Tutorial8" parent="Tutorial" instance=ExtResource("27_6yd6c")]
 visible = false
+z_index = 10
 offset_left = -640.0
 offset_top = -360.0
 offset_right = -640.0
 offset_bottom = -360.0
 
+[node name="Button" type="Button" parent="Tutorial/Tutorial8"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 1288.0
+offset_bottom = 725.0
+
 [node name="Tutorial9" parent="Tutorial" instance=ExtResource("28_3or7n")]
 visible = false
+z_index = 10
 offset_left = -640.0
 offset_top = -360.0
 offset_right = -640.0
 offset_bottom = -360.0
+
+[node name="Button" type="Button" parent="Tutorial/Tutorial9"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 1320.0
+offset_bottom = 748.0
+
+[node name="SkipButton" type="TextureButton" parent="Tutorial"]
+z_index = 11
+offset_left = 291.0
+offset_top = -319.0
+offset_right = 402.0
+offset_bottom = -251.0
+scale = Vector2(1.48628, 1.5)
+texture_normal = SubResource("AtlasTexture_kimmm")
+texture_pressed = SubResource("AtlasTexture_8boxw")
+
+[node name="Label" type="Label" parent="Tutorial/SkipButton"]
+layout_mode = 0
+offset_left = 15.3333
+offset_top = 16.0
+offset_right = 84.3333
+offset_bottom = 51.0
+theme = ExtResource("15_patqw")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+text = "SKIP"
 
 [connection signal="pressed" from="ConveyorBelt/ConveyorBelt3/FinishButton" to="." method="_on_finish_button_pressed"]
 [connection signal="pressed" from="ConveyorBelt/BlockButtons/Block" to="." method="_on_block_pressed"]
@@ -304,3 +400,22 @@ offset_bottom = -360.0
 [connection signal="pressed" from="ConveyorBelt/BlockButtons/ContainerRed" to="." method="_on_container_red_pressed"]
 [connection signal="pressed" from="ConveyorBelt/BlockButtons/ContainerYellow" to="." method="_on_container_yellow_pressed"]
 [connection signal="body_entered" from="PlacementArea" to="." method="_on_placement_area_body_entered"]
+[connection signal="pressed" from="Tutorial/Tutorial1/Button" to="Tutorial/Tutorial1" method="set_visible" binds= [false]]
+[connection signal="pressed" from="Tutorial/Tutorial1/Button" to="Tutorial/Tutorial2" method="set_visible" binds= [true]]
+[connection signal="pressed" from="Tutorial/Tutorial2/Button" to="Tutorial/Tutorial2" method="set_visible" binds= [false]]
+[connection signal="pressed" from="Tutorial/Tutorial2/Button" to="Tutorial/Tutorial3" method="set_visible" binds= [true]]
+[connection signal="pressed" from="Tutorial/Tutorial3/Button" to="Tutorial/Tutorial3" method="set_visible" binds= [false]]
+[connection signal="pressed" from="Tutorial/Tutorial3/Button" to="Tutorial/Tutorial4" method="set_visible" binds= [true]]
+[connection signal="pressed" from="Tutorial/Tutorial4/Button" to="Tutorial/Tutorial4" method="set_visible" binds= [false]]
+[connection signal="pressed" from="Tutorial/Tutorial4/Button" to="Tutorial/Tutorial5" method="set_visible" binds= [true]]
+[connection signal="pressed" from="Tutorial/Tutorial5/Button" to="Tutorial/Tutorial5" method="set_visible" binds= [false]]
+[connection signal="pressed" from="Tutorial/Tutorial5/Button" to="Tutorial/Tutorial6" method="set_visible" binds= [true]]
+[connection signal="pressed" from="Tutorial/Tutorial6/Button" to="Tutorial/Tutorial6" method="set_visible" binds= [false]]
+[connection signal="pressed" from="Tutorial/Tutorial6/Button" to="Tutorial/Tutorial7" method="set_visible" binds= [true]]
+[connection signal="pressed" from="Tutorial/Tutorial7/Button" to="Tutorial/Tutorial7" method="set_visible" binds= [false]]
+[connection signal="pressed" from="Tutorial/Tutorial7/Button" to="Tutorial/Tutorial8" method="set_visible" binds= [true]]
+[connection signal="pressed" from="Tutorial/Tutorial8/Button" to="Tutorial/Tutorial8" method="set_visible" binds= [false]]
+[connection signal="pressed" from="Tutorial/Tutorial8/Button" to="Tutorial/Tutorial9" method="set_visible" binds= [true]]
+[connection signal="pressed" from="Tutorial/Tutorial9/Button" to="Tutorial/Tutorial9" method="set_visible" binds= [false]]
+[connection signal="pressed" from="Tutorial/Tutorial9/Button" to="Tutorial/SkipButton" method="set_visible" binds= [false]]
+[connection signal="pressed" from="Tutorial/SkipButton" to="Tutorial" method="queue_free"]
