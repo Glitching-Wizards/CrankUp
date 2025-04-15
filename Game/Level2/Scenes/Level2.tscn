@@ -211,11 +211,13 @@ position = Vector2(37.5, -14)
 polygon = PackedVector2Array(-193.5, 76, -193.5, -24, -193.5, -324, -93.5, -324, -93.5, -24, 106.5, -24, 106.5, 76)
 
 [node name="ScoreLabel" type="Label" parent="PlacementArea"]
-offset_left = -448.0
-offset_top = -426.0
-offset_right = -374.0
-offset_bottom = -392.0
+offset_left = -456.0
+offset_top = -463.0
+offset_right = -387.0
+offset_bottom = -400.0
 theme = ExtResource("13_n3nvt")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 46
 
 [node name="BoxShadow2" type="TextureRect" parent="."]
 offset_left = -156.0

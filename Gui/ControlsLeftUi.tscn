@@ -5,8 +5,8 @@
 [ext_resource type="AudioStream" uid="uid://cty2a4x8lqdp6" path="res://Audio/SoundEffects/ButtonPress.mp3" id="2_405sj"]
 [ext_resource type="Texture2D" uid="uid://bkv6f6qua35ki" path="res://Assets/Gui/Slider.png" id="3_1glo6"]
 [ext_resource type="Texture2D" uid="uid://bdtyxwn384ufd" path="res://Assets/Gui/Buttons/rotate2.png" id="3_wg554"]
-[ext_resource type="Texture2D" uid="uid://bthqt0883ihxe" path="res://Assets/Backgrounds/left_console.png" id="4_avya5"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="5_s51i1"]
+[ext_resource type="Texture2D" uid="uid://b62egchnyk4go" path="res://Assets/Backgrounds/left_console2.png" id="7_vndlr"]
 
 [node name="ControlsLeftUi" type="Control"]
 layout_mode = 3
@@ -51,12 +51,13 @@ scrollable = false
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 52.0
-offset_top = 47.0
-offset_right = 132.0
-offset_bottom = 79.0
+offset_left = 38.0
+offset_top = 11.0
+offset_right = 118.0
+offset_bottom = 74.0
 theme = ExtResource("5_s51i1")
-theme_override_font_sizes/font_size = 22
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 46
 text = "60"
 
 [node name="Timer" type="Timer" parent="Panel"]
@@ -64,20 +65,22 @@ autostart = true
 
 [node name="Label2" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 46.0
-offset_top = 24.0
-offset_right = 126.0
-offset_bottom = 46.0
+offset_left = 26.0
+offset_top = 87.0
+offset_right = 106.0
+offset_bottom = 109.0
 theme = ExtResource("5_s51i1")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "TIME"
 
 [node name="Label3" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 191.0
-offset_top = 25.0
-offset_right = 239.0
-offset_bottom = 48.0
+offset_left = 175.0
+offset_top = 87.0
+offset_right = 229.0
+offset_bottom = 109.0
 theme = ExtResource("5_s51i1")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "SCORE"
 
 [node name="LeftConsole" type="TextureRect" parent="."]
@@ -86,7 +89,8 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
-texture = ExtResource("4_avya5")
+texture = ExtResource("7_vndlr")
+metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="Panel/Rotate" to="." method="_on_rotate_pressed"]
 [connection signal="drag_ended" from="Panel/MoveSlider" to="." method="_on_move_slider_drag_ended"]
