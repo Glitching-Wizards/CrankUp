@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bu16bdidc32ex"]
+[gd_scene load_steps=8 format=3 uid="uid://bu16bdidc32ex"]
 
 [ext_resource type="Script" path="res://Gui/Scripts/ControlsLeftUi.cs" id="1_bx7ei"]
 [ext_resource type="Texture2D" uid="uid://dr5ia7hmpuu0l" path="res://Assets/Gui/Buttons/Rotate.png" id="1_ty1st"]
@@ -69,7 +69,7 @@ offset_top = 24.0
 offset_right = 126.0
 offset_bottom = 46.0
 theme = ExtResource("5_s51i1")
-text = "Time left:"
+text = "TIME"
 
 [node name="Label3" type="Label" parent="Panel"]
 layout_mode = 0
@@ -78,7 +78,7 @@ offset_top = 25.0
 offset_right = 239.0
 offset_bottom = 48.0
 theme = ExtResource("5_s51i1")
-text = "Score:"
+text = "SCORE"
 
 [node name="LeftConsole" type="TextureRect" parent="."]
 z_index = -1

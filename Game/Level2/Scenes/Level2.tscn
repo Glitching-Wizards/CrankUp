@@ -1,8 +1,7 @@
-[gd_scene load_steps=30 format=3 uid="uid://b54grpygrbq3i"]
+[gd_scene load_steps=29 format=3 uid="uid://b54grpygrbq3i"]
 
 [ext_resource type="Script" path="res://Game/Level2/Scripts/Level2.cs" id="1_gqdgr"]
 [ext_resource type="PackedScene" uid="uid://bh25upnb64myu" path="res://Gui/Background2.tscn" id="1_om3yl"]
-[ext_resource type="AudioStream" uid="uid://55dp3yy62tfv" path="res://Audio/Ambients/Level2.mp3" id="2_8hckw"]
 [ext_resource type="Texture2D" uid="uid://bw7uqlawbr5or" path="res://Assets/Misc/Conveyor.png" id="3_6sg4l"]
 [ext_resource type="Theme" uid="uid://6td37p2nd7m3" path="res://Gui/PlayTheme.tres" id="4_bi5ep"]
 [ext_resource type="Script" path="res://Game/Scripts/FinishButton.cs" id="5_88stb"]
@@ -32,7 +31,6 @@
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_gqdgr")
-levelMusic = ExtResource("2_8hckw")
 
 [node name="Background" parent="." instance=ExtResource("1_om3yl")]
 z_index = -2

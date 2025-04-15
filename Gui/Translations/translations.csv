@@ -29,9 +29,10 @@ TUTORIAL7; Pressing the claw button again, the claw releases the block.; Koura n
 TUTORIAL8; To move a block that has already been placed, take the claw to the block and press the claw button.; Jos haluat siirtää laskettua palikkaa, vie koura palikan luokse ja paina koura nappia.
 TUTORIAL9; Good Luck!; Onnea Matkaan!
 SKIP; Skip; Ohita
-SCORE; Score; Pisteet
+SCORE; Score; Pisteet :
 ART:; Art:; Grafiikat:
 CODE:; Code:; Ohjelmointi:
 SOUND:; Sounds:; Äänet:
 UI:; UI:; Käyttöliittymä:
 MUSIC:; Music:; Musiikki:
+TIME; Time:; Aika :
