@@ -191,17 +191,19 @@ offset_bottom = -360.0
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="PlacementArea" type="Area2D" parent="."]
+z_index = -7
 position = Vector2(0, 114)
 script = ExtResource("11_ne26j")
 
 [node name="ScoreLabel" type="Label" parent="PlacementArea"]
-z_index = 7
-offset_left = -448.0
-offset_top = -426.0
-offset_right = -374.0
-offset_bottom = -392.0
+z_index = 8
+offset_left = -456.0
+offset_top = -463.0
+offset_right = -387.0
+offset_bottom = -400.0
 theme = ExtResource("15_patqw")
-theme_override_font_sizes/font_size = 22
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 46
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlacementArea"]
 position = Vector2(8, -23)
