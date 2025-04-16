@@ -51,7 +51,7 @@ public partial class Block : RigidBody2D
 		currentHealth -= damage;
 		AudioManager.PlaySound(hitSound);
 		UpdateSprite();
-		if (currentHealth == 0)
+		if (currentHealth <= 0)
 		{
 			AudioManager.PlaySound(explosionSound);
 			smokeCloud.Visible = true;

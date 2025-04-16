@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://xwwru5jihqqb"
-path="res://.godot/imported/Conveyor.mp3-4edeb47159b6a1ba554278ed146fbdf8.mp3str"
+path="res://.godot/imported/CONVEYOR.mp3-11eb2e3ee2c414285bb514adf9164462.mp3str"
 
 [deps]
 
-source_file="res://Audio/SoundEffects/Conveyor.mp3"
-dest_files=["res://.godot/imported/Conveyor.mp3-4edeb47159b6a1ba554278ed146fbdf8.mp3str"]
+source_file="res://Audio/SoundEffects/CONVEYOR.mp3"
+dest_files=["res://.godot/imported/CONVEYOR.mp3-11eb2e3ee2c414285bb514adf9164462.mp3str"]
 
 [params]
 
