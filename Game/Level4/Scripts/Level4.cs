@@ -109,78 +109,91 @@ public partial class Level4 : Node2D
 
 		containerZButton.Pressed += () =>
 		{
+			if (clawHead.grabbedBlock != null) return;
 			containerZButtonPressed = true;
 			SpawnBlockButtonPressed(_containerZScene, containerZButton);
 		};
 
 		containerZ2Button.Pressed += () =>
 		{
+			if (clawHead.grabbedBlock != null) return;
 			containerZ2ButtonPressed = true;
 			SpawnBlockButtonPressed(_containerZScene, containerZ2Button);
 		};
 
 		containerZ3Button.Pressed += () =>
 		{
+			if (clawHead.grabbedBlock != null) return;
 			containerZ3ButtonPressed = true;
 			SpawnBlockButtonPressed(_containerZScene, containerZ3Button);
 		};
 
 		containerZInvertedButton.Pressed += () =>
 		{
+			if (clawHead.grabbedBlock != null) return;
 			containerZInvertedButtonPressed = true;
 			SpawnBlockButtonPressed(_containerZInvertedScene, containerZInvertedButton);
 		};
 
 		containerZInverted2Button.Pressed += () =>
 		{
+			if (clawHead.grabbedBlock != null) return;
 			containerZInverted2ButtonPressed = true;
 			SpawnBlockButtonPressed(_containerZInvertedScene, containerZInverted2Button);
 		};
 
 		containerZInverted3Button.Pressed += () =>
 		{
+			if (clawHead.grabbedBlock != null) return;
 			containerZInverted3ButtonPressed = true;
 			SpawnBlockButtonPressed(_containerZInvertedScene, containerZInverted3Button);
 		};
 
 		containerBoxButton.Pressed += () =>
 		{
+			if (clawHead.grabbedBlock != null) return;
 			containerBoxButtonPressed = true;
 			SpawnBlockButtonPressed(_containerBoxScene, containerBoxButton);
 		};
 
 		containerBox2Button.Pressed += () =>
 		{
+			if (clawHead.grabbedBlock != null) return;
 			containerBox2ButtonPressed = true;
 			SpawnBlockButtonPressed(_containerBoxScene, containerBox2Button);
 		};
 
 		containerBox3Button.Pressed += () =>
 		{
+			if (clawHead.grabbedBlock != null) return;
 			containerBox3ButtonPressed = true;
 			SpawnBlockButtonPressed(_containerBoxScene, containerBox3Button);
 		};
 
 		containerBox4Button.Pressed += () =>
 		{
+			if (clawHead.grabbedBlock != null) return;
 			containerBox4ButtonPressed = true;
 			SpawnBlockButtonPressed(_containerBoxScene, containerBox4Button);
 		};
 
 		cardboardTButton.Pressed += () =>
 		{
+			if (clawHead.grabbedBlock != null) return;
 			cardboardTButtonPressed = true;
 			SpawnBlockButtonPressed(_cardboardTScene, cardboardTButton);
 		};
 
 		cardboardT2Button.Pressed += () =>
 		{
+			if (clawHead.grabbedBlock != null) return;
 			cardboardT2ButtonPressed = true;
 			SpawnBlockButtonPressed(_cardboardTScene, cardboardT2Button);
 		};
 
 		cardboardT3Button.Pressed += () =>
 		{
+			if (clawHead.grabbedBlock != null) return;
 			cardboardT3ButtonPressed = true;
 			SpawnBlockButtonPressed(_cardboardTScene, cardboardT3Button);
 		};
@@ -213,7 +226,7 @@ public partial class Level4 : Node2D
 
 		clawHead.collisionShape.SetDeferred("disabled", true);
 
-		RigidBody2D blockInstance = BlockScene.Instantiate<RigidBody2D>();
+		Block blockInstance = BlockScene.Instantiate<Block>();
 		this.AddChild(blockInstance);
 
 		blockInstance.GlobalPosition = clawHead.GlobalPosition + new Godot.Vector2(0, 20);

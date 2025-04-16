@@ -4,11 +4,14 @@ using System;
 namespace CrankUp;
 public partial class Block : RigidBody2D
 {
-	[Export] private int maxHealth = 5;
+	[Export] private int maxHealth = 3;
 	private int currentHealth;
+	private Vector2 lastVelocity = Vector2.Zero;
+	private float damageCooldown = 0f;
 	private Sprite2D sprite;
 	private Sprite2D smokeCloud;
 	private AnimationPlayer animationPlayer;
+	private ClawHead clawHead;
 	private PinJoint2D joint;
 
 	[Export] private Texture2D healthy;
@@ -19,6 +22,8 @@ public partial class Block : RigidBody2D
 	public override void _Ready()
 	{
 		AddToGroup("blocks");
+
+		clawHead = GetTree().Root.FindChild("ClawHead", true, false) as ClawHead;
 
 		joint = GetParent().GetNodeOrNull<PinJoint2D>("PinJoint2D");
 
@@ -32,17 +37,17 @@ public partial class Block : RigidBody2D
 
 	private void UpdateSprite()
 	{
-		if (currentHealth == 4)
+		if (currentHealth > 2)
 			sprite.Texture = healthy;
-		else if (currentHealth == 2 || currentHealth == 3 || currentHealth == 4)
+		else if (currentHealth > 1)
 			sprite.Texture = damaged;
-		else if (currentHealth == 1)
+		else if (currentHealth > 0)
 			sprite.Texture = broken;
 	}
 
-	private async void TakeDamage()
+	private async void TakeDamage(int damage)
 	{
-		currentHealth--;
+        currentHealth -= damage;
 		AudioManager.PlaySound(hitSound);
 		UpdateSprite();
 		if (currentHealth == 0)
@@ -55,21 +60,43 @@ public partial class Block : RigidBody2D
 
 			await ToSignal(GetTree().CreateTimer(0.2f), "timeout");
 			this.QueueFree();
+
+			if (clawHead.grabbedBlock != null)
+			{
+				clawHead.DropBlock();
+			}
 		}
 	}
 
 	public override void _IntegrateForces(PhysicsDirectBodyState2D state)
 	{
-		Vector2 LinearVelocity = state.LinearVelocity;
+		Vector2 currentVelocity = state.LinearVelocity;
 
-		if (LinearVelocity.Length() > 500f)
+		// Estimate the change in velocity
+		Vector2 velocityChange = lastVelocity - currentVelocity;
+		float impactForce = velocityChange.Length();
+
+		if (impactForce > 500f && damageCooldown <= 0f)
 		{
-			TakeDamage();
+			TakeDamage(2);
+			damageCooldown = 0.3f;
 		}
+		else if (impactForce > 200f && damageCooldown <= 0f)
+		{
+			TakeDamage(1);
+			damageCooldown = 0.3f;
+		}
+
+		lastVelocity = currentVelocity;
 	}
 
-	public override void _Process(double delta)
+	public override void _PhysicsProcess(double delta)
 	{
+		if (damageCooldown > 0)
+		{
+			damageCooldown -= (float)delta;
+		}
+
 		if (Input.IsActionJustPressed("Drop") && joint != null)
 		{
 			joint.QueueFree();

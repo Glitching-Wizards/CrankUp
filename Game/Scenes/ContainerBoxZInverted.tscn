@@ -44,6 +44,9 @@ _data = {
 }
 
 [node name="ContainerBoxZInverted" type="RigidBody2D"]
+z_index = 2
+mass = 24000.0
+inertia = 2.4e+08
 script = ExtResource("1_ftqqj")
 healthy = ExtResource("2_b141l")
 damaged = ExtResource("3_mg2fb")

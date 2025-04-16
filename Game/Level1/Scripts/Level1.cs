@@ -85,30 +85,35 @@ public partial class Level1 : Node2D
 
 		blockButton.Pressed += () =>
 		{
+			if (clawHead.grabbedBlock != null) return;
 			blockButtonPressed = true;
 			SpawnBlockButtonPressed(_blockScene, blockButton);
 		};
 
 		containerYellowLButton.Pressed += () =>
 		{
+			if (clawHead.grabbedBlock != null) return;
 			containerYellowLButtonPressed = true;
 			SpawnBlockButtonPressed(_containerYellowLScene, containerYellowLButton);
 		};
 
 		containerBlueLButton.Pressed += () =>
 		{
+			if (clawHead.grabbedBlock != null) return;
 			containerBlueLButtonPressed = true;
 			SpawnBlockButtonPressed(_containerBlueLScene, containerBlueLButton);
 		};
 
 		containerRedButton.Pressed += () =>
 		{
+			if (clawHead.grabbedBlock != null) return;
 			containerRedButtonPressed = true;
 			SpawnBlockButtonPressed(_containerRedScene, containerRedButton);
 		};
 
 		containerYellowButton.Pressed += () =>
 		{
+			if (clawHead.grabbedBlock != null) return;
 			containerYellowButtonPressed = true;
 			SpawnBlockButtonPressed(_containerYellowScene, containerYellowButton);
 		};
@@ -135,8 +140,6 @@ public partial class Level1 : Node2D
 
 	private async void SpawnBlockButtonPressed(PackedScene BlockScene, TextureButton button)
 	{
-		if (clawHead.grabbedBlock != null) return;
-
 		if (BlockScene == null)
 		{
 			GD.PrintErr("[ERROR] Cannot spawn block, scene not loaded!");
@@ -146,7 +149,8 @@ public partial class Level1 : Node2D
 
 		clawHead.collisionShape.SetDeferred("disabled", true);
 
-		RigidBody2D blockInstance = BlockScene.Instantiate<RigidBody2D>();
+		Block blockInstance = BlockScene.Instantiate<Block>();
+
 		this.AddChild(blockInstance);
 
 		blockInstance.GlobalPosition = clawHead.GlobalPosition + new Godot.Vector2(0, 20);

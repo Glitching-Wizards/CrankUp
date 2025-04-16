@@ -59,7 +59,8 @@ _data = {
 
 [node name="ContainerRedSmall" type="RigidBody2D"]
 z_index = 2
-continuous_cd = 1
+mass = 24000.0
+inertia = 2.4e+08
 script = ExtResource("1_prvan")
 healthy = SubResource("AtlasTexture_g2clc")
 damaged = SubResource("AtlasTexture_tof3i")
