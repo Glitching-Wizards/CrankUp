@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnosdlk5ga1o7"]
+[gd_scene load_steps=11 format=3 uid="uid://dnosdlk5ga1o7"]
 
 [ext_resource type="Script" path="res://Game/Scripts/Block.cs" id="1_q58q7"]
 [ext_resource type="Texture2D" uid="uid://de7udhwmd0tm3" path="res://Assets/Blocks/container_L_red.png" id="2_hetop"]
+[ext_resource type="Texture2D" uid="uid://c4gs27fjqof1p" path="res://Assets/Animations/SmokeCloud.png" id="3_vtgtt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_je632"]
 atlas = ExtResource("2_hetop")
@@ -19,6 +20,43 @@ region = Rect2(524, 0, 274, 260)
 atlas = ExtResource("2_hetop")
 region = Rect2(1, 0, 274, 260)
 
+[sub_resource type="Animation" id="Animation_g20ci"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_f4ix6"]
+resource_name = "SmokeCloudAnimation"
+length = 0.65
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667, 0.533333, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ueqg2"]
+_data = {
+"RESET": SubResource("Animation_g20ci"),
+"SmokeCloudAnimation": SubResource("Animation_f4ix6")
+}
+
 [node name="ContainerRedL" type="RigidBody2D"]
 z_index = 2
 rotation = 3.14159
@@ -32,6 +70,18 @@ broken = SubResource("AtlasTexture_xs4d2")
 position = Vector2(-0.312726, -1.58204)
 scale = Vector2(1.00611, 1.01428)
 texture = SubResource("AtlasTexture_7of12")
+
+[node name="SmokeCloud" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_vtgtt")
+hframes = 10
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SmokeCloud"]
+libraries = {
+"": SubResource("AnimationLibrary_ueqg2")
+}
+playback_auto_capture = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-0.999744, -101, 99.0003, -101, 98.9997, 99.0003, -101, 98.9997, -101, -1.00026, -0.999997, -1)
