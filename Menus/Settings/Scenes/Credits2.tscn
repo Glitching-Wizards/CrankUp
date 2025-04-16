@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://dlg44gj7ic5ge"]
+[gd_scene load_steps=13 format=3 uid="uid://dlg44gj7ic5ge"]
 
 [ext_resource type="Script" path="res://Menus/Settings/Scripts/Credits2.cs" id="1_5t2um"]
+[ext_resource type="AudioStream" uid="uid://cty2a4x8lqdp6" path="res://Audio/SoundEffects/ButtonPress.mp3" id="2_bewuy"]
 [ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="3_54p4u"]
 [ext_resource type="Texture2D" uid="uid://biwqqyd2e0hyd" path="res://Assets/Settings/BlueBlankScreen.png" id="4_0gmx0"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="5_ekmov"]
@@ -27,6 +28,7 @@ borderless = true
 always_on_top = true
 transparent = true
 script = ExtResource("1_5t2um")
+clickSound = ExtResource("2_bewuy")
 metadata/_edit_vertical_guides_ = [640.0]
 metadata/_edit_horizontal_guides_ = [360.0]
 
@@ -62,13 +64,13 @@ offset_right = 940.0
 offset_bottom = 660.0
 theme = ExtResource("5_ekmov")
 theme_override_font_sizes/normal_font_size = 18
-text = "Car start by enric592 -- https://freesound.org/s/185740/ -- License: Attribution 4.0
+text = "Car engine.wav by pmartinez13 -- https://freesound.org/s/250942/ -- License: Attribution 3.0
 
 Ocean waves Ale stenar 1.wav by Owl -- https://freesound.org/s/195293/ -- License: Attribution 4.0
 
 Seagulls close-up.wav by juskiddink -- https://freesound.org/s/100724/ -- License: Attribution 4.0
 
-forest calm NL MONO 03 200529_0181.mp3 by klankbeeld -- https://freesound.org/s/591744/ -- License: Attribution 4.0
+Forest calm NL MONO 03 200529_0181.mp3 by klankbeeld -- https://freesound.org/s/591744/ -- License: Attribution 4.0
 
 RailroadHorn1_G.wav by Trond_Berntsen -- https://freesound.org/s/621160/ -- License: Attribution 4.0
 

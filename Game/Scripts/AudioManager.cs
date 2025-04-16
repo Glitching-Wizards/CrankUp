@@ -2,11 +2,27 @@ using Godot;
 
 public partial class AudioManager : Node
 {
+    private static AudioStreamPlayer _truckPlayer;
+    private static AudioStreamPlayer _conveyorPlayer;
     private static AudioStreamPlayer _sfxPlayer;
     private static AudioStreamPlayer _musicPlayer;
 
     public override void _Ready()
     {
+        // Initialize truck sound player
+        _truckPlayer = new AudioStreamPlayer
+        {
+            Name = "TruckPlayer"
+        };
+        AddChild(_truckPlayer);
+
+        // Initialize conveyor belt sound player
+        _conveyorPlayer = new AudioStreamPlayer
+        {
+            Name = "ConveyorPlayer"
+        };
+        AddChild(_conveyorPlayer);
+
         // Initialize the sound effects player
         _sfxPlayer = new AudioStreamPlayer
         {
@@ -20,6 +36,33 @@ public partial class AudioManager : Node
             Name = "MusicPlayer",
         };
         AddChild(_musicPlayer);
+    }
+
+
+    /// <summary>
+    /// Plays the truck sound effect.
+    /// </summary>
+    /// <param name="sound"></param>
+    public static void PlayTruckSound(AudioStream sound)
+    {
+        if (_truckPlayer != null && sound != null)
+        {
+            _truckPlayer.Stream = sound;
+            _truckPlayer.Play();
+        }
+    }
+
+    /// <summary>
+    /// Plays the conveyor sound effect.
+    /// </summary>
+    /// <param name="sound"></param>
+    public static void PlayConveyorSound(AudioStream sound)
+    {
+        if (_conveyorPlayer != null && sound != null)
+        {
+            _conveyorPlayer.Stream = sound;
+            _conveyorPlayer.Play();
+        }
     }
 
     /// <summary>

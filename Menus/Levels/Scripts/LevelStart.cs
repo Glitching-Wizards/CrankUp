@@ -15,6 +15,9 @@ namespace CrankUp
         [Export] private AudioStream truckSound;
         private string _selectedLevelScenePath = "";
 
+        /// <summary>
+        /// Checks when play or menu is pressed.
+        /// </summary>
 		public override void _Ready()
         {
             TextureButton PlayButton = GetNodeOrNull<TextureButton>("PlayButton");
@@ -24,26 +27,41 @@ namespace CrankUp
 			MenuButton.Pressed += () => MenuButtonPressed();
         }
 
+        /// <summary>
+        /// Called when the menu button is pressed.
+        /// Changes the scene to the levels menu ja plays click sound.
+        /// </summary>
         public void MenuButtonPressed()
         {
             GetTree().ChangeSceneToFile(_levelsScenePath);
             AudioManager.PlaySound(clickSound);
         }
 
+        /// <summary>
+        /// Called when the play button is pressed.
+        /// Changes the scene to the selected level and plays click and truck sound.
+        /// </summary>
         public void PlayButtonPressed()
         {
             GD.Print("Play Pressed");
             AudioManager.PlaySound(clickSound);
-            AudioManager.PlaySound(truckSound);
+            AudioManager.PlayTruckSound(truckSound);
 
             CallDeferred(nameof(ChangeScene));
 		}
 
+        /// <summary>
+        /// Changes the scene to the selected level.
+        /// </summary>
 		private void ChangeScene()
 		{
 			GetTree().ChangeSceneToFile(_selectedLevelScenePath);
 		}
 
+        /// <summary>
+        /// Sets the selected level based on the level number.
+        /// </summary>
+        /// <param name="level"></param>
         public void SetLevel(int level)
         {
             _selectedLevelScenePath = level switch

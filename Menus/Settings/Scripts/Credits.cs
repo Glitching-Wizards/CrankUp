@@ -10,6 +10,9 @@ namespace CrankUp
 
         private Window secondWindow;
 
+        /// <summary>
+        /// Loads the windows and checks when the buttons are pressed and calls the methods for them.
+        /// </summary>
         public override void _Ready()
         {
             // Loads the second scene
@@ -35,6 +38,10 @@ namespace CrankUp
             exitButton.Pressed += ExitButtonPressed;
         }
 
+        /// <summary>
+        /// When the next button is pressed, it hides the current window and shows the second window.
+        /// It also plays the click sound.
+        /// </summary>
         public void NextButtonPressed()
         {
             GD.Print("Next Pressed");
@@ -43,6 +50,9 @@ namespace CrankUp
             this.Hide();
         }
 
+        /// <summary>
+        /// When the exit button is pressed, it hides the current window and plays the click sound.
+        /// </summary>
         public void ExitButtonPressed()
         {
             GD.Print("Exit Pressed");

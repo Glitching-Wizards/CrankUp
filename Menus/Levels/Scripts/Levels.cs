@@ -20,6 +20,10 @@ namespace CrankUp
         private TextureButton settingsButton;
         private const int TotalLevels = 5;
 
+        /// <summary>
+        /// This fuction sets up the level buttons and connects their signals to the appropriate functions.
+        /// It also plays the menu music.
+        /// </summary>
         public override void _Ready()
         {
             AudioManager.PlayMusic(menuMusic);
@@ -51,6 +55,10 @@ namespace CrankUp
             settingsWindow.Hide();
         }
 
+        /// <summary>
+        /// This function is called when the back button is pressed.
+        /// It plays the click sound and opens the main menu.
+        /// </summary>
         public void BackButtonPressed()
         {
             GD.Print("Back Pressed");
@@ -58,6 +66,10 @@ namespace CrankUp
             GetTree().ChangeSceneToFile(_mainMenuScenePath);
         }
 
+        /// <summary>
+        /// This function is called when the settings button is pressed.
+        /// It plays th click sound and opens the settings window.
+        /// </summary>
         public void SettingsButtonPressed()
         {
             GD.Print("Settings Pressed");
@@ -65,6 +77,11 @@ namespace CrankUp
             settingsWindow.Popup();
         }
 
+        /// <summary>
+        /// This function is called when a level button is pressed.
+        /// It plays a sound and opens the corresponding level start window.
+        /// </summary>
+        /// <param name="level">The level number that was pressed.</param>
         public void LevelButtonPressed(int level)
         {
             GD.Print($"Level {level} button pressed");
@@ -85,9 +102,9 @@ namespace CrankUp
         }
 
         /// <summary>
-        /// Valitun tason perusteella avataan oikea taso scene, kun pelaajaa painaa play.
+        /// Based on the selected level, the correct level scene is opened when the player presses play.
         /// </summary>
-        /// <param name="level">Valittu taso.</param>
+        /// <param name="level">Selected level.</param>
         /// <returns></returns>
         private string GetLevelScenePath(int level)
         {
@@ -102,6 +119,10 @@ namespace CrankUp
             };
         }
 
+        /// <summary>
+        /// This function sets up the level buttons based on the player's progress.
+        /// It enables or disables the buttons and sets the text to show the number of stars earned.
+        /// </summary>
         public void SetupLevelButtons()
         {
             int unlocked = SaveSystem.GetGameData().LevelProgress;
@@ -123,6 +144,12 @@ namespace CrankUp
             }
         }
 
+        /// <summary>
+        /// This function gets the number of stars earned for a specific level.
+        /// It checks the game data to see if the level has been completed and how many stars were earned.
+        /// </summary>
+        /// <param name="level">The level number.</param>
+        /// <returns>The number of stars earned for the level.</returns>
         private int GetStars(int level)
         {
             return SaveSystem.GetGameData().LevelStars.TryGetValue(level, out int stars) ? stars : 0;

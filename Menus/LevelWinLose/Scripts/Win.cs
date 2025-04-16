@@ -15,7 +15,9 @@ namespace CrankUp
 		private string _startLevelScenePath = "";
 		private Window startLevelWindow;
 
-
+		/// <summary>
+		/// Calls for the buttonPressed methods when the buttons are pressed.
+		/// </summary>
 		public override void _Ready()
 		{
 			TextureButton retryButton = GetNode<TextureButton>("Buttons/RetryButton");
@@ -27,7 +29,9 @@ namespace CrankUp
 			TextureButton nextButton = GetNode<TextureButton>("Buttons/NextButton");
 			nextButton.Pressed += NextButtonPressed;
 		}
-
+		/// <summary>
+		/// Reloads the current scene when the retry button is pressed.
+		/// </summary>
 		public void RetryButtonPressed()
 		{
 			GD.Print("Retry Pressed");
@@ -35,6 +39,9 @@ namespace CrankUp
 			GetTree().ReloadCurrentScene();
 		}
 
+		/// <summary>
+		/// Changes the scene to the menu when the menu button is pressed and plays the click sound.
+		/// </summary>
 		public void MenuButtonPressed()
 		{
 			GD.Print("Menu Pressed");
@@ -42,6 +49,9 @@ namespace CrankUp
 			GetTree().ChangeSceneToFile(_menuScenePath);
 		}
 
+		/// <summary>
+		/// Changes the scene to the next level when the next button is pressed and plays the click sound.
+		/// </summary>
 		public void NextButtonPressed()
 		{
 			GD.Print("Next Pressed");
@@ -56,6 +66,7 @@ namespace CrankUp
 
 			int nextLevel = 0;
 
+			// Choosing the next level based on the current scene name.
 			switch (currentScene.Name)
 			{
 				case "Level1":
@@ -81,6 +92,7 @@ namespace CrankUp
 
 			_startLevelScenePath = GetLevelScenePath(nextLevel);
 
+			// Loads the startLevelWindow scene based on the next level.
 			PackedScene startSceneLevel = (PackedScene)GD.Load(_startLevelScenePath);
 			startLevelWindow = (Window)startSceneLevel.Instantiate();
 			AddChild(startLevelWindow);
@@ -93,6 +105,10 @@ namespace CrankUp
 
 		}
 
+		/// <summary>
+		/// Returns the scene path for the next level based on the current level.
+		/// </summary>
+		/// <param name="nextLevel"></param>
 		private string GetLevelScenePath(int nextLevel)
 		{
 			return nextLevel switch

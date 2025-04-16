@@ -9,6 +9,9 @@ namespace CrankUp
 
         public Window PreviousWindow { get; set; }
 
+        /// <summary>
+        /// Checks when the buttons are pressed and calls the methods for them.
+        /// </summary>
         public override void _Ready()
         {
             TextureButton backButton = GetNodeOrNull<TextureButton>("Buttons/BackButton");
@@ -32,6 +35,10 @@ namespace CrankUp
             }
         }
 
+        /// <summary>
+        /// When the back button is pressed, it hides the current window and shows the previous window.
+        /// It also plays the click sound.
+        /// </summary>
         public void BackButtonPressed()
         {
             GD.Print("Back Pressed");
@@ -40,6 +47,9 @@ namespace CrankUp
             PreviousWindow?.PopupCentered(); // Show the previous window
         }
 
+        /// <summary>
+        /// When the exit button is pressed, it hides the current window and plays the click sound.
+        /// </summary>
         public void ExitButtonPressed()
         {
             GD.Print("Exit Pressed");
