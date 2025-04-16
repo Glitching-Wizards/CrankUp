@@ -9,6 +9,9 @@ public partial class AudioManager : Node
 
     public override void _Ready()
     {
+        // For the music to not stop when pause is pressed
+        ProcessMode = ProcessModeEnum.Always;
+
         // Initialize truck sound player
         _truckPlayer = new AudioStreamPlayer
         {
@@ -82,6 +85,8 @@ public partial class AudioManager : Node
     /// </summary>
     public static void PlayMusic(AudioStream music)
     {
+        _musicPlayer.ProcessMode = ProcessModeEnum.Always;
+        
         if (_musicPlayer == null || music == null)
             return;
 

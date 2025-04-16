@@ -15,6 +15,7 @@ public partial class Block : RigidBody2D
 	[Export] private Texture2D damaged;
 	[Export] private Texture2D broken;
 	[Export] private AudioStream hitSound = GD.Load<AudioStream>("res://Audio/SoundEffects/ContainerHit2.mp3");
+	[Export] private AudioStream explosionSound = GD.Load<AudioStream>("res://Audio/SoundEffects/Explosion.mp3");
 
 	public override void _Ready()
 	{
@@ -42,11 +43,9 @@ public partial class Block : RigidBody2D
 
 	private async void TakeDamage()
 	{
-		currentHealth--;
-		AudioManager.PlaySound(hitSound);
-		UpdateSprite();
 		if (currentHealth == 0)
 		{
+			AudioManager.PlaySound(explosionSound);
 			smokeCloud.Visible = true;
 			animationPlayer.Play("SmokeCloudAnimation");
 
@@ -55,6 +54,12 @@ public partial class Block : RigidBody2D
 
 			await ToSignal(GetTree().CreateTimer(0.2f), "timeout");
 			this.QueueFree();
+		}
+		else
+		{
+			currentHealth--;
+			AudioManager.PlaySound(hitSound);
+			UpdateSprite();
 		}
 	}
 
