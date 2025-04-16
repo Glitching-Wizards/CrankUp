@@ -25,7 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://ctxvgkn6ddu20" path="res://Gui/Tutorial/Tutorial2.tscn" id="21_mmwtp"]
 [ext_resource type="PackedScene" uid="uid://t8di6gto22h3" path="res://Menus/LevelWinLose/Scenes/Lose.tscn" id="21_se2au"]
 [ext_resource type="PackedScene" uid="uid://cejnj6x0fry0m" path="res://Gui/Tutorial/Tutorial3.tscn" id="22_kfl2k"]
-[ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial4.tscn" id="23_0vlog"]
+[ext_resource type="PackedScene" uid="uid://brjgb4ke34ftt" path="res://Gui/Tutorial/Tutorial4.tscn" id="23_0vlog"]
 [ext_resource type="PackedScene" uid="uid://pbhrkwx4h2r" path="res://Gui/Tutorial/Tutorial5.tscn" id="24_4m2qt"]
 [ext_resource type="PackedScene" uid="uid://baur4gsdjok38" path="res://Gui/Tutorial/Tutorial6.tscn" id="25_1na0m"]
 [ext_resource type="PackedScene" uid="uid://cj0550n71gkad" path="res://Gui/Tutorial/Tutorial7.tscn" id="26_f87lh"]
@@ -415,3 +415,5 @@ text = "SKIP"
 [connection signal="pressed" from="Tutorial/Tutorial9/Button" to="Tutorial/Tutorial9" method="set_visible" binds= [false]]
 [connection signal="pressed" from="Tutorial/Tutorial9/Button" to="Tutorial/SkipButton" method="set_visible" binds= [false]]
 [connection signal="pressed" from="Tutorial/SkipButton" to="Tutorial" method="queue_free"]
+
+[editable path="Tutorial/Tutorial1"]

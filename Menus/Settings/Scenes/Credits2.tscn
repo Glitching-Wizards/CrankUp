@@ -58,9 +58,9 @@ text = "SOUNDEFFECTS:"
 
 [node name="Text" type="RichTextLabel" parent="Headline"]
 layout_mode = 0
-offset_left = 40.0
+offset_left = 2.0
 offset_top = 60.0
-offset_right = 940.0
+offset_right = 952.0
 offset_bottom = 660.0
 theme = ExtResource("5_ekmov")
 theme_override_font_sizes/normal_font_size = 18
@@ -74,7 +74,9 @@ Forest calm NL MONO 03 200529_0181.mp3 by klankbeeld -- https://freesound.org/s/
 
 RailroadHorn1_G.wav by Trond_Berntsen -- https://freesound.org/s/621160/ -- License: Attribution 4.0
 
-Conveyor belt by freemaster2 -- https://freesound.org/s/172350/ -- License: Attribution 4.0"
+Conveyor belt by freemaster2 -- https://freesound.org/s/172350/ -- License: Attribution 4.0
+
+Explosion by Iwiploppenisse -- https://freesound.org/s/156031/ -- License: Attribution 4.0"
 
 [node name="Buttons" type="Node" parent="."]
 
@@ -112,9 +114,9 @@ stretch_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -227.5
-offset_top = 4.0
-offset_right = 227.5
+offset_left = -354.0
+offset_top = 11.0
+offset_right = 340.0
 offset_bottom = 134.0
 grow_horizontal = 2
 theme = ExtResource("9_i0dbs")
