@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://dw4au03pl8dr2"]
+[gd_scene load_steps=14 format=3 uid="uid://dw4au03pl8dr2"]
 
 [ext_resource type="Script" path="res://Menus/Settings/Scripts/Credits.cs" id="1_6yl85"]
 [ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="2_b5dso"]
+[ext_resource type="AudioStream" uid="uid://cty2a4x8lqdp6" path="res://Audio/SoundEffects/ButtonPress.mp3" id="2_mxpr6"]
 [ext_resource type="Texture2D" uid="uid://biwqqyd2e0hyd" path="res://Assets/Settings/BlueBlankScreen.png" id="3_0e2ea"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="4_hikx2"]
 [ext_resource type="Texture2D" uid="uid://bivg4xjox4tp3" path="res://Assets/Settings/BlockBlueBigger.png" id="5_7om3j"]
@@ -28,6 +29,7 @@ borderless = true
 always_on_top = true
 transparent = true
 script = ExtResource("1_6yl85")
+clickSound = ExtResource("2_mxpr6")
 metadata/_edit_vertical_guides_ = [640.0]
 metadata/_edit_horizontal_guides_ = [360.0]
 

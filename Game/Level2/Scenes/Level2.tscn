@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bh25upnb64myu" path="res://Gui/Background2.tscn" id="1_om3yl"]
 [ext_resource type="AudioStream" uid="uid://55dp3yy62tfv" path="res://Audio/Ambients/Level2.mp3" id="2_8hckw"]
 [ext_resource type="Texture2D" uid="uid://bw7uqlawbr5or" path="res://Assets/Misc/Conveyor.png" id="3_6sg4l"]
-[ext_resource type="AudioStream" uid="uid://xwwru5jihqqb" path="res://Audio/SoundEffects/Conveyor (mp3cut.net).mp3" id="3_ff111"]
+[ext_resource type="AudioStream" uid="uid://xwwru5jihqqb" path="res://Audio/SoundEffects/Conveyor.mp3" id="3_ff111"]
 [ext_resource type="Theme" uid="uid://6td37p2nd7m3" path="res://Gui/PlayTheme.tres" id="4_bi5ep"]
 [ext_resource type="Script" path="res://Game/Scripts/FinishButton.cs" id="5_88stb"]
 [ext_resource type="Texture2D" uid="uid://bqlfady1qw4tw" path="res://Assets/Blocks/container_box_Z1.png" id="6_atamv"]

@@ -8,6 +8,9 @@ namespace CrankUp
 		[Export] private string _menuScenePath = "res://Menus/Levels/Scenes/Levels.tscn";
 		[Export] private AudioStream clickSound;
 
+		/// <summary>
+		/// Calls for the buttonPressed methods when the buttons are pressed.
+		/// </summary>
 		public override void _Ready()
 		{
 			TextureButton retryButton = GetNode<TextureButton>("Buttons/RetryButton");
@@ -17,6 +20,9 @@ namespace CrankUp
 			menuButton.Pressed += MenuButtonPressed;
 		}
 
+		/// <summary>
+		/// Reloads the current scene when the retry button is pressed.
+		/// </summary>
 		public void RetryButtonPressed()
 		{
 			GD.Print("Retry Pressed");
@@ -24,6 +30,9 @@ namespace CrankUp
 			GetTree().ReloadCurrentScene();
 		}
 
+		/// <summary>
+		/// Changes the scene to the menu when the menu button is pressed and plays the click sound.
+		/// </summary>
 		public void MenuButtonPressed()
 		{
 			GD.Print("Menu Pressed");

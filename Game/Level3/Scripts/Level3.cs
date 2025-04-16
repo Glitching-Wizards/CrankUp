@@ -225,40 +225,63 @@ public partial class Level3 : Node2D
 		button.QueueFree();
 
 		// Check if all buttons are removed
-		if (blockButtonPressed && containerRedButtonPressed && containerGreenLButtonPressed && containerBlueLInvertedButtonPressed && containerYellowLButtonPressed && containerYellowLInvertedButtonPressed) interim = true;
-		if (interim && containerGreenButtonPressed && containerYellowButtonPressed && containerRedLButtonPressed && containerRed2ButtonPressed && containerBlueLButtonPressed) endLevel = true;
+		if (blockButtonPressed && containerRedButtonPressed && containerGreenLButtonPressed && containerBlueLInvertedButtonPressed && containerYellowLButtonPressed && containerYellowLInvertedButtonPressed)
+		{
+			interim = true;
+			startLevel = false;
+			beltSoundPlayed = false; // Reset the sound of conveyerBelt
+		}
+		if (interim && containerGreenButtonPressed && containerYellowButtonPressed && containerRedLButtonPressed && containerRed2ButtonPressed && containerBlueLButtonPressed)
+		{
+			endLevel = true;
+			interim = false;
+			beltSoundPlayed = false; // Reset the sound of conveyerBelt
+		}
 	}
 
+	/// <summary>
+	/// This fuction moves the conveyer belt to the right when
+	/// the level starts and when all blocks are in play. It also
+	/// contains the sound of the conveyer belt.
+	/// The sound is played once when the level start and
+	/// when all blocks are in play.
+	/// </summary>
+	/// <param name="delta"></param>
 	public override void _Process(double delta)
 	{
-		if (conveyorBelt != null && startLevel)
-		{
-			float step = beltMoveSpeed * (float) delta;
+		float step = beltMoveSpeed * (float)delta;
 
-			if (conveyorBelt.Position.X < beltTargetPositionStart)
+		if (conveyorBelt == null) return;
+
+		if (startLevel && conveyorBelt.Position.X < beltTargetPositionStart)
+		{
+			if (!beltSoundPlayed)
 			{
-				conveyorBelt.Position = new Godot.Vector2(conveyorBelt.Position.X + step, conveyorBelt.Position.Y);
+				AudioManager.PlayConveyorSound(conveyorBeltSound);
+				beltSoundPlayed = true;
 			}
+
+			conveyorBelt.Position = new Godot.Vector2(conveyorBelt.Position.X + step, conveyorBelt.Position.Y);
 		}
-
-		if (conveyorBelt != null && interim)
+		else if (interim && conveyorBelt.Position.X < beltTargetPositionInterim)
 		{
-			float step = beltMoveSpeed * (float) delta;
-
-			if (conveyorBelt.Position.X < beltTargetPositionInterim)
+			if (!beltSoundPlayed)
 			{
-				conveyorBelt.Position = new Godot.Vector2(conveyorBelt.Position.X + step, conveyorBelt.Position.Y);
+				AudioManager.PlayConveyorSound(conveyorBeltSound);
+				beltSoundPlayed = true;
 			}
+
+			conveyorBelt.Position = new Godot.Vector2(conveyorBelt.Position.X + step, conveyorBelt.Position.Y);
 		}
-
-		if (conveyorBelt != null && endLevel)
+		else if (endLevel && conveyorBelt.Position.X < beltTargetPositionEnd)
 		{
-			float step = beltMoveSpeed * (float) delta;
-
-			if (conveyorBelt.Position.X < beltTargetPositionEnd)
+			if (!beltSoundPlayed)
 			{
-				conveyorBelt.Position = new Godot.Vector2(conveyorBelt.Position.X + step, conveyorBelt.Position.Y);
+				AudioManager.PlayConveyorSound(conveyorBeltSound);
+				beltSoundPlayed = true;
 			}
+
+			conveyorBelt.Position = new Godot.Vector2(conveyorBelt.Position.X + step, conveyorBelt.Position.Y);
 		}
 	}
 }

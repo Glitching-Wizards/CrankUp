@@ -224,7 +224,7 @@ public partial class Level2 : Node2D
 		{
 			if (!beltSoundPlayed)
 			{
-				AudioManager.PlaySound(conveyorBeltSound);
+				AudioManager.PlayConveyorSound(conveyorBeltSound);
 				beltSoundPlayed = true;
 			}
 
@@ -234,7 +234,7 @@ public partial class Level2 : Node2D
 		{
 			if (!beltSoundPlayed)
 			{
-				AudioManager.PlaySound(conveyorBeltSound);
+				AudioManager.PlayConveyorSound(conveyorBeltSound);
 				beltSoundPlayed = true;
 			}
 
@@ -244,7 +244,7 @@ public partial class Level2 : Node2D
 		{
 			if (!beltSoundPlayed)
 			{
-				AudioManager.PlaySound(conveyorBeltSound);
+				AudioManager.PlayConveyorSound(conveyorBeltSound);
 				beltSoundPlayed = true;
 			}
 

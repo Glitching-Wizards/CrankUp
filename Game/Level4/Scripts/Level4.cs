@@ -211,7 +211,7 @@ public partial class Level4 : Node2D
 			GD.PrintErr("[ERROR] Cannot spawn block, scene not loaded!");
 		}
 
-		clawHead.GlobalPosition = new Godot.Vector2 (clawHead.GlobalPosition.X, -291);
+		clawHead.GlobalPosition = new Godot.Vector2(clawHead.GlobalPosition.X, -291);
 
 		clawHead.collisionShape.SetDeferred("disabled", true);
 
@@ -227,51 +227,80 @@ public partial class Level4 : Node2D
 		button.QueueFree();
 
 		// Check if all buttons are removed
-		if (containerZButtonPressed && containerZ2ButtonPressed && containerZInvertedButtonPressed && containerZInverted2ButtonPressed && cardboardTButtonPressed && containerBoxButtonPressed) interim = true;
-		if (interim && containerBox2ButtonPressed && containerBox3ButtonPressed && containerBox4ButtonPressed && cardboardT2ButtonPressed && cardboardT3ButtonPressed) interim2 = true;
-		if (interim2 && containerZ3ButtonPressed && containerZInverted3ButtonPressed) endLevel = true;
+		if (containerZButtonPressed && containerZ2ButtonPressed && containerZInvertedButtonPressed && containerZInverted2ButtonPressed && cardboardTButtonPressed && containerBoxButtonPressed)
+		{
+			interim = true;
+			startLevel = false;
+			beltSoundPlayed = false; // Reset the sound of conveyerBelt
+		}
+		if (interim && containerBox2ButtonPressed && containerBox3ButtonPressed && containerBox4ButtonPressed && cardboardT2ButtonPressed && cardboardT3ButtonPressed)
+		{
+			interim2 = true;
+			interim = false;
+			beltSoundPlayed = false; // Reset the sound of conveyerBelt
+		}
+		if (interim2 && containerZ3ButtonPressed && containerZInverted3ButtonPressed)
+		{
+			endLevel = true;
+			interim2 = false;
+			beltSoundPlayed = false; // Reset the sound of conveyerBelt
+		}
 	}
 
+
+	/// <summary>
+	/// This fuction moves the conveyer belt to the right when
+	/// the level starts and when all blocks are in play. It also
+	/// contains the sound of the conveyer belt.
+	/// The sound is played once when the level start and
+	/// when all blocks are in play.
+	/// </summary>
+	/// <param name="delta"></param>
 	public override void _Process(double delta)
 	{
-		if (conveyorBelt != null && startLevel)
-		{
-			float step = beltMoveSpeed * (float) delta;
+		float step = beltMoveSpeed * (float)delta;
 
-			if (conveyorBelt.Position.X < beltTargetPositionStart)
+		if (conveyorBelt == null) return;
+
+		if (startLevel && conveyorBelt.Position.X < beltTargetPositionStart)
+		{
+			if (!beltSoundPlayed)
 			{
-				conveyorBelt.Position = new Godot.Vector2(conveyorBelt.Position.X + step, conveyorBelt.Position.Y);
+				AudioManager.PlayConveyorSound(conveyorBeltSound);
+				beltSoundPlayed = true;
 			}
+
+			conveyorBelt.Position = new Godot.Vector2(conveyorBelt.Position.X + step, conveyorBelt.Position.Y);
 		}
-
-		if (conveyorBelt != null && interim)
+		else if (interim && conveyorBelt.Position.X < beltTargetPositionInterim)
 		{
-			float step = beltMoveSpeed * (float) delta;
-
-			if (conveyorBelt.Position.X < beltTargetPositionInterim)
+			if (!beltSoundPlayed)
 			{
-				conveyorBelt.Position = new Godot.Vector2(conveyorBelt.Position.X + step, conveyorBelt.Position.Y);
+				AudioManager.PlayConveyorSound(conveyorBeltSound);
+				beltSoundPlayed = true;
 			}
+
+			conveyorBelt.Position = new Godot.Vector2(conveyorBelt.Position.X + step, conveyorBelt.Position.Y);
 		}
-
-		if (conveyorBelt != null && interim2)
+		else if (interim2 && conveyorBelt.Position.X < beltTargetPositionInterim2)
 		{
-			float step = beltMoveSpeed * (float) delta;
-
-			if (conveyorBelt.Position.X < beltTargetPositionInterim2)
+			if (!beltSoundPlayed)
 			{
-				conveyorBelt.Position = new Godot.Vector2(conveyorBelt.Position.X + step, conveyorBelt.Position.Y);
+				AudioManager.PlayConveyorSound(conveyorBeltSound);
+				beltSoundPlayed = true;
 			}
+
+			conveyorBelt.Position = new Godot.Vector2(conveyorBelt.Position.X + step, conveyorBelt.Position.Y);
 		}
-
-		if (conveyorBelt != null && endLevel)
+		else if (endLevel && conveyorBelt.Position.X < beltTargetPositionEnd)
 		{
-			float step = beltMoveSpeed * (float) delta;
-
-			if (conveyorBelt.Position.X < beltTargetPositionEnd)
+			if (!beltSoundPlayed)
 			{
-				conveyorBelt.Position = new Godot.Vector2(conveyorBelt.Position.X + step, conveyorBelt.Position.Y);
+				AudioManager.PlayConveyorSound(conveyorBeltSound);
+				beltSoundPlayed = true;
 			}
+
+			conveyorBelt.Position = new Godot.Vector2(conveyorBelt.Position.X + step, conveyorBelt.Position.Y);
 		}
 	}
 }

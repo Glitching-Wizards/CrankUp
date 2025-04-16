@@ -14,6 +14,10 @@ namespace CrankUp
 		private Window creditsWindow;
 
 		private bool isSceneChanging = false;
+
+		/// <summary>
+		/// Checks when the buttons are pressed and calls the methods for them.
+		/// </summary>
 		public override void _Ready()
 		{
 			SaveSystem.LoadGame();
@@ -38,6 +42,9 @@ namespace CrankUp
 			creditsWindow.Hide();
 		}
 
+		/// <summary>
+		/// When play button is pressed it changes the scene to the level start scene and plays the click sound.
+		/// </summary>
 		public void PlayButtonPressed()
 		{
 			if (isSceneChanging)
@@ -62,6 +69,10 @@ namespace CrankUp
 				isSceneChanging = false;
 			}
 		}
+
+		/// <summary>
+		/// When play button is pressed it opens the settings window and plays the click sound.
+		/// </summary>
 		public void SettingsButtonPressed()
 		{
 			GD.Print("Settings Pressed");
@@ -69,6 +80,9 @@ namespace CrankUp
 			settingsWindow.Popup();
 		}
 
+		/// <summary>
+		/// When play button is pressed it opens the credits window and plays the click sound.
+		/// </summary>
 		public void CreditsButtonPressed()
 		{
 			GD.Print("Credits Pressed");
