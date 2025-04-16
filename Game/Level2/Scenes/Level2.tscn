@@ -20,6 +20,14 @@
 [ext_resource type="PackedScene" uid="uid://lyxtd003i5wb" path="res://Menus/LevelWinLose/Scenes/Win3.tscn" id="15_p7rjx"]
 [ext_resource type="Texture2D" uid="uid://q6ihfvymkai8" path="res://Assets/Misc/BoxShadow2.png" id="16_vdcpg"]
 [ext_resource type="PackedScene" uid="uid://t8di6gto22h3" path="res://Menus/LevelWinLose/Scenes/Lose.tscn" id="17_mj0oh"]
+[ext_resource type="PackedScene" uid="uid://ctxvgkn6ddu20" path="res://Gui/Tutorial/Tutorial2.tscn" id="18_yjm07"]
+[ext_resource type="PackedScene" uid="uid://cejnj6x0fry0m" path="res://Gui/Tutorial/Tutorial3.tscn" id="19_qg28v"]
+[ext_resource type="PackedScene" path="res://Gui/Tutorial/Tutorial4.tscn" id="20_gwu33"]
+[ext_resource type="PackedScene" uid="uid://pbhrkwx4h2r" path="res://Gui/Tutorial/Tutorial5.tscn" id="21_0qifa"]
+[ext_resource type="PackedScene" uid="uid://baur4gsdjok38" path="res://Gui/Tutorial/Tutorial6.tscn" id="22_047tx"]
+[ext_resource type="PackedScene" uid="uid://cj0550n71gkad" path="res://Gui/Tutorial/Tutorial7.tscn" id="23_4pkel"]
+[ext_resource type="PackedScene" uid="uid://eok2slj87g2u" path="res://Gui/Tutorial/Tutorial8.tscn" id="24_uqkd5"]
+[ext_resource type="PackedScene" uid="uid://cpnja7ibf6k85" path="res://Gui/Tutorial/Tutorial9.tscn" id="25_e2wpn"]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_gqdgr")

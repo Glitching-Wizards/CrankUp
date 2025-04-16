@@ -45,7 +45,8 @@ _data = {
 
 [node name="ContainerGreenSmall" type="RigidBody2D"]
 z_index = 2
-continuous_cd = 1
+mass = 24000.0
+inertia = 2.4e+08
 script = ExtResource("1_uyjh7")
 healthy = ExtResource("2_vdvn8")
 damaged = ExtResource("3_ynigq")
