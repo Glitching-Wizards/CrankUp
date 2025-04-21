@@ -62,7 +62,6 @@ text = "60"
 horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="Panel"]
-autostart = true
 
 [node name="Time" type="Label" parent="Panel"]
 layout_mode = 0

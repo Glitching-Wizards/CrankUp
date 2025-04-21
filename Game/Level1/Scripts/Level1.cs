@@ -7,10 +7,7 @@ namespace CrankUp;
 public partial class Level1 : Node2D
 {
 	private static Level1 _current = null;
-	public static Level1 Current
-	{
-		get { return _current; }
-	}
+	public static Level1 Current => _current;
 
 	[Export] private string _clawScenePath = "res://Game/Scenes/Claw.tscn";
 	[Export] private string _pauseScenePath = "res://Menus/Settings/Scenes/Pause.tscn";
@@ -52,12 +49,14 @@ public partial class Level1 : Node2D
 	private bool endLevel = false;
 	private bool beltSoundPlayed = false;
 	private float beltTargetPositionStart = -540;
-	private float beltTargetPositionEnd = 460; // ConveyorBelt target position when all blocks are in play
-	private float beltMoveSpeed = 200f; // ConveyorBelts speed of movement per frame
+	private float beltTargetPositionEnd = 460;
+	private float beltMoveSpeed = 200f;
+	private bool tutorialCompleted = false;
 
-
-	public override void _Ready()
+	public override async void _Ready()
 	{
+		_current = this;
+
 		_claw = CreateClaw();
 		AudioManager.PlayMusic(levelMusic);
 
@@ -69,7 +68,6 @@ public partial class Level1 : Node2D
 		}
 
 		conveyorBelt = GetNodeOrNull<TextureRect>("ConveyorBelt");
-
 
 		_blockScene = ResourceLoader.Load<PackedScene>(_blockScenePath);
 		_containerYellowLScene = ResourceLoader.Load<PackedScene>(_containerYellowLScenePath);
@@ -83,6 +81,28 @@ public partial class Level1 : Node2D
 		containerRedButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerRed");
 		containerYellowButton = GetNodeOrNull<TextureButton>("ConveyorBelt/BlockButtons/ContainerYellow");
 
+		// Wait one frame to ensure all nodes are fully loaded
+		await ToSignal(GetTree(), "idle_frame");
+
+		// Use TextureButton for skip since that's what it is in the scene
+		TextureButton skipButton = GetNodeOrNull<TextureButton>("Tutorial/SkipButton");
+		Button lastTutorialButton = GetNodeOrNull<Button>("Tutorial/Tutorial9/Button");
+
+		if (skipButton != null)
+		{
+			skipButton.Pressed += OnTutorialComplete;
+			GD.Print("[Level1] SkipButton connected.");
+		}
+		else
+			GD.PrintErr("[Level1] SkipButton not found!");
+
+		if (lastTutorialButton != null)
+		{
+			lastTutorialButton.Pressed += OnTutorialComplete;
+			GD.Print("[Level1] Last tutorial button connected.");
+		}
+		else
+			GD.PrintErr("[Level1] Last tutorial button not found!");
 
 		blockButton.Pressed += () =>
 		{
@@ -120,9 +140,27 @@ public partial class Level1 : Node2D
 		};
 	}
 
-	public Level1()
+	private void OnTutorialComplete()
 	{
-		_current = this;
+		if (tutorialCompleted)
+			return;
+
+		tutorialCompleted = true;
+
+		CanvasItem tutorial = GetNodeOrNull("Tutorial") as CanvasItem;
+		if (tutorial != null)
+			tutorial.Visible = false;
+
+		var controlsLeftUi = GetTree().Root.FindChild("ControlsLeftUi", true, false) as ControlsLeftUi;
+		if (controlsLeftUi != null)
+		{
+			controlsLeftUi.StartTimer();
+			GD.Print("[Level1] Tutorial complete. Timer started.");
+		}
+		else
+		{
+			GD.PrintErr("[Level1] ControlsLeftUi not found.");
+		}
 	}
 
 	private Claw CreateClaw()
@@ -130,13 +168,13 @@ public partial class Level1 : Node2D
 		if (_clawScene == null)
 		{
 			_clawScene = ResourceLoader.Load<PackedScene>(_clawScenePath);
-			if (_clawScene == null) // Check if the scene is loaded correctly
+			if (_clawScene == null)
 			{
 				GD.PrintErr("Claw scene not found!");
 				return null;
 			}
 		}
-		return _clawScene.Instantiate<Claw>(); // Instantiate Claw
+		return _clawScene.Instantiate<Claw>();
 	}
 
 	private async void SpawnBlockButtonPressed(PackedScene BlockScene, TextureButton button)
@@ -147,29 +185,23 @@ public partial class Level1 : Node2D
 		}
 
 		clawHead.GlobalPosition = new Godot.Vector2(clawHead.GlobalPosition.X, -291);
-
 		clawHead.collisionShape.SetDeferred("disabled", true);
 
 		Block blockInstance = BlockScene.Instantiate<Block>();
-
 		this.AddChild(blockInstance);
-
 		blockInstance.GlobalPosition = clawHead.GlobalPosition + new Godot.Vector2(0, 20);
 
 		await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
 
 		clawHead.GrabBlock();
-
 		button.QueueFree();
 
-		// Check if all buttons are pressed
 		if (blockButtonPressed && containerYellowLButtonPressed && containerBlueLButtonPressed && containerRedButtonPressed && containerYellowButtonPressed)
 		{
 			endLevel = true;
-			beltSoundPlayed = false; // Reset the sound of conveyerBelt
+			beltSoundPlayed = false;
 		}
 	}
-
 	/// <summary>
 	/// This fuction moves the conveyer belt to the right when
 	/// the level starts and when all blocks are in play. It also
@@ -203,7 +235,6 @@ public partial class Level1 : Node2D
 				AudioManager.PlayConveyorSound(conveyorBeltSound);
 				beltSoundPlayed = true;
 			}
-
 
 			if (conveyorBelt.Position.X < beltTargetPositionEnd)
 			{
