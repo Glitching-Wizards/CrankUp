@@ -39,11 +39,8 @@ public partial class Level1 : Node2D
 	private TextureButton containerRedButton;
 	private TextureButton containerYellowButton;
 
-	private bool blockButtonPressed = false;
-	private bool containerYellowLButtonPressed = false;
-	private bool containerBlueLButtonPressed = false;
-	private bool containerRedButtonPressed = false;
-	private bool containerYellowButtonPressed = false;
+	private int blockButtonsPressedCount = 0;
+	private const int totalBlockButtons = 5;
 
 	private bool startLevel = true;
 	private bool endLevel = false;
@@ -107,35 +104,30 @@ public partial class Level1 : Node2D
 		blockButton.Pressed += () =>
 		{
 			if (clawHead.grabbedBlock != null) return;
-			blockButtonPressed = true;
 			SpawnBlockButtonPressed(_blockScene, blockButton);
 		};
 
 		containerYellowLButton.Pressed += () =>
 		{
 			if (clawHead.grabbedBlock != null) return;
-			containerYellowLButtonPressed = true;
 			SpawnBlockButtonPressed(_containerYellowLScene, containerYellowLButton);
 		};
 
 		containerBlueLButton.Pressed += () =>
 		{
 			if (clawHead.grabbedBlock != null) return;
-			containerBlueLButtonPressed = true;
 			SpawnBlockButtonPressed(_containerBlueLScene, containerBlueLButton);
 		};
 
 		containerRedButton.Pressed += () =>
 		{
 			if (clawHead.grabbedBlock != null) return;
-			containerRedButtonPressed = true;
 			SpawnBlockButtonPressed(_containerRedScene, containerRedButton);
 		};
 
 		containerYellowButton.Pressed += () =>
 		{
 			if (clawHead.grabbedBlock != null) return;
-			containerYellowButtonPressed = true;
 			SpawnBlockButtonPressed(_containerYellowScene, containerYellowButton);
 		};
 	}
@@ -182,6 +174,7 @@ public partial class Level1 : Node2D
 		if (BlockScene == null)
 		{
 			GD.PrintErr("[ERROR] Cannot spawn block, scene not loaded!");
+			return;
 		}
 
 		clawHead.GlobalPosition = new Godot.Vector2(clawHead.GlobalPosition.X, -291);
@@ -196,12 +189,14 @@ public partial class Level1 : Node2D
 		clawHead.GrabBlock();
 		button.QueueFree();
 
-		if (blockButtonPressed && containerYellowLButtonPressed && containerBlueLButtonPressed && containerRedButtonPressed && containerYellowButtonPressed)
+		blockButtonsPressedCount++;
+		if (blockButtonsPressedCount >= totalBlockButtons)
 		{
 			endLevel = true;
 			beltSoundPlayed = false;
 		}
 	}
+
 	/// <summary>
 	/// This fuction moves the conveyer belt to the right when
 	/// the level starts and when all blocks are in play. It also

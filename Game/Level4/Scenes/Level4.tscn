@@ -251,6 +251,7 @@ script = ExtResource("16_xkewl")
 polygon = PackedVector2Array(-275, 12, -225, 12, -225, -288, -175, -288, -175, -238, -125, -238, -125, -88, -75, -88, -75, -38, 75, -38, 75, -88, 125, -88, 125, -238, 175, -238, 175, -288, 225, -288, 225, 12, 275, 12, 275, 62, -275, 62)
 
 [node name="ScoreLabel" type="Label" parent="PlacementArea"]
+z_index = 7
 offset_left = -456.0
 offset_top = -463.0
 offset_right = -387.0
