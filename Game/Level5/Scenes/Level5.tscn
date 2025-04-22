@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Game/Level5/Scripts/Level5.cs" id="1_bhd71"]
 [ext_resource type="AudioStream" uid="uid://unyeni3l3lqk" path="res://Audio/Ambients/Level5.mp3" id="2_tasv5"]
 [ext_resource type="Texture2D" uid="uid://bw7uqlawbr5or" path="res://Assets/Misc/Conveyor.png" id="3_6v07u"]
-[ext_resource type="AudioStream" uid="uid://xwwru5jihqqb" path="res://Audio/SoundEffects/Conveyor.mp3" id="3_f2wis"]
+[ext_resource type="AudioStream" uid="uid://xwwru5jihqqb" path="res://Audio/SoundEffects/CONVEYOR.mp3" id="3_f2wis"]
 [ext_resource type="PackedScene" uid="uid://jb1qnfl3l0yf" path="res://Gui/Background5.tscn" id="3_tjllg"]
 [ext_resource type="Theme" uid="uid://6td37p2nd7m3" path="res://Gui/PlayTheme.tres" id="4_xuls4"]
 [ext_resource type="Script" path="res://Game/Scripts/FinishButton.cs" id="5_aovdx"]
@@ -225,6 +225,9 @@ ignore_texture_size = true
 stretch_mode = 0
 flip_h = true
 
+[node name="Claw" parent="." instance=ExtResource("10_mel3e")]
+z_index = 1
+
 [node name="Ui" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -255,6 +258,7 @@ position = Vector2(0, 114)
 script = ExtResource("11_ax0fi")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlacementArea"]
+z_index = -1
 polygon = PackedVector2Array(-125, 62, -125, 12, -175, 12, -175, -38, -225, -38, -225, -88, -175, -88, -175, -138, -125, -138, -125, -188, -75, -188, -75, -238, -25, -238, -25, -288, -24, -288, 25, -288, 25, -238, 75, -238, 75, -188, 125, -188, 125, -138, 175, -138, 175, -88, 225, -88, 225, -38, 175, -38, 175, 12, 125, 12, 125, 62)
 
 [node name="ScoreLabel" type="Label" parent="PlacementArea"]
@@ -268,14 +272,12 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 46
 
 [node name="BoxShadow5" type="TextureRect" parent="."]
+z_index = -1
 offset_left = -225.0
 offset_top = -174.0
 offset_right = 226.0
 offset_bottom = 176.0
 texture = ExtResource("17_jt6kj")
-
-[node name="Claw" parent="." instance=ExtResource("10_mel3e")]
-z_index = 1
 
 [node name="WinLose" type="Control" parent="."]
 layout_mode = 3

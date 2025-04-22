@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Game/Level4/Scripts/Level4.cs" id="1_4bqgu"]
 [ext_resource type="AudioStream" uid="uid://cqbrdweoncjel" path="res://Audio/Ambients/Level4.mp3" id="2_3wcuv"]
-[ext_resource type="AudioStream" uid="uid://xwwru5jihqqb" path="res://Audio/SoundEffects/Conveyor.mp3" id="3_1gqp0"]
+[ext_resource type="AudioStream" uid="uid://xwwru5jihqqb" path="res://Audio/SoundEffects/CONVEYOR.mp3" id="3_1gqp0"]
 [ext_resource type="Texture2D" uid="uid://bw7uqlawbr5or" path="res://Assets/Misc/Conveyor.png" id="3_p2usu"]
 [ext_resource type="Theme" uid="uid://6td37p2nd7m3" path="res://Gui/PlayTheme.tres" id="4_mv2i5"]
 [ext_resource type="Script" path="res://Game/Scripts/FinishButton.cs" id="5_wksfs"]
@@ -226,6 +226,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="ControlsLeftUi" parent="Ui" instance=ExtResource("13_jumkn")]
+z_index = 3
 layout_mode = 1
 offset_left = -640.0
 offset_top = -360.0

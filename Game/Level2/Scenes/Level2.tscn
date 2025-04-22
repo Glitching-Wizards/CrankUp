@@ -1,10 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://cor3byry1b8nl"]
+[gd_scene load_steps=21 format=3 uid="uid://b54grpygrbq3i"]
 
 [ext_resource type="Script" path="res://Game/Level2/Scripts/Level2.cs" id="1_gqdgr"]
 [ext_resource type="PackedScene" uid="uid://bh25upnb64myu" path="res://Gui/Background2.tscn" id="1_om3yl"]
 [ext_resource type="AudioStream" uid="uid://55dp3yy62tfv" path="res://Audio/Ambients/Level2.mp3" id="2_8hckw"]
 [ext_resource type="Texture2D" uid="uid://bw7uqlawbr5or" path="res://Assets/Misc/Conveyor.png" id="3_6sg4l"]
-[ext_resource type="AudioStream" uid="uid://xwwru5jihqqb" path="res://Audio/SoundEffects/Conveyor.mp3" id="3_ff111"]
+[ext_resource type="AudioStream" uid="uid://xwwru5jihqqb" path="res://Audio/SoundEffects/CONVEYOR.mp3" id="3_ff111"]
 [ext_resource type="Theme" uid="uid://6td37p2nd7m3" path="res://Gui/PlayTheme.tres" id="4_bi5ep"]
 [ext_resource type="Script" path="res://Game/Scripts/FinishButton.cs" id="5_88stb"]
 [ext_resource type="Texture2D" uid="uid://bqlfady1qw4tw" path="res://Assets/Blocks/container_box_Z1.png" id="6_atamv"]
@@ -173,6 +173,9 @@ texture_normal = ExtResource("8_1fmme")
 ignore_texture_size = true
 stretch_mode = 4
 
+[node name="Claw" parent="." instance=ExtResource("10_wb5s4")]
+z_index = 0
+
 [node name="Ui" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -180,6 +183,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="ControlsLeftUi" parent="Ui" instance=ExtResource("8_664pu")]
+z_index = 1
 layout_mode = 1
 offset_left = -640.0
 offset_top = -360.0
@@ -214,14 +218,12 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 46
 
 [node name="BoxShadow2" type="TextureRect" parent="."]
+z_index = -2
 offset_left = -156.0
 offset_top = -224.0
 offset_right = 144.0
 offset_bottom = 176.0
 texture = ExtResource("16_vdcpg")
-
-[node name="Claw" parent="." instance=ExtResource("10_wb5s4")]
-z_index = 1
 
 [node name="WinLose" type="Control" parent="."]
 layout_mode = 3

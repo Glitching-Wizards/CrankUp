@@ -60,7 +60,8 @@ _data = {
 [node name="ContainerYellowLInverted" type="RigidBody2D"]
 z_index = 2
 rotation = 3.14159
-continuous_cd = 1
+mass = 24000.0
+inertia = 2.4e+08
 script = ExtResource("1_ldf05")
 healthy = SubResource("AtlasTexture_32mdq")
 damaged = SubResource("AtlasTexture_6ij6r")

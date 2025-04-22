@@ -63,23 +63,23 @@ public partial class ControlsLeftUi : Control
 		switch (sceneName)
 		{
 			case "Level1":
-				timeLeft = 60;
+				timeLeft = 90;
 				countDownTimer.Autostart = false; // Tutorial — wait for StartTimer()
 				break;
 			case "Level2":
-				timeLeft = 90;
-				countDownTimer.Autostart = true;
-				break;
-			case "Level3":
-				timeLeft = 100;
-				countDownTimer.Autostart = true;
-				break;
-			case "Level4":
 				timeLeft = 120;
 				countDownTimer.Autostart = true;
 				break;
-			case "Level5":
+			case "Level3":
 				timeLeft = 180;
+				countDownTimer.Autostart = true;
+				break;
+			case "Level4":
+				timeLeft = 240;
+				countDownTimer.Autostart = true;
+				break;
+			case "Level5":
+				timeLeft = 300;
 				countDownTimer.Autostart = true;
 				break;
 			default:

@@ -45,7 +45,8 @@ _data = {
 
 [node name="Block" type="RigidBody2D"]
 z_index = 2
-continuous_cd = 1
+mass = 24000.0
+inertia = 2.4e+08
 script = ExtResource("1_vq1wx")
 healthy = ExtResource("2_7dowd")
 damaged = ExtResource("3_1nr1t")
