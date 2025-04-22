@@ -56,7 +56,7 @@ namespace CrankUp
 			score = placementArea.GetScore();
 			int stars = 0;
 
-			if (score >= 50 && score < 80 && victoryScreen1 != null)
+			if (score >= 60 && score < 80 && victoryScreen1 != null)
 			{
 				stars = 1;
 				AudioManager.PlaySound(winSound);
@@ -74,7 +74,7 @@ namespace CrankUp
 				AudioManager.PlaySound(winSound);
 				victoryScreen3.Visible = true;
 			}
-			else if (score < 70 && loseScreen != null)
+			else if (score < 60 && loseScreen != null)
 			{
 				AudioManager.PlaySound(loseSound);
 				loseScreen.Visible = true;

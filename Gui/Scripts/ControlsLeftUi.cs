@@ -59,15 +59,16 @@ public partial class ControlsLeftUi : Control
 		countDownTimer.OneShot = false;
 
 		// Set time limits and autostart behavior depending on the level
+		countDownTimer.Autostart = false;
 		string sceneName = GetTree().CurrentScene?.Name ?? "";
 		switch (sceneName)
 		{
 			case "Level1":
 				timeLeft = 90;
-				countDownTimer.Autostart = false; // Tutorial — wait for StartTimer()
+				countDownTimer.Autostart = false;
 				break;
 			case "Level2":
-				timeLeft = 120;
+				timeLeft = 150;
 				countDownTimer.Autostart = true;
 				break;
 			case "Level3":
@@ -91,8 +92,9 @@ public partial class ControlsLeftUi : Control
 		countDownTimer.Timeout += OnTimerTimeout;
 		UpdateTimerLabel();
 
-		if (countDownTimer.Autostart)
+		if (sceneName != "Level1")
 			countDownTimer.Start();
+
 
 		AddToGroup("multi_sliders");
 
