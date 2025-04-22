@@ -20,9 +20,7 @@
 
 [node name="Settings" type="Window" node_paths=PackedStringArray("_fiButton", "_enButton")]
 transparent_bg = true
-initial_position = 1
 size = Vector2i(1280, 720)
-exclusive = true
 unresizable = true
 borderless = true
 always_on_top = true
@@ -75,9 +73,9 @@ stretch_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -244.5
-offset_top = 4.0
-offset_right = 210.5
+offset_left = -354.0
+offset_top = 11.0
+offset_right = 340.0
 offset_bottom = 134.0
 grow_horizontal = 2
 theme = ExtResource("3_c0bsf")

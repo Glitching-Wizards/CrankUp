@@ -4,7 +4,7 @@ namespace CrankUp
 {
     public class GameData
     {
-        public int LevelProgress { get; set; } = 1;
+        public int LevelProgress { get; set; } = 0;
         public Dictionary<int, int> LevelStars { get; set; } = new();
 
         public float MasterVolume { get; set; } = -6f;
@@ -20,7 +20,7 @@ namespace CrankUp
                 MasterVolume = -6f,
                 MusicVolume = -6f,
                 SfxVolume = -6f,
-                LevelProgress = 1,
+                LevelProgress = 0,
                 LevelStars = new Dictionary<int, int>()
             };
         }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://baur4gsdjok38"]
+[gd_scene load_steps=12 format=3 uid="uid://baur4gsdjok38"]
 
 [ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="1_piihw"]
 [ext_resource type="Texture2D" uid="uid://bjl34nmf2fffy" path="res://Assets/Animations/JarkkoNormalAnimated.png" id="2_kacrk"]
@@ -41,6 +41,67 @@ tracks/0/keys = {
 _data = {
 "JarkkoNormal": SubResource("Animation_l75ec"),
 "RESET": SubResource("Animation_e04tv")
+}
+
+[sub_resource type="Animation" id="Animation_fn8qh"]
+resource_name = "Text6"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, -1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_v05xn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fnn6s"]
+_data = {
+"RESET": SubResource("Animation_v05xn"),
+"Text6": SubResource("Animation_fn8qh")
 }
 
 [node name="Tutorial" type="Control"]
@@ -94,6 +155,7 @@ texture = ExtResource("6_hh740")
 flip_v = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="SpeechBubble"]
+layout_mode = 0
 offset_left = 65.0
 offset_top = 120.0
 offset_right = 619.0
@@ -102,3 +164,11 @@ theme = ExtResource("4_a1iq5")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 29
 text = "TUTORIAL6"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SpeechBubble/RichTextLabel"]
+libraries = {
+"": SubResource("AnimationLibrary_fnn6s")
+}
+autoplay = "Text6"
