@@ -89,5 +89,19 @@ namespace CrankUp
 			AudioManager.PlaySound(clickSound);
 			creditsWindow.Popup();
 		}
+
+		/// <summary>
+		/// Called when the app is about to quit (also works on mobile app close).
+		/// Ensures that game progress is saved.
+		/// </summary>
+		public override void _Notification(int what)
+		{
+			if (what == NotificationExitTree)
+			{
+				GD.Print("[MainMenu] App is exiting. Saving game...");
+				SaveSystem.SaveGame();
+			}
+		}
+
 	}
 }

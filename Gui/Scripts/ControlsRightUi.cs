@@ -8,11 +8,11 @@ namespace CrankUp;
 /// </summary>
 public partial class ControlsRightUi : Control
 {
-    /// <summary>
-    /// Path to the pause/settings window scene.
-    /// </summary>
-    [Export] private string _pauseScenePath = "res://Menus/Settings/Scenes/Pause.tscn";
-    [Export] private AudioStream chainSound;
+	/// <summary>
+	/// Path to the pause/settings window scene.
+	/// </summary>
+	[Export] private string _pauseScenePath = "res://Menus/Settings/Scenes/Pause.tscn";
+	[Export] private AudioStream chainSound;
 
 	private ClawHead clawHead;
 	private ClawBase clawBase;
@@ -23,20 +23,20 @@ public partial class ControlsRightUi : Control
 	private float moveSliderValue;
 	private Vector2 movementDirection = Vector2.Zero;
 
-    /// <summary>
-    /// Called when the node enters the scene tree. Initializes references and connects UI signals.
-    /// </summary>
-    public override void _Ready()
-    {
-        AddToGroup("multi_sliders");
+	/// <summary>
+	/// Called when the node enters the scene tree. Initializes references and connects UI signals.
+	/// </summary>
+	public override void _Ready()
+	{
+		AddToGroup("multi_sliders");
 
-        // Find the Grab button
-        grabButton = GetNodeOrNull<TextureButton>("Panel/Grab");
-        if (grabButton == null)
-        {
-            GD.PrintErr("[ERROR] TextureButton 'Grab' not found in ControlsLeftUi!");
-            return;
-        }
+		// Find the Grab button
+		grabButton = GetNodeOrNull<TextureButton>("Panel/Grab");
+		if (grabButton == null)
+		{
+			GD.PrintErr("[ERROR] TextureButton 'Grab' not found in ControlsLeftUi!");
+			return;
+		}
 
 		// Find the move slider
 		moveSlider = GetNodeOrNull<VSlider>("Panel/MoveSlider");
