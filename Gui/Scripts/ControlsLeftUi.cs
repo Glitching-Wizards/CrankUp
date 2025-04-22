@@ -68,7 +68,7 @@ public partial class ControlsLeftUi : Control
 				countDownTimer.Autostart = false;
 				break;
 			case "Level2":
-				timeLeft = 120;
+				timeLeft = 150;
 				countDownTimer.Autostart = true;
 				break;
 			case "Level3":

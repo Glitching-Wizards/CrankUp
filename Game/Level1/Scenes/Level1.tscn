@@ -413,7 +413,7 @@ text = "SKIP"
 [connection signal="pressed" from="Tutorial/Tutorial7/Button" to="Tutorial/Tutorial8" method="set_visible" binds= [true]]
 [connection signal="pressed" from="Tutorial/Tutorial8/Button" to="Tutorial/Tutorial8" method="set_visible" binds= [false]]
 [connection signal="pressed" from="Tutorial/Tutorial8/Button" to="Tutorial/Tutorial9" method="set_visible" binds= [true]]
-[connection signal="pressed" from="Tutorial/Tutorial9/Button" to="." method="StartTimer"]
+[connection signal="pressed" from="Tutorial/Tutorial9/Button" to="Ui/ControlsLeftUi" method="StartTimer"]
 [connection signal="pressed" from="Tutorial/Tutorial9/Button" to="Tutorial/Tutorial9" method="set_visible" binds= [false]]
 [connection signal="pressed" from="Tutorial/Tutorial9/Button" to="Tutorial/SkipButton" method="set_visible" binds= [false]]
 [connection signal="pressed" from="Tutorial/SkipButton" to="Ui/ControlsLeftUi" method="StartTimer"]
