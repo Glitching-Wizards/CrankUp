@@ -10,6 +10,15 @@ namespace CrankUp
 		[Export] private TextureButton _fiButton = null;
 		[Export] private TextureButton _enButton = null;
 		[Export] private AudioStream clickSound;
+		[Export] private HSlider _masterSlider;
+		[Export] private TextureRect _masterIcon;
+		[Export] private HSlider _musicSlider;
+		[Export] private TextureRect _musicIcon;
+		[Export] private HSlider _sfxSlider;
+		[Export] private TextureRect _sfxIcon;
+		[Export] private Texture2D _speakerIcon;
+		[Export] private Texture2D _muteIcon;
+
 		private GameData _data = null;
 		private string _originalLanguage = null;
 		private string Language;
@@ -20,7 +29,6 @@ namespace CrankUp
 
 			// Lataa asetukset tiedostosta.
 			_data = LoadSettings();
-			ApplyData(_data);
 
 			_fiButton = GetNodeOrNull<TextureButton>("Buttons/FI");
 			_fiButton.Pressed += FiButtonPressed;
@@ -30,6 +38,25 @@ namespace CrankUp
 
 			TextureButton exitButton = GetNode<TextureButton>("ExitButton");
 			exitButton.Pressed += ExitButtonPressed;
+
+			_masterSlider.Value = Mathf.DbToLinear(_data.MasterVolume);
+			_musicSlider.Value = Mathf.DbToLinear(_data.MusicVolume);
+			_sfxSlider.Value = Mathf.DbToLinear(_data.SfxVolume);
+
+			UpdateIcon(_masterIcon, _masterSlider.Value);
+			UpdateIcon(_musicIcon, _musicSlider.Value);
+			UpdateIcon(_sfxIcon, _sfxSlider.Value);
+
+			_masterSlider.ValueChanged += OnMasterSliderChanged;
+			_musicSlider.ValueChanged += OnMusicSliderChanged;
+			_sfxSlider.ValueChanged += OnSfxSliderChanged;
+
+			AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), _data.MasterVolume);
+			AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Music"), _data.MusicVolume);
+			AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("SFX"), _data.SfxVolume);
+
+
+			ApplyData(_data);
 		}
 
 		public void Initialized()
@@ -124,7 +151,6 @@ namespace CrankUp
 			}
 			else
 			{
-				// Asetustiedostoa ei löydetty, luodaan oletusasetukset.
 				data = GameData.CreateDefaults();
 				SaveSettings();
 			}
@@ -132,54 +158,67 @@ namespace CrankUp
 			return data;
 		}
 
-		/*public bool SetVolume(string busName, float volumeDB)
+		private void SetVolume(HSlider slider, TextureRect icon, string busName, float dbVolume)
 		{
-			if (_data == null)
-			{
-				return false;
-			}
-
 			int busIndex = AudioServer.GetBusIndex(busName);
-			if (busIndex < 0)
+			if (busIndex >= 0)
 			{
-				GD.PrintErr($"Bus '{busName}' not found.");
-				return false;
+				AudioServer.SetBusVolumeDb(busIndex, dbVolume);
+				slider.Value = Mathf.DbToLinear(dbVolume); 
+				UpdateIcon(icon, slider.Value);
 			}
-
-			AudioServer.SetBusVolumeDb(busIndex, volumeDB);
-
-			switch (busName)
-			{
-				case "Master":
-					_data.MasterVolume = volumeDB;
-					break;
-				case "Music":
-					_data.MusicVolume = volumeDB;
-					break;
-				case "SFX":
-					_data.SfxVolume = volumeDB;
-					break;
-				default:
-					GD.PrintErr($"Unknown bus '{busName}'.");
-					break;
-			}
-
-			return true;
 		}
 
-		public bool GetVolume(string busName, out float volumeDB)
+		private void UpdateIcon(TextureRect icon, double value)
 		{
-			int busIndex = AudioServer.GetBusIndex(busName);
-			if (busIndex < 0)
+			icon.Texture = value <= 0.01 ? _muteIcon : _speakerIcon;
+		}
+
+		private void OnMasterSliderChanged(double value)
+		{
+			UpdateIcon(_masterIcon, value);
+			var db = Mathf.LinearToDb((float)value);
+			AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), db);
+			_data.MasterVolume = db;
+			SaveSettings();
+		}
+
+		private void OnMusicSliderChanged(double value)
+		{
+			UpdateIcon(_musicIcon, value);
+			var db = Mathf.LinearToDb((float)value);
+			AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Music"), db);
+			_data.MusicVolume = db;
+			SaveSettings();
+		}
+
+		private void OnSfxSliderChanged(double value)
+		{
+			UpdateIcon(_sfxIcon, value);
+			var db = Mathf.LinearToDb((float)value);
+			AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("SFX"), db);
+			_data.SfxVolume = db;
+			SaveSettings();
+		}
+
+		private void ToggleMute(HSlider slider, TextureRect icon, string busName, ref float volumeDb)
+		{
+			if (slider.Value > 0.01)
 			{
-				GD.PrintErr($"Bus '{busName}' not found.");
-				volumeDB = float.NaN;
-				return false;
+				slider.Value = 0;
+			}
+			else
+			{
+				slider.Value = 1;
 			}
 
-			volumeDB = AudioServer.GetBusVolumeDb(busIndex);
-			return true;
-		}*/
+			float db = Mathf.LinearToDb((float)slider.Value);
+			AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex(busName), db);
+			UpdateIcon(icon, slider.Value);
+
+			volumeDb = db;
+			SaveSettings();
+		}
 
 		public string GetLanguage()
 		{
