@@ -41,16 +41,12 @@ namespace CrankUp
 		{
 			ChangeLanguage("fi");
 			AudioManager.PlaySound(clickSound);
-			_fiButton.Disabled = true;
-			_enButton.Disabled = false;
 		}
 
 		private void EnButtonPressed()
 		{
 			ChangeLanguage("en");
 			AudioManager.PlaySound(clickSound);
-			_enButton.Disabled = true;
-			_fiButton.Disabled = false;
 		}
 
 		private bool ChangeLanguage(string Language)

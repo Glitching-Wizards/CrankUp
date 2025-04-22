@@ -130,7 +130,7 @@ namespace CrankUp
         /// </summary>
         public void SetupLevelButtons()
         {
-            int unlocked = SaveSystem.GetGameData().LevelProgress; // Gets the info which levels are unlocked
+            int played = SaveSystem.GetGameData().LevelProgress; // Gets the info which levels are unlocked
 
             // Goes through all levels and sets the buttons accordingly
             for (int i = 1; i <= TotalLevels; i++)
@@ -139,8 +139,12 @@ namespace CrankUp
                 var numberLabel = button.GetNodeOrNull<Label>("Number");
                 var flagIcon = button.GetNodeOrNull<Sprite2D>("Flag");
 
+                int stars = GetStars(i);
+                GD.Print($"Level {i} stars: {stars}");
+                GD.Print($"Level {i} played: {played}");
+
                 // Level with at least 1 star
-                if (i < unlocked)
+                if (stars > 0)
                 {
                     button.Disabled = false;
                     numberLabel.Visible = true;
@@ -160,6 +164,7 @@ namespace CrankUp
                     numberLabel.Visible = false;
                     flagIcon.Visible = false;
                 }
+                GD.Print($"Level {i}: Stars = {stars}, Played = {i <= played}, FlagVisible = {flagIcon.Visible}");
             }
         }
 
