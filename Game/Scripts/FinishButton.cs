@@ -49,6 +49,7 @@ namespace CrankUp
 			placementArea = currentLevel.GetNodeOrNull<PlacementArea>("PlacementArea");
 		}
 
+		//Calculates players stars when finish button is pressed.
 		private void OnButtonPressed()
 		{
 			if (placementArea == null) return;
@@ -87,7 +88,7 @@ namespace CrankUp
 				SaveSystem.OnLevelCompleted(levelNumber, stars);
 			}
 		}
-
+		//Ends the game when time runs out
 		private void OnTimeRanOut() {
 			if (loseScreen != null)
 			{
@@ -95,7 +96,7 @@ namespace CrankUp
 				loseScreen.Visible = true;
 			}
 		}
-
+		//Gets the level number so all the methods work in all levels
 		private int GetLevelNumberFromName(string levelName)
 		{
 			var digits = new string(levelName.Where(char.IsDigit).ToArray());
@@ -119,7 +120,7 @@ namespace CrankUp
 				GD.PrintErr("Could not find ControlsLeftUi to connect signal.");
 			}
 		}
-
+		//calculates score at timeout
 		public void ScoreAtTimeout()
 		{
 			if (placementArea == null) return;

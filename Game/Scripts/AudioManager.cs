@@ -31,7 +31,7 @@ public partial class AudioManager : Node
 			if (AudioServer.GetBusIndex("SFX") == -1)
 			 GD.PrintErr("SFX audio bus not found!");
 
-			 GD.Print("Truck bus: ", _truckPlayer.Bus);
+			GD.Print("Truck bus: ", _truckPlayer.Bus);
 			GD.Print("SFX bus: ", _sfxPlayer.Bus);
 			GD.Print("Music bus: ", _musicPlayer.Bus);
 

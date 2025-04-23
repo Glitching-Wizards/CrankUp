@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ctrbxconu8ml"]
+[gd_scene load_steps=26 format=3 uid="uid://ctrbxconu8ml"]
 
 [ext_resource type="Script" path="res://Menus/Levels/Scripts/Levels.cs" id="1_g0cmt"]
 [ext_resource type="AudioStream" uid="uid://cty2a4x8lqdp6" path="res://Audio/SoundEffects/ButtonPress.mp3" id="2_o4cgt"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cgsynnhqxp5gt" path="res://Assets/Gui/Buttons/back_arrow1.png" id="5_g2hs5"]
 [ext_resource type="Texture2D" uid="uid://dwpija6ht0ruh" path="res://Assets/Gui/Buttons/back_arrow2.png" id="6_76n8v"]
 [ext_resource type="Texture2D" uid="uid://drt0jcu32dc24" path="res://Assets/Gui/Buttons/LevelButtonDisabled.png" id="6_pkvn1"]
+[ext_resource type="Script" path="res://Menus/Levels/Scripts/LevelButtonManager.cs" id="7_fvgb7"]
 [ext_resource type="Texture2D" uid="uid://b4bjdgq72inu5" path="res://Assets/Gui/Buttons/settings_new1.png" id="7_j0c7f"]
 [ext_resource type="Texture2D" uid="uid://d2al4y6gq8k45" path="res://Assets/Animations/FlagAnimated.png" id="7_p7dew"]
 [ext_resource type="Script" path="res://Menus/Levels/Scripts/LevelButton.cs" id="8_2nd6a"]
@@ -274,6 +275,8 @@ autoplay = "SmallClouds2"
 
 [node name="Buttons" type="Control" parent="."]
 anchors_preset = 0
+script = ExtResource("7_fvgb7")
+levelButtonsPaths = Array[NodePath]([])
 
 [node name="Level1" type="TextureButton" parent="Buttons"]
 layout_mode = 0
@@ -297,6 +300,7 @@ text = "1
 "
 
 [node name="Flag" type="Sprite2D" parent="Buttons/Level1"]
+visible = false
 position = Vector2(100, -12)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_p7dew")
@@ -331,6 +335,7 @@ text = "2
 "
 
 [node name="Flag" type="Sprite2D" parent="Buttons/Level2"]
+visible = false
 position = Vector2(100, -12)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_p7dew")
@@ -365,6 +370,7 @@ text = "3
 "
 
 [node name="Flag" type="Sprite2D" parent="Buttons/Level3"]
+visible = false
 position = Vector2(100, -12)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_p7dew")
@@ -399,6 +405,7 @@ text = "4
 "
 
 [node name="Flag" type="Sprite2D" parent="Buttons/Level4"]
+visible = false
 position = Vector2(100, -12)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_p7dew")
@@ -433,6 +440,7 @@ text = "5
 "
 
 [node name="Flag" type="Sprite2D" parent="Buttons/Level5"]
+visible = false
 position = Vector2(100, -12)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_p7dew")
