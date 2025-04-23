@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ckb1t7ko0dp0p"]
+[gd_scene load_steps=18 format=3 uid="uid://ckb1t7ko0dp0p"]
 
 [ext_resource type="Script" path="res://Menus/Settings/Scripts/Settings.cs" id="1_n5s8t"]
 [ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="2_lqclo"]
@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://cf7fyoentx14n" path="res://Assets/Settings/UKFlagGray.png" id="11_23pnq"]
 [ext_resource type="Texture2D" uid="uid://104qw0r1df7a" path="res://Assets/Settings/AudioFull.png" id="12_tf0j5"]
 [ext_resource type="Texture2D" uid="uid://l4o2w7xwbjb2" path="res://Assets/Settings/AudioMute.png" id="13_00pst"]
-[ext_resource type="Script" path="res://Game/Scripts/AudioManager.cs" id="15_11g7t"]
 [ext_resource type="Texture2D" uid="uid://bb5sh7b80ksh4" path="res://Assets/Gui/Settings/AudioSliderButton.png" id="16_0el47"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="16_uom7k"]
 
@@ -280,7 +279,6 @@ scale = Vector2(0.6, 0.6)
 texture_normal = ExtResource("13_00pst")
 
 [node name="Sliders" type="Node" parent="."]
-script = ExtResource("15_11g7t")
 
 [node name="TextureRect" type="TextureRect" parent="Sliders"]
 anchors_preset = 6
@@ -387,6 +385,6 @@ text = "OPTIONS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="value_changed" from="Sliders/MusicSlider" to="." method="OnMasterSliderChanged"]
-[connection signal="value_changed" from="Sliders/SoundEffectSlider" to="." method="OnSfxSliderChanged"]
 [connection signal="value_changed" from="Sliders/MasterSlider" to="." method="OnMusicSliderChanged"]
+[connection signal="value_changed" from="Sliders/SoundEffectSlider" to="." method="OnSfxSliderChanged"]
+[connection signal="value_changed" from="Sliders/MusicSlider" to="." method="OnMasterSliderChanged"]
