@@ -381,6 +381,6 @@ text = "OPTIONS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="value_changed" from="Sliders/MusicSlider" to="." method="OnMusicSliderChanged"]
+[connection signal="value_changed" from="Sliders/MusicSlider" to="." method="OnMasterSliderChanged"]
 [connection signal="value_changed" from="Sliders/SoundEffectSlider" to="." method="OnSfxSliderChanged"]
-[connection signal="value_changed" from="Sliders/MasterSlider" to="." method="OnMasterSliderChanged"]
+[connection signal="value_changed" from="Sliders/MasterSlider" to="." method="OnMusicSliderChanged"]
