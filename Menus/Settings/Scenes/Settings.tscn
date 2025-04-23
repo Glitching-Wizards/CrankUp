@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bb5sh7b80ksh4" path="res://Assets/Gui/Settings/AudioSliderButton.png" id="16_0el47"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="16_uom7k"]
 
-[node name="Settings" type="Window" node_paths=PackedStringArray("_fiButton", "_enButton")]
+[node name="Settings" type="Window" node_paths=PackedStringArray("_fiButton", "_enButton", "_masterSlider", "_musicSlider", "_sfxSlider")]
 transparent_bg = true
 initial_position = 1
 size = Vector2i(1280, 720)
@@ -32,6 +32,9 @@ script = ExtResource("1_n5s8t")
 _fiButton = NodePath("Buttons/FI")
 _enButton = NodePath("Buttons/EN")
 clickSound = ExtResource("2_qqais")
+_masterSlider = NodePath("Sliders/MusicSlider")
+_musicSlider = NodePath("Sliders/MasterSlider")
+_sfxSlider = NodePath("Sliders/SoundEffectSlider")
 
 [node name="GrayBackground" type="TextureRect" parent="."]
 modulate = Color(0.462745, 0.427451, 0.4, 0.286275)

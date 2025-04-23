@@ -4,6 +4,7 @@ namespace CrankUp
 {
     public class GameData
     {
+        //This class saves and returns the saved data of the game
         public int LevelProgress { get; set; } = 1;
         public Dictionary<int, int> LevelStars { get; set; } = new();
 
