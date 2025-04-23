@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=16 format=3 uid="uid://ckb1t7ko0dp0p"]
-=======
-[gd_scene load_steps=19 format=3 uid="uid://ckb1t7ko0dp0p"]
->>>>>>> 5014d8710d52908442ef75afbfa8655439cfed43
+[gd_scene load_steps=17 format=3 uid="uid://ckb1t7ko0dp0p"]
 
 [ext_resource type="Script" path="res://Menus/Settings/Scripts/Settings.cs" id="1_n5s8t"]
 [ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="2_lqclo"]
@@ -292,7 +288,7 @@ grow_vertical = 2
 scale = Vector2(0.755, 0.755)
 texture = ExtResource("10_in284")
 
-[node name="MusicSlider" type="HSlider" parent="Sliders"]
+[node name="MasterSlider" type="HSlider" parent="Sliders"]
 offset_left = 647.0
 offset_top = 296.0
 offset_right = 1127.0
@@ -346,7 +342,7 @@ grow_vertical = 2
 scale = Vector2(0.755, 0.755)
 texture = ExtResource("10_in284")
 
-[node name="MasterSlider" type="HSlider" parent="Sliders"]
+[node name="MusicSlider" type="HSlider" parent="Sliders"]
 offset_left = 647.0
 offset_top = 556.0
 offset_right = 1127.0
@@ -379,6 +375,6 @@ text = "OPTIONS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="value_changed" from="Sliders/MusicSlider" to="." method="OnMusicSliderChanged"]
+[connection signal="value_changed" from="Sliders/MasterSlider" to="." method="OnMusicSliderChanged"]
 [connection signal="value_changed" from="Sliders/SoundEffectSlider" to="." method="OnSfxSliderChanged"]
-[connection signal="value_changed" from="Sliders/MasterSlider" to="." method="OnMasterSliderChanged"]
+[connection signal="value_changed" from="Sliders/MusicSlider" to="." method="OnMasterSliderChanged"]
