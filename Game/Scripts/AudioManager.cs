@@ -83,7 +83,7 @@ public partial class AudioManager : Node
 	public static void PlayMusic(AudioStream music)
 	{
 		_musicPlayer.ProcessMode = ProcessModeEnum.Always;
-		
+
 		if (_musicPlayer == null || music == null)
 			return;
 

@@ -35,7 +35,7 @@ public partial class Block : RigidBody2D
 		currentHealth = maxHealth;
 		UpdateSprite();
 	}
-	//Changes the sprite image of blocks based on damage taken
+
 	private void UpdateSprite()
 	{
 		if (currentHealth > 2)
@@ -45,7 +45,7 @@ public partial class Block : RigidBody2D
 		else if (currentHealth > 0)
 			sprite.Texture = broken;
 	}
-	//Method that calculates blocks damage taken
+
 	private async void TakeDamage(int damage)
 	{
 		currentHealth -= damage;

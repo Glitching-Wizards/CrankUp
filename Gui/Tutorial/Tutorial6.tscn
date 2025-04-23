@@ -94,6 +94,7 @@ texture = ExtResource("6_hh740")
 flip_v = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="SpeechBubble"]
+layout_mode = 0
 offset_left = 65.0
 offset_top = 120.0
 offset_right = 619.0
