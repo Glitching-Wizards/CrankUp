@@ -304,6 +304,7 @@ theme_override_icons/grabber_highlight = ExtResource("16_0el47")
 theme_override_icons/tick = ExtResource("16_0el47")
 max_value = 1.0
 step = 0.001
+value = 0.5
 scrollable = false
 
 [node name="TextureRect2" type="TextureRect" parent="Sliders"]
@@ -331,6 +332,7 @@ theme_override_icons/grabber_highlight = ExtResource("16_0el47")
 theme_override_icons/tick = ExtResource("16_0el47")
 max_value = 1.0
 step = 0.001
+value = 0.5
 scrollable = false
 
 [node name="TextureRect3" type="TextureRect" parent="Sliders"]
@@ -358,6 +360,7 @@ theme_override_icons/grabber_highlight = ExtResource("16_0el47")
 theme_override_icons/tick = ExtResource("16_0el47")
 max_value = 1.0
 step = 0.001
+value = 0.5
 scrollable = false
 
 [node name="Header" type="TextureRect" parent="."]
