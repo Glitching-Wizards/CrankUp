@@ -75,7 +75,7 @@ namespace CrankUp
             {
                 _gameData.LevelStars[level] = stars;
             }
-
+            
             GD.Print($"[SaveSystem] OnLevelCompleted: Level {level}, Stars Earned: {stars}");
             GD.Print("[SaveSystem] Current Stars Before Save:");
             foreach (var kvp in _gameData.LevelStars)

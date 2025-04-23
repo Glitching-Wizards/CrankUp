@@ -74,18 +74,28 @@ namespace CrankUp
 			_originalLanguage = GetLanguage();
 		}
 
+		/// <summary>
+		/// Changes the language to finnish.
+		/// </summary>
 		private void FiButtonPressed()
 		{
 			ChangeLanguage("fi");
 			AudioManager.PlaySound(clickSound);
 		}
 
+		/// <summary>
+		/// Changes the language to english.
+		/// </summary>
 		private void EnButtonPressed()
 		{
 			ChangeLanguage("en");
 			AudioManager.PlaySound(clickSound);
 		}
 
+		/// <summary>
+		/// Changes the language of the game.
+		/// </summary>
+		/// <param name="Language"></param>
 		private bool ChangeLanguage(string Language)
 		{
 			if (_data == null)
@@ -102,6 +112,10 @@ namespace CrankUp
 			return true;
 		}
 
+		/// <summary>
+		/// Applies the data to the settings.
+		/// </summary>
+		/// <param name="data"></param>
 		private void ApplyData(GameData data)
 		{
 			if (data == null)
@@ -136,7 +150,7 @@ namespace CrankUp
 			if (busIndex >= 0)
 			{
 				AudioServer.SetBusVolumeDb(busIndex, dbVolume);
-				slider.Value = Mathf.DbToLinear(dbVolume); 
+				slider.Value = Mathf.DbToLinear(dbVolume);
 				UpdateIcon(icon, slider.Value);
 			}
 		}
@@ -210,11 +224,18 @@ namespace CrankUp
 			SaveSettings();
 		}
 
+		/// <summary>
+		/// Get the current language of the game.
+		/// </summary>
 		public string GetLanguage()
 		{
 			return TranslationServer.GetLocale();
 		}
 
+		/// <summary>
+		/// Set the language of the game.
+		/// </summary>
+		/// <param name="Language"></param>
 		public bool SetLanguage(string Language)
 		{
 			if (_data == null)
@@ -235,6 +256,9 @@ namespace CrankUp
 			return true;
 		}
 
+		/// <summary>
+		/// Closes the settings window and returns to the main menu or levels.
+		/// </summary>
 		public void ExitButtonPressed()
 		{
 			GD.Print("Exit Pressed");
@@ -275,6 +299,10 @@ namespace CrankUp
 			SaveSystem.SaveGame();
 		}
 
+		/// <summary>
+		/// This function is called when the language is changed.
+		/// </summary>
+		/// <param name="lang"></param>
 		public void OnLanguageChanged(string lang)
 		{
 			SaveSystem.GetGameData().Language = lang;

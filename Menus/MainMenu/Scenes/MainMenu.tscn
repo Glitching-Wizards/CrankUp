@@ -354,7 +354,7 @@ offset_bottom = -132.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("7_fu8vc")
-theme_override_font_sizes/font_size = 52
+theme_override_font_sizes/font_size = 63
 text = "OPTIONS"
 
 [node name="CreditsButton" type="Button" parent="Buttons"]
@@ -371,5 +371,5 @@ offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("7_fu8vc")
-theme_override_font_sizes/font_size = 52
+theme_override_font_sizes/font_size = 62
 text = "CREDITS"

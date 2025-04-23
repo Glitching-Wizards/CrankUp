@@ -13,7 +13,6 @@ public partial class ClawHead : CharacterBody2D
     /// Movement speed factor for vertical movement.
     /// </summary>
 	[Export] private float speed = 10f;
-	private Sprite2D clawSprite;
 
 	/// <summary>
     /// Joint used to attach the grabbed block to the claw.
@@ -56,7 +55,6 @@ public partial class ClawHead : CharacterBody2D
     /// </summary>
 	public override void _Ready()
 	{
-		clawSprite = GetNodeOrNull<Sprite2D>("Sprite2D");
 		collisionShape = GetNodeOrNull<CollisionShape2D>("CollisionShape2D");
 
 		grabArea = GetNode<Area2D>("GrabArea");
@@ -69,30 +67,20 @@ public partial class ClawHead : CharacterBody2D
     /// Called when a body enters the grab area.
     /// Adds it to the list of nearby blocks if it is a valid block.
     /// </summary>
-	private async void OnBodyEntered(Node2D body)
+	private void OnBodyEntered(Node2D body)
 	{
 		if (body is Block block && !nearbyBlocks.Contains(block))
-		{
 			nearbyBlocks.Add(block);
-			clawSprite.Frame = 1;
-			await ToSignal(GetTree().CreateTimer(0.2f), "timeout");
-			clawSprite.Frame = 2;
-		}
 	}
 
 	/// <summary>
     /// Called when a body exits the grab area.
     /// Removes it from the list of nearby blocks.
     /// </summary>
-	private async void OnBodyExited(Node2D body)
+	private void OnBodyExited(Node2D body)
 	{
 		if (body is Block block)
-		{
 			nearbyBlocks.Remove(block);
-			clawSprite.Frame =1;
-			await ToSignal(GetTree().CreateTimer(0.2f), "timeout");
-			clawSprite.Frame = 0;
-		}
 	}
 
 	/// <summary>

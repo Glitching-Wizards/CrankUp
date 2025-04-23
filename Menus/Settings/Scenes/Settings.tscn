@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ckb1t7ko0dp0p"]
+[gd_scene load_steps=19 format=3 uid="uid://ckb1t7ko0dp0p"]
 
 [ext_resource type="Script" path="res://Menus/Settings/Scripts/Settings.cs" id="1_n5s8t"]
 [ext_resource type="Texture2D" uid="uid://c5vpvqk0y8rlx" path="res://Assets/Backgrounds/GrayBackground.png" id="2_lqclo"]
@@ -10,7 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://clltbel2u0p2u" path="res://Assets/Settings/FinnishFlag.png" id="6_2cjmi"]
 [ext_resource type="Texture2D" uid="uid://bivg4xjox4tp3" path="res://Assets/Settings/BlockBlueBigger.png" id="6_l33fb"]
 [ext_resource type="Texture2D" uid="uid://dlswobb8oympm" path="res://Assets/Settings/UKFlag.png" id="7_b16ck"]
+[ext_resource type="Texture2D" uid="uid://d1mjxk06ip5rp" path="res://Assets/Settings/FinnishFlagGray.png" id="9_n7i0m"]
 [ext_resource type="Texture2D" uid="uid://b68icohpv4j7x" path="res://Assets/Settings/AudioSliderBase.png" id="10_in284"]
+[ext_resource type="Texture2D" uid="uid://cf7fyoentx14n" path="res://Assets/Settings/UKFlagGray.png" id="11_23pnq"]
 [ext_resource type="Texture2D" uid="uid://104qw0r1df7a" path="res://Assets/Settings/AudioFull.png" id="12_tf0j5"]
 [ext_resource type="Texture2D" uid="uid://l4o2w7xwbjb2" path="res://Assets/Settings/AudioMute.png" id="13_00pst"]
 [ext_resource type="Script" path="res://Game/Scripts/AudioManager.cs" id="15_11g7t"]
@@ -19,7 +21,9 @@
 
 [node name="Settings" type="Window" node_paths=PackedStringArray("_fiButton", "_enButton", "_masterSlider", "_musicSlider", "_sfxSlider")]
 transparent_bg = true
+initial_position = 1
 size = Vector2i(1280, 720)
+exclusive = true
 unresizable = true
 borderless = true
 always_on_top = true
@@ -75,9 +79,9 @@ stretch_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -354.0
-offset_top = 11.0
-offset_right = 340.0
+offset_left = -244.5
+offset_top = 4.0
+offset_right = 210.5
 offset_bottom = 134.0
 grow_horizontal = 2
 theme = ExtResource("3_c0bsf")
@@ -207,6 +211,7 @@ offset_right = 945.0
 offset_bottom = 310.0
 scale = Vector2(0.7, 0.7)
 texture_normal = ExtResource("6_2cjmi")
+texture_disabled = ExtResource("9_n7i0m")
 
 [node name="EN" type="TextureButton" parent="Buttons"]
 offset_left = 926.0
@@ -215,6 +220,7 @@ offset_right = 1176.0
 offset_bottom = 306.0
 scale = Vector2(0.7, 0.7)
 texture_normal = ExtResource("7_b16ck")
+texture_disabled = ExtResource("11_23pnq")
 
 [node name="Music" type="Node" parent="Buttons"]
 
