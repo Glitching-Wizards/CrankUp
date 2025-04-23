@@ -2,125 +2,112 @@ using Godot;
 
 public partial class AudioManager : Node
 {
-    private static AudioStreamPlayer _truckPlayer;
-    private static AudioStreamPlayer _conveyorPlayer;
-    private static AudioStreamPlayer _sfxPlayer;
-    private static AudioStreamPlayer _musicPlayer;
+	private static AudioStreamPlayer _truckPlayer;
+	private static AudioStreamPlayer _conveyorPlayer;
+	private static AudioStreamPlayer _sfxPlayer;
+	private static AudioStreamPlayer _musicPlayer;
 
-    public override void _Ready()
-    {
-        // For the music to not stop when pause is pressed
-        ProcessMode = ProcessModeEnum.Always;
+		public override void _Ready()
+		{
+			ProcessMode = ProcessModeEnum.Always;
 
-        // Initialize truck sound player
-        _truckPlayer = new AudioStreamPlayer
-        {
-            Name = "TruckPlayer"
-        };
-        AddChild(_truckPlayer);
+			_truckPlayer = new AudioStreamPlayer { Name = "TruckPlayer" };
+			AddChild(_truckPlayer);
 
-        // Initialize conveyor belt sound player
-        _conveyorPlayer = new AudioStreamPlayer
-        {
-            Name = "ConveyorPlayer"
-        };
-        AddChild(_conveyorPlayer);
+			_conveyorPlayer = new AudioStreamPlayer { Name = "ConveyorPlayer" };
+			AddChild(_conveyorPlayer);
 
-        // Initialize the sound effects player
-        _sfxPlayer = new AudioStreamPlayer
-        {
-            Name = "SFXPlayer"
-        };
-        AddChild(_sfxPlayer);
+			_sfxPlayer = new AudioStreamPlayer { Name = "SFXPlayer" };
+			AddChild(_sfxPlayer);
 
-        // Initialize the music player
-        _musicPlayer = new AudioStreamPlayer
-        {
-            Name = "MusicPlayer",
-        };
-        AddChild(_musicPlayer);
-    }
+			_musicPlayer = new AudioStreamPlayer { Name = "MusicPlayer" };
+			AddChild(_musicPlayer);
 
+			_musicPlayer.Bus = "Music";
+			_sfxPlayer.Bus = "SFX";
+			_truckPlayer.Bus = "SFX";
+			_conveyorPlayer.Bus = "SFX";
 
-    /// <summary>
-    /// Plays the truck sound effect.
-    /// </summary>
-    /// <param name="sound"></param>
-    public static void PlayTruckSound(AudioStream sound)
-    {
-        if (_truckPlayer != null && sound != null)
-        {
-            _truckPlayer.Stream = sound;
-            _truckPlayer.Play();
-        }
-    }
+			if (AudioServer.GetBusIndex("SFX") == -1)
+			 GD.PrintErr("SFX audio bus not found!");
 
-    /// <summary>
-    /// Plays the conveyor sound effect.
-    /// </summary>
-    /// <param name="sound"></param>
-    public static void PlayConveyorSound(AudioStream sound)
-    {
-        if (_conveyorPlayer != null && sound != null)
-        {
-            _conveyorPlayer.Stream = sound;
-            _conveyorPlayer.Play();
-        }
-    }
+			 GD.Print("Truck bus: ", _truckPlayer.Bus);
+			GD.Print("SFX bus: ", _sfxPlayer.Bus);
+			GD.Print("Music bus: ", _musicPlayer.Bus);
 
-    /// <summary>
-    /// Plays a one-shot sound effect.
-    /// </summary>
-    public static void PlaySound(AudioStream sound)
-    {
-        if (_sfxPlayer != null && sound != null)
-        {
-            _sfxPlayer.Stream = sound;
-            _sfxPlayer.Play();
-        }
-    }
+	}
 
-    /// <summary>
-    /// Plays background music. Prevents restart if the same music is already playing.
-    /// </summary>
-    public static void PlayMusic(AudioStream music)
-    {
-        _musicPlayer.ProcessMode = ProcessModeEnum.Always;
-        
-        if (_musicPlayer == null || music == null)
-            return;
+	/// <summary>
+	/// Plays the truck sound effect.
+	/// </summary>
+	/// <param name="sound"></param>
+	public static void PlayTruckSound(AudioStream sound)
+	{
+		if (_truckPlayer != null && sound != null)
+		{
+			_truckPlayer.Stream = sound;
+			_truckPlayer.Play();
+		}
+	}
 
-        // Avoid restarting if the same music is already playing
-        if (_musicPlayer.Stream == music && _musicPlayer.Playing)
-            return;
+	/// <summary>
+	/// Plays the conveyor sound effect.
+	/// </summary>
+	/// <param name="sound"></param>
+	public static void PlayConveyorSound(AudioStream sound)
+	{
+		if (_conveyorPlayer != null && sound != null)
+		{
+			_conveyorPlayer.Stream = sound;
+			_conveyorPlayer.Play();
+		}
+	}
 
-        _musicPlayer.Stream = music;
-        _musicPlayer.Play();
-    }
+	/// <summary>
+	/// Plays a one-shot sound effect.
+	/// </summary>
+	public static void PlaySound(AudioStream sound)
+	{
+		if (_sfxPlayer != null && sound != null)
+		{
+			_sfxPlayer.Stream = sound;
+			_sfxPlayer.Play();
+			GD.Print($"Playing SFX: VolumeDb={_sfxPlayer.VolumeDb}, Bus={_sfxPlayer.Bus}, Stream={_sfxPlayer.Stream}");
 
-    /// <summary>
-    /// Stops the currently playing music.
-    /// </summary>
-    public static void StopMusic()
-    {
-        _musicPlayer?.Stop();
-    }
+		}
+	}
 
-    /// <summary>
-    /// Optional: Set music volume (0.0 to 1.0)
-    /// </summary>
-    public static void SetMusicVolume(float volume)
-    {
-        if (_musicPlayer != null)
-            _musicPlayer.VolumeDb = Mathf.LinearToDb(Mathf.Clamp(volume, 0f, 1f));
-    }
+	/// <summary>
+	/// Plays background music. Prevents restart if the same music is already playing.
+	/// </summary>
+	public static void PlayMusic(AudioStream music)
+	{
+		_musicPlayer.ProcessMode = ProcessModeEnum.Always;
+		
+		if (_musicPlayer == null || music == null)
+			return;
 
-    /// <summary>
-    /// Optional: Set SFX volume (0.0 to 1.0)
-    /// </summary>
-    public static void SetSFXVolume(float volume)
-    {
-        if (_sfxPlayer != null)
-            _sfxPlayer.VolumeDb = Mathf.LinearToDb(Mathf.Clamp(volume, 0f, 1f));
-    }
+		if (_musicPlayer.Stream == music && _musicPlayer.Playing)
+			return;
+
+		_musicPlayer.Stream = music;
+		_musicPlayer.Play();
+	}
+
+	/// <summary>
+	/// Stops the currently playing music.
+	/// </summary>
+	public static void StopMusic()
+	{
+		_musicPlayer?.Stop();
+	}
+
+	public static void SetMasterVolume(float volumeDb)
+	{
+		GD.Print($"[AudioManager] Setting Master Volume to {volumeDb}dB");
+
+		int masterIndex = AudioServer.GetBusIndex("Master");
+		if (masterIndex != -1)
+			AudioServer.SetBusVolumeDb(masterIndex, volumeDb);
+	}
 }

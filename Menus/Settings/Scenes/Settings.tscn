@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b68icohpv4j7x" path="res://Assets/Settings/AudioSliderBase.png" id="10_in284"]
 [ext_resource type="Texture2D" uid="uid://104qw0r1df7a" path="res://Assets/Settings/AudioFull.png" id="12_tf0j5"]
 [ext_resource type="Texture2D" uid="uid://l4o2w7xwbjb2" path="res://Assets/Settings/AudioMute.png" id="13_00pst"]
+[ext_resource type="Script" path="res://Game/Scripts/AudioManager.cs" id="15_11g7t"]
 [ext_resource type="Texture2D" uid="uid://bb5sh7b80ksh4" path="res://Assets/Gui/Settings/AudioSliderButton.png" id="16_0el47"]
 [ext_resource type="Theme" uid="uid://crx7kk6ur1l7x" path="res://Gui/TextTheme.tres" id="16_uom7k"]
 
@@ -270,6 +271,7 @@ scale = Vector2(0.6, 0.6)
 texture_normal = ExtResource("13_00pst")
 
 [node name="Sliders" type="Node" parent="."]
+script = ExtResource("15_11g7t")
 
 [node name="TextureRect" type="TextureRect" parent="Sliders"]
 anchors_preset = 6
@@ -294,7 +296,8 @@ offset_bottom = 376.0
 theme_override_icons/grabber = ExtResource("16_0el47")
 theme_override_icons/grabber_highlight = ExtResource("16_0el47")
 theme_override_icons/tick = ExtResource("16_0el47")
-min_value = -100.0
+max_value = 1.0
+step = 0.001
 scrollable = false
 
 [node name="TextureRect2" type="TextureRect" parent="Sliders"]
@@ -320,7 +323,8 @@ offset_bottom = 506.0
 theme_override_icons/grabber = ExtResource("16_0el47")
 theme_override_icons/grabber_highlight = ExtResource("16_0el47")
 theme_override_icons/tick = ExtResource("16_0el47")
-min_value = -100.0
+max_value = 1.0
+step = 0.001
 scrollable = false
 
 [node name="TextureRect3" type="TextureRect" parent="Sliders"]
@@ -346,7 +350,8 @@ offset_bottom = 636.0
 theme_override_icons/grabber = ExtResource("16_0el47")
 theme_override_icons/grabber_highlight = ExtResource("16_0el47")
 theme_override_icons/tick = ExtResource("16_0el47")
-min_value = -100.0
+max_value = 1.0
+step = 0.001
 scrollable = false
 
 [node name="Header" type="TextureRect" parent="."]
@@ -369,3 +374,7 @@ theme_override_font_sizes/font_size = 65
 text = "OPTIONS"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="value_changed" from="Sliders/MusicSlider" to="." method="OnMusicSliderChanged"]
+[connection signal="value_changed" from="Sliders/SoundEffectSlider" to="." method="OnSfxSliderChanged"]
+[connection signal="value_changed" from="Sliders/MasterSlider" to="." method="OnMasterSliderChanged"]
