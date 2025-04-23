@@ -18,6 +18,10 @@ namespace CrankUp
 		[Export] private TextureRect _sfxIcon;
 		[Export] private Texture2D _speakerIcon;
 		[Export] private Texture2D _muteIcon;
+		private TextureRect _musicMute1;
+		private TextureRect _musicMute2;
+		private TextureRect _musicMute3;
+
 
 		private GameData _data = null;
 		private string _originalLanguage = null;
@@ -27,17 +31,23 @@ namespace CrankUp
 		{
 			base._Ready();
 
-			// Lataa asetukset tiedostosta.
 			_data = LoadSettings();
 
+			_musicMute1 = GetNodeOrNull<TextureRect>("Buttons/Music1/Mute");
+			_musicMute2 = GetNodeOrNull<TextureRect>("Buttons/Music2/Mute");
+			_musicMute3 = GetNodeOrNull<TextureRect>("Buttons/Music3/Mute");
+
 			_fiButton = GetNodeOrNull<TextureButton>("Buttons/FI");
-			_fiButton.Pressed += FiButtonPressed;
-
 			_enButton = GetNodeOrNull<TextureButton>("Buttons/EN");
-			_enButton.Pressed += EnButtonPressed;
 
+			_fiButton.Pressed += FiButtonPressed;
+			_enButton.Pressed += EnButtonPressed;
 			TextureButton exitButton = GetNode<TextureButton>("ExitButton");
 			exitButton.Pressed += ExitButtonPressed;
+
+			_masterSlider.ValueChanged -= OnMasterSliderChanged;
+			_musicSlider.ValueChanged -= OnMusicSliderChanged;
+			_sfxSlider.ValueChanged -= OnSfxSliderChanged;
 
 			_masterSlider.Value = Mathf.DbToLinear(_data.MasterVolume);
 			_musicSlider.Value = Mathf.DbToLinear(_data.MusicVolume);
@@ -55,9 +65,9 @@ namespace CrankUp
 			AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Music"), _data.MusicVolume);
 			AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("SFX"), _data.SfxVolume);
 
-
 			ApplyData(_data);
 		}
+
 
 		public void Initialized()
 		{
@@ -102,62 +112,28 @@ namespace CrankUp
 			{
 				return;
 			}
-			/*
-						// Aseta äänenvoimakkuudet.
-						SetVolume("Master", data.MasterVolume);
-						SetVolume("Music", data.MusicVolume);
-						SetVolume("SFX", data.SfxVolume); */
-
-			// Aseta kieli.
 			SetLanguage(data.Language);
 		}
 
 		public bool SaveSettings()
 		{
-			if (_data == null)
-			{
-				return false;
-			}
+			if (_data == null) return false;
 
-			ConfigFile settingsConfig = new ConfigFile();
-			settingsConfig.SetValue("Localization", "Language", _data.Language);
-			settingsConfig.SetValue("Audio", "MasterVolume", _data.MasterVolume);
-			settingsConfig.SetValue("Audio", "MusicVolume", _data.MusicVolume);
-			settingsConfig.SetValue("Audio", "SfxVolume", _data.SfxVolume);
-
-			if (settingsConfig.Save(Config.SettingsFile) != Error.Ok)
-			{
-				GD.PrintErr("Failed to save settings.");
-				return false;
-			}
-
+			SaveSystem.SaveGame();
 			return true;
 		}
 
+
 		private GameData LoadSettings()
 		{
-			GameData data = null;
-
-			ConfigFile settingsConfig = new ConfigFile();
-			if (settingsConfig.Load(Config.SettingsFile) == Error.Ok)
-			{
-				data = new GameData
-				{
-					Language = (string)settingsConfig.GetValue("Localization", "Language", "en"),
-					MasterVolume = (float)settingsConfig.GetValue("Audio", "MasterVolume", -6.0f),
-					MusicVolume = (float)settingsConfig.GetValue("Audio", "MusicVolume", -6.0f),
-					SfxVolume = (float)settingsConfig.GetValue("Audio", "SfxVolume", -6.0f),
-				};
-			}
-			else
+			var data = SaveSystem.GetGameData();
+			if (data == null)
 			{
 				data = GameData.CreateDefaults();
-				SaveSettings();
+				SaveSystem.SaveGame();
 			}
-
 			return data;
 		}
-
 		private void SetVolume(HSlider slider, TextureRect icon, string busName, float dbVolume)
 		{
 			int busIndex = AudioServer.GetBusIndex(busName);
@@ -171,8 +147,20 @@ namespace CrankUp
 
 		private void UpdateIcon(TextureRect icon, double value)
 		{
+			if (icon == null)
+			{
+				GD.PrintErr("[UpdateIcon] TextureRect is null!");
+				return;
+			}
+
 			icon.Texture = value <= 0.01 ? _muteIcon : _speakerIcon;
+
+			bool isMuted = value <= 0.01;
+			if (_musicMute1 != null) _musicMute1.Visible = isMuted;
+			if (_musicMute2 != null) _musicMute2.Visible = isMuted;
+			if (_musicMute3 != null) _musicMute3.Visible = isMuted;
 		}
+
 
 		private void OnMasterSliderChanged(double value)
 		{
@@ -181,6 +169,8 @@ namespace CrankUp
 			AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), db);
 			_data.MasterVolume = db;
 			SaveSettings();
+			GD.Print($"[Slider] Music volume changed: {db}dB");
+
 		}
 
 		private void OnMusicSliderChanged(double value)
@@ -190,6 +180,8 @@ namespace CrankUp
 			AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Music"), db);
 			_data.MusicVolume = db;
 			SaveSettings();
+			GD.Print($"[Slider] Music volume changed: {db}dB");
+
 		}
 
 		private void OnSfxSliderChanged(double value)
@@ -199,6 +191,8 @@ namespace CrankUp
 			AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("SFX"), db);
 			_data.SfxVolume = db;
 			SaveSettings();
+			GD.Print($"[Slider] Music volume changed: {db}dB");
+
 		}
 
 		private void ToggleMute(HSlider slider, TextureRect icon, string busName, ref float volumeDb)
