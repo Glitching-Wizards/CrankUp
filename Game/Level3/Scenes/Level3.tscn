@@ -303,10 +303,10 @@ offset_bottom = 40.0
 [node name="Win" parent="WinLose" instance=ExtResource("13_abs2d")]
 visible = false
 
-[node name="Win2" parent="WinLose" instance=ExtResource("20_w1onu")]
+[node name="Win2" parent="WinLose" instance=ExtResource("21_ompgh")]
 visible = false
 
-[node name="Win3" parent="WinLose" instance=ExtResource("21_ompgh")]
+[node name="Win3" parent="WinLose" instance=ExtResource("20_w1onu")]
 visible = false
 
 [node name="Lose" parent="WinLose" instance=ExtResource("22_ht3bi")]

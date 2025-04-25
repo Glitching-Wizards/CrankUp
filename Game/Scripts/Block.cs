@@ -78,12 +78,12 @@ public partial class Block : RigidBody2D
 		Vector2 velocityChange = lastVelocity - currentVelocity;
 		float impactForce = velocityChange.Length();
 
-		if (impactForce > 500f && damageCooldown <= 0f)
+		if (impactForce > 800f && damageCooldown <= 0f)
 		{
 			TakeDamage(2);
 			damageCooldown = 0.3f;
 		}
-		else if (impactForce > 200f && damageCooldown <= 0f)
+		else if (impactForce > 400f && damageCooldown <= 0f)
 		{
 			TakeDamage(1);
 			damageCooldown = 0.3f;

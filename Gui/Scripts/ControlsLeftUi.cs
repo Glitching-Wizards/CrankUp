@@ -64,7 +64,7 @@ public partial class ControlsLeftUi : Control
 		switch (sceneName)
 		{
 			case "Level1":
-				timeLeft = 90;
+				timeLeft = 120;
 				countDownTimer.Autostart = false;
 				break;
 			case "Level2":

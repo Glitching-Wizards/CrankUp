@@ -86,30 +86,35 @@ public partial class Level1 : Node2D
 
 		blockButton.Pressed += () =>
 		{
+			if (clawHead.grabbedBlock != null) return;
 			blockButtonPressed = true;
 			SpawnBlockButtonPressed(_blockScene, blockButton);
 		};
 
 		containerYellowLButton.Pressed += () =>
 		{
+			if (clawHead.grabbedBlock != null) return;
 			containerYellowLButtonPressed = true;
 			SpawnBlockButtonPressed(_containerYellowLScene, containerYellowLButton);
 		};
 
 		containerBlueLButton.Pressed += () =>
 		{
+			if (clawHead.grabbedBlock != null) return;
 			containerBlueLButtonPressed = true;
 			SpawnBlockButtonPressed(_containerBlueLScene, containerBlueLButton);
 		};
 
 		containerRedButton.Pressed += () =>
 		{
+			if (clawHead.grabbedBlock != null) return;
 			containerRedButtonPressed = true;
 			SpawnBlockButtonPressed(_containerRedScene, containerRedButton);
 		};
 
 		containerYellowButton.Pressed += () =>
 		{
+			if (clawHead.grabbedBlock != null) return;
 			containerYellowButtonPressed = true;
 			SpawnBlockButtonPressed(_containerYellowScene, containerYellowButton);
 		};
